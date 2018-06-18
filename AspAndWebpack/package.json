@@ -1,7 +1,7 @@
 {
   "name": "aspandwebpack",
   "version": "1.0.0",
-  "description": "",
+  "description": "Asp Net Web Pack Base",
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -35,6 +35,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
-, "-vs-binding":{"BeforeBuild":["build:dev"]}
+  "license": "ISC",
+  "-vs-binding": {
+    "BeforeBuild": [
+      "build:dev"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OsvaldoMartini/My_Webpack_Base_1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OsvaldoMartini/My_Webpack_Base_1/issues"
+  },
+  "homepage": "https://github.com/OsvaldoMartini/My_Webpack_Base_1#readme"
 }
