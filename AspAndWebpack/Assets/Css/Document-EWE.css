@@ -1,0 +1,382 @@
+﻿/* added by gopal */
+/* start */
+
+@font-face {
+    font-family: Wingdings;
+    panose-1: 5 0 0 0 0 0 0 0 0 0;
+}
+
+@font-face {
+    font-family: 'Cambria Math';
+    panose-1: 2 4 5 3 5 4 6 3 2 4;
+}
+
+@font-face {
+    font-family: Calibri;
+    panose-1: 2 15 5 2 2 2 4 3 2 4;
+}
+
+/* Style Definitions */
+p {
+    font-size: small !important;
+    font-family: "Arial", "sans serif" !important;
+    color: #000;
+}
+
+p.MsoNormal {
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-parent: "";
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 10.0pt;
+    margin-left: 0in;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    mso-add-space: auto;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+li.MsoNormal, div.MsoNormal {
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-parent: "";
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    mso-add-space: auto !important;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph {
+    mso-style-priority: 34;
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 10.0pt;
+    margin-left: 0in;
+    mso-add-space: auto;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst {
+    mso-style-priority: 34;
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-type: export-only;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    margin-bottom: .0001pt;
+    mso-add-space: auto;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle {
+    mso-style-priority: 34;
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-type: export-only;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    margin-bottom: .0001pt;
+    mso-add-space: auto;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast {
+    mso-style-priority: 34;
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-type: export-only;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 10.0pt;
+    margin-left: 0in;
+    mso-add-space: auto;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+p.MsoNormalCxSpFirst, p.MsoNormalCxSpMiddle, p.MsoNormalCxSpLast {
+    mso-style-priority: 34;
+    mso-style-unhide: no;
+    mso-style-qformat: yes;
+    mso-style-type: export-only;
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 10.0pt;
+    margin-left: 0in;
+    mso-add-space: auto;
+    line-height: 115%;
+    mso-pagination: widow-orphan;
+    font-size: small !important;
+    color: #000;
+    font-family: "Arial", "sans serif" !important;
+    mso-ascii-font-family: Calibri !important;
+    mso-ascii-theme-font: minor-latin !important;
+    mso-fareast-font-family: Calibri !important;
+    mso-fareast-theme-font: minor-latin !important;
+    mso-hansi-font-family: Calibri !important !important;
+    mso-hansi-theme-font: minor-latin !important;
+    mso-bidi-font-family: "Times New Roman" !important;
+    mso-bidi-theme-font: minor-bidi !important;
+}
+
+.MsoPapDefault {
+    margin-bottom: 10.0pt;
+    line-height: 115%;
+}
+
+@page Section1 {
+    size: 8.5in 11.0in;
+    margin: 1.0in 1.0in 1.0in 1.0in;
+}
+
+div.Section1 {
+    page: Section1;
+}
+
+/* List Definitions */
+ol {
+    margin-bottom: 0in;
+}
+
+ul {
+    margin-bottom: 0in;
+}
+
+p.p {
+    font-size: small !important;
+    font-family: "Arial", "sans serif" !important;
+}
+
+p.p span {
+    font-size: small !important;
+    font-family: "Arial", "sans serif" !important;
+}
+
+p.pList {
+    font-size: small !important;
+    color: #000;
+}
+
+p.MsoListParagraph span {
+    font-size: small !important;
+    color: #000;
+}
+
+p.MsoListParagraphCxSpFirst span {
+    font-size: small !important;
+    color: #000;
+}
+
+p.MsoListParagraphCxSpMiddle span {
+    font-size: small !important;
+    color: #000;
+}
+
+p.MsoListParagraphCxSpLast span {
+    font-size: small !important;
+    color: #000;
+}
+
+li.MsoListParagraph span {
+    font-size: small !important;
+    color: #000;
+}
+
+li.MsoListParagraphCxSpFirst span {
+    font-size: small !important;
+    color: #000;
+}
+
+li.MsoListParagraphCxSpMiddle span {
+    font-size: small !important;
+    color: #000;
+}
+
+li.MsoListParagraphCxSpLast span {
+    font-size: small !important;
+    color: #000;
+}
+
+div.MsoListParagraph span {
+    font-size: small !important;
+    color: #000;
+}
+
+div.MsoListParagraphCxSpFirst span {
+    font-size: small !important;
+    color: #000;
+}
+
+div.MsoListParagraphCxSpMiddle span {
+    font-size: small !important;
+    color: #000;
+}
+
+div.MsoListParagraphCxSpLast span {
+    font-size: small !important;
+    color: #000;
+}
+
+p.MsoNormal span {
+    margin-top: 5px !important;
+    font-size: small !important;
+    font-family: "Arial", "sans serif" !important;
+    color: #000;
+}
+
+p.MsoNormal a span {
+    color: #1E4A9C !important;
+    text-decoration: none;
+    font-style: italic !important;
+}
+
+p.MsoNormal a {
+    color: #1E4A9C !important;
+    text-decoration: none;
+    font-style: italic !important;
+}
+
+p.MsoNormal a:link {
+    color: #1E4A9C !important;
+}
+
+p.MsoNormal a:visited {
+    color: #1E4A9C !important;
+}
+
+p.MsoNormal a:hover span {
+    color: #3390FF !important;
+}
+
+p.MsoNormal a:hover {
+    color: #3390FF !important;
+}
+
+li.MsoNormal span {
+    font-size: small !important;
+    font-family: "Arial", "sans serif" !important;
+}
+
+li.MsoNormal a span {
+    color: #1E4A9C !important;
+    text-decoration: none;
+    font-style: italic !important;
+}
+
+li.MsoNormal {
+    font-size: small !important;
+}
+
+li.MsoNormal a {
+    color: #1E4A9C !important;
+    text-decoration: none;
+    font-style: italic !important;
+}
+
+li.MsoNormal a:link {
+    color: #1E4A9C !important;
+}
+
+li.MsoNormal a:visited {
+    color: #1E4A9C !important;
+}
+
+li.MsoNormal a:hover span {
+    color: #3390FF !important;
+}
+
+li.MsoNormal a:hover {
+    color: #3390FF !important;
+}
+
+ul, li.circle {
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+table.MsoNormalTable {
+    font-size: 10pt !important;
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+}
+
+/* end */
+/* added by gopal */

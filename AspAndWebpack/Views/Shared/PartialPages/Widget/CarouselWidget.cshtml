@@ -1,0 +1,140 @@
+﻿@using IHS.Apps.CMP.Models.ViewModels
+@model  IHS.Apps.CMP.Models.ViewModels.Carousel
+@{
+
+	var containerId = CmpHtmlHelpers.CreateUniqueId("Container");
+	var sliderId = CmpHtmlHelpers.CreateUniqueId("Slider");
+}
+
+@if (Model.AutoInit)
+{
+	<script>
+
+		var defaultOptions = {
+			animation: "@Model.Animation.ToString()",
+			slideshow: @Model.Slideshow.ToString().ToLower(),
+			pausePlay: @Model.PausePlay.ToString().ToLower(),
+			enablePopups: '@(Model.EnablePopups)' === '@true',
+			itemWidth: @Model.ItemWidth,
+			controlNav: '@Model.ControlNav' === '@true',
+			animationLoop: false,
+			keyboard: true,
+			smoothHeight: true,
+			start: function() {
+				$(".flexslider .slides > li").tipsy();
+			}
+		};
+
+		var carouselService = new CarouselWidget(
+			"#@sliderId",
+			@Html.Raw(Json.Encode(Model)));
+
+		$(document).ready(function () {
+			ko.applyBindings(carouselService, document.getElementById("@containerId"));
+
+			if ("@Model.CarouselType.ToString()" === "DataAnalytics" || "@Model.CarouselType.ToString()" === "EquipmentExplorer") {
+				carouselService.displaySlides("#@sliderId", defaultOptions);
+			}
+		});
+
+		if (typeof window["Dashboard"] !== "undefined") {
+			Dashboard.registerJavascriptObject('@containerId', self);
+		}
+
+	</script>
+}
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+	<div class="alert alert-info">
+		@Html.Raw(Model.Message)
+	</div>
+}
+
+<div data-bind="stopBindingChildren: true">
+	<div id="@containerId" class="flexslider-container" style="overflow-x: hidden" data-flexslider-animation="@Model.Animation.ToString().ToLower()" data-flexslider-slideshow="@Model.Slideshow.ToString().ToLower()" data-flexslider-pauseplay="@Model.PausePlay.ToString().ToLower()" data-flexslider-enablepopups="@Model.EnablePopups.ToString().ToLower()" data-flexslider-controlNav="@Model.ControlNav">
+
+		@if (Model.AllowImageDownload)
+		{
+			var parameters = new RouteValueDictionary {{"downloadName", Model.DownloadTitle}};
+
+			var imageIds = Model.Items.Select(p => p.ImageId).ToList();
+
+			for (int i = 0; i < imageIds.Count; ++i)
+			{
+				parameters.Add("imageIds[" + i + "]", imageIds[i]);
+			}
+
+			<div class="u-margin-As">
+				<a class="icon-export pull-right" href="@Url.Action("Images", "JanesImages", parameters)"></a>
+				<br/>
+			</div>
+		}
+
+		@switch (@Model.CarouselType)
+		{
+			case CarouselItemType.DataAnalytics:
+				<div id="@sliderId" class="flexslider">
+					<ul class="slides" data-bind="foreach: data">
+						<li data-bind="click: function () { carouselService.switchCarouselItem($data); }, attr:{title: Text}">
+							<h3 data-bind="text: $data.Heading"></h3>
+							<p data-bind="visible : $data.Text, text: $data.Text"></p>
+							<p>
+								<span data-bind="visible: $data.DateLabel, text: $data.DateLabel" class="u-margin-Rxxs"></span>
+								<span data-bind="text: $data.Date, attr:{css: 'orange1'}"></span>
+							</p>
+							<a data-bind="attr:{href: $data.Link}, click: function() { return true;}, clickBubble: false" class="btn btn-primary btn-sm" role="button" target="_blank">@this.LocalResources("View")</a>
+							<div class="width-85 center-block u-margin-Vm">
+								<img data-bind="attr: { src: $data.ImageName, alt: $data.Text }"/>
+							</div>
+						</li>
+					</ul>
+				</div>
+				break;
+			case CarouselItemType.SatelliteImagery:
+				<div id="@sliderId" class="flexslider">
+					<ul class="slides" data-bind="foreach: data">
+						<li data-bind="click: function () { carouselService.switchCarouselItem($data); }, attr:{title: Text}">
+							<div class="width-85 center-block u-margin-Vm flexslider-image">
+								<img data-bind="attr: { src: $data.ImageName, alt: $data.Text }"/>
+							</div>
+							<div class="width-90 center-block">
+								<h3 data-bind="text: $data.Heading"></h3>
+								<p data-bind="visible : $data.Text, text: $data.Text"></p>
+								<p>
+									<span data-bind="visible: $data.DateLabel, text: $data.DateLabel" class="u-margin-Rxxs"></span>
+									<span data-bind="text: $data.Date, attr:{css: 'orange1'}"></span>
+								</p>
+								<a data-bind="attr:{href: $data.Link}, click: function() { return true;}, clickBubble: false" class="btn btn-primary btn-sm pull-right" role="button" target="_blank">@this.LocalResources("View")</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				break;
+			case CarouselItemType.EquipmentExplorer:
+				<div>
+					<img class="center-block" data-bind="attr:{src: selectedCarouselItem().ImageName, alt: selectedCarouselItem().Text}"/>
+				</div>
+				<p data-bind="text: selectedCarouselItem().Heading" class="u-margin-Vs"></p>
+				<p data-bind="text: selectedCarouselItem().Text" class="u-margin-Vs"></p>
+				<span data-bind="text: selectedCarouselItem().DateLabel" class="u-margin-Vs"></span>
+				<span data-bind="text: selectedCarouselItem().Date" class="u-margin-Vs"></span>
+				<span data-bind="text: selectedCarouselItem().Link" class="u-margin-Vs"></span>
+
+				<div id="@sliderId" class="flexslider">
+					<ul class="slides" data-bind="foreach: data">
+						<li data-bind="click: function () { carouselService.switchCarouselItem($data); }, attr:{title: Text}" class="flexslider-image">
+							<img data-bind="attr: { src: $data.ThumbnailLink, alt: $data.Text }"/>
+						</li>
+					</ul>
+				</div>
+				<span data-bind="text: 'Total ' + total_count() + ' image(s)'" class="pull-right u-margin-Vs"></span>
+				break;
+		}
+	</div>
+</div>
+
+@if (Model.Links != null && Model.Links.Count() > 0)
+{
+	@Html.Partial("Widget/LinkListWidget", Model.Links)
+}

@@ -1,0 +1,99 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.PlatformEquipmentModel
+
+    @if (Model.Items != null && Model.Items.Count > 0)
+    {
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Platform name</th>
+                    <th class="text-center">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            <h4>
+                                @if (item.IsAuthorised)
+                                {
+                                    <a class="visitedlink" target="_blank" href="@item.HyperLink">
+                                        @item.PlatformName
+                                        <i class="icon-link-ext u-font-65 grey2"></i>
+                                    </a>
+                                    <a class="visitedtick" href="@item.HyperLink"><span class="visitedtick_tt"></span></a>
+                                }
+                                else
+                                {
+                                    <i class="icon-lock"></i>
+                                    @item.PlatformName
+                                }
+                            </h4>
+                        </td>
+
+                        <td class="text-center">
+                            @if (!string.IsNullOrEmpty(item.ImageLink) && !string.IsNullOrEmpty(item.FullImageLink))
+                            {
+
+                                if (item.IsAuthorised)
+                                {
+                                    <span class="imagePopupCarousel relative" data-record-uid="@item.Id">
+                                        <a href="@item.FullImageLink">
+                                            <span class="carouselImage" hidden>@item.Id</span>
+                                            <img src="@item.ImageLink" class="thumbnail u-margin-Bn" alt="@item.PlatformName">
+                                        </a>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <img src="@item.ImageLink" class="thumbnail u-margin-Bn">
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <div class='alert alert-info text-center u-margin-Tm' role='alert'>There is no data for this selection..</div>
+    }
+@*<div class="modal fade" id="carouselModal" tabindex="-1" role="dialog" aria-labelledby="Platform Images" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Platform</h4>
+            </div>
+            <div class="modal-body">
+                <div id="imgPopupWrapper" class="inline">
+                    <div class="titleBar">
+                        <div class="close"></div>
+                        <div class="fullscreen"></div>
+                    </div>
+                    <div class="wait">Please wait...</div>
+                    <div class="viewer"></div>
+                </div>
+                <div class="carousel"></div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+@if (Model.Items != null && Model.Items.Count == 10)
+{
+    @Html.Partial("Widget/LinkListWidgetFooter", new[] { Model.MoreLink })
+}
+
+<script type="text/javascript">
+    $(function() {
+        //HookupImagePopup(".imagePopupCarousel");
+        PopupImageCarousel.new({
+            thumbnailSelector: ".imagePopupCarousel",
+            title: "Platform Images"
+        });
+    });
+</script>

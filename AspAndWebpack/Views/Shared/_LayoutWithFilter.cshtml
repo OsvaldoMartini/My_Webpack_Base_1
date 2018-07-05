@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+@if (IsSectionDefined("browser_title"))
+{
+    @section browser_title
+    {
+        @RenderSection("browser_title", required: false)
+    }
+}
+
+@section additional_css{
+    
+    @RenderSection("additional_css", required: false)
+}
+
+@if (IsSectionDefined("my_banner"))
+{
+    @section my_banner
+    {
+       @RenderSection("my_banner", required: false)
+    }
+}
+
+@section page_title
+{
+    @RenderSection("page_title", required: false)
+}
+
+<div id="filter">
+    <button id="showFilter" class="showFilters show">
+        <span title="Show/Collapse Filters" class="tipsyMe"><i class="icon-left-open"></i></span>
+    </button>
+    @RenderSection("filters", required: true)
+</div>
+<div id="main" class="withFilter">
+    @RenderBody()
+</div>
+
+@section additional_markup
+{
+    @RenderSection("additional_markup", required: false)
+}
+
+@section additional_scripts{
+    <script type="text/javascript">
+        $(function () {
+            $("#showFilter").click(function () {
+
+                    $("#filter").toggleClass("closed");
+                    $("#main.withFilter").toggleClass("closed");
+                    
+                    window.setTimeout(function() {
+                        console.log('resized');
+                        $(window).trigger('resize');
+
+                        var event = document.createEvent('HTMLEvents');
+                        event.initEvent('resize', true, false);
+                        window.dispatchEvent(event);
+                    }, 500);
+                });
+            });
+    </script>
+    @RenderSection("additional_scripts", required: false)
+}

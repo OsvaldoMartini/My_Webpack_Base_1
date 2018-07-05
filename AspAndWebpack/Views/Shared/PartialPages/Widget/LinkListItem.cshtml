@@ -1,0 +1,73 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Link
+
+@if (Model.IsAuthorised)
+{
+    if (!string.IsNullOrEmpty(Model.NavigateUrl))
+    {
+        <a class='list-group-item @Model.CssClass @(!string.IsNullOrWhiteSpace(Model.ToolTip) ? "tooltipHolder" : string.Empty)'
+           @Html.Raw(!string.IsNullOrEmpty(Model.Target) ? " target='" + Model.Target + "'" : string.Empty)
+           href='@Model.NavigateUrl'
+           title='@Model.ToolTip'
+           @Html.Raw(string.Join(" ", Model.Attributes.Select(a => string.Format(@"{0}=""{1}""", a.Key, a.Value))))>
+
+            @Html.Raw(Model.Text)
+            @if (!string.IsNullOrEmpty(Model.Target))
+            {
+                <i class="icon-link-ext u-margin-Lxs grey2" role="presentation"></i>
+            }
+            else if (Model.Attributes.ContainsKey("data-toggle") && Model.Attributes["data-toggle"] == "modal")
+            {
+                <i class="icon-popup u-margin-Lxs grey2" role="presentation"></i>
+            }
+            @if (!string.IsNullOrEmpty(Model.HelpData))
+            {
+                string[] parts = Model.HelpData.Split('|');
+                if (parts.Length == 3)
+                {
+                    <i class="icon-help-circled hand grey2 searchHelp helpButton pull-right" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@parts[0]" data-groupid="@parts[1]" data-itemid="@parts[2]"></i>
+                }
+            }
+
+            @if (Model is IHS.Apps.CMP.Models.ViewModels.LinkFilter)
+            {
+                @Html.Partial("Widget/LinkListItemFilter")
+                ;
+            }
+            @if (!Model.RemoveRightOpenIcon)
+            {
+                <i class='icon-right-open pull-right' role="presentation"></i>
+            }
+        </a>
+    }
+    else
+    {
+        <div class='list-group-item @Model.CssClass'>
+            @Html.Raw(Model.Text)
+            @if (!string.IsNullOrEmpty(Model.HelpData))
+            {
+                string[] parts = Model.HelpData.Split('|');
+                if (parts.Length == 3)
+                {
+                    <i class="icon-help-circled hand grey2 searchHelp helpButton pull-right" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@parts[0]" data-groupid="@parts[1]" data-itemid="@parts[2]"></i>
+                }
+            }
+        </div>
+    }
+}
+else
+{
+    <div class='list-group-item disabled'>
+
+        @Model.Text
+        @if (!string.IsNullOrEmpty(Model.HelpData))
+        {
+            string[] parts = Model.HelpData.Split('|');
+            if (parts.Length == 3)
+            {
+                <i class="icon-help-circled hand grey2 searchHelp helpButton pull-right" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@parts[0]" data-groupid="@parts[1]" data-itemid="@parts[2]"></i>
+            }
+        }
+        <i class='icon-lock pull-right'></i>
+    </div>
+}
+

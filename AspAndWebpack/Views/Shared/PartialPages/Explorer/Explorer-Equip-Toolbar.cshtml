@@ -1,0 +1,32 @@
+﻿<div class="input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-label="Search by zone" aria-expanded="false" aria-haspopup="true">
+        <span data-bind="text: selectedFilter().DisplayValue">All</span>&nbsp;<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-haspopup="true" aria-expanded="false" data-bind="foreach : filters">
+        <li role="presentation">
+            <a href="javascript:void(0)" data-bind="text: DisplayValue, click : $parent.setSelectedFilter.bind($parent, $data)">All</a>
+        </li>
+    </ul>
+</div>
+
+<div class="chosen-container" id="subjectCombo">
+
+    <input class="form-control ui-autocomplete-input dark-placeholder clearable" placeholder="Search for Subject" data-bind="jqAuto: { value: selectedSubject, source: loadSubjects, inputProp: 'name', labelProp: 'DisplayValue', valueProp: 'Id', template: 'template-equip-toolbar-searchbox', options : { 'delay' : 500, 'minLength' : 3 } }, hasFocus : isSearchFocused, attr : { placeholder : watermark }, textInput : searchText" />
+    <span class="clear-searchterm hand grey2 absolute u-bold" style="font-size: 150%; right: 20px; top: 2px;" data-bind="visible : isSearchClearVisible, click : clearSearch">&times;</span>
+    <div class="loading sm" style="display: none; left: auto; right: 5px; top: 16px;" data-bind="visible : loadingSubjects"></div>
+    
+    <div class="none" data-bind="stopBindingChildren : true">
+        <div id="template-equip-toolbar-searchbox">
+
+            <span>
+                <span data-bind="if : $data === undefined">No items could be found.</span>
+                <span data-bind="if : $data !== undefined">
+                    <a>
+                        <span data-bind="text: DisplayValue"></span>
+                        <span data-bind="if : Type === 'Family'" class="badge">Family</span>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

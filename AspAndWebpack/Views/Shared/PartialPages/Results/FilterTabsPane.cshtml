@@ -1,0 +1,54 @@
+﻿@using System.Text.RegularExpressions
+@model IHS.Apps.CMP.Models.ViewModels.ResultTabsModel
+
+
+<ul class="nav nav-tabs nav-tabs-line nav-tabs-center nav-responsive" data-bind="visible : isVisible">
+
+    @{
+        foreach (var tab in Model.Tabs)
+        {
+            var tabId = "searchResultTab-" + tab.displayName;
+            tabId = Regex.Replace(tabId, @"[\s\/]", string.Empty);
+
+            if (tab.onClick != null)
+            {
+                @*/  Be sure to pass in the tab if you want another highlighted on return,
+                    e.g. /TerrorismInsurgencyCentre/search#tab=group_profiles *@
+                <li id="@tabId" data-bind="css : { active : currentFilterTab() == '@tab.key.ToLower()' || (currentFilterTab() == undefined && @tab.isDefault.ToString().ToLower()) }">
+                    <a data-toggle="tab" onclick="@tab.onClick" href="#" >@tab.displayName</a>
+                </li>
+            }
+            else
+            {
+                if (tab.searchTabs  == null || !tab.searchTabs.Any())
+                {
+                    @*/ Will be active if the key exists in the URL, or it is a default tab and no tab key exists in the URL*@
+                    <li id="@tabId" data-bind="css : { active : currentFilterTab() == '@tab.key.ToLower()' || (currentFilterTab() == undefined && @tab.isDefault.ToString().ToLower()) }">
+                        <a href="#" data-toggle="tab" data-bind="click : applyTabFilter.bind($data, '@tab.key.ToLower()')">@tab.displayName</a>
+                    </li>
+                }
+                else
+                {
+                    <li id="@tabId" class="dropdown" data-bind="css : { active : currentFilterTab() == '@tab.key.ToLower()' || (currentFilterTab() == undefined && @tab.isDefault.ToString().ToLower()) }">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @tab.displayName <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach (var innerTab in tab.searchTabs)
+                            {
+                                var innerTabId = "searchResultTab-innerTab-" + innerTab.displayName;
+                                innerTabId = Regex.Replace(innerTabId, @"[\s\/]", string.Empty);
+
+                                <li id="@innerTabId"><a onclick="@innerTab.onClick" href="#" data-toggle="tab">@innerTab.displayName</a></li>
+
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        }
+}
+
+
+
+</ul>

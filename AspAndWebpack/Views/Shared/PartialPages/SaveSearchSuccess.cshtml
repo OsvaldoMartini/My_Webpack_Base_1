@@ -1,0 +1,10 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.SaveSearchQuery
+
+<h4 class="alert alert-success text-center u-margin-Bm">Search saved as '@Model.Name'</h4>
+
+<div class="list-group list-links">
+    @** Url.Action is not working here because of our weird route configs... *@
+    <a class="list-group-item h4 u-margin-Tn" href="/MySavedSearches">Go to My Saved Searches <i class="icon-right-open pull-right"></i></a>
+</div>
+
+<div class="text-center"><button class="btn btn-default" data-dismiss="modal">Close</button></div>

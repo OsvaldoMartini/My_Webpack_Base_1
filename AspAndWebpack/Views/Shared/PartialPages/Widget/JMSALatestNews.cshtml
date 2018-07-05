@@ -1,0 +1,64 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.NewsModel
+<div class="news">
+    @foreach (var newsStory in Model.GetNews)
+    {
+        if (!string.IsNullOrWhiteSpace(newsStory.Header))
+        {
+            <div class="well well-sm"><span class="moduleTitle">@newsStory.Header</span></div>
+        }
+
+        if (!string.IsNullOrWhiteSpace(newsStory.HyperLink))
+        {
+            <a href="@newsStory.HyperLink" class="visitedlink" target="_blank">@newsStory.Title <i class="icon-link-ext u-font-65 grey2"></i>
+                @if (!string.IsNullOrEmpty(newsStory.Icon))
+                {
+                    <i class="@newsStory.Icon"></i>
+                }
+            </a>
+            <a href="@newsStory.HyperLink" class="visitedtick"><span class="visitedtick_tt"></span></a>
+        }
+        else
+        {
+            Html.Raw(@newsStory.Title);
+            if (!string.IsNullOrEmpty(newsStory.Icon))
+            {
+                <i class="@newsStory.Icon"></i>
+            }
+        }
+
+        if (newsStory.IsSummaryHtml)
+        {
+            <p>@newsStory.SummaryAsHtml</p>
+        }
+        else
+        {
+            <p>@newsStory.Summary</p>
+        }
+
+        if (!string.IsNullOrEmpty(@newsStory.Section) || !string.IsNullOrEmpty(@newsStory.Country))
+        {
+            <p style="color: #888c8d;">@newsStory.Country - @newsStory.Section</p>
+        }
+        
+        <p class="date">@newsStory.PostDate</p>
+
+        if (!string.IsNullOrWhiteSpace(newsStory.Meta))
+        {
+            <p class="meta">@newsStory.Meta</p>
+        }
+
+        if (!string.IsNullOrEmpty(Model.MoreLink))
+        {
+            @Html.Partial("Widget/LinkListWidgetFooter", new[]
+                                                     {
+                                                         new IHS.Apps.CMP.Models.ViewModels.Link()
+                                                         {
+                                                             NavigateUrl = Model.MoreLink,
+                                                             Text = "More " + Model.ArticleType,
+                                                             Target = "_blank"
+                                                         }
+                                                     })
+        }
+    }
+
+</div>

@@ -1,0 +1,37 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.MySavedSearchesModel
+
+@{
+    var resourceFile = "~/Views/Shared/PartialPages/SavedSearches";
+}
+
+@if (Model.Searches.Count == 0)
+{
+    <div class="well text-center large">@this.LocalResources(resourceFile, "NoneFound")</div>
+}
+else
+{
+    string currentCategory = string.Empty;
+    <div class="list-group">
+        @foreach (var ssearch in Model.Searches.OrderBy(s => s.CategoryName))
+        {
+            if (currentCategory != ssearch.CategoryName)
+            {
+                currentCategory = ssearch.CategoryName;
+                <div class="list-group-item"><h4 class="u-margin-Tn u-margin-Bn">@ssearch.CategoryName</h4></div>
+            }
+            <a class="list-group-item" href="@Url.Action("ViewSearch", new { searchId = ssearch.Id })" >
+                <i title="@this.GlobalResources("View")" onclick="ViewSearch('@ssearch.Id')" class="icon-search hand tipsyMe pull-left u-margin-Rxs"></i>
+                <p class="list-group-item-heading">@ssearch.Title</p>
+                @if (!string.IsNullOrEmpty(ssearch.Description))
+                {<p>@ssearch.Description</p>}
+                <p class="list-group-item-text orange1">@this.GlobalResources("CreatedDate"): @ssearch.DateCreated</p>
+            </a>
+        }
+    </div>
+
+    @Html.Partial("Widget/LinkListWidgetFooter", new[] { new IHS.Apps.CMP.Models.ViewModels.Link(){
+        NavigateUrl = "/MySavedSearches",
+        Text = "Manage Saved Searches"
+    }})
+    
+}

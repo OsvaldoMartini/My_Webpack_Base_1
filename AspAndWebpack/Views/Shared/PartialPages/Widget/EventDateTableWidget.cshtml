@@ -1,0 +1,130 @@
+﻿@model System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.Energy.LicenceRoundEvent>
+@using System.Globalization
+
+@if (Model.Count == 0)
+{
+    <div class="well text-center large">None Found</div>
+}
+else
+{
+    <div>
+        @{
+            string currentCategory = string.Empty;
+            DateTime startBlockDisplay = DateTime.MaxValue;
+            DateTime endBlockDisplay = DateTime.MinValue;
+            int monthIncrement = 1;
+
+            foreach (IHS.Apps.CMP.Models.ViewModels.Energy.LicenceRoundEvent round in Model)
+            {
+                if (round.StartDate < startBlockDisplay)
+                {
+                    startBlockDisplay = round.StartDate;
+                }
+
+                if (round.EndDate > endBlockDisplay)
+                {
+                    endBlockDisplay = round.EndDate;
+                }
+            }
+
+            int monthsInBetween = ((endBlockDisplay.Year - startBlockDisplay.Year) * 12) + endBlockDisplay.Month - startBlockDisplay.Month;
+
+            if (monthsInBetween > 12)
+            {
+                decimal d = (decimal)monthsInBetween / 12;
+                monthIncrement = Convert.ToInt32(Math.Ceiling(d));
+            }
+            <div class="u-margin-Bxs">
+                <table class="table table-bordered u-font-85"><tbody><tr><td class="u-padding-Ls">Key:</td><td class="info">Known End Dates</td><td class="warning">Unknown End Dates (defaulted to 1 yr)</td></tr></tbody></table>
+            </div>
+            <div style="width:100%">
+                <div id="GLRCal"  >
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="u-font-85">
+                                @for (int i = 0; i < 12; i++)
+                                {
+                                    DateTime headerDate = startBlockDisplay.AddMonths(i * monthIncrement);
+
+                                    string css = string.Empty;
+                                    for (int x = 0; x < monthIncrement; x++)
+                                    {
+                                        DateTime dt = headerDate.AddMonths(x);
+                                        if (dt.Year == DateTime.Now.Year && dt.Month == DateTime.Now.Month)
+                                        {
+                                            css = "success";
+                                            break;
+                                        }
+
+                                    }
+
+                                    <th class="text-center u-padding-Axxs @css" style="width:8.33%">
+                                        @{
+                                            string headerTitle = string.Empty;
+                                            if (monthIncrement == 1)
+                                            {
+                                                headerTitle = string.Format("{0} {1}", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(headerDate.Month).Left(3).LabeliseCamelCasedWord(CultureInfo.CurrentUICulture), headerDate.Year);
+                                            }
+                                            else
+                                            {
+                                                headerTitle = string.Format("{0} {1}<br/>-<br/>{2} {3}", CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(headerDate.Month).Left(3).LabeliseCamelCasedWord(CultureInfo.CurrentUICulture), headerDate.Year.ToString().Right(2), CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(headerDate.AddMonths(monthIncrement - 1).Month).Left(3).LabeliseCamelCasedWord(CultureInfo.CurrentUICulture), headerDate.AddMonths(monthIncrement - 1).Year.ToString().Right(2));
+                                            }
+                                        }
+                                        <span>@Html.Raw(headerTitle)</span>
+                                    </th>
+                                            }
+                            </tr>
+                        </thead>
+
+                        @foreach (IHS.Apps.CMP.Models.ViewModels.Energy.LicenceRoundEvent round in Model)
+                {
+                            <tr>
+                                <td colspan="12">
+                                    <a target="_blank" href="@(!string.IsNullOrEmpty(round.Link) ? round.Link : "#")" class="u-padding-Lxs">
+                                        @string.Format("{0} ({1} - {2})", round.Title, round.StartDate.ToShortDateString(), round.EndDate.ToShortDateString())
+                                        <i class="icon-right-open pull-right" role="presentation"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                @for (int i = 0; i < 12; i++)
+                                {
+                                    string css = string.Empty;
+                                    DateTime dateToCheck = startBlockDisplay.AddMonths(i * monthIncrement);
+
+                                    for (int x = 0; x < monthIncrement; x++)
+                                    {
+                                        DateTime dt = dateToCheck.AddMonths(x);
+                                        if (dt < round.EndDate && dt > round.StartDate)
+                                        {
+                                            css = round.KnownEndDate ? "info" : "warning";
+                                            break;
+                                        }
+                                        else if (dt < round.EndDate && dt.Year == round.StartDate.Year && dt.Month >= round.StartDate.Month)
+                                        {
+                                            css = round.KnownEndDate ? "info" : "warning";
+                                            break;
+                                        }
+                                        else if (dt > round.StartDate && dt.Year == round.EndDate.Year && dt.Month <= round.EndDate.Month)
+                                        {
+                                            css = round.KnownEndDate ? "info" : "warning";
+                                            break;
+                                        }
+
+                                    }
+
+                                    <td class="u-padding-Axxs @css">
+                                        &nbsp;
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+           
+        }
+    </div>
+        <script language="javascript"> $(function () {$('#GLRCal').mCustomScrollbar({ axis: 'x' });});</script>
+
+}

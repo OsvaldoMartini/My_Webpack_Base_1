@@ -1,0 +1,22 @@
+﻿@model IEnumerable<IHS.Apps.CMP.Models.Security.CategoryAuthorisation>
+<div>
+  <div style="padding-bottom: 10px; padding-top: 10px;">
+    <p>
+      The following Products have been temporarily disabled as a result of your organisation not having enough
+      concurrent licences.
+    </p>
+    <p>When other users in your organization have logged out you will be able to use this product again. (you will have to login again)</p>
+  </div>  
+  <div style="padding-bottom: 20px;">
+    <ul>
+      @foreach (var catAuth in Model)
+      {
+        <li>@catAuth.Description</li>
+      }
+    </ul>
+  </div>
+  <div>
+    <p>What is concurrency?</p>
+    <p>Your subscription allows for a certain number of users from your organization to use this site simultaneously. Once this limit is reached you will see this message.</p>
+  </div>
+</div>

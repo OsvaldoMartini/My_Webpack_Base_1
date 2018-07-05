@@ -1,0 +1,44 @@
+﻿@using System.Globalization
+@model IHS.Apps.CMP.Models.ViewModels.Visualisation
+
+@{
+    string containerId = CmpHtmlHelpers.CreateUniqueId("dv");
+    string loadingId = CmpHtmlHelpers.CreateUniqueId("dv");
+    string imageId = CmpHtmlHelpers.CreateUniqueId("dv");
+}
+
+<script>
+
+    $("#@imageId").on('load', function () {
+        $('#@loadingId').hide();
+        $('#@containerId').show();
+    }).each(function () {
+        if (this.complete) $(this).load();
+    });
+
+    $("#@imageId").on('error', function () {
+        $('#@loadingId').hide();
+        this.src = '/Assets/Images/missing-image.png';
+        $('#@containerId').show();
+    });
+
+</script>
+
+<div id="@containerId" class="imgContainer" style="width: 100%; display:none">
+    <a href="@Model.PageUrl" target="_blank">
+        <img id="@imageId" src="@Model.ImageUrl" style="max-width: 100%;max-height: 100%;" />
+        <div class="view-more"><i class="icon-search xlarge white"></i><br />View Data Analytics</div>
+    </a>
+</div>
+
+<div id="@loadingId" class="widgetloading">
+    <div class="loading"></div>
+</div>
+
+@Html.Partial("Widget/LinkListWidgetFooter", new[] {
+    new IHS.Apps.CMP.Models.ViewModels.Link(){
+        NavigateUrl = Model.PageUrl,
+        Target = "_blank",
+        Text = string.Format(CultureInfo.InvariantCulture, "{0} Data Analytics", Model.Title)
+    }
+})

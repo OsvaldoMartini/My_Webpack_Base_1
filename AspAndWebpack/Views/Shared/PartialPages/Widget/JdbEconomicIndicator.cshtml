@@ -1,0 +1,21 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.ViewModels.JdbEconomicIndicatorViewModel
+
+<div id="economicIndicatorChart"></div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        var economicIndicatorChart = new HighchartStockchart(@Html.Raw(Model.ChartOptionsAsJson));
+
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('economicIndicatorChart', economicIndicatorChart, function(widgetVM){
+
+            });
+        }
+
+        economicIndicatorChart.build();
+    });
+
+  
+
+</script>

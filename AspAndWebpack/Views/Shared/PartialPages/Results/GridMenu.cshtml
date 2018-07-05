@@ -1,0 +1,99 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.GridMenu
+
+<ul class="nav nav-tabs toolbar u-margin-Bxs hide" data-bind="css: { hide: totalResults() === 0 }">
+    <li class="u-padding-Vxxs u-padding-Rm visible-sm-inline-block visible-xs-inline-block hand showCategories">Result Categories <span class="caret"></span></li>
+    <li class="u-padding-Vxxs u-padding-Rm" data-bind="if: shouldShowNextPrev()">Showing <span data-bind="text: resultsBeginIndex" class="text">1</span> - <span data-bind="text: resultsEndIndex" class="text">1</span> of <span data-bind="text: totalResults" class="text totalResults">1</span> results</li>
+    <li class="u-padding-Vxxs u-padding-Rm" data-bind="if: !shouldShowNextPrev()"><span data-bind="text: totalResults" class="text">1</span> results</li>
+    @*    <li class="u-padding-Vxxs u-padding-Rs" data-bind="if: shouldShowNextPrev()">Page <span data-bind="text: pageIndex" class="text">1</span></li>*@
+
+    <li class="u-padding-Rm" data-bind="with : $parent.templatesVM" id="displayTemplates">@Html.Action("GetTemplates", "Search")</li>
+    <!-- ko with: $parent.sortVM -->
+    <li data-bind="visible: sortOptionsDisplayList().length > 0">
+        Sort By:
+        <select name="sortBy" class="form-control inline-block u-padding-Hxxs" id="sortBy" style="width: auto;" data-bind="options: sortOptionsDisplayList, value: selectedSort, optionsCaption: 'Choose...'"></select>
+    </li>
+    <!-- /ko -->
+    <li class="nav-tab-right" data-bind="with : $parent.commandsVM">
+        <ul class="nav nav-tabs toolbar u-margin-none">
+            
+            @if (Model.CategoryAllowsCompile)
+            {
+                <!-- If the user is using a trial license, display disabled button -->
+                if (Model.IsTrial)
+                 {
+                     <li class="btn-group btn-group-sm disabled" title="Compiling results is disabled due to trial license.">
+                         <a data-bind="visible : selectedRecords().length" href="javascript:void(0)" class="exportButton btn btn-primary btn-sm u-font-85" style="">Compile (<span data-bind="text : selectedRecords().length"></span>)</a>
+                     </li>
+                 }
+                 else if (Model.CanCompile)
+                 {
+                     <li class="btn-group btn-group-sm">
+                         <a data-bind="visible : selectedRecords().length, click : compileResults.bind($data, false, null)" href="javascript:void(0)" class="exportButton btn btn-primary btn-sm u-font-85" style="">Compile (<span data-bind="text : selectedRecords().length"></span>)</a>
+                     </li>
+                 }
+            }
+            
+            @if (Model.CategoryAllowsExport)
+            {
+                <!-- If the user is using a trial license, display disabled button -->
+                if (Model.IsTrial)
+                 {
+                     <li class="btn-group btn-group-sm disabled" title="Exporting results is disabled due to trial license.">
+                         <a data-bind="visible : selectedRecords().length" href="javascript:void(0)" class="exportButton btn btn-primary btn-sm u-font-85" style="">Export (<span data-bind="text : selectedRecords().length"></span>)</a>
+                     </li>
+                 }
+                 else if (Model.CanExport)
+                 {
+                     <li class="btn-group btn-group-sm">
+                         <a data-bind="visible : selectedRecords().length, click : exportResults.bind($data, false)" href="javascript:void(0)" class="exportButton btn btn-primary btn-sm u-font-85" style="">Export (<span data-bind="text : selectedRecords().length"></span>)</a>
+                     </li>
+                 }
+            }
+
+            @if (Model.RemoveFromSearchIndexerKey != null)
+            {
+                <li class="btn-group btn-group-sm u-margin-Hxs">
+                    <a data-bind="visible : selectedRecords().length, click : $root.facetsVM.removeSelectIds.bind($data,'@Model.RemoveFromSearchIndexerKey',$root.facetsVM)" href="javascript:void(0)" class="exportButton btn btn-primary u-font-85" style="">Exclude selected (<span data-bind="text : selectedRecords().length"></span>)</a>
+                    <a data-bind="visible : selectedRecords().length, click : $root.facetsVM.addSelectIds.bind($data,'@Model.RemoveFromSearchIndexerKey',$root.facetsVM)" href="javascript:void(0)" class="exportButton btn btn-primary u-font-85" style="">Only display selected (<span data-bind="text : selectedRecords().length"></span>)</a>
+                </li>
+            }
+
+            @if (Model.CanSaveSearch)
+            {
+                <li><a href="javascript:void(0)" data-bind="click : saveSearch.bind($data, null, null)"><i class="icon-folder-open"></i> Save Search</a></li>
+            }
+
+            @if (Model.CategoryAllowsCompile)
+            {
+
+                <!-- If the user is using a trial license, display disabled button -->
+                if (Model.IsTrial)
+                {
+                    <li class="disabled" title="Compiling results is disabled due to trial license."><a href="javascript:void(0)"><i class="icon-book-open"></i> Compile All</a></li>
+                }
+                else if (Model.CanCompile)
+                {
+                    <li><a href="javascript:void(0)" data-bind="click : compileResults.bind($data, true, null)"><i class="icon-book-open"></i> Compile All</a></li>
+                }
+            }
+
+            @if (Model.CategoryAllowsExport)
+            {
+                <!-- If the user is using a trial license, display disabled button -->
+                if (Model.IsTrial)
+                {
+                    <li class="disabled" title="Exporting results is disabled due to trial license."><a href="javascript:void(0)"><i class="icon-export"></i> Export All</a></li>
+                }
+                else if (Model.CanExport)
+                {
+                    <li><a href="javascript:void(0)" data-bind="click : exportResults.bind($data, true)"><i class="icon-export"></i> Export All</a></li>
+                }
+            }
+
+            @if (Model.CanCreateRss)
+            {
+                <li><a href="javascript:void(0)" data-bind="click : saveRssFeed"><i class="icon-rss"></i> RSS</a></li>
+            }
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,338 @@
+﻿/* Results Table */
+
+.results-grid {
+    font-size: 110%;
+}
+
+    .results-grid td a {
+        font-size: 110%;
+    }
+
+#results.results-grid thead th {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 90%;
+    padding: 6px 10px;
+    color: #444;
+}
+
+.results-grid.hover tbody tr .results-grid.display tbody tr,
+.results-story.hover tbody tr {
+    transition: background-color .1s;
+}
+
+.results-grid.hover tbody tr:hover,
+.results-grid.display tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+.results-grid > tbody > tr > td,
+.results-story > tbody > tr > td {
+    border-color: #eee;
+    border-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 10px;
+}
+
+.results-grid .thumbnail {
+    margin-bottom: -5px;
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+}
+
+.results-grid .thumbnailNoPopup {
+    margin-bottom: -5px;
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+}
+
+.results-grid th.rownumber {
+    text-indent: -9999px;
+}
+
+.results-grid .rownumber {
+    width: 2%;
+}
+
+.results-grid .checkboxcell {
+    width: 3%;
+    position: relative;
+}
+
+.results-grid .title {
+    width: 25%;
+}
+
+.results-grid .date {
+    width: 10%;
+}
+
+.results-grid .description,
+.results-grid .image {
+    width: 33%;
+}
+
+.results-grid .country {
+    width: 10%;
+    /*word-break: break-all;*/
+}
+
+.results-grid .publication {
+    width: 10%;
+}
+
+.results-grid .section,
+.results-grid .fixedHeader-floating .section {
+    width: 10%;
+    /*display: none;*/
+}
+
+/*.results-grid .image {
+    width: 10%;
+}*/
+
+.pagination a {
+    font-size: 110%;
+    padding: 6px 14px !important;
+}
+
+.paginate_button span {
+    font-size: 120%;
+    line-height: 1;
+}
+
+.results-grid .fixedHeader-floating {
+    box-shadow: 0 11px 10px -13px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    z-index: 1000;
+}
+
+    .results-grid .fixedHeader-floating th {
+        border-color: #eee;
+        border-top-color: #fff;
+        display: flex;
+    }
+
+.resultsContainer {
+    min-height: 200px;
+}
+
+.nav-tabs .active a {
+    font-weight: bold;
+}
+
+
+.bookmark, .share {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 75%;
+    opacity: 0;
+    transition: opacity .2s;
+}
+
+.results-grid tbody tr:hover .bookmark,
+.results-story tbody tr:hover .bookmark,
+.results-grid tbody tr:hover .share,
+.results-story tbody tr:hover .share {
+    opacity: .3;
+}
+
+    .results-grid tbody tr:hover .bookmark:hover,
+    .results-story tbody tr:hover .bookmark:hover,
+    .results-grid tbody tr .bookmark:focus,
+    .results-grid tbody tr:hover .share:hover,
+    .results-story tbody tr:hover .share:hover,
+    .results-grid tbody tr .share:focus {
+        text-decoration: none;
+        opacity: .5;
+        outline: 0;
+    }
+
+/* Thumnail View */
+
+.results-thumbnail .grid {
+    /*margin-bottom: 20px;*/
+    padding: 10px 10px 10px 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.results-thumbnail .thumbnail {
+    float: none;
+    margin: 0;
+    display: inline-block;
+}
+
+.results-thumbnail .checkboxcell {
+    position: absolute;
+    margin-left: -20px;
+}
+
+.results-thumbnail .grid.warning {
+    background-color: #FFEEBF;
+}
+
+/* Story View */
+
+.results-story {
+    width: 100%;
+}
+
+    .results-story > tbody > tr > td {
+        padding: 10px 0;
+    }
+
+    .results-story .storyNumber {
+        float: none;
+        font-size: 100%;
+    }
+
+    .results-story .checkboxcell {
+        padding: 13px 0 0 5px;
+    }
+
+    .results-story .story-contents {
+        padding-left: 10px;
+    }
+
+    .results-story .thumbnail {
+        float: right;
+        margin-left: 20px;
+    }
+
+    .results-story .thumbnailNoPopup {
+        float: right;
+        margin-left: 20px;
+    }
+
+    .results-story p {
+        margin: 2px 0;
+    }
+
+        .results-story p.storyCopy {
+            margin: 6px 0 8px;
+        }
+
+            .results-story p.storyCopy:after {
+                content: "...";
+            }
+
+.storyTitle {
+    font-size: 135%;
+}
+
+.storyNumber {
+    float: left;
+    margin-right: 10px;
+    margin-top: 4px;
+    font-size: 75%;
+}
+
+.loading {
+    z-index: 90;
+}
+
+/* Responsive */
+
+@media (max-width: 1365px) {
+    .nav-tabs.nav-tabs-line > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #results.results-grid {
+        font-size: 100%;
+    }
+}
+
+@media (max-width: 1279px) {
+    .nav-tabs.nav-tabs-line > li > a {
+        padding-left: 6px;
+        padding-right: 5px;
+        font-size: 89%;
+    }
+
+    .pagination a {
+        font-size: 100%;
+        margin: 10px;
+        padding: 6px 14px !important;
+    }
+}
+
+@media (max-width: 1151px) {
+    .nav-tabs.nav-tabs-line > li > a {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 85%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .nav-tabs.nav-tabs-line > li > a {
+        padding-left: 3px;
+        padding-right: 3px;
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav-tabs.nav-tabs-line > li > a {
+        font-size: 100%;
+    }
+
+    .results-grid .section {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .results-grid .section,
+    .results-grid .publication,
+    .results-grid .country,
+    .search-bar h1 {
+        display: none;
+    }
+}
+
+@media (max-width: 568px) {
+    .results-grid thead,
+    .visitedtick,
+    .results-grid > tbody > tr > td.rownumber {
+        display: none;
+    }
+
+    .results-grid > tbody > tr > td {
+        display: block;
+        width: 100% !important;
+        border: none;
+        padding: 2px 0;
+    }
+
+    .results-grid > tbody > tr {
+        border-bottom: 1px solid #eee;
+        display: block;
+        padding: 12px 0;
+        overflow: hidden;
+    }
+
+    .results-grid td a {
+        font-size: 120%;
+    }
+
+    .bookmark {
+        opacity: .5;
+        background-size: 50%;
+    }
+
+    .results-grid tbody tr:hover .bookmark,
+    .results-grid tbody tr:hover .bookmark:hover {
+        opacity: .5;
+    }
+
+    .tipsy {
+        display: none !important;
+    }
+}

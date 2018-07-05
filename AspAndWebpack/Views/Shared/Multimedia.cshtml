@@ -1,0 +1,220 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.VideoModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+
+    var containerId = CmpHtmlHelpers.CreateUniqueId("Multimedia");
+}
+
+@section browser_title
+{
+     Video, Jane's by IHS Markit
+}
+
+
+@section additional_scripts
+{
+    <script language="javascript" type="text/javascript" src="/Assets/Javascript/Results/Search.js"></script>
+    <script language="javascript" type="text/javascript" src="/Assets/Javascript/Results/SearchBarVM.js"></script>
+    <script language="javascript" type="text/javascript" src="/Assets/Javascript/VzaarVideoService.js"></script>
+    
+    <script type="text/javascript">
+        
+        var videoService = new VzaarVideoVm(@Html.Raw(Json.Encode(Model)));
+
+        $(document).ready(function () {
+            ko.applyBindings(videoService, document.getElementById("@containerId"));
+        });
+
+        function showShare(evt, tr) {
+            $("#" + tr).toggle('fast');
+            evt.stopPropagation();
+            evt.cancelBubble = true;
+        }
+
+        function CopyToClipboard(ctrl) {
+            var text = $(ctrl).attr('value');
+            var modal = $('#copyModal');
+            modal.find('.modal-body').html();
+            modal.find('input.copy').val(text);
+            modal.modal({
+                backdrop: false
+            });
+            modal.on('shown.bs.modal',
+                function () {
+                    modal.find('.copy').select();
+                });
+        }
+
+    </script>
+}
+
+@section additional_css
+{
+    <style type="text/css">
+        
+         .vidThumbnail img {
+             width: 100%;
+             max-width: 150px;
+             clip: rect(0 150px 0 75px);
+             border: 1px solid #ccc;
+             padding: 3px;
+         }
+
+        @("@media") screen and ( min-width: 992px) {
+        .table-container { height: 480px; }
+        }
+
+        .video-player {
+            width: 100% !important;
+            height: calc(100% - 45px) !important;
+        }
+
+        .bc-player-default_default.vjs-mouse .vjs-big-play-button {
+            top: 50% !important;
+            left: 50% !important;
+            margin-left: -78px;
+            margin-top: -52px;
+        }
+
+        .video-container-height {
+            height: calc(100% - 45px) !important;
+        }
+
+    </style>
+}
+
+@section page_title
+{
+    <div class="page-header with-search-bar">
+        <div class="search-bar">
+            <div class="dashboardHeader clearfix">
+                <h2 class="title grid-lg-1-4 grid-md-1-4 grid-xs-1-2">
+                    Video
+                </h2>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="@containerId" class="width-100">
+    <div class="grid-1 grid-md-2-3 video-container-height">
+        <iframe id="vidContainer"
+                name="vidContainer"
+                title="video player"
+                class="video-player"
+                type="text/html"
+                frameborder="0"
+                allowFullScreen 
+                allowTransparency="true"
+                mozallowfullscreen 
+                webkitAllowFullScreen
+                data-bind="attr: {src: selectedVideoSource}">
+        </iframe>
+        <p id="vidDescription" data-bind="text: shortDescription" class="u-margin-Vs"></p>
+    </div>
+
+    <div class="grid-1 grid-md-1-3">
+        <div class="input-group u-margin-Bxxs">
+            <input type="search" class="form-control" placeholder="Search" data-bind="textInput: searchFilter, enterkey: videoService.checkForUserEnteredFilter"/>
+            <span class="input-group-addon" data-bind="click: videoService.checkForUserEnteredFilter"><i class="icon-search"></i></span>
+        </div>
+
+        <div id="vidTable" class="table-scroll">
+            <div class="table-container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Thumbnail
+                                <div>Thumbnail</div>
+                            </th>
+                            <th>
+                                Description
+                                <div>Description</div>
+                            </th>
+                            <th style="min-width: 95px;">
+                                Publish Date
+                                <div>Publish Date</div>
+                            </th>
+                            <th>
+                                <div></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: videoPage">
+                        <tr class="actionable" data-bind="event:{click: function(){ videoService.switchVideo(Id, Description); }}">
+                            <td>
+                                <span class="vidThumbnail">
+                                    <img data-bind="attr: { src: ThumbNailWebLink }" />
+                                </span>
+                            </td>
+                            <td data-bind="text: Id" hidden></td>
+                            <td data-bind="text: Description"></td>
+                            <td data-bind="text: CreatedDateTime"></td>
+                            <td>
+                                <a class="actionable" data-bind="event:{click: function(data,event){ showShare(event, 'tr_' + Id)}}">Share</a>
+                            </td>
+                        </tr>
+                        <tr data-bind="attr: { 'Id': 'tr_' + Id } " style="display: none;">
+                            <td colspan="4">
+                                <strong>Link to share:</strong><br />
+                                <a data-bind="attr: { 'href': videoService.getVideoWebLink(Id), 'target': '_blank' }" title="Click link to open the video in a new tab">
+                                    <span id="url" data-bind=" text: videoService.getVideoWebLink(Id)"></span>
+                                </a>
+                                <button style="padding: 2px;" class="btn btn-primary u-margin-Lxxs u-padding-Hxxs" data-bind="value: videoService.getVideoWebLink(Id)" onclick="CopyToClipboard(this); return false;">Copy</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-center" data-bind="visible:total_count() > page_size()">
+            <ul class="pagination">
+                <li data-bind="css: page_number() == 1 ? 'disabled': 'active'">
+                    <a data-bind="event:{click: function(data, event){ videoService.getFirstVideoPage(event, page_number(), searchFilter())}}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li data-bind="css: page_number() <= 1 ? 'disabled': 'active'">
+                    <a data-bind="event:{click: function(data, event){ videoService.getPrevVideoPage(event, page_number(), searchFilter())}}">
+                        <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                </li>
+                <li>
+                    <a style="height: 29px; padding-top: 2px;">
+                        <input style="width: 30px;" type="text" data-bind="textInput: page_number, enterkey: videoService.checkForUserEnteredPage" />
+                        <span aria-hidden="true" data-bind="text: ' of ' + totalPageCount() + ' pages'"></span>
+                    </a>
+                </li>
+                <li class="active" data-bind="css: page_number() >= totalPageCount() ? 'disabled': 'active'">
+                    <a data-bind="event:{click: function(data, event){ videoService.getNextVideoPage(event, page_number(), searchFilter())}}">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                </li>
+                <li class="active" data-bind="css: page_number() == totalPageCount() ? 'disabled': 'active'">
+                    <a data-bind="event:{click: function(data, event){ videoService.getLastVideoPage(event, page_number(), searchFilter())}}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="copyModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Copy to clipboard with Crtl+C</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input class='copy form-control' value=''>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

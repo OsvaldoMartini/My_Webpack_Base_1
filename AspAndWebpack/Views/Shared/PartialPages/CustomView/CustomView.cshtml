@@ -1,0 +1,261 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.CustomView
+
+@{
+
+    var containerId = CmpHtmlHelpers.CreateUniqueId("customView");
+    var idDisplayColumns = CmpHtmlHelpers.CreateUniqueId("tabDisplay");
+    var idExportColumns = CmpHtmlHelpers.CreateUniqueId("tabExport");
+    var idSortColumns = CmpHtmlHelpers.CreateUniqueId("tabSort");
+    var idManageViews = CmpHtmlHelpers.CreateUniqueId("tabManage");
+}
+
+<div class="grid-1 customView" id="@containerId">
+
+    <div class="loadingContainer">
+        <span class='loading'></span>
+    </div>
+
+    @using (Ajax.BeginForm("Save", "CustomView", new AjaxOptions { UpdateTargetId = "displayTemplates", OnSuccess = "CustomViewVM.CallBack", OnBegin = "CustomViewVM.ShowLoading" }))
+    {
+        <h4>Customise your search results</h4>
+
+        <div class="displayTabDescription">
+            <p>On this page you can tell us what columns you want to appear in your search results and exports. Simply check/uncheck the items to tell us whether you want them to appear or not.</p>
+
+            <p>
+                To change the order the columns appear in left to right (top item is the one positioned left) just select <i class="icon-move large"></i> and drag the item to the position you want it to appear in.
+            </p>
+            <p>When you save your custom view, you can also rename it if you wish. Saved custom searched will appear in the Display list within the data grid.</p>
+        </div>
+
+        <div class="sortTabDescription">
+            <p>Change the default sort order for the columns that appear in your search results and exports.</p>
+
+            <p>Simply check/uncheck the items you want to order and then select the relevant ordering option.</p>
+        </div>
+
+        <div class="manageTabDescription" style="display: none;">
+            <p>On this page you can manage your custom views. Use the buttons on the right hand side to select or delete a custom view. </p>
+            <p>If you wish to reset your custom views, please use the "Restore Defaults" button at the bottom of the panel.</p>
+
+            <p>Please note: Pressing Restore Defaults will remove <strong>all</strong> custom views.</p>
+            @{
+                var templateType = (Model.CustomTemplate) ? "Custom Template" : "Standard Template";
+            }
+            <p>Currently Selected View: <strong>@Model.ActiveTemplate (@templateType)</strong></p>
+        </div>
+        <br />
+
+        <ul class="nav nav-tabs">
+
+            <li class="active"><a href="#@idDisplayColumns" data-toggle="tab" onclick="CustomViewVM.ShowHelp('display')">Display</a></li>
+            <li><a href="#@idExportColumns" data-toggle="tab" onclick="CustomViewVM.ShowHelp('export')">Export</a></li>
+            <li><a href="#@idSortColumns" data-toggle="tab" onclick="CustomViewVM.ShowHelp('sort')">Sort</a></li>
+            <li class="nav-tab-right" id="manageViewsTab"><a href="#@idManageViews" data-toggle="tab" onclick="CustomViewVM.ShowHelp('manage')" title="Manage custom views">Manage Custom Views</a></li>
+        </ul> <!-- End Navigation -->
+
+                <div class="tab-content bordered modal-scroll" style="max-height: 400px">
+                    <div class="tab-pane fade active in sortable" id="@idDisplayColumns">
+                        <div class="form-group tick-all" id="toggleSwitch">
+                            @{
+                                var displayToggleCheck = Model.AllDisplaySelected ? "checked" : string.Empty;
+                            }
+                            <input type="checkbox" name="tickAll" toToggle="displayColumns" @displayToggleCheck />
+                        </div>
+
+
+                        @foreach (var displayColumn in Model.DisplayColumns)
+                        {
+                            var displayColumnId = CmpHtmlHelpers.CreateUniqueId("displayCol_" + displayColumn.Key.ToLower());
+                            var displayChecked = displayColumn.IsSelected ? "checked" : string.Empty;
+                            var displayLocked = displayColumn.IsLocked ? "disabled" : string.Empty;
+                            var tooltip = displayColumn.IsLocked ? ("You cannot remove '" + displayColumn.DisplayValue + "' from the results.") : string.Empty;
+
+
+                            <div class="form-group">
+
+                                <i class="hand icon-move large draggable"></i>
+
+                                @if (displayColumn.IsLocked)
+                                {
+                                    <input type="hidden" name="displayColumns" value="@displayColumn.Key" />
+                                }
+
+                                <input onchange="CustomViewVM.ColumnChecked(this)" value="@displayColumn.Key" type="checkbox" name="displayColumns" id="@displayColumnId" @displayChecked @displayLocked title="@tooltip" />
+                                <label for="@displayColumnId"></label>
+
+                                <span>@displayColumn.DisplayValue</span>
+                            </div>
+                        }
+
+                    </div> <!-- End Display Columns -->
+                    <div class="tab-pane fade sortable" id="@idExportColumns">
+                        <div class="form-group tick-all" id="toggleSwitch">
+                            @{
+                                var exportToggleCheck = Model.AllExportSelected ? "checked" : string.Empty;
+                            }
+                            <input type="checkbox" name="tickAll" toToggle="exportColumns" @exportToggleCheck />
+                        </div>
+                        @foreach (var exportColumn in Model.ExportColumns)
+                        {
+                            var exportColumnId = CmpHtmlHelpers.CreateUniqueId("exportCol_" + exportColumn.Key.ToLower());
+                            var exportChecked = exportColumn.IsSelected ? "checked" : "";
+                            var exportLocked = exportColumn.IsLocked ? "disabled" : "";
+                            var tooltip = exportColumn.IsLocked ? ("You cannot remove '" + exportColumn.DisplayValue + "' from the results.") : string.Empty;
+
+                            <div class="form-group">
+
+                                <i class="icon-move large draggable"></i>
+
+                                @if (exportColumn.IsLocked)
+                                {
+                                    <input type="hidden" name="exportColumns" value="@exportColumn.Key" />
+                                }
+
+                                <input value="@exportColumn.Key" onchange="CustomViewVM.ColumnChecked(this)" type="checkbox" id="@exportColumnId" name="exportColumns" @exportChecked @exportLocked title="@tooltip" />
+                                <label for="@exportColumnId">@exportColumn.DisplayValue</label>
+                            </div>
+                        }
+
+                    </div> <!-- End Export Columns -->
+                    <div class="tab-pane fade sortable" id="@idSortColumns">
+
+                        @foreach (var sortColumn in Model.SortColumns)
+                        {
+                            var sortColumnId = CmpHtmlHelpers.CreateUniqueId("sortCol_" + sortColumn.Key.ToLower());
+                            var sortColumnSelectId = CmpHtmlHelpers.CreateUniqueId("sortSelectCol_" + sortColumn.Key.ToLower());
+                            var sortChecked = sortColumn.IsSelected ? "checked" : string.Empty;
+                            var sortLocked = sortColumn.IsLocked ? "disabled" : string.Empty;
+                            var ascendingSelected = sortColumn.IsDescending ? string.Empty : "selected";
+                            var descendingSelected = sortColumn.IsDescending ? "selected" : string.Empty;
+                            var dropDownDisabled = (sortColumn.IsLocked || !sortColumn.IsSelected) ? "disabled" : string.Empty;
+                            var tooltip = sortColumn.IsLocked ? ("You cannot remove " + sortColumn.DisplayValue + " from the results.") : string.Empty;
+
+                            <div class="form-group">
+
+                                @if (sortColumn.IsLocked)
+                                {
+                                    var lockedValue = sortColumn.Key + "|" + (sortColumn.IsDescending ? "Descending" : "Ascending");
+                                    <input type="hidden" name="sortColumns" value="@lockedValue" />
+                                }
+
+                                <input value="@sortColumn.Key" onchange="CustomViewVM.ColumnChecked(this, true)" type="checkbox" id="@sortColumnId" @sortChecked @sortLocked title="@tooltip" />
+                                <label class="min-width-100-px" for="@sortColumnId">@sortColumn.DisplayValue</label>
+
+                                <select id="@sortColumnSelectId" name="sortColumns" @dropDownDisabled>
+                                    <option @ascendingSelected value="@sortColumn.Key|Ascending">@sortColumn.AscendingLabel</option>
+                                    <option @descendingSelected value="@sortColumn.Key|Descending">@sortColumn.DescendingLabel</option>
+                                </select>
+                            </div>
+                        }
+
+                    </div> <!-- End Sort Columns -->
+                    <div id="@idManageViews" class="tab-pane fade manage-view-tab">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Custom View Name</th>
+                                    <th>Column Count</th>
+                                    <th>Delete</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var userView in Model.UserConfigs)
+                                {
+                                    var active = (userView.TemplateName.Equals(Model.ActiveTemplate, StringComparison.InvariantCultureIgnoreCase)) ? "success" : string.Empty;
+                                    var checkmark = (userView.TemplateName.Equals(Model.ActiveTemplate, StringComparison.InvariantCultureIgnoreCase)) ? "icon-ok" : string.Empty;
+                                    <tr class="@active" href="@Url.Action("ChangeTemplate", "Search", new {templateName= userView.TemplateName})">
+                                        <td class="template-name">@userView.TemplateName<span><i class="@checkmark"></i></span></td>
+                                        <td title="@string.Join(", ", userView.DisplayColumns)">@userView.DisplayColumns.Count()</td>
+                                        <td>
+                                            <!-- TODO: Write extension for wrapping Ajax.ActionLink with icon -->
+                                            <a href="@Url.Action("RemoveUserGridConfig", "CustomView", new {userView.TemplateName})"
+                                               class="btn btn-default remove-template"
+                                               data-ajax="true"
+                                               data-ajax-mode="replace"
+                                               data-ajax-begin="CustomViewVM.ShowLoading('@containerId','@idManageViews')"
+                                               data-ajax-success="CustomViewVM.CallBack(false)"
+                                               data-ajax-update="#@containerId">
+                                                <i class="icon-trash large"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("SetUserGridConfig", "CustomView", new {userView.TemplateName})"
+                                               class="btn btn-default"
+                                               data-ajax="true"
+                                               data-ajax-mode="replace"
+                                               data-ajax-begin="CustomViewVM.ShowLoading()"
+                                               data-ajax-success="CustomViewVM.CallBack(false)"
+                                               data-ajax-update="#@containerId">
+                                                <i class="icon-ok large"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div> <!-- End Manage Views -->
+                </div>
+
+                <br />
+                <div class="grid">
+                    <div class="grid-1 grid-md-3-5 grid-lg-3-5">
+                        <div class="input-group">
+                            @Html.TextBoxFor(model => model.CustomViewName, new { @class = "form-control", name = "customViewName", id = "customViewName", type = "text", placeholder = "Enter a custom view name. (optional)" })
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" id="saveCustomViewBtn" name="save" type="submit">Save</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div>
+                    <div class="grid-1 grid-md-1-5 grid-lg-1-5">
+                        @Ajax.ActionLink("Cancel", "GetTemplates", "Search", new AjaxOptions() { UpdateTargetId = "displayTemplates", OnBegin = "CustomViewVM.ShowLoading", OnSuccess = "CustomViewVM.CallBack(true)" }, new { @class = "btn btn-default", title = "Close Custom View window" })
+                    </div>
+                    <div class="grid-1 grid-md-1-5 grid-lg-1-5">
+                        @Ajax.ActionLink("Restore Defaults", "Reset", "CustomView", new AjaxOptions() { UpdateTargetId = "displayTemplates", OnBegin = "CustomViewVM.ShowLoading", OnSuccess = "CustomViewVM.CallBack(true)" }, new { @class = "btn btn-danger fade restore-defaults", title = "Remove all user defined views" })
+                    </div>
+                </div>
+                                }
+</div>
+<script type="text/javascript">
+    CustomViewVM.Setup('@containerId');
+</script>
+
+<style>
+    .customView .sortable div {
+        background: white;
+        margin: 5px;
+        width: auto;
+    }
+
+        .customView .sortable div i {
+            margin-right: 10px;
+        }
+
+    .customView .loadingContainer {
+        height: 100px;
+        display: none;
+    }
+
+    .customView .sortTabDescription {
+        display: none;
+    }
+
+    .customView .form-group:hover {
+        background-color: #f8f8f8;
+    }
+
+    .customView select:disabled {
+        background-color: rgb(235, 235, 228) !important;
+        color: rgb(84,84,84);
+    }
+
+    .customView .tick-all {
+        border-bottom: 1px solid #ccc;
+        margin-right: 5px;
+    }
+
+        .customView .tick-all input {
+            margin-left: 7px;
+        }
+</style>

@@ -1,0 +1,101 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.IntelligenceBriefings
+
+@{
+
+    var ibsContainerId = CmpHtmlHelpers.CreateUniqueId("ibsContainerId");
+}
+
+<div id="@ibsContainerId">
+
+
+    @if (!Model.UpcomingBriefings.Any() && !Model.PastBriefings.Any())
+    {
+        <div class="alert alert-warning text-center">No Briefings Available</div>
+    }
+
+    @if (Model.UpcomingBriefings.Any())
+    {
+        <h4>Forthcoming Briefings</h4>
+    }
+    @foreach (var briefing in Model.UpcomingBriefings)
+    {
+        <p class="orange1 u-margin-Bn">@briefing.PostDate</p>
+        if (Model.IsEnabled)
+        {
+            <h4 class="u-margin-Vxxs">
+                <a href="/IntelBriefings/Display/@briefing.DatabaseRecordId.Trim()" target="_blank" title="@briefing.Title">@briefing.Title</a>
+            </h4>
+            <p class="u-margin-Bm">
+                @foreach (var briefingSession in briefing.BriefingSessions)
+                {
+                    <a href="javascript:void(0)" class="btnRegister" data-id="@briefingSession.SessionIdentifier|@briefingSession.Session|@briefingSession.Key|@briefingSession.Platform"
+                       data-title="@briefing.Title" data-date="@briefingSession.Date" data-time="@briefingSession.Time">Register for@(" " + briefingSession.Time)<i class="icon-popup"></i></a>
+                }
+            </p>
+        }
+        else
+        {
+            <span class="seminartitle grid-1">
+                <a href="javascript:void(0)" class="disabled" title="You do not have access to this feature. Please contact your account manager for assistance."><i class="icon-lock"></i>@briefing.Title</a>
+            </span>
+            <span class="seminartimes grid-1">
+                @foreach (var briefingSession in briefing.BriefingSessions)
+                {
+                    <a href="javascript:void(0)" onclick="alert('You do not have access to this feature. Please contact your account manager for assistance.');return false;"
+                       class="disabled">@briefingSession.Time</a>
+                }
+            </span>
+        }
+        <hr />
+    }
+
+    @if (Model.PastBriefings.Any())
+    {
+        <h4>Past Briefings</h4>
+    }
+    @foreach (var briefing in Model.PastBriefings)
+    {
+        <p class="orange1 u-margin-Bn">@briefing.PostDate</p>
+        <h4 class="u-margin-Bm u-margin-Txxs">
+            @if (Model.IsEnabled)
+            {
+                <a href="/IntelBriefings/Display/@briefing.DatabaseRecordId" target="_blank" title="@briefing.Title">@briefing.Title</a>
+            }
+            else
+            {
+                <a href="javascript:void(0)" class="disabled" title="You do not have access to this feature. Please contact your account manager for assistance."><i class="icon-lock"></i>@briefing.Title</a>
+            }
+        </h4>
+    }
+
+    <div>
+        @if (Model.IsEnabled)
+        {
+            @Html.Partial("Widget/LinkListWidgetFooter", new[] { Model.ViewMoreLink })
+        }
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var data = {
+                dataFirstname: '@Model.Attendee.firstname',
+                dataLastname: '@Model.Attendee.lastname',
+                dataEmail: '@Model.Attendee.email',
+                dataJobTitle: '@Model.Attendee.jobTitle',
+                dataCompany: '@Model.Attendee.company',
+                dataAddress: '@Model.Attendee.address',
+                dataAddress2: '@Model.Attendee.address2',
+                dataCity: '@Model.Attendee.city',
+                dataState: '@Model.Attendee.state',
+                dataCountry: '@Model.Attendee.country',
+                dataPostcode: '@Model.Attendee.postcode'
+            };
+
+            RegisterButtonClick(data,'#@ibsContainerId');
+        });
+
+    </script>
+    @Html.Partial("IntelBriefingRegistrationPopup")
+
+</div>

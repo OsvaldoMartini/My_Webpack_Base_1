@@ -1,0 +1,208 @@
+﻿
+
+<div id="customisationsContainer" class="hidden">
+
+    @*<div id="AddScenario" data-bind="visible: CreatingScenario" class="u-border-all u-margin-Txl customisation dialog draggable width-60 ">
+        <div class="corp-blue-bg u-padding-As u-padding-Lm modal-header">
+            <span class="pull-right">
+                <button data-bind="click: function(){CreatingScenario(false); return false}" class="btn btn-primary" href='#'><i class="icon-cancel"></i></button>
+            </span>
+            <h2>Scenario</h2>
+        </div>
+        <div class="u-padding-Ll u-margin-Bl">
+            <p></p>
+            <p class="u-font-125">Copy an IHS Markit set of values, make edits to your values and view in the chart.</p>
+            <label for="ddlClonedAttributeSource">Choose an attribute to clone for the current search criteria</label>
+            <select class="form-control width-60" id="ddlClonedAttributeSource">
+                <option value="STD_SUPPLIER">Supplier</option>
+                <option value="STD_COUNTRY">Country</option>
+                <option value="STD_REGION">Region</option>
+                <option value="PLATFORMFAMILYNAME">Platform Family</option>
+                <option value="PROGRAMFAMILY">Program Family</option>
+            </select>
+            <br />
+            <input class="form-control width-60" type="text" data-bind="value: ScenarioName" placeholder="Name of your scenario" />
+            <button class="btn btn-primary u-margin-Tm" data-bind="click: ApplyScenario, enable: ScenarioName">
+                Create
+            </button>
+
+        </div>
+    </div>*@
+
+
+    <div class="u-border-all customisation dialog width-60 modal-content" style="height:260px!important" data-bind="{ visible: viewingMyCustomisations }">
+        <div class="grey4-bg u-padding-Axxs u-padding-Lm modal-header draggable">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="toggleClick: viewingMyCustomisations"><span aria-hidden="true">×</span></button>
+            <h3 class="u-margin-An">
+                <i class="icon-move small" style="margin-left: -10px;"></i>
+                My Customisations
+
+                <!-- ko if: customisations().length -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span data-bind="text: current().Title() || 'Creating new customisation'"></span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" data-bind="foreach: customisations">
+                        <li> <button href="#" class="btn btn-link btn-block u-padding-Hs" style="text-align:left;" role="menuitem" data-bind="text:Title, click: $parent.current.bind($parent, $data)"></button></li>
+                    </ul>
+                </div>
+                <button type="button" data-bind="click:CreateNewCustomisation" class="btn btn-primary btn-xs"><i class="icon-plus"></i>Create New Customisation</button>
+                <!-- /ko -->
+                <a href="/DefenceBudgets/Help/Overview and Methodology/Customizations" target="help" class="btn btn-default btn-xs pull-right u-margin-Rxxl"><i class="icon-tutorial"></i> Help</a>
+            </h3>
+        </div>
+        @*<div><span class="u-font-85 u-padding-Am"><a href="ManageSegments">See All</a> </span></div>*@
+        <div class="customisationBody ">
+            <div data-bind="visible:loadingCustomSegments" class="loading dimmer u-padding-Al"> </div>
+            <div class="u-font-125 u-padding-As" data-bind="visible: creatingNew">Create a new filter or segment for your chart based on your specific requirements,that you can use to create a new chart legend, display as a column on the program data view and as a new filter on the left hand panel.</div>
+            <div data-bind="with: current">
+                <div class="grid">
+                    <div class="grid-1-3">
+                        <h4 data-bind="visible:!$parent.creatingNew() && !isEditTitle() && Title()">
+                            <span data-bind="text:Title"></span>
+                            <button class="btn btn-link" data-bind="toggleClick: isEditTitle"><i class="icon-pencil"></i></button>
+                        </h4>
+                        <div data-bind="visible:$parent.creatingNew() || isEditTitle() || !Title()">
+                            <label>Customisation Title</label>
+                            <div class="input-group">
+                                <label class="input-group-addon" data-bind="attr:{for: 'edit_Customisation_'+Id() }"><i class="icon-pencil"></i></label>
+                                <input class="form-control"  title="Enter the overall name of your customisation. e.g. 'Size' is a good name for a segment that segments systems as small, medium and large."
+                                       data-bind="tipsy:{}, attr:{id: 'edit_Customisation_'+Id() }, value:Title, event:{blur: function(){$parent.creatingNew() || $data.isEditTitle(false);}" />
+                                <!-- ko if: !$parent.creatingNew()-->
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" data-bind="click: function(){($parent.creatingNew() && $parent.saveCurrent())|| $data.isEditTitle(false);}">Save</button>
+                                </span>
+                                <!-- /ko-->
+                            </div>
+                        </div>
+                        <div data-bind="visible:!isEditDesc() && Id()">
+                            <span data-bind="text:Description"></span>
+                            <span data-bind="visible:!Description()" class="text-muted">Customisation description.</span>
+                            <button class="btn btn-link" data-bind="toggleClick: isEditDesc, enable:Id"><i class="icon-pencil"></i></button>
+                        </div>
+                        <div data-bind="visible:isEditDesc() && Id()">
+                            <div class="input-group">
+                                <label class="input-group-addon" data-bind="attr:{for: 'edit_Customisation_desc_'+Id() }"><i class="icon-pencil"></i></label>
+                                <textarea class="form-control" data-bind="attr:{id: 'edit_Customisation_desc_'+Id() }, textInput:Description, event:{blur: function(){creatingNew() || $data.isEditDesc(false);}"></textarea>
+                                <span class="input-group-btn" style="vertical-align: top;">
+                                    <button class="btn btn-primary" data-bind="click: function(){($parent.creatingNew() &amp;&amp; $parent.saveCurrent())|| $data.isEditDesc(false);}">Save</button>
+                                </span>
+                            </div>
+                        </div>
+                        <label class="toggleSwitch u-font-85 u-margin-Ln" data-bind="visible: Id" style="width: 100%;text-align: left;white-space: normal;">
+                            <input type="checkbox" data-bind="checked: ShowInUserInterface" />
+                            <span class="u-margin-Ln">
+                                <span></span>
+                                <span></span>
+                                <a></a>
+                            </span>Show in Filters
+                        </label>
+                        <button data-bind="visible: Id() && canShare(), click: Share" class="btn btn-link u-padding-Ln"><i class="icon-share"></i> Share <span data-bind="text:Title" style="font-style:italic;"></span></button>
+                        <div data-bind="visible: Id" style="position: absolute;bottom: 10px;">
+                            <span class="u-font-85">Created </span><span class="u-font-85" data-bind="text: CreateDateTime"> </span>
+                            <br />
+                            <span class="u-font-85">Edited </span><span class="u-font-85" data-bind="text: LastEditedDateTime"> </span>
+                        </div>
+                    </div>
+                    <div class="grid-2-3 u-padding-Rn u-padding-Bn" data-bind="visible: !$parent.creatingNew()">
+                        <ul class="nav nav-tabs u-margin-Bn" style="border-top:0;border-right:0;">
+                            <li class="active" data-bind="css:{active:!isValueOpen(), 'u-border-bottom':isValueOpen}"><a href="#" data-toggle="tab" data-bind="click:isValueOpen.bind($data, false)">Customisation</a></li>
+                            <li data-bind="css:{active:isValueOpen, 'u-border-bottom':!isValueOpen()}" class="u-border-bottom"><a href="#" data-toggle="tab" data-bind="click:isValueOpen.bind($data, true)">Values <span class="badge" data-bind="text: detailValues().length" style="line-height:0.9"></span></a></li>
+                            <li class="u-border-bottom">
+                                <a href="#" data-bind="click:isValueOpen.bind($data, true), toggleClick:addingNewValue,css:{active:addingNewValue}"><i class="small" data-bind="css:{'icon-plus':!addingNewValue(), 'icon-cancel':addingNewValue}"></i>Add New Value</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content u-padding-Axxs u-border-left">
+                            <div class="tab-pane fade active in" data-bind="css:{'active in':!isValueOpen()}">
+                                <div class="grid-1 list-group list-group-sm u-margin-An u-padding-An" data-bind="visible: Id">
+
+                                    <button data-bind="click:ShowSegment, enable: Id " class="btn btn-link" style="width: 100%;text-align: left;white-space: normal;"> <i title="Click here to show all records assigned to this" class="icon-search"></i> Show all records assigned to <span data-bind="text:Title" style="font-style:italic;"></span></button>
+
+                                    <button data-bind="click: ViewUnassigned, enable: Id"  type="button" class="btn btn-link" style="width: 100%; text-align: left;" aria-describedby="ViewUnassigned_Description">
+                                        <span data-bind="tipsy:{fade:true}" title="Review/include the newly added or remaining records to your customisation"><i class="icon-search"></i> <span>View Unassigned</span></span>
+                                        <i id="ViewUnassigned_Description" class="icon-help-circled grey2 hand" data-bind="tipsy:{trigger:['hover','focus'],fade:true}" tabindex="0" title="Unassigned Items are a result of a monthly release and will represent the newly added records, OR the remaining records that you did not include or exclude when initially setting up the customization. Selecting this link will display the Unassigned Items in the customization you have selected.  This will allow you to concentrate on updating or completing your customization so that there are no Unassigned Items."></i>
+                                    </button>
+                                    
+                                    <button data-bind="click: ExcludeUnassigned, enable: Id"type="button" class="btn btn-link" style="width: 100%; text-align: left;">
+                                        <span  data-bind="tipsy:{fade:true}"  title="Review/Exclude the remaining unassigned records of your customisation with one click" ><i class="icon-cancel"></i> <span>Exclude Unassigned</span></span> 
+                                        <i class="icon-help-circled grey2 hand" data-bind="tipsy:{trigger:['hover','focus'],fade:true}" tabindex="0" title="Clicking on this link will allow you to exclude all the records that have either yet to be assigned, or are not relevant to the customization criteria. If you only need to select a small subset of the defences(s), function(s), country(s), you can then just exclude the remainder with 1 click.  Can be for an initial set up or to keep the defence updated with ONLY the relevant records that are added each month."></i>
+                                    </button>
+
+                                    <button data-bind="click: RemoveSearchFromCustomisation, enable: Id" title="Remove the current search from any value in the customisation" type="button" class="btn btn-link" style="width: 100%;text-align: left;white-space: normal;"><i class="icon-minus"></i> Remove the current search from any value in <span data-bind="text:Title" style="font-style:italic;"></span></button>
+
+                                    <button type="button" data-bind="visible: !PendingDelete(), click:TogglePendingDelete, enable: Id " class="btn btn-link" style="width: 100%;text-align: left;"><i class="icon-trash"></i>Remove</button>
+                                    <div class="btn-group" role="group" aria-label="Second group" data-bind="visible:PendingDelete" style="width: 100%;">
+                                        <button data-bind="click: $parent.RemoveCustomSegment" class="btn btn-block btn-danger" style="width: 50%; float: none; display: inline-block;">
+                                            Remove?
+                                            <div class="loading sm" data-bind="visible: isRemoving"></div>
+                                        </button><button class="btn btn-block btn-success" data-bind="click: TogglePendingDelete" style="width: 50%; margin-top: 0; float: none; display: inline-block;">Keep?</button>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" data-bind="css:{'active in':isValueOpen}">
+
+                                <div class="grid u-margin-An">
+
+                                    <div class="grid-1-4 u-padding-Rn u-padding-Bn u-padding-Lxxs" data-bind="scrollbar: {}" style="max-height:150px;">
+                                        <div class="list-group list-group-sm u-margin-Bxxs" data-bind="foreach: detailValues">
+                                            <button class="btn btn-default list-group-item" style="width: 100%; text-align: left;" data-bind="click:$parent.currentDetailValue.bind($parent,$data), css:{'btn-primary':$parent.currentDetailValue() == $data}">
+                                                <span data-bind="text: title() || ($parent.addingNewValue()?'Creating New Value':'') "></span>
+                                                <i class="icon-right-open pull-right" data-bind="css:{'white' : $parent.currentDetailValue() == $data}"></i>
+                                                <span class="badge" data-bind="tipsy:{}, attr: {title:absoluteRecordCount() + ' records associated with ' +  title ? title : '....'}, visible : id" >
+                                                    <span data-bind="text: absoluteRecordCount"></span>
+                                                    <span class="sr-only">records</span>
+                                                    </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="grid-3-4 u-padding-Ln u-padding-Bn u-padding-Rxxs">
+                                        <div class="list-group list-group-sm u-margin-Bn" data-bind="with: currentDetailValue">
+                                            <!-- ko ifnot: isEditing() ||($parent.addingNewValue() && !title()) -->
+                                            <button class="btn btn-link" style="width: 100%;text-align: left;" data-bind="visible: !isEditing() && !($parent.addingNewValue() && !title()), toggleClick:isEditing"><i class="icon-pencil"></i> Edit <span style="font-style: italic;" data-bind="text: title"></span></button>
+                                            <!-- /ko -->
+                                            <!-- ko if: isEditing() ||($parent.addingNewValue() && !title()) -->
+                                            <div class="u-padding-An" style="width: 100%;text-align: left;" data-bind="visible:isEditing() ||($parent.addingNewValue() && !title()) ">
+                                                <div class="input-group">
+                                                    <label class="input-group-addon" data-bind="attr:{for: 'edit_'+id() }"><i class="icon-pencil"></i></label>
+                                                    <input class="form-control" data-bind="attr:{id: 'edit_'+id() }, value:title, event:{blur:isEditing.bind($data,false)}" />
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-primary">Save</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <!-- /ko -->
+                                            <button class="btn btn-link" style="width: 100%;text-align: left;" data-bind="click:$parent.updateExistingSegment, enable: id() && title()"><i class="icon-plus"></i> Add the current search to <span style="font-style: italic;" data-bind="text: title"></span></button>
+                                            <div class="corp-blue-bg u-padding-As u-margin-Ls" data-bind="visible:  absoluteRecordCount() === 0">
+                                                Now use the filters and refinement tools to shape your customisation and then select this ''Add the current search' link to assign records to your customisation.
+                                            </div>
+                                            <button class="btn btn-link" style="width: 100%;text-align: left;" data-bind="click:removeSearchFromSegmentValue, enable: id() && title(), visible:  absoluteRecordCount()>0"><i class="icon-minus"></i> Remove the current search from <span style="font-style: italic;" data-bind="text: title"></span></button>
+                                            <button class="btn btn-link" style="width: 100%;text-align: left;" data-bind="click:ShowSegmentSingleDetail, enable: id() && title() , visible:  absoluteRecordCount()>0"><i class="icon-search"></i> View only the records relating to <span style="font-style: italic;" data-bind="text: title"></span></button>
+                                            <button class="btn btn-link relative" style="width: 100%; text-align: left;" data-bind="click:removeFromSegment, enable: id() && title() ">
+                                                <i class="icon-trash"></i> Remove <span style="font-style: italic;" data-bind="text: title"></span> from the customisations
+                                                <div class="loading sm" data-bind="visible: isRemoving"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-1-3 u-margin-Bn" data-bind="visible: $parent.creatingNew()">
+                        <span>
+                            <label>Customisation Value</label>
+                            <div class="input-group">
+                                <label class="input-group-addon" data-bind="uniqueFor: 'after'"><i class="icon-pencil"></i></label>
+                                <input   title="Select a value for your segment.e.g. 'small' might be a good value for a segment called 'size'. If you  don't want to create a value then give it the same name as your customisation."
+                                        class="form-control" data-bind="tipsy:{}, uniqueId: true, textInput:firstValue" />
+                            </div>
+                        </span>
+                    </div>
+                    <div class="grid-1-3 u-margin-Bn" data-bind="visible: $parent.creatingNew()">
+                        <button class="btn btn-primary" data-bind="click: function(){($parent.creatingNew() && $parent.saveCurrent())|| $data.isEditTitle(false);}, enable: firstValue() && Title()" style="margin-top: 23px;">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

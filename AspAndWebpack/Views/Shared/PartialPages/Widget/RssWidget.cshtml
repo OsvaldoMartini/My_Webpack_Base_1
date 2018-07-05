@@ -1,0 +1,41 @@
+﻿@model  System.String
+
+@{
+    string containerId = string.Concat("dvRss", Guid.NewGuid().ToString().Replace("-", string.Empty));
+}
+
+<script>
+
+    $(function() {
+
+        var vm = new RssWidgetVM();
+        ko.applyBindings(vm, @containerId);
+
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('@containerId', vm);
+        }
+
+        vm.fetchRssFeed('@Model', 3);
+    });
+
+</script>
+
+<div id="@containerId">
+
+    <div data-bind="text: feedUrl" class="feedUrl grey2 u-margin-Bxs"></div>
+
+    <div class="feedItems" data-bind="foreach : feedItems">
+
+        <div class="feedItem u-border-top">
+            <h4 data-bind="text: title"></h4>
+            <div data-bind="html : content"></div>
+            <div class="feedCategories u-margin-Txs" data-bind="foreach: categories">
+                <div class="feedCategory badge hand u-margin-Bxs" data-bind="text: $data"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

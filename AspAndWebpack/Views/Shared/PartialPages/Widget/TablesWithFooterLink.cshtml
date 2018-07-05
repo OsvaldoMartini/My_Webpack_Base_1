@@ -1,0 +1,4 @@
+﻿@model  Tuple<List<IHS.Apps.CMP.Models.ViewModels.TableModel>, System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.Link>>
+
+@Html.Partial("Widget/Tables", Model.Item1)
+@Html.Partial("Widget/LinkListWidgetFooter", Model.Item2)

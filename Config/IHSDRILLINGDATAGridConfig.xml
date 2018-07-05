@@ -1,0 +1,1621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gridconfig xmlns="http://www.ihs.com/CMP/GridConfig.xsd">
+  <category key="OFFSETDRILLINGDATA" data_provider_key="IDDSQLProvider"
+    alternate_row_colour="alternateRow"
+    allow_save_search="true"
+    include_horizontal_scroll="true"
+    result_portion_size="40"
+    include_checkboxes ="true"
+    show_reports_button="true"
+    allow_customisation="true">
+    <template name="Default" display_as_button="true" display_button_css="gridTemplateGrid">
+      <!--<column key="ODD_Reporting$UWI" header_resource_key="UWI" format="#############0" width="130" null_replacement="" display_header="true" is_customisable="false" />-->
+      <column key="ODD_Reporting$WellID" header_resource_key="Well ID" is_customisable="false" hidden="true"  />
+      <column key="ODD_Reporting$Confidential" header_resource_key=" " is_exportable="false" is_sortable="true" width="40">
+        <image url="highlight_doc.png" visible_when_value="True" from_theme="true" key_resource_key="Confidential" />
+      </column>
+      <column key="ODD_Reporting$LicenseAPI" header_resource_key="License API"  width="150" null_replacement="" display_header="true" is_customisable="false" />
+      <column key="ODD_Reporting$DateLastEdited" type="date" header_resource_key="ODD_Reporting$DateLastEdited"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="ODD_Reporting$WellName" header_resource_key="well_name"  width="190" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$BOE_REGION_NAME" header_resource_key="Region"  width="100" null_replacement="" display_header="true" is_displayed="false" />
+      <column key="ODD_Reporting$HasScan" header_resource_key="HasScan"  width="80" null_replacement="" tooltip_resource_key="Drilling Curve Report" display_header="true">
+        <link url="/CustomPages/IHSDrillingData/GetScannedImage.aspx?uwi={0}"  param_fields="ODD_Reporting$WellID" image="scroll.png"  visible_when_value="Yes" width="100" height="100" />
+      </column>
+      <column key="ODD_Reporting$HasDigitalReports" header_resource_key="ODD_Reporting$HasDigitalReports"  width="90" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$HasCurveReport" header_resource_key="Drilling Curve" width="75" null_replacement="" display_header="true">
+        <link url="/CustomPages/IHSDrillingData/ChooseReports.aspx?WellIdForDrillCurve={0}" width="200"  height="100"  param_fields="ODD_Reporting$WellID"  image="/pdficon_small.gif" visible_when_value="1" target="_blank" />
+      </column>
+      <column key="ODD_Reporting$CountyName" header_resource_key="COUNTY"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$StateName" header_resource_key="state_province"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$LocationDisplayLong" header_resource_key="ODD_Reporting$LocationDisplayLong"  width="130" null_replacement="" display_header="true" is_displayed="false" />
+      <column key="ODD_Reporting$USAField" header_resource_key="License_Reporting$field"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$Basin" header_resource_key="ODD_Reporting$Basin"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$SpudDateTime" type="date" header_resource_key="SpudDate"  width="110" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$RigReleaseDateTime" type="date" header_resource_key="R_R_Date"  width="110" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$DepthTotal" header_resource_key="TotalDepth"  width="100" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$USTownshipDirection" header_resource_key="ODD_Reporting$USTownshipDirection"  width="100" null_replacement="" display_header="true" is_displayed="false" />
+      <column key="ODD_Reporting$USTownshipNumber" header_resource_key="ODD_Reporting$USTownshipNumber" format="#############0"  width="100" null_replacement="" display_header="true" is_displayed="false" type="numeric" />
+      <column key="ODD_Reporting$USRangeDirection" header_resource_key="ODD_Reporting$USRangeDirection"  width="100" null_replacement="" display_header="true" is_displayed="false" />
+      <column key="ODD_Reporting$USRangeNumber" header_resource_key="ODD_Reporting$USRangeNumber" format="#############0"  width="100" null_replacement="" display_header="true" is_displayed="false" type="numeric" />
+      <column key="ODD_Reporting$USSection" header_resource_key="ODD_Reporting$USSection" format="#############0"  width="100" null_replacement="" display_header="true" is_displayed="false" type="numeric" />
+      <column key="ODD_Reporting$LLongitudeValue" header_resource_key="ODD_Reporting$Longitude"  width="140" format="#############0.#############" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$LLatitudeValue" header_resource_key="ODD_Reporting$Latitude"  width="140" format="#############0.#############" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$Contractor" header_resource_key="ODD_Reporting$Contractor"  width="140" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$Operator" header_resource_key="ODD_Reporting$Operator"  width="140" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$WellType" header_resource_key="ODD_Reporting$WellType"  width="100" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$Formation" header_resource_key="ODD_Reporting$Formation"  width="140" null_replacement="" display_header="true" is_filterable="true" />
+
+      <sort key="ODD_Reporting$WellID" purpose="default" direction="ascending" />
+      <!--<sort key="ODD_Reporting$Confidential" purpose="none" direction="ascending" />-->
+      <!--<sort key="ODD_Reporting$UWI" purpose="none" direction="ascending" />-->
+      <sort key="ODD_Reporting$LicenseAPI" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$DateLastEdited" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$WellName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$PathAndFile" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$HasDigitalReports" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$HasCurveReport" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$CountyName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$StateName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LocationDisplayLong" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USAField" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$SpudDateTime" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$RigReleaseDateTime" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$DepthTotal" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USTownshipDirection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USTownshipNumber" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USRangeDirection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USRangeNumber" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USSection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LLongitudeValue" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LLatitudeValue" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Contractor" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Operator" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$WellType" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Formation" purpose="none" direction="ascending" />
+    </template>
+    <template name="View All Data" display_as_button="true" display_button_css="gridTemplateGrid">
+      <!--<column key="ODD_Reporting$UWI" header_resource_key="UWI" format="#############0" width="130" null_replacement="" display_header="true" is_customisable="false" />-->
+      <column key="ODD_Reporting$WellID" header_resource_key="Well ID" is_customisable="false" hidden="true" />
+      <column key="ODD_Reporting$Confidential" header_resource_key=" " is_exportable="false" is_sortable="true" width="40">
+        <image url="highlight_doc.png" visible_when_value="True" from_theme="true" key_resource_key="Confidential" />
+      </column>
+      <column key="ODD_Reporting$LicenseAPI" header_resource_key="License API"  width="150" null_replacement="" display_header="true" is_customisable="false" />
+      <column key="ODD_Reporting$DateLastEdited" type="date" header_resource_key="ODD_Reporting$DateLastEdited"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="ODD_Reporting$WellName" header_resource_key="well_name"  width="190" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$BOE_REGION_NAME" header_resource_key="Region"  width="100" null_replacement="" display_header="true" is_filterable="true" />
+
+      <column key="ODD_Reporting$HasScan" header_resource_key="HasScan"  width="80" null_replacement="" display_header="true">
+        <link url="/CustomPages/IHSDrillingData/GetScannedImage.aspx?uwi={0}" param_fields="ODD_Reporting$WellID" image="scroll.png" visible_when_value="Yes" width="100" height="100" />
+      </column>
+      <column key="ODD_Reporting$HasDigitalReports" header_resource_key="ODD_Reporting$HasDigitalReports"  width="90" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$HasCurveReport" header_resource_key="Drilling Curve" width="90" null_replacement="" display_header="true">
+        <link url="/CustomPages/IHSDrillingData/ChooseReports.aspx?WellIdForDrillCurve={0}" width="200"  height="100"  param_fields="ODD_Reporting$WellID"  image="/pdficon_small.gif" visible_when_value="1" target="_blank" />
+      </column>
+      <column key="ODD_Reporting$CountyName" header_resource_key="COUNTY"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$StateName" header_resource_key="state_province"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$LocationDisplayLong" header_resource_key="ODD_Reporting$LocationDisplayLong"  width="130" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$USAField" header_resource_key="License_Reporting$field"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$Basin" header_resource_key="ODD_Reporting$Basin"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$SpudDateTime" type="date" header_resource_key="SpudDate" width="110" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$RigReleaseDateTime" type="date" header_resource_key="R_R_Date"  width="110" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$DepthTotal" header_resource_key="TotalDepth"  width="100" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$USTownshipDirection" header_resource_key="ODD_Reporting$USTownshipDirection"  width="100" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$USTownshipNumber" header_resource_key="ODD_Reporting$USTownshipNumber" format="#############0"  width="100" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$USRangeDirection" header_resource_key="ODD_Reporting$USRangeDirection"  width="100" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$USRangeNumber" header_resource_key="ODD_Reporting$USRangeNumber" format="#############0"  width="100" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$USSection" header_resource_key="ODD_Reporting$USSection" format="#############0"  width="100" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$LLongitudeValue" header_resource_key="ODD_Reporting$Longitude"  width="140" format="#############0.#############" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$LLatitudeValue" header_resource_key="ODD_Reporting$Latitude"  width="140" format="#############0.#############" null_replacement="" display_header="true" type="numeric" />
+      <column key="ODD_Reporting$Contractor" header_resource_key="ODD_Reporting$Contractor"  width="140" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$Operator" header_resource_key="ODD_Reporting$Operator"  width="140" null_replacement="" display_header="true" />
+      <column key="ODD_Reporting$WellType" header_resource_key="ODD_Reporting$WellType"  width="100" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="ODD_Reporting$Formation" header_resource_key="ODD_Reporting$Formation"  width="140" null_replacement="" display_header="true" is_filterable="true" />
+
+      <sort key="ODD_Reporting$WellID" purpose="default" direction="ascending" />
+      <!--<sort key="ODD_Reporting$Confidential" purpose="none" direction="ascending" />-->
+      <!--<sort key="ODD_Reporting$UWI" purpose="none" direction="ascending" />-->
+      <sort key="ODD_Reporting$LicenseAPI" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$DateLastEdited" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$WellName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$PathAndFile" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$HasDigitalReports" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$HasCurveReport" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$CountyName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$StateName" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LocationDisplayLong" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USAField" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$SpudDateTime" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$RigReleaseDateTime" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$DepthTotal" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USTownshipDirection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USTownshipNumber" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USRangeDirection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USRangeNumber" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$USSection" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LLongitudeValue" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$LLatitudeValue" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Contractor" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Operator" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$WellType" purpose="none" direction="ascending" />
+      <sort key="ODD_Reporting$Formation" purpose="none" direction="ascending" />
+    </template>
+    <live_map_arcgis proxyUrl="LiveMapArcGISProxy.ashx"
+                       xmin="-1.4930291E7"
+                       ymin="2074317"
+                       xmax="-7068448"
+                       ymax="7013943"
+                       spatialReference="102100"
+                       addOverviewMap="true"
+                       printmap_colnames="BOE_REGION_NAME,DEPTHTOTAL,FORMATION,LICENSEAPI,LLATITUDEVALUE,LLONGITUDEVALUE,OPERATOR,SPUDDATETIME,WELLNAME,WELLTYPE"
+                       printmap_colalaises="BOE Region, Total Depth, Formation, API, Latitude, Longitude, Operator, Spud Date, Well Name, Well Type"
+                       printmap_title="Offset Drilling Data"
+                       printmap_type="IDD"
+                       can_zoom="true">
+
+      <services home_url_key="GIS_02_CMPLiveMapArcGISService01">
+
+        <service arcgis_service_type="VETiledLayer" title="Roads" bing_map_style="Roads" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial" is_visible_on_init="false" bing_map_style="Aerial" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial with labels" is_visible_on_init="false" bing_map_style="Aerial_with_labels" can_toggle="true" />
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                title="Well Surface"
+                relative_path ="IDD/Well_Surface/MapServer"
+                can_export ="false"
+                can_find ="false"
+                find_layer_id="1"
+                maximum_number_of_features ="10000"
+                selection_filter_query_layer_id="1"
+                selection_filter_layer_column="FIELD_NAME"
+                is_visible_on_init="false"
+                min_scale="0"
+                max_scale="577792"
+                image_url ="0/images/BC381B6C"
+                image_source ="ems"
+                visible_to_authorisations="energy.us.well.idd.reduced">
+
+          <identify_table sort_column_name="OPER_NAME" sort_column_direction="ascending">
+            <identify_row title="UWI" value_template ="[UWI]" />
+            <identify_row title="Operator" value_template ="[OPER_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="ODD_Reporting$USAField" layer_column="FIELD_NAME" caption_resource_key="ODD_Reporting$USAField" />
+            <filter_mapping category_key ="ODD_Reporting$Basin" layer_column ="BASIN_NM" caption_resource_key ="ODD_Reporting$Basin" />
+            <filter_mapping category_key ="ODD_Reporting$BOE_REGION_NAME" layer_column ="REGION_NM" caption_resource_key ="ODD_Reporting$BOE_REGION_NAME" />
+            <filter_mapping category_key="ODD_Reporting$StateName" layer_column="STATE_NM" caption_resource_key="ODD_Reporting$StateName" />
+            <filter_mapping category_key ="ODD_Reporting$CountyName" layer_column ="COUNTY_NM" caption_resource_key ="ODD_Reporting$CountyName" />
+            <filter_mapping category_key ="ODD_Reporting$Operator" layer_column ="OPERATOR" caption_resource_key ="ODD_Reporting$Operator" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="7F6789B" layer_id ="1" title ="Location" />
+            <legend_image image_url ="BC0AEF9B" layer_id ="1" title ="Drilling in Progress" />
+            <legend_image image_url ="2200E84" layer_id ="1" title ="Oil Well" />
+            <legend_image image_url ="E76402A8" layer_id ="1" title ="Gas Well" />
+            <legend_image image_url ="34DB9B13" layer_id ="1" title ="Oil And Gas Well" />
+            <legend_image image_url ="1088F1A9" layer_id ="1" title ="Dry w/Oil Shows" />
+            <legend_image image_url ="D0B92098" layer_id ="1" title ="Dry w/Gas Shows" />
+            <legend_image image_url ="C7B8FD24" layer_id ="1" title ="Dry w/Oil And Gas Shows" />
+            <legend_image image_url ="8E9BD826" layer_id ="1" title ="Dry Hole" />
+            <legend_image image_url ="EE210F8" layer_id ="1" title ="Injection" />
+            <legend_image image_url ="E8147D76" layer_id ="1" title ="Suspended" />
+            <legend_image image_url ="CFD3F9A0" layer_id ="1" title ="Plugged Gas Well" />
+            <legend_image image_url ="AFA52AF0" layer_id ="1" title ="Plugged Oil Well" />
+            <legend_image image_url ="40A91673" layer_id ="1" title ="Plugged Oil And Gas Well" />
+            <legend_image image_url ="DD4D8F2F" layer_id ="1" title ="Abandoned Location" />
+            <legend_image image_url ="FA7A63F2" layer_id ="1" title ="Unclassified, Co2, etc." />
+          </legend_images>
+
+          <labels>
+            <label id="0" title="UWI" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="288895.4" max_scale="0" />
+            <label id="1" title="WELL_NUM" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+            <label id="3" title="OPERATOR" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                   title="Field Outlines"
+                   relative_path ="IDD/Field_Outlines/MapServer"
+                   can_export ="false"
+                   can_find ="false"
+                   find_layer_id="5"
+                   selection_filter_query_layer_id ="5"
+                   selection_filter_layer_column="FIELD_NAME"
+                   is_visible_on_init="false"
+                   min_scale="0"
+                   max_scale="1155581.4"
+                   visible_to_authorisations="energy.us.field.idd.reduced">
+
+          <identify_table>
+            <identify_row title="Field Name" value_template = "[FIELD_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="ODD_Reporting$USAField" layer_column="FIELD_NAME" caption_resource_key="ODD_Reporting$USAField" />
+            <filter_mapping category_key="ODD_Reporting$StateName" layer_column="STATE_NAME" caption_resource_key="ODD_Reporting$StateName" />
+          </filter_mappings>
+          <legend_images>
+            <legend_image image_url ="F9C454E" layer_id ="1" title ="Oil" />
+            <legend_image image_url ="6AF664BF" layer_id ="2" title="Gas" />
+            <legend_image image_url ="6F26B64" layer_id ="3" title ="Oil And Gas - Overview" />
+            <legend_image image_url ="20A7CE29" layer_id ="5" title ="Oil And Gas - Detail" />
+          </legend_images>
+
+          <labels>
+            <label id="8" title="FIELD_NAME" filter_based_on_layer_id="5" is_visible_on_init="true" min_scale="1155581.4 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/COUNTY/MapServer"
+                title="County"
+                arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                can_export ="false"
+                can_find ="false"
+                find_layer_id="0"
+                selection_filter_layer_column ="COUNTY"
+                selection_filter_query_layer_id="0"
+                min_scale="4622325.1"
+                max_scale="0"
+                image_url ="0/images/BCD8B8BE"
+                image_source ="ems">
+
+          <identify_table>
+            <identify_row title="County" value_template = "[COUNTY]" />
+            <identify_row title="State" value_template = "[STATE]" />
+          </identify_table>
+
+          <!--<filter_mappings>
+                        <filter_mapping category_key ="ODD_Reporting$CountyName" layer_column ="COUNTY" caption_resource_key ="ODD_Reporting$CountyName" />
+                        <filter_mapping category_key ="ODD_Reporting$StateName" layer_column ="STATE" caption_resource_key ="ODD_Reporting$StateName" />
+                    </filter_mappings>-->
+          <labels>
+            <label id="17" title="COUNTY" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="2311162.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/Basins/MapServer"
+                    title="Basin"
+                    arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                    can_export ="false"
+                    can_find ="false"
+                    find_layer_id="1"
+                    selection_filter_layer_column ="BASIN_NAME"
+                    selection_filter_query_layer_id="1"
+                    is_visible_on_init="false"
+                    min_scale="591657551"
+                    max_scale="36978597.1"
+                    image_url ="0/images/6E139641"
+                    image_source ="ems">
+
+          <identify_table>
+            <identify_row title="Basin Name" value_template = "[BASIN_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key ="ODD_Reporting$Basin" layer_column ="BASIN_NAME" caption_resource_key ="ODD_Reporting$Basin" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="3BF745CC" layer_id ="1" title ="Main Basin" />
+            <legend_image image_url ="55612FFD" layer_id ="1" title ="Sub Basin" />
+          </legend_images>
+
+          <labels>
+            <label id="18" title="Main - BASIN_NAME" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="19" title="Sub - BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="20" title="Sub - PARENT_BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+               title="ODD Reporting"
+               relative_path ="IDD/ODD_Reporting/MapServer"
+               selection_filter_layer_column="WELLID"
+               selection_filter_query_layer_id ="1"
+               can_find ="false"
+               find_layer_id="1"
+               can_export="false"
+               maximum_number_of_features="10000"
+               min_scale="1.479143881E8"
+               max_scale="288895.4"
+               image_url ="1/images/387BAC1F"
+               image_source ="ems"
+               main_layer="true"
+               lon_column="LLONGITUDEVALUE"
+               lat_column="LLATITUDEVALUE"
+               table_name="ODD_REPORTING"
+               entitlement_column="BOE_REGION_CODE"
+               visible_to_authorisations="energy.us.drilingdata">
+
+          <identify_table>
+            <identify_row title="License API" value_template = "[License API]" />
+            <identify_row title="Well Name" value_template = "[Well Name]" />
+            <identify_row title="County" value_template = "[County]" />
+            <identify_row title="State" value_template = "[State]" />
+            <identify_row title="Field" value_template = "[Field]" />
+            <identify_row title="Spud Date" value_template = "[Spud Date]" />
+            <identify_row title="Total Depth" value_template = "[Total Depth]" />
+            <identify_row title="Longitude" value_template = "[Longitude (NAD 27)]" />
+            <identify_row title="Latitude" value_template = "[Latitude (NAD 27)]" />
+            <identify_row title="Operator" value_template = "[Operator]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping  category_key="ODD_Reporting$WellID" layer_column="WELLID" caption_resource_key="ODD_Reporting$WellID"  enforce_type="numeric" />
+            <filter_mapping  category_key="ODD_Reporting$BOE_REGION_NAME" layer_column="BOE_REGION_NAME" caption_resource_key="ODD_Reporting$BOE_REGION_NAME" />
+            <filter_mapping  category_key="ODD_Reporting$Formation" layer_column="FORMATION" caption_resource_key="ODD_Reporting$Formation" />
+            <filter_mapping  category_key="ODD_Reporting$Operator" layer_column="OPERATOR" caption_resource_key="ODD_Reporting$Operator" />
+            <filter_mapping  category_key="ODD_Reporting$WellName" layer_column="WELLNAME" caption_resource_key="Well Name" />
+            <filter_mapping  category_key="ODD_Reporting$USAField" layer_column="FIELD" caption_resource_key="ODD_Reporting$USAField" />
+            <filter_mapping  category_key="ODD_Reporting$StateName" layer_column="STATE" caption_resource_key="state_province" />
+            <filter_mapping  category_key="ODD_Reporting$CountyName" layer_column="COUNTY" caption_resource_key="COUNTY" />
+            <filter_mapping  category_key="ODD_Reporting$LicenseAPI" layer_column="LICENSEAPI" caption_resource_key="ODD_Reporting$LicenseAPI" />
+            <filter_mapping  category_key="ODD_Reporting$LLongitudeValue" layer_column="LLONGITUDEVALUE" caption_resource_key="ODD_Reporting$LLongitudeValue" />
+            <filter_mapping  category_key="ODD_Reporting$LLatitudeValue" layer_column="LLATITUDEVALUE" caption_resource_key="ODD_Reporting$LLatitudeValue" />
+          </filter_mappings>
+          <labels>
+            <label id="27" title="WELLID" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+            <label id="28" title="WELLNAME" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="288895.4" max_scale="0" />
+            <label id="29" title="OPERATOR" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+          </labels>
+        </service>
+      </services>
+
+      <label_service arcgis_service_type="ArcGISDynamicMapServiceLayer" id="000L" relative_path="IDD/IDD_Labels/MapServer" home_url_key="GIS_02_CMPLiveMapArcGISService01" />
+    </live_map_arcgis>
+    <export>
+      <csv maxExportBatched="10000"   isEmailAttachment="true"  maxExportStreamed="900" quoteStrings="false" />
+      <tab maxExportBatched="10000"  isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <xml maxExportBatched="10000"  isEmailAttachment="true" maxExportStreamed="900" />
+      <excel maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+    </export>
+    <report_limits max="10">
+      <report type="curve" max="1" />
+      <report type="multiple" min="2" max="5" />
+    </report_limits>
+  </category>
+  <category key="LICENSEPERMITS" data_provider_key="IDDOracleProvider"
+    alternate_row_colour="alternateRow"
+    allow_save_search="true"
+    include_horizontal_scroll="true"
+    result_portion_size="40"
+    include_checkboxes ="false"
+    show_reports_button="true"
+    allow_customisation="true">
+    <template name="Default" display_as_button="true">
+      <column key="License_Reporting$uwi" header_resource_key="License_Reporting$uwi" width="130" null_replacement="" display_header="true" is_exportable="true" is_customisable="false" type="number_as_a_string" />
+      <column key="License_Reporting$datefirstentered" type="date" header_resource_key="License_Reporting$datefirstentered" width="120" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$datelastupdated" type="date" header_resource_key="License_Reporting$datelastupdated"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="License_Reporting$BOE_REGION_NAME" header_resource_key="License_Reporting$BOE_REGION_NAME"  width="190" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$State" header_resource_key="License_Reporting$State"  width="130" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$County" header_resource_key="License_Reporting$County"  width="130" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$latitude" header_resource_key="Latitude" format="#############0.#############"  width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$longitude" header_resource_key="Longitude" format="#############0.#############"   width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$field" header_resource_key="License_Reporting$field"  width="150" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$Basin" header_resource_key="License_Reporting$Basin"  width="130" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="License_Reporting$US_RangeNumber" header_resource_key="License_Reporting$US_RangeNumber" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="License_Reporting$US_RangeDirection" header_resource_key="License_Reporting$US_RangeDirection"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$US_TownshipNumber" header_resource_key="License_Reporting$US_TownshipNumber" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="License_Reporting$US_TownshipDirection" header_resource_key="License_Reporting$US_TownshipDirection"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$US_Section" header_resource_key="License_Reporting$US_Section" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="License_Reporting$Tx_Abstract" header_resource_key="License_Reporting$Tx_Abstract"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$footage" header_resource_key="Footage"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$OF_BLOCK1" header_resource_key="License_Reporting$OF_BLOCK1"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$OF_BLOCK2" header_resource_key="License_Reporting$OF_BLOCK2"  width="80" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$projecteddepth" header_resource_key="License_Reporting$projecteddepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$wellname" header_resource_key="License_Reporting$wellname"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$welltype" header_resource_key="License_Reporting$welltype"  width="100" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$licensedate" type="date" header_resource_key="License_Reporting$licensedate"  width="110" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$ACTUALRR" header_resource_key="License_Reporting$ACTUALRR"  width="110" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$productiontype" header_resource_key="License_Reporting$productiontype"  width="130" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$permitfilername" header_resource_key="License_Reporting$permitfilername"  width="150" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$permitfilerphone" header_resource_key="License_Reporting$permitfilerphone"  width="110" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$waterdepth" header_resource_key="License_Reporting$waterdepth"  width="100" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="License_Reporting$OperatorName" header_resource_key="License_Reporting$operatorname"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$FIRST_ADDRESS_LINE" header_resource_key="Operator Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false" is_displayed="false">
+        <column key="License_Reporting$SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 2"></column>
+        <column key="License_Reporting$THIRD_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 3"></column>
+        <column key="License_Reporting$CITY" column_prefix=", " header_resource_key="Operator Address City"></column>
+        <column key="License_Reporting$PROVINCE_STATE" column_prefix=", " header_resource_key="Operator Address State"></column>
+        <column key="License_Reporting$POSTAL_ZIP_CODE" column_prefix=", " header_resource_key="Operator Address Zip Code"></column>
+      </column>
+      <column key="License_Reporting$PHONE_NUM" header_resource_key="Operator Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" is_displayed="false" />
+      <column key="License_Reporting$TERMINATINGZONE" header_resource_key="License_Reporting$TERMINATINGZONE"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+
+      <sort key="License_Reporting$uwi" purpose="default" direction="ascending" />
+      <sort key="License_Reporting$datefirstentered" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$datelastupdated" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$State" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$County" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$latitude" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$longitude" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$field" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_RangeNumber" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_RangeDirection" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_TownshipNumber" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_TownshipDirection" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_Section" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$Tx_Abstract" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$footage" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OF_BLOCK1" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OF_BLOCK2" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$projecteddepth" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$wellname" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$welltype" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$licensedate" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$ACTUALRR" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$productiontype" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$permitfilername" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$permitfilerphone" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$waterdepth" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OperatorName" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$TERMINATINGZONE" purpose="none" direction="ascending" />
+    </template>
+    <template name="View All Data" display_as_button="true">
+      <column key="License_Reporting$uwi" header_resource_key="License_Reporting$uwi" width="130" null_replacement="" display_header="true" is_exportable="true" is_customisable="false" type="number_as_a_string" />
+      <column key="License_Reporting$datefirstentered" type="date" header_resource_key="License_Reporting$datefirstentered" width="120" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$datelastupdated" type="date" header_resource_key="License_Reporting$datelastupdated"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="License_Reporting$BOE_REGION_NAME" header_resource_key="License_Reporting$BOE_REGION_NAME"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$State" header_resource_key="License_Reporting$State"  width="120" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$County" header_resource_key="License_Reporting$County"  width="120" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$latitude" header_resource_key="Latitude" format="#############0.#############"  width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$longitude" header_resource_key="Longitude" format="#############0.#############"   width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$field" header_resource_key="License_Reporting$field"  width="180" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$Basin" header_resource_key="License_Reporting$Basin"  width="150" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="License_Reporting$US_RangeNumber" header_resource_key="License_Reporting$US_RangeNumber" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$US_RangeDirection" header_resource_key="License_Reporting$US_RangeDirection"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$US_TownshipNumber" header_resource_key="License_Reporting$US_TownshipNumber" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$US_TownshipDirection" header_resource_key="License_Reporting$US_TownshipDirection"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$US_Section" header_resource_key="License_Reporting$US_Section" format="#############0"  width="80" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$Tx_Abstract" header_resource_key="License_Reporting$Tx_Abstract"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$footage" header_resource_key="Footage"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$OF_BLOCK1" header_resource_key="License_Reporting$OF_BLOCK1"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$OF_BLOCK2" header_resource_key="License_Reporting$OF_BLOCK2"  width="80" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$projecteddepth" header_resource_key="License_Reporting$projecteddepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$wellname" header_resource_key="License_Reporting$wellname"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$welltype" header_resource_key="License_Reporting$welltype"  width="100" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$licensedate" type="date" header_resource_key="License_Reporting$licensedate"  width="110" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$ACTUALRR" header_resource_key="License_Reporting$ACTUALRR"  width="110" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$productiontype" header_resource_key="License_Reporting$productiontype"  width="130" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$permitfilername" header_resource_key="License_Reporting$permitfilername"  width="150" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$permitfilerphone" header_resource_key="License_Reporting$permitfilerphone"  width="110" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="License_Reporting$waterdepth" header_resource_key="License_Reporting$waterdepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="License_Reporting$OperatorName" header_resource_key="License_Reporting$operatorname"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="License_Reporting$FIRST_ADDRESS_LINE" header_resource_key="Operator Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false">
+        <column key="License_Reporting$SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 2"></column>
+        <column key="License_Reporting$THIRD_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 3"></column>
+        <column key="License_Reporting$CITY" column_prefix=", " header_resource_key="Operator Address City"></column>
+        <column key="License_Reporting$PROVINCE_STATE" column_prefix=", " header_resource_key="Operator Address State"></column>
+        <column key="License_Reporting$POSTAL_ZIP_CODE" column_prefix=", " header_resource_key="Operator Address Zip Code"></column>
+      </column>
+      <column key="License_Reporting$PHONE_NUM" header_resource_key="Operator Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="License_Reporting$TERMINATINGZONE" header_resource_key="License_Reporting$TERMINATINGZONE"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+
+      <sort key="License_Reporting$uwi" purpose="default" direction="ascending" />
+      <sort key="License_Reporting$datefirstentered" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$datelastupdated" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$State" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$County" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$latitude" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$longitude" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$field" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_RangeNumber" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_RangeDirection" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_TownshipNumber" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_TownshipDirection" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$US_Section" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$Tx_Abstract" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$footage" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OF_BLOCK1" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OF_BLOCK2" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$projecteddepth" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$wellname" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$welltype" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$licensedate" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$ACTUALRR" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$productiontype" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$permitfilername" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$permitfilerphone" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$waterdepth" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$OperatorName" purpose="none" direction="ascending" />
+      <sort key="License_Reporting$TERMINATINGZONE" purpose="none" direction="ascending" />
+    </template>
+    <live_map_arcgis proxyUrl="LiveMapArcGISProxy.ashx"
+        xmin="-1.4930291E7"
+        ymin="2074317"
+        xmax="-7068448"
+        ymax="7013943"
+        spatialReference="102100"
+        addOverviewMap="true"
+        printmap_colnames="STATE_NM,COUNTRY_NM,UWI,OPERATOR,PROJ_TD,PERMIT_DT"
+        printmap_colalaises="State, County, UWI, Operator, Projected Depth, Permit Date"
+        printmap_title="Licenses/Permits"
+        printmap_type="IDD"
+        can_zoom="true">
+
+      <services home_url_key="GIS_02_CMPLiveMapArcGISService01">
+        <service arcgis_service_type="VETiledLayer" title="Roads"  bing_map_style="Roads" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial" is_visible_on_init="false" bing_map_style="Aerial" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial with labels" is_visible_on_init="false" bing_map_style="Aerial_with_labels" can_toggle="true" />
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+            title="Well Surface"
+            relative_path ="IDD/Well_Surface/MapServer"
+            can_export ="false"
+            can_find ="false"
+            find_layer_id="1"
+            maximum_number_of_features ="10000"
+            selection_filter_query_layer_id="1"
+            selection_filter_layer_column="FIELD_NAME"
+            is_visible_on_init="false"
+            min_scale="0"
+            max_scale="577792"
+            image_url ="0/images/BC381B6C"
+            image_source ="ems"
+            visible_to_authorisations="energy.us.well.idd.reduced">
+
+          <identify_table sort_column_name="OPER_NAME" sort_column_direction="ascending">
+
+            <identify_row title="UWI" value_template ="[UWI]" />
+            <identify_row title="Operator" value_template ="[OPER_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="License_Reporting$field" layer_column="FIELD_NAME" caption_resource_key="License_Reporting$field" />
+            <filter_mapping category_key ="License_Reporting$Basin" layer_column ="BASIN_NM" caption_resource_key ="License_Reporting$Basin" />
+            <filter_mapping category_key ="PI_BOE_REGIONS$BOE_REGION_NAME" layer_column ="REGION_NM" caption_resource_key ="PI_BOE_REGIONS$BOE_REGION_NAME" />
+            <filter_mapping category_key="License_Reporting$State" layer_column="STATE_NM" caption_resource_key="License_Reporting$State" />
+            <filter_mapping category_key ="License_Reporting$County" layer_column ="COUNTY_NM" caption_resource_key ="License_Reporting$County" />
+            <filter_mapping category_key ="License_Reporting$OperatorName" layer_column ="OPER_NAME" caption_resource_key ="License_Reporting$operatorname" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="7F6789B" layer_id ="1" title ="Location" />
+            <legend_image image_url ="BC0AEF9B" layer_id ="1" title ="Drilling in Progress" />
+            <legend_image image_url ="2200E84" layer_id ="1" title ="Oil Well" />
+            <legend_image image_url ="E76402A8" layer_id ="1" title ="Gas Well" />
+            <legend_image image_url ="34DB9B13" layer_id ="1" title ="Oil And Gas Well" />
+            <legend_image image_url ="1088F1A9" layer_id ="1" title ="Dry w/Oil Shows" />
+            <legend_image image_url ="D0B92098" layer_id ="1" title ="Dry w/Gas Shows" />
+            <legend_image image_url ="C7B8FD24" layer_id ="1" title ="Dry w/Oil And Gas Shows" />
+            <legend_image image_url ="8E9BD826" layer_id ="1" title ="Dry Hole" />
+            <legend_image image_url ="EE210F8" layer_id ="1" title ="Injection" />
+            <legend_image image_url ="E8147D76" layer_id ="1" title ="Suspended" />
+            <legend_image image_url ="CFD3F9A0" layer_id ="1" title ="Plugged Gas Well" />
+            <legend_image image_url ="AFA52AF0" layer_id ="1" title ="Plugged Oil Well" />
+            <legend_image image_url ="40A91673" layer_id ="1" title ="Plugged Oil And Gas Well" />
+            <legend_image image_url ="DD4D8F2F" layer_id ="1" title ="Abandoned Location" />
+            <legend_image image_url ="FA7A63F2" layer_id ="1" title ="Unclassified, Co2, etc." />
+          </legend_images>
+          <labels>
+            <label id="0" title="UWI" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="288895.4" max_scale="0" />
+            <label id="1" title="WELL_NUM" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+            <label id="3" title="OPERATOR" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                title="Field Outlines"
+                relative_path ="IDD/Field_Outlines/MapServer"
+                can_export ="false"
+                can_find ="false"
+                find_layer_id="5"
+                selection_filter_query_layer_id ="5"
+                selection_filter_layer_column="FIELD_NAME"
+                is_visible_on_init="false"
+                min_scale="0"
+                max_scale="1155581.4"
+                visible_to_authorisations="energy.us.field.idd.reduced">
+
+          <identify_table>
+            <identify_row title="Field Name" value_template = "[FIELD_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="License_Reporting$field" layer_column="FIELD_NAME" caption_resource_key="License_Reporting$field" />
+            <filter_mapping category_key="License_Reporting$State" layer_column="STATE_NAME" caption_resource_key="License_Reporting$State" />
+          </filter_mappings>
+          <legend_images>
+            <legend_image image_url ="F9C454E" layer_id ="1" title ="Oil" />
+            <legend_image image_url ="6AF664BF" layer_id ="2" title="Gas" />
+            <legend_image image_url ="6F26B64" layer_id ="3" title ="Oil And Gas - Overview" />
+            <legend_image image_url ="20A7CE29" layer_id ="5" title ="Oil And Gas - Detail" />
+          </legend_images>
+          <labels>
+            <label id="8" title="FIELD_NAME" filter_based_on_layer_id="5" is_visible_on_init="true" min_scale="1155581.4 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/COUNTY/MapServer"
+            title="County"
+            arcgis_service_type="ArcGISDynamicMapServiceLayer"
+            can_export ="false"
+            can_find ="false"
+            find_layer_id="0"
+            selection_filter_layer_column ="COUNTY"
+            selection_filter_query_layer_id="0"
+            min_scale="4622325.1"
+            max_scale="0"
+            image_url ="0/images/BCD8B8BE"
+            image_source ="ems">
+
+          <identify_table>
+            <identify_row title="County" value_template = "[COUNTY]" />
+            <identify_row title="State" value_template = "[STATE]" />
+          </identify_table>
+
+          <labels>
+            <label id="17" title="COUNTY" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="2311162.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/Basins/MapServer"
+                title="Basin"
+                arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                can_export ="false"
+                can_find ="false"
+                find_layer_id="1"
+                selection_filter_layer_column ="BASIN_NAME"
+                selection_filter_query_layer_id="1"
+                is_visible_on_init="false"
+                min_scale="591657551"
+                max_scale="36978597.1"
+                image_url ="0/images/6E139641"
+                image_source ="ems">
+
+          <identify_table>
+            <identify_row title="Basin Name" value_template = "[BASIN_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key ="License_Reporting$Basin" layer_column ="BASIN_NAME" caption_resource_key ="License_Reporting$Basin" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="3BF745CC" layer_id ="1" title ="Main Basin" />
+            <legend_image image_url ="55612FFD" layer_id ="1" title ="Sub Basin" />
+          </legend_images>
+          <labels>
+            <label id="18" title="Main - BASIN_NAME" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="19" title="Sub - BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="20" title="Sub - PARENT_BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path = "IDD/RIGACTIVITY_REPORTING/MapServer"
+                      title="Rig Activity"
+                      is_visible_on_init="false"
+                      arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                      can_export ="false"
+                      can_find ="false"
+                      find_layer_id="1"
+                      selection_filter_layer_column="UWI"
+                      selection_filter_query_layer_id="1"
+                      maximum_number_of_features="10000"
+                      min_scale="1.479143881E8"
+                      max_scale="1155581.4"
+                      image_url ="0/images/D8FA93EA"
+                      image_source ="ems"
+                      table_name="RIGACTIVITY_REPORTING"
+                      lat_column="LATITUDE"
+                      lon_column="LONGITUDE"
+                      entitlement_column="BOE_RGN_CD"
+                      foreign_category="RIGACTIVITY"
+                      visible_to_authorisations="energy.us.rigdata">
+
+          <identify_table>
+            <identify_row title="UWI" value_template = "[UWI]" />
+            <identify_row title="Rig Name" value_template = "[Rig Name]" />
+            <identify_row title="Status" value_template = "[Status]" />
+            <identify_row title="Well Name" value_template = "[Well Name]" />
+            <identify_row title="Region" value_template = "[BOE Region]" />
+            <identify_row title="State" value_template = "[State]" />
+            <identify_row title="County" value_template = "[County]" />
+            <identify_row title="Longitude" value_template = "[Longitude (NAD 27)]" />
+            <identify_row title="Latitude" value_template = "[Latitude (NAD 27)]" />
+            <identify_row title="Operator" value_template = "[Operator]" />
+            <identify_row title="Contractor" value_template = "[Contractor]" />
+            <identify_row title="Spud Date" value_template = "[Spud Date]" />
+            <identify_row title="Terminating Zone" value_template = "[Terminating Zone]" />
+            <identify_row title="Production Type" value_template = "[Production Type]" />
+            <identify_row title="Rig ID" value_template = "[Rig ID]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="License_Reporting$uwi" layer_column="UWI" caption_resource_key="RigActivity_Reporting$UWI" enforce_type="string" />
+            <filter_mapping category_key="License_Reporting$Basin" layer_column="BASIN" caption_resource_key="RigActivity_Reporting$Basin" />
+            <filter_mapping category_key="License_Reporting$BOE_REGION_NAME" layer_column="REGION" caption_resource_key="License_Reporting$BOE_REGION_NAME" />
+            <!-- filter_mapping category_key="RigActivity_Reporting$Contractor" layer_column="CONTRACTOR" caption_resource_key="RigActivity_Reporting$Contractor" / -->
+            <filter_mapping category_key="License_Reporting$OperatorName" layer_column="OPERATOR" caption_resource_key="RigActivity_Reporting$OperatorName" />
+            <!-- filter_mapping category_key="RigActivity_Reporting$RigName" layer_column="RIGNAME " caption_resource_key="RigActivity_Reporting$RigName" / -->
+            <!-- filter_mapping category_key="RigActivity_Reporting$wellname" layer_column="WELLNAME" caption_resource_key="RigActivity_Reporting$wellname" / -->
+            <filter_mapping category_key="License_Reporting$productiontype" layer_column="PRODUCTIONTYPE " caption_resource_key="RigActivity_Reporting$productiontype" />
+            <filter_mapping category_key="License_Reporting$field" layer_column="FIELD" caption_resource_key="RigActivity_Reporting$field" />
+            <filter_mapping category_key="License_Reporting$State" layer_column="STATE" caption_resource_key="state_province" />
+            <filter_mapping category_key="License_Reporting$County" layer_column="COUNTY" caption_resource_key="County" />
+            <filter_mapping category_key="License_Reporting$latitude" layer_column="LATITUDE" caption_resource_key="RigActivity_Reporting$Latitude" />
+            <filter_mapping category_key="License_Reporting$longitude" layer_column="LONGITUDE" caption_resource_key="RigActivity_Reporting$Longitude" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="3A05F0EF" layer_id ="1" title ="Active" />
+            <legend_image image_url ="B6C3BFD1" layer_id ="1" title ="Inactive" />
+            <legend_image image_url ="B0CB8F7F" layer_id ="1" title ="Unreported" />
+          </legend_images>
+          <labels>
+            <label id="21" title="RIGID" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale="288895.4" max_scale="0" />
+            <label id="22" title="UWI" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="23" title="WELLNAME" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="24" title="RIGNAME" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="25" title="OPERATOR" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="26" title="CONTRACTOR" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+          title="ODD Reporting"
+          is_visible_on_init="false"
+          relative_path ="IDD/ODD_Reporting/MapServer"
+          selection_filter_layer_column="WELLID"
+          selection_filter_query_layer_id ="1"
+          can_find ="false"
+          find_layer_id="1"
+          can_export="false"
+          maximum_number_of_features="10000"
+          min_scale="1.479143881E8"
+          max_scale="288895.4"
+          image_url ="1/images/387BAC1F"
+          image_source ="ems"
+          lon_column="LLONGITUDEVALUE"
+          lat_column="LLATITUDEVALUE"
+          table_name="ODD_REPORTING"
+          entitlement_column="BOE_REGION_CODE"
+          foreign_category="OFFSETDRILLINGDATA"
+          visible_to_authorisations="energy.us.drilingdata">
+
+          <identify_table>
+            <identify_row title="License API" value_template = "[License API]" />
+            <identify_row title="Well Name" value_template = "[Well Name]" />
+            <identify_row title="County" value_template = "[County]" />
+            <identify_row title="State" value_template = "[State]" />
+            <identify_row title="Field" value_template = "[Field]" />
+            <identify_row title="Spud Date" value_template = "[Spud Date]" />
+            <identify_row title="Total Depth" value_template = "[Total Depth]" />
+            <identify_row title="Longitude" value_template = "[Longitude (NAD 27)]" />
+            <identify_row title="Latitude" value_template = "[Latitude (NAD 27)]" />
+            <identify_row title="Operator" value_template = "[Operator]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping  category_key="License_Reporting$uwi" layer_column="WELLID" caption_resource_key="ODD_Reporting$WellID" enforce_type="numeric" />
+            <filter_mapping  category_key="PI_BOE_REGIONS$BOE_REGION_NAME" layer_column="BOE_REGION_NAME" caption_resource_key="ODD_Reporting$BOE_REGION_NAME" />
+            <!-- filter_mapping  category_key="ODD_Reporting$Formation" layer_column="FORMATION" caption_resource_key="ODD_Reporting$Formation" / -->
+            <filter_mapping  category_key="License_Reporting$OperatorName" layer_column="OPERATOR" caption_resource_key="ODD_Reporting$Operator" />
+            <!-- filter_mapping  category_key="ODD_Reporting$WellName" layer_column="WELLNAME" caption_resource_key="Well Name" / -->
+            <filter_mapping  category_key="License_Reporting$field" layer_column="FIELD" caption_resource_key="ODD_Reporting$USAField" />
+            <filter_mapping  category_key="License_Reporting$State" layer_column="STATE" caption_resource_key="state_province" />
+            <filter_mapping  category_key="License_Reporting$County" layer_column="COUNTY" caption_resource_key="COUNTY" />
+            <filter_mapping  category_key="License_Reporting$longitude" layer_column="LLONGITUDEVALUE" caption_resource_key="ODD_Reporting$LLongitudeValue" />
+            <filter_mapping  category_key="License_Reporting$latitude" layer_column="LLATITUDEVALUE" caption_resource_key="ODD_Reporting$LLatitudeValue" />
+          </filter_mappings>
+          <labels>
+            <label id="27" title="WELLID" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+            <label id="28" title="WELLNAME" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="288895.4" max_scale="0" />
+            <label id="29" title="OPERATOR" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                            title="Permit Activity"
+                            relative_path ="IDD/Well_Activity/MapServer"
+                            selection_filter_layer_column ="UWI"
+                            can_find ="false"
+                            can_export="false"
+                            maximum_number_of_features="10000"
+                            main_layer="true"
+                            selection_filter_query_layer_id="5"
+                            table_name="Well_Activity_WM"
+                            lat_column="POINT_Y"
+                            lon_column="POINT_X"
+                            entitlement_column="BOE_REGION"
+                            arcgis_geodatabases_type="FileGeodatabase">
+          <identify_table>
+            <identify_row title="UWI" value_template = "[UWI]" />
+            <identify_row title="Last Act" value_template = "[LAST_ACT]" />
+            <identify_row title="County Name" value_template = "[COUNTY_NM]" />
+            <identify_row title="Latitude" value_template = "[LATITUDE]" />
+            <identify_row title="Longitude" value_template = "[LONGITUDE]" />
+            <identify_row title="Field" value_template = "[FIELD]" />
+            <identify_row title="Proj Td" value_template = "[PROJ_TD]" />
+            <identify_row title="Well Name" value_template = "[WELL_NAME]" />
+            <identify_row title="Hole direction" value_template = "[HOLE_DIR]" />
+            <identify_row title="Permit Date" value_template = "[PERMIT_DT]" />
+            <identify_row title="Operator" value_template = "[OPERATOR]" />
+          </identify_table>
+
+          <layers>
+            <layer id="1" title="Permits (Yesterday)"
+                   legend_image_url ="DE23E825"
+                   linked_layer_ids ="12"
+                   selection_filter_query_layer_id="12"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                 server_definition_expression="PERMIT_DT &gt;= (current_date - 1) AND ACT_CODE IN ('A', 'B', 'E')" />
+            <layer id="2" title="Permits (2 - 7 Days)"
+                   legend_image_url ="74B72B7A"
+                   linked_layer_ids ="13"
+                   selection_filter_query_layer_id="13"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                 server_definition_expression="(PERMIT_DT &lt; (current_date - 1) AND PERMIT_DT &gt;= (current_date - 7)) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="3" title="Permits (7 - 30 Days)" legend_image_url ="DB7FC442"
+                   linked_layer_ids="14"
+                   selection_filter_query_layer_id="14"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                 server_definition_expression="PERMIT_DT &lt; (current_date - 7) AND PERMIT_DT &gt;= (current_date - 30) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="4" title="Permits (30 - 180 Days)"
+                   legend_image_url ="9843FDAD"
+                   linked_layer_ids ="15"
+                   selection_filter_query_layer_id="15"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                 server_definition_expression="PERMIT_DT &lt; (current_date - 30) AND PERMIT_DT &gt;= (current_date - 180) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="5" title="Permits - All Active"
+                   legend_image_url ="1A5B0097"
+                   linked_layer_ids ="16"
+                   selection_filter_query_layer_id="16"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   is_visible_on_init="false"
+                 server_definition_expression="(( PERMIT_DT &gt;= (current_date - 730)) OR RELOC_DT &gt;= (current_date - 730)) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="6" title="Abandoned Locations"
+                   legend_image_url ="E0D41C35"
+                   linked_layer_ids ="17"
+                   selection_filter_query_layer_id="17"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   is_visible_on_init="false"
+                 server_definition_expression="ACT_CODE IN ('E')" />
+            <layer id="7" title="Current Drilling"
+                   legend_image_url ="BC96A24D"
+                   linked_layer_ids ="18"
+                   selection_filter_query_layer_id="18"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   is_visible_on_init="false"
+                 server_definition_expression="ACT_CODE IN ('B')" />
+            <layer id="8" title="Completions - This Month"
+                   legend_image_url ="796355E5"
+                   linked_layer_ids ="19"
+                   selection_filter_query_layer_id="19"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   is_visible_on_init="false"
+                 server_definition_expression="COMP_DATE &gt;= (current_date - 30) AND ACT_CODE IN ('C', 'D')" />
+            <layer id="9" title="Activity - Last 6 months"
+                   legend_image_url ="16BC5ED"
+                   linked_layer_ids ="20"
+                   selection_filter_query_layer_id="20"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   is_visible_on_init="false"
+                 server_definition_expression="(( PERMIT_DT &gt;= (current_date - 180)) OR (RELOC_DT &gt;= (current_date - 180)) OR (SPUD_DATE &gt;= (current_date - 180)) OR (ABLOC_DATE &gt;= (current_date - 180)) OR (COMP_DATE &gt;= (current_date - 180)) ) AND ACT_CODE IN ('A', 'B', 'C', 'D')" />
+            <layer id="10" title="Activity - All "
+                   legend_image_url ="24177FAD"
+                   linked_layer_ids ="21"
+                   selection_filter_query_layer_id="21"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+                   main_layer="true"
+                   is_visible_on_init="false"
+                 server_definition_expression="ACT_CODE &lt;&gt; 'E'" />
+          </layers>
+
+          <filter_mappings>
+            <filter_mapping category_key="License_Reporting$uwi" layer_column="UWI" caption_resource_key="License_Reporting$uwi" enforce_type="string" />
+            <filter_mapping category_key="License_Reporting$Basin" layer_column="BASIN_NM" caption_resource_key="License_Reporting$Basin" />
+            <filter_mapping category_key="License_Reporting$BOE_REGION_NAME" layer_column="BOE_REGION" layer_column_lookup="BOE_REGION" caption_resource_key="License_Reporting$BOE_REGION_NAME" />
+            <filter_mapping category_key="License_Reporting$field" layer_column="FIELD" caption_resource_key="License_Reporting$field" />
+            <filter_mapping category_key="License_Reporting$State" layer_column="STATE_NM" caption_resource_key="License_Reporting$State" />
+            <filter_mapping category_key="License_Reporting$County" layer_column ="COUNTY_NM" caption_resource_key ="License_Reporting$County" />
+            <filter_mapping category_key="License_Reporting$OperatorName" layer_column ="OPERATOR" caption_resource_key ="License_Reporting$operatorname" />
+            <filter_mapping category_key="License_Reporting$productiontype" layer_column="TARGET" caption_resource_key="License_Reporting$productiontype" />
+            <filter_mapping category_key="License_Reporting$longitude" layer_column="LONGITUDE" caption_resource_key="License_Reporting$longitude" />
+            <filter_mapping category_key="License_Reporting$latitude" layer_column="LATITUDE" caption_resource_key="License_Reporting$latitude" />
+            <filter_mapping category_key="License_Reporting$welltype" layer_column="HOLE_DIR" caption_resource_key="License_Reporting$welltype" />
+            <filter_mapping category_key="License_Reporting$licensedate" layer_column="PERMIT_DT" caption_resource_key="License_Reporting$licensedate" />
+            <filter_mapping category_key="License_Reporting$TERMINATINGZONE" layer_column="PROJ_FM_NM" caption_resource_key="License_Reporting$TERMINATINGZONE" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="B5D74796" layer_id ="17" title ="Abandoned Locations - Detail" />
+            <legend_image image_url ="D9118EA5" layer_id ="18" title ="Current Drilling - Detail" />
+            <legend_image image_url ="E0CFBDD2" layer_id ="20" title ="Activity - Last 6 months - Detail" />
+            <legend_image image_url ="CE34FE5C" layer_id ="21" title ="Activity - All - Detail" />
+          </legend_images>
+          <labels>
+            <label id="11" title="OPERATOR" append_bound_server_expression="true" filter_based_on_layer_id="5" is_visible_on_init="true" min_scale="2311162.4" max_scale="0" />
+            <label id="12" title="WELL_NO" append_bound_server_expression="true" filter_based_on_layer_id="5" min_scale="2311162.4" max_scale="0" />
+          </labels>
+        </service>
+      </services>
+      <label_service arcgis_service_type="ArcGISDynamicMapServiceLayer" id="000L" relative_path="IDD/IDD_Labels/MapServer" home_url_key="GIS_02_CMPLiveMapArcGISService01" />
+    </live_map_arcgis>
+    <export>
+      <csv maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <tab maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <xml maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+      <excel maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+    </export>
+    <report_limits max="10000" />
+  </category>
+  <category key="RIGACTIVITY" data_provider_key="IDDOracleProvider"  alternate_row_colour="alternateRow"
+    allow_save_search="true"
+    include_horizontal_scroll="true"
+    result_portion_size="40"
+    include_checkboxes ="false"
+    show_reports_button="true"
+  allow_customisation="true">
+    <template name="Default" display_as_button="true">
+      <column key="RigActivity_Reporting$UWI" header_resource_key="RigActivity_Reporting$UWI" width="130" null_replacement="" display_header="true"  is_exportable="true" is_customisable="false" type="number_as_a_string" />
+      <column key="RigActivity_Reporting$RigName" header_resource_key="RigActivity_Reporting$RigName"  width="100" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$Status" header_resource_key="RigActivity_Reporting$Status"  width="130" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Sub_Status" header_resource_key="RigActivity_Reporting$Sub_Status"  width="130" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$datelastupdated" type="date" header_resource_key="RigActivity_Reporting$datelastupdated"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$RigType" header_resource_key="RigActivity_Reporting$RigType"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$wellname" header_resource_key="well_name"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$BOE_REGION_NAME" header_resource_key="RigActivity_Reporting$BOE_REGION_NAME"  width="190" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$State" header_resource_key="state_province"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$County" header_resource_key="County"  width="150" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$field" header_resource_key="License_Reporting$field"  width="150" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Basin" header_resource_key="RigActivity_Reporting$Basin"  width="150" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Longitude" header_resource_key="Longitude" format="#############0.#############" width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$Latitude" header_resource_key="Latitude" format="#############0.#############" width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$US_RangeDirection" header_resource_key="RigActivity_Reporting$US_RangeDirection" width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$US_RangeNumber" header_resource_key="RigActivity_Reporting$US_RangeNumber" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="RigActivity_Reporting$US_TownshipDirection" header_resource_key="RigActivity_Reporting$US_TownshipDirection" width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$US_TownshipNumber" header_resource_key="RigActivity_Reporting$US_TownshipNumber" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="RigActivity_Reporting$TX_Abstract" width="150" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$US_Section" header_resource_key="License_Reporting$US_Section" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+
+      <column key="RigActivity_Reporting$OperatorName" header_resource_key="Operator"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$FIRST_ADDRESS_LINE" header_resource_key="Operator Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false" is_displayed="false">
+        <column key="RigActivity_Reporting$SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 2"></column>
+        <column key="RigActivity_Reporting$THIRD_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 3"></column>
+        <column key="RigActivity_Reporting$CITY" column_prefix=", " header_resource_key="Operator Address City"></column>
+        <column key="RigActivity_Reporting$PROVINCE_STATE" column_prefix=", " header_resource_key="Operator Address State"></column>
+        <column key="RigActivity_Reporting$POSTAL_ZIP_CODE" column_prefix=", " header_resource_key="Operator Address Zip Code"></column>
+      </column>
+      <column key="RigActivity_Reporting$PHONE_NUM" header_resource_key="Operator Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$Contractor" header_resource_key="Contractor"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$CONTRACTOR_FIRST_ADDR_LINE" header_resource_key="Contractor Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false" is_displayed="false">
+        <column key="RigActivity_Reporting$CONTRACTOR_SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Contractor Address 2"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_CITY" column_prefix=", " header_resource_key="Contractor Address City"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_PROVINCE_STATE" column_prefix=", " header_resource_key="Contractor Address State"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_ZIP_CODE" column_prefix=", " header_resource_key="Contractor Address Zip Code"></column>
+      </column>
+      <column key="RigActivity_Reporting$CONTRACTOR_PHONE" header_resource_key="Contractor Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$spud_date" type="date" header_resource_key="SpudDate"  width="120" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$actualrr" type="date" header_resource_key="rig_release_date"  width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$terminatingzone" header_resource_key="RigActivity_Reporting$terminatingzone"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$totaldepth" header_resource_key="total_depth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$CurrentDepth" header_resource_key="RigActivity_Reporting$CurrentDepth"  width="100" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="RigActivity_Reporting$DepthCapacity" header_resource_key="RigActivity_Reporting$DepthCapacity"  width="100" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" type="numeric" />
+      <column key="RigActivity_Reporting$projecteddepth" header_resource_key="RigActivity_Reporting$projecteddepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$PRODUCTIONTYPE" header_resource_key="RigActivity_Reporting$PRODUCTIONTYPE"  width="120" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$WellType" header_resource_key="RigActivity_Reporting$WellType"  width="100" null_replacement="" display_header="true" is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$RigID" header_resource_key="RigActivity_Reporting$RigID"  width="100" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$OF_BLOCK1" header_resource_key="RigActivity_Reporting$OF_BLOCK1"  width="100" null_replacement="" display_header="true"  is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$OF_BLOCK2" header_resource_key="RigActivity_Reporting$OF_BLOCK2"  width="100" null_replacement="" display_header="true"  is_exportable="true" is_displayed="false" />
+      <column key="RigActivity_Reporting$drawworks" header_resource_key="Draw Works"  width="190" null_replacement="" display_header="true"  is_exportable="true" is_displayed="true" />
+
+      <sort key="RigActivity_Reporting$RigID" purpose="default" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigName" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Status" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Sub_Status" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$datelastupdated" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigType" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$wellname" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$State" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$County" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$field" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Longitude" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Latitude" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_RangeDirection" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_RangeNumber" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_TownshipDirection" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_TownshipNumber" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$TX_Abstract" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_Section" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OperatorName" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Contractor" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$spud_date" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$actualrr" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$terminatingzone" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$totaldepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$CurrentDepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$DepthCapacity" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$projecteddepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$PRODUCTIONTYPE" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$WellType" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigID" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OF_BLOCK1" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OF_BLOCK2" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$drawworks" purpose="none" direction="ascending" />
+    </template>
+    <template name="View All Data" display_as_button="true">
+      <column key="RigActivity_Reporting$UWI" header_resource_key="RigActivity_Reporting$UWI" width="130" null_replacement="" display_header="true"  is_exportable="true" is_customisable="false" type="number_as_a_string" />
+      <column key="RigActivity_Reporting$RigName" header_resource_key="RigActivity_Reporting$RigName"  width="100" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Status" header_resource_key="RigActivity_Reporting$Status"  width="130" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Sub_Status" header_resource_key="RigActivity_Reporting$Sub_Status"  width="130" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$datelastupdated" type="date" header_resource_key="RigActivity_Reporting$datelastupdated"  width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$RigType" header_resource_key="RigActivity_Reporting$RigType"  width="110" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$wellname" header_resource_key="well_name"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$BOE_REGION_NAME" header_resource_key="RigActivity_Reporting$BOE_REGION_NAME"  width="190" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$State" header_resource_key="state_province"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$County" header_resource_key="County"  width="150" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$field" header_resource_key="License_Reporting$field"  width="150" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Basin" header_resource_key="RigActivity_Reporting$Basin"  width="150" null_replacement="" display_header="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$Longitude" header_resource_key="Longitude" format="#############0.#############"   width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$Latitude" header_resource_key="Latitude" format="#############0.#############"  width="140" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$US_RangeDirection" header_resource_key="RigActivity_Reporting$US_RangeDirection" width="120" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="RigActivity_Reporting$US_RangeNumber" header_resource_key="RigActivity_Reporting$US_RangeNumber" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$US_TownshipDirection" header_resource_key="RigActivity_Reporting$US_TownshipDirection" width="120" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="RigActivity_Reporting$US_TownshipNumber" header_resource_key="RigActivity_Reporting$US_TownshipNumber" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$TX_Abstract" width="150" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$US_Section" header_resource_key="License_Reporting$US_Section" format="#############0"  width="120" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+
+      <column key="RigActivity_Reporting$OperatorName" header_resource_key="Operator"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$FIRST_ADDRESS_LINE" header_resource_key="Operator Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false">
+        <column key="RigActivity_Reporting$SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 2"></column>
+        <column key="RigActivity_Reporting$THIRD_ADDRESS_LINE" column_prefix=", " header_resource_key="Operator Address 3"></column>
+        <column key="RigActivity_Reporting$CITY" column_prefix=", " header_resource_key="Operator Address City"></column>
+        <column key="RigActivity_Reporting$PROVINCE_STATE" column_prefix=", " header_resource_key="Operator Address State"></column>
+        <column key="RigActivity_Reporting$POSTAL_ZIP_CODE" column_prefix=", " header_resource_key="Operator Address Zip Code"></column>
+      </column>
+      <column key="RigActivity_Reporting$PHONE_NUM" header_resource_key="Operator Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$Contractor" header_resource_key="Contractor"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$CONTRACTOR_FIRST_ADDR_LINE" header_resource_key="Contractor Address" width="190" null_replacement="" display_header="true" is_exportable="true" is_sortable="false">
+        <column key="RigActivity_Reporting$CONTRACTOR_SECND_ADDRESS_LINE" column_prefix=", " header_resource_key="Contractor Address 2"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_CITY" column_prefix=", " header_resource_key="Contractor Address City"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_PROVINCE_STATE" column_prefix=", " header_resource_key="Contractor Address State"></column>
+        <column key="RigActivity_Reporting$CONTRACTOR_ZIP_CODE" column_prefix=", " header_resource_key="Contractor Address Zip Code"></column>
+      </column>
+      <column key="RigActivity_Reporting$CONTRACTOR_PHONE" header_resource_key="Contractor Phone #" width="110" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$spud_date" type="date" header_resource_key="SpudDate"  width="120" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$actualrr" type="date" header_resource_key="rig_release_date"  width="120" null_replacement="" display_header="true" is_exportable="true" />
+      <column key="RigActivity_Reporting$terminatingzone" header_resource_key="RigActivity_Reporting$terminatingzone"  width="150" null_replacement="" display_header="true"  is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$totaldepth" header_resource_key="total_depth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$CurrentDepth" header_resource_key="RigActivity_Reporting$CurrentDepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$DepthCapacity" header_resource_key="RigActivity_Reporting$DepthCapacity"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$projecteddepth" header_resource_key="RigActivity_Reporting$projecteddepth"  width="100" null_replacement="" display_header="true" is_exportable="true" type="numeric" />
+      <column key="RigActivity_Reporting$PRODUCTIONTYPE" header_resource_key="RigActivity_Reporting$PRODUCTIONTYPE"  width="120" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$WellType" header_resource_key="RigActivity_Reporting$WellType"  width="100" null_replacement="" display_header="true" is_exportable="true" is_filterable="true" />
+      <column key="RigActivity_Reporting$RigID" header_resource_key="RigActivity_Reporting$RigID"  width="100" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$OF_BLOCK1" header_resource_key="RigActivity_Reporting$OF_BLOCK1"  width="100" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$OF_BLOCK2" header_resource_key="RigActivity_Reporting$OF_BLOCK2"  width="100" null_replacement="" display_header="true"  is_exportable="true" />
+      <column key="RigActivity_Reporting$drawworks" header_resource_key="Draw Works"  width="190" null_replacement="" display_header="true"  is_exportable="true" is_displayed="true" />
+
+      <sort key="RigActivity_Reporting$RigID" purpose="default" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigName" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Status" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Sub_Status" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$datelastupdated" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigType" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$wellname" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$BOE_REGION_NAME" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$State" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$County" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$field" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Basin" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Longitude" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Latitude" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_RangeDirection" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_RangeNumber" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_TownshipDirection" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_TownshipNumber" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$TX_Abstract" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$US_Section" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OperatorName" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$Contractor" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$spud_date" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$actualrr" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$terminatingzone" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$totaldepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$CurrentDepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$DepthCapacity" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$projecteddepth" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$PRODUCTIONTYPE" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$WellType" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$RigID" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OF_BLOCK1" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$OF_BLOCK2" purpose="none" direction="ascending" />
+      <sort key="RigActivity_Reporting$drawworks" purpose="none" direction="ascending" />
+    </template>
+
+    <live_map_arcgis proxyUrl="LiveMapArcGISProxy.ashx"
+        xmin="-1.4930291E7"
+        ymin="2074317"
+        xmax="-7068448"
+        ymax="7013943"
+        spatialReference="102100"
+        addOverviewMap="true"
+        printmap_colnames="CONTRACTOR,LATITUDE,LONGITUDE,UWI,LICENSEDATE,OPERATOR,PRODUCTIONTYPE,RIGNAME,SPUD_DATE,STATUS,SUB_STATUS,TERMINATINGZONE,WELLNAME"
+        printmap_colalaises="Contractor, Latitude, Longitude, UWI, License Date, Operator, Production Type, Rig Name, Spud Date, Rig Status, Rig Sub-Status, Term Zone, Well Type"
+        printmap_title="Rig Activity"
+        printmap_type="IDD"
+        can_zoom="true">
+
+      <services home_url_key="GIS_02_CMPLiveMapArcGISService01">
+        <service arcgis_service_type="VETiledLayer" title="Roads"  bing_map_style="Roads" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial" is_visible_on_init="false" bing_map_style="Aerial" can_toggle="true" />
+        <service arcgis_service_type="VETiledLayer" title="Aerial with labels" is_visible_on_init="false" bing_map_style="Aerial_with_labels" can_toggle="true" />
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+              title="Well Surface"
+              relative_path ="IDD/Well_Surface/MapServer"
+              can_export ="false"
+              can_find ="false"
+              find_layer_id="1"
+              maximum_number_of_features ="10000"
+              selection_filter_query_layer_id="1"
+              selection_filter_layer_column="FIELD_NAME"
+              is_visible_on_init="false"
+              min_scale="0"
+              max_scale="577792"
+              image_url ="0/images/BC381B6C"
+              image_source ="ems"
+              visible_to_authorisations="energy.us.well.idd.reduced">
+
+          <identify_table sort_column_name="OPER_NAME" sort_column_direction="ascending">
+            <identify_row title="UWI" value_template ="[UWI]" />
+            <identify_row title="Operator" value_template ="[OPER_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key ="RigActivity_Reporting$field" layer_column="FIELD_NAME" caption_resource_key="RigActivity_Reporting$field" />
+            <filter_mapping category_key ="RigActivity_Reporting$Basin" layer_column ="BASIN_NM" caption_resource_key ="RigActivity_Reporting$Basin" />
+            <filter_mapping category_key ="RigActivity_Reporting$BOE_REGION_NAME" layer_column ="REGION_NM" caption_resource_key ="RigActivity_Reporting$BOE_REGION_NAME" />
+            <filter_mapping category_key ="RigActivity_Reporting$State" layer_column="STATE_NM" caption_resource_key="RigActivity_Reporting$State" />
+            <filter_mapping category_key ="RigActivity_Reporting$CNTY_NAME" layer_column ="COUNTY_NM" caption_resource_key ="RigActivity_Reporting$CNTY_NAME" />
+            <filter_mapping category_key ="RigActivity_Reporting$OperatorName" layer_column ="OPER_NAME" caption_resource_key ="RigActivity_Reporting$OperatorName" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="7F6789B" layer_id ="1" title ="Location" />
+            <legend_image image_url ="BC0AEF9B" layer_id ="1" title ="Drilling in Progress" />
+            <legend_image image_url ="2200E84" layer_id ="1" title ="Oil Well" />
+            <legend_image image_url ="E76402A8" layer_id ="1" title ="Gas Well" />
+            <legend_image image_url ="34DB9B13" layer_id ="1" title ="Oil And Gas Well" />
+            <legend_image image_url ="1088F1A9" layer_id ="1" title ="Dry w/Oil Shows" />
+            <legend_image image_url ="D0B92098" layer_id ="1" title ="Dry w/Gas Shows" />
+            <legend_image image_url ="C7B8FD24" layer_id ="1" title ="Dry w/Oil And Gas Shows" />
+            <legend_image image_url ="8E9BD826" layer_id ="1" title ="Dry Hole" />
+            <legend_image image_url ="EE210F8" layer_id ="1" title ="Injection" />
+            <legend_image image_url ="E8147D76" layer_id ="1" title ="Suspended" />
+            <legend_image image_url ="CFD3F9A0" layer_id ="1" title ="Plugged Gas Well" />
+            <legend_image image_url ="AFA52AF0" layer_id ="1" title ="Plugged Oil Well" />
+            <legend_image image_url ="40A91673" layer_id ="1" title ="Plugged Oil And Gas Well" />
+            <legend_image image_url ="DD4D8F2F" layer_id ="1" title ="Abandoned Location" />
+            <legend_image image_url ="FA7A63F2" layer_id ="1" title ="Unclassified, Co2, etc." />
+          </legend_images>
+          <labels>
+            <label id="0" title="UWI" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="288895.4" max_scale="0" />
+            <label id="1" title="WELL_NUM" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+            <label id="3" title="OPERATOR" filter_based_on_layer_id="1" min_scale ="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                  title="Field Outlines"
+                  relative_path ="IDD/Field_Outlines/MapServer"
+                  can_export ="false"
+                  can_find ="false"
+                  find_layer_id="5"
+                  selection_filter_query_layer_id ="5"
+                  selection_filter_layer_column="FIELD_NAME"
+                  is_visible_on_init="false"
+                  min_scale="0"
+                  max_scale="1155581.4"
+                  visible_to_authorisations="energy.us.field.idd.reduced">
+
+          <identify_table>
+            <identify_row title="Field Name" value_template = "[FIELD_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="RigActivity_Reporting$field" layer_column="FIELD_NAME" caption_resource_key="RigActivity_Reporting$field" />
+            <filter_mapping category_key="RigActivity_Reporting$State" layer_column="STATE_NAME" caption_resource_key="RigActivity_Reporting$State" />
+          </filter_mappings>
+          <legend_images>
+            <legend_image image_url ="F9C454E" layer_id ="1" title ="Oil" />
+            <legend_image image_url ="6AF664BF" layer_id ="2" title="Gas" />
+            <legend_image image_url ="6F26B64" layer_id ="3" title ="Oil And Gas - Overview" />
+            <legend_image image_url ="20A7CE29" layer_id ="5" title ="Oil And Gas - Detail" />
+          </legend_images>
+          <labels>
+            <label id="8" title="FIELD_NAME" filter_based_on_layer_id="5" is_visible_on_init="true" min_scale="1155581.4 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/COUNTY/MapServer"
+                  title="County"
+                  arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                  can_export ="false"
+                  can_find ="false"
+                  find_layer_id="0"
+                  selection_filter_layer_column ="COUNTY"
+                  selection_filter_query_layer_id="0"
+                  min_scale="4622325.1"
+                  max_scale="0"
+                  image_url ="0/images/BCD8B8BE"
+                  image_source ="ems">
+
+          <identify_table>
+            <identify_row title="County" value_template = "[COUNTY]" />
+            <identify_row title="State" value_template = "[STATE]" />
+          </identify_table>
+
+          <labels>
+            <label id="17" title="COUNTY" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="2311162.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path ="IDD/Basins/MapServer"
+                  title="Basin"
+                  arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                  can_export ="false"
+                  can_find ="false"
+                  find_layer_id="1"
+                  selection_filter_layer_column ="BASIN_NAME"
+                  selection_filter_query_layer_id="1"
+                  is_visible_on_init="false"
+                  min_scale="591657551"
+                  max_scale="36978597.1"
+                  image_url ="0/images/6E139641"
+                  image_source ="ems">
+
+          <identify_table>
+            <identify_row title="Basin Name" value_template = "[BASIN_NAME]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key ="RigActivity_Reporting$Basin" layer_column ="BASIN_NAME" caption_resource_key ="RigActivity_Reporting$Basin" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="3BF745CC" layer_id ="1" title ="Main Basin" />
+            <legend_image image_url ="55612FFD" layer_id ="1" title ="Sub Basin" />
+          </legend_images>
+          <labels>
+            <label id="18" title="Main - BASIN_NAME" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="19" title="Sub - BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+            <label id="20" title="Sub - PARENT_BASIN_NAME" filter_based_on_layer_id="1" min_scale ="7.39571941E7 " max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+              title="Permit Activity"
+              is_visible_on_init="false"
+              relative_path ="IDD/Well_Activity/MapServer"
+              selection_filter_layer_column ="UWI"
+              can_find ="false"
+              can_export="false"
+              maximum_number_of_features="10000"
+              selection_filter_query_layer_id="5"
+              table_name="Well_Activity_WM"
+              lat_column="POINT_Y"
+              lon_column="POINT_X"
+              entitlement_column="BOE_REGION"
+              foreign_category="LICENSEPERMITS"
+              visible_to_authorisations="energy.us.activity.idd.reduced"
+              arcgis_geodatabases_type="FileGeodatabase">
+
+          <identify_table>
+            <identify_row title="UWI" value_template = "[UWI]" />
+            <identify_row title="Last Act" value_template = "[LAST_ACT]" />
+            <identify_row title="County Name" value_template = "[COUNTY_NM]" />
+            <identify_row title="Latitude" value_template = "[LATITUDE]" />
+            <identify_row title="Longitude" value_template = "[LONGITUDE]" />
+            <identify_row title="Field" value_template = "[FIELD]" />
+            <identify_row title="Proj Td" value_template = "[PROJ_TD]" />
+            <identify_row title="Well Name" value_template = "[WELL_NAME]" />
+            <identify_row title="Hole direction" value_template = "[HOLE_DIR]" />
+            <identify_row title="Permit Date" value_template = "[PERMIT_DT]" />
+            <identify_row title="Operator" value_template = "[OPERATOR]" />
+          </identify_table>
+
+          <layers>
+            <layer id="1" title="Permits (Yesterday)"
+                   legend_image_url ="DE23E825"
+                   linked_layer_ids ="12"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="12"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="PERMIT_DT &gt;= (current_date - 1) AND ACT_CODE IN ('A', 'B', 'E')" />
+            <layer id="2" title="Permits (2 - 7 Days)"
+                   legend_image_url ="74B72B7A"
+                   linked_layer_ids ="13"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="13"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="(PERMIT_DT &lt; (current_date - 1) AND PERMIT_DT &gt;= (current_date - 7)) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="3" title="Permits (7 - 30 Days)" legend_image_url ="DB7FC442"
+                   linked_layer_ids="14"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="14"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="PERMIT_DT &lt; (current_date - 7) AND PERMIT_DT &gt;= (current_date - 30) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="4" title="Permits (30 - 180 Days)"
+                   legend_image_url ="9843FDAD"
+                   linked_layer_ids ="15"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="15"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="PERMIT_DT &lt; (current_date - 30) AND PERMIT_DT &gt;= (current_date - 180) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="5" title="Permits - All Active"
+                   legend_image_url ="1A5B0097"
+                   linked_layer_ids ="16"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="16"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="(( PERMIT_DT &gt;= (current_date - 730)) OR RELOC_DT &gt;= (current_date - 730)) AND ACT_CODE IN ('A', 'B', 'E') " />
+            <layer id="6" title="Abandoned Locations"
+                   legend_image_url ="E0D41C35"
+                   linked_layer_ids ="17"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="17"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="ACT_CODE IN ('E')" />
+            <layer id="7" title="Current Drilling"
+                   legend_image_url ="BC96A24D"
+                   linked_layer_ids ="18"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="18"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="ACT_CODE IN ('B')" />
+            <layer id="8" title="Completions - This Month"
+                   legend_image_url ="796355E5"
+                   linked_layer_ids ="19"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="19"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="COMP_DATE &gt;= (current_date - 30) AND ACT_CODE IN ('C', 'D')" />
+            <layer id="9" title="Activity - Last 6 months"
+                   legend_image_url ="16BC5ED"
+                   linked_layer_ids ="20"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="20"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="(( PERMIT_DT &gt;= (current_date - 180)) OR (RELOC_DT &gt;= (current_date - 180)) OR (SPUD_DATE &gt;= (current_date - 180)) OR (ABLOC_DATE &gt;= (current_date - 180)) OR (COMP_DATE &gt;= (current_date - 180)) ) AND ACT_CODE IN ('A', 'B', 'C', 'D')" />
+            <layer id="10" title="Activity - All "
+                   legend_image_url ="24177FAD"
+                   linked_layer_ids ="21"
+                   is_visible_on_init="false"
+                   selection_filter_query_layer_id="21"
+                   min_scale="147914388.1"
+                   max_scale="18489298.5"
+             server_definition_expression="ACT_CODE &lt;&gt; 'E'" />
+          </layers>
+
+          <filter_mappings>
+            <filter_mapping category_key="RigActivity_Reporting$UWI" layer_column="UWI" caption_resource_key="License_Reporting$uwi" enforce_type="string" />
+            <filter_mapping category_key="RigActivity_Reporting$Basin" layer_column="BASIN_NM" caption_resource_key="License_Reporting$Basin" />
+            <filter_mapping category_key="RigActivity_Reporting$BOE_REGION_NAME" layer_column="BOE_REGION" layer_column_lookup="BOE_REGION" caption_resource_key="RigActivity_Reporting$BOE_REGION_NAME" />
+            <filter_mapping category_key="RigActivity_Reporting$field" layer_column="FIELD" caption_resource_key="License_Reporting$field" />
+            <filter_mapping category_key="RigActivity_Reporting$State" layer_column="STATE_NM" caption_resource_key="License_Reporting$State" />
+            <filter_mapping category_key="RigActivity_Reporting$CNTY_NAME" layer_column ="COUNTY_NM" caption_resource_key ="License_Reporting$County" />
+            <filter_mapping category_key="RigActivity_Reporting$OperatorName" layer_column ="OPERATOR" caption_resource_key ="License_Reporting$operatorname" />
+            <filter_mapping category_key="RigActivity_Reporting$productiontype" layer_column="TARGET" caption_resource_key="License_Reporting$productiontype" />
+            <filter_mapping category_key="RigActivity_Reporting$Longitude" layer_column="LONGITUDE" caption_resource_key="License_Reporting$longitude" />
+            <filter_mapping category_key="RigActivity_Reporting$Latitude" layer_column="LATITUDE" caption_resource_key="License_Reporting$latitude" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="B5D74796" layer_id ="17" title ="Abandoned Locations - Detail" />
+            <legend_image image_url ="D9118EA5" layer_id ="18" title ="Current Drilling - Detail" />
+            <legend_image image_url ="E0CFBDD2" layer_id ="20" title ="Activity - Last 6 months - Detail" />
+            <legend_image image_url ="CE34FE5C" layer_id ="21" title ="Activity - All - Detail" />
+          </legend_images>
+          <labels>
+            <label id="11" title="OPERATOR" append_bound_server_expression="true" filter_based_on_layer_id="5" is_visible_on_init="true" min_scale="2311162.4" max_scale="0" />
+            <label id="12" title="WELL_NO" append_bound_server_expression="true" filter_based_on_layer_id="5" min_scale="2311162.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                title="ODD Reporting"
+                is_visible_on_init="false"
+                relative_path ="IDD/ODD_Reporting/MapServer"
+                selection_filter_layer_column="WELLID"
+                selection_filter_query_layer_id ="1"
+                can_find ="false"
+                find_layer_id="1"
+                can_export="false"
+                maximum_number_of_features="10000"
+                min_scale="1.479143881E8"
+                max_scale="288895.4"
+                image_url ="1/images/387BAC1F"
+                image_source ="ems"
+                lon_column="LLONGITUDEVALUE"
+                lat_column="LLATITUDEVALUE"
+                table_name="ODD_REPORTING"
+                entitlement_column="BOE_REGION_CODE"
+                foreign_category="OFFSETDRILLINGDATA"
+                visible_to_authorisations="energy.us.drilingdata">
+
+          <identify_table>
+            <identify_row title="License API" value_template = "[License API]" />
+            <identify_row title="Well Name" value_template = "[Well Name]" />
+            <identify_row title="County" value_template = "[County]" />
+            <identify_row title="State" value_template = "[State]" />
+            <identify_row title="Field" value_template = "[Field]" />
+            <identify_row title="Spud Date" value_template = "[Spud Date]" />
+            <identify_row title="Total Depth" value_template = "[Total Depth]" />
+            <identify_row title="Longitude" value_template = "[Longitude (NAD 27)]" />
+            <identify_row title="Latitude" value_template = "[Latitude (NAD 27)]" />
+            <identify_row title="Operator" value_template = "[Operator]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping  category_key="RigActivity_Reporting$UWI" layer_column="WELLID" caption_resource_key="ODD_Reporting$WellID" enforce_type="numeric" />
+            <filter_mapping category_key="RigActivity_Reporting$BOE_REGION_NAME" layer_column="BOE_REGION_NAME" caption_resource_key="ODD_Reporting$BOE_REGION_NAME" />
+            <!-- filter_mapping category_key="ODD_Reporting$Formation" layer_column="FORMATION" caption_resource_key="ODD_Reporting$Formation" / -->
+            <filter_mapping category_key="RigActivity_Reporting$OperatorName" layer_column="OPERATOR" caption_resource_key="ODD_Reporting$Operator" />
+            <filter_mapping category_key="RigActivity_Reporting$wellname" layer_column="WELLNAME" caption_resource_key="Well Name" />
+            <filter_mapping category_key="RigActivity_Reporting$field" layer_column="FIELD" caption_resource_key="ODD_Reporting$USAField" />
+            <filter_mapping category_key="RigActivity_Reporting$State" layer_column="STATE" caption_resource_key="state_province" />
+            <filter_mapping category_key="RigActivity_Reporting$CNTY_NAME" layer_column="COUNTY" caption_resource_key="COUNTY" />
+            <filter_mapping  category_key="RigActivity_Reporting$Longitude" layer_column="LLONGITUDEVALUE" caption_resource_key="ODD_Reporting$LLongitudeValue" />
+            <filter_mapping  category_key="RigActivity_Reporting$Latitude" layer_column="LLATITUDEVALUE" caption_resource_key="ODD_Reporting$LLatitudeValue" />
+          </filter_mappings>
+          <labels>
+            <label id="27" title="WELLID" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+            <label id="28" title="WELLNAME" filter_based_on_layer_id="0" is_visible_on_init="true" min_scale="288895.4" max_scale="0" />
+            <label id="29" title="OPERATOR" filter_based_on_layer_id="0" min_scale="288895.4" max_scale="0" />
+          </labels>
+        </service>
+
+        <service relative_path = "IDD/RIGACTIVITY_REPORTING/MapServer"
+                                title="Rig Activity"
+                                arcgis_service_type="ArcGISDynamicMapServiceLayer"
+                                can_export ="false"
+                                can_find ="false"
+                                find_layer_id="1"
+                                selection_filter_layer_column="RIGID"
+                                selection_filter_query_layer_id="1"
+                                maximum_number_of_features="10000"
+                                min_scale="1.479143881E8"
+                                max_scale="1155581.4"
+                                image_url ="0/images/D8FA93EA"
+                                image_source ="ems"
+                                main_layer="true"
+                                table_name="RIGACTIVITY_REPORTING"
+                                lat_column="LATITUDE"
+                                lon_column="LONGITUDE"
+                                entitlement_column="BOE_RGN_CD"
+                                visible_to_authorisations="energy.us.rigdata">
+
+          <identify_table>
+            <identify_row title="UWI" value_template = "[UWI]" />
+            <identify_row title="Rig Name" value_template = "[Rig Name]" />
+            <identify_row title="Status" value_template = "[Status]" />
+            <identify_row title="Sub-Status" value_template = "[Sub-Status]" />
+            <identify_row title="Well Name" value_template = "[Well Name]" />
+            <identify_row title="Region" value_template = "[BOE Region]" />
+            <identify_row title="State" value_template = "[State]" />
+            <identify_row title="County" value_template = "[County]" />
+            <identify_row title="Longitude" value_template = "[Longitude (NAD 27)]" />
+            <identify_row title="Latitude" value_template = "[Latitude (NAD 27)]" />
+            <identify_row title="Operator" value_template = "[Operator]" />
+            <identify_row title="Contractor" value_template = "[Contractor]" />
+            <identify_row title="Spud Date" value_template = "[Spud Date]" />
+            <identify_row title="Terminating Zone" value_template = "[Terminating Zone]" />
+            <identify_row title="Production Type" value_template = "[Production Type]" />
+            <identify_row title="Rig ID" value_template = "[Rig ID]" />
+          </identify_table>
+
+          <filter_mappings>
+            <filter_mapping category_key="RigActivity_Reporting$RigID" layer_column="RIGID" caption_resource_key="RigActivity_Reporting$RigID" />
+            <filter_mapping category_key="RigActivity_Reporting$Basin" layer_column="BASIN" caption_resource_key="RigActivity_Reporting$Basin" />
+            <filter_mapping category_key="RigActivity_Reporting$BOE_REGION_NAME" layer_column="REGION" caption_resource_key="RigActivity_Reporting$BOE_REGION_NAME" />
+            <filter_mapping category_key="RigActivity_Reporting$Contractor" layer_column="CONTRACTOR" caption_resource_key="RigActivity_Reporting$Contractor" />
+            <filter_mapping category_key="RigActivity_Reporting$OperatorName" layer_column="OPERATOR" caption_resource_key="RigActivity_Reporting$OperatorName" />
+            <filter_mapping category_key="RigActivity_Reporting$RigName" layer_column="RIGNAME " caption_resource_key="RigActivity_Reporting$RigName" />
+            <filter_mapping category_key="RigActivity_Reporting$wellname" layer_column="WELLNAME" caption_resource_key="RigActivity_Reporting$wellname" />
+            <filter_mapping category_key="RigActivity_Reporting$productiontype" layer_column="PRODUCTIONTYPE " caption_resource_key="RigActivity_Reporting$productiontype" />
+            <filter_mapping category_key="RigActivity_Reporting$field" layer_column="FIELD" caption_resource_key="RigActivity_Reporting$field" />
+            <filter_mapping category_key="RigActivity_Reporting$State" layer_column="STATE" caption_resource_key="state_province" />
+            <filter_mapping category_key="RigActivity_Reporting$CNTY_NAME" layer_column="COUNTY" caption_resource_key="County" />
+            <filter_mapping category_key="RigActivity_Reporting$UWI" layer_column="UWI" caption_resource_key="UWI" />
+            <filter_mapping category_key="RigActivity_Reporting$Latitude" layer_column="LATITUDE" caption_resource_key="RigActivity_Reporting$Latitude" />
+            <filter_mapping category_key="RigActivity_Reporting$Longitude" layer_column="LONGITUDE" caption_resource_key="RigActivity_Reporting$Longitude" />
+            <filter_mapping category_key="RigActivity_Reporting$spud_date" layer_column="SPUD_DATE" caption_resource_key="RigActivity_Reporting$spud_date" />
+            <filter_mapping category_key="RigActivity_Reporting$Status" layer_column="STATUS" caption_resource_key="RigActivity_Reporting$Status" />
+            <filter_mapping category_key="RigActivity_Reporting$Sub_Status" layer_column="SUB_STATUS" caption_resource_key="RigActivity_Reporting$Sub_Status" />
+          </filter_mappings>
+
+          <legend_images>
+            <legend_image image_url ="3A05F0EF" layer_id ="1" title ="Active" />
+            <legend_image image_url ="B6C3BFD1" layer_id ="1" title ="Inactive" />
+            <legend_image image_url ="B0CB8F7F" layer_id ="1" title ="Unreported" />
+          </legend_images>
+          <labels>
+            <label id="21" title="RIGID" filter_based_on_layer_id="1" is_visible_on_init="true" min_scale="288895.4" max_scale="0" />
+            <label id="22" title="UWI" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="23" title="WELLNAME" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="24" title="RIGNAME" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="25" title="OPERATOR" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+            <label id="26" title="CONTRACTOR" filter_based_on_layer_id="1" min_scale="288895.4" max_scale="0" />
+          </labels>
+        </service>
+      </services>
+      <label_service arcgis_service_type="ArcGISDynamicMapServiceLayer" id="000L" relative_path="IDD/IDD_Labels/MapServer" home_url_key="GIS_02_CMPLiveMapArcGISService01" />
+    </live_map_arcgis>
+    <export>
+      <csv maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <tab maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <xml maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+      <excel maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+    </export>
+    <report_limits max="5000" />
+  </category>
+
+  <category key="RIGCOUNT" data_provider_key="IDDOracleProvider"  alternate_row_colour="alternateRow"
+      allow_save_search="true"
+      include_horizontal_scroll="true"
+      result_portion_size="40"
+      include_checkboxes ="false"
+      show_reports_button="true"
+      allow_customisation="false">
+    <template name="Default">
+
+      <column key="TBL_RIG_COUNT_STATS$WEEK_DATE" width="130" header_resource_key="Date" />
+      <column key="R_PROVINCE_STATE$LONG_NAME" width="130" header_resource_key="State" />
+      <!--<column key="REGION" width="130" header_resource_key="Region" />-->
+      <column key="TBL_RIG_COUNT_STATS$MOVING" width="80" header_resource_key="Moving" />
+      <column key="TBL_RIG_COUNT_STATS$DRILLING" width="80" header_resource_key="Drilling" />
+      <column key="TBL_RIG_COUNT_STATS$DOWN" width="80" header_resource_key="Down" />
+      <column key="TOTAL" width="130" header_resource_key="Total" />
+      <column key="PERCENTDRILLING" width="140" header_resource_key="Percentage Drilling" format="#############0.##" column_suffix="%" />
+
+      <sort key="TBL_RIG_COUNT_STATS$WEEK_DATE" purpose="default" direction="descending" />
+
+      <chart max_group_count="8">
+        <area grouping_key="R_PROVINCE_STATE$LONG_NAME" type="Line" x_key="TBL_RIG_COUNT_STATS$WEEK_DATE" x_title="Date" y_key="TBL_RIG_COUNT_STATS$DRILLING" y_title="Number Drilling" title="Number Drilling " label_format="###,##0" value_type="integer" show_values_on_area="true" />
+        <area grouping_key="R_PROVINCE_STATE$LONG_NAME" type="Line" x_key="TBL_RIG_COUNT_STATS$WEEK_DATE" x_title="Date" y_key="TBL_RIG_COUNT_STATS$DOWN" y_title="Number Down" title="Number Down" label_format="###,##0" value_type="integer" show_values_on_area="true" />
+        <area grouping_key="R_PROVINCE_STATE$LONG_NAME" type="Line" x_key="TBL_RIG_COUNT_STATS$WEEK_DATE" x_title="Date" y_key="TOTAL" y_title="Total Rigs" title="Total Rigs" label_format="###,##0" value_type="integer" show_values_on_area="true" />
+        <area grouping_key="R_PROVINCE_STATE$LONG_NAME" type="Line" x_key="TBL_RIG_COUNT_STATS$WEEK_DATE" x_title="Date" y_key="PERCENTDRILLING" y_title="Percentage" title="Percentage Drilling" label_format="###,##0.##%" value_type="integer" show_values_on_area="true" />
+      </chart>
+    </template>
+
+    <export>
+      <csv maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <tab maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" quoteStrings="false" />
+      <xml maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+      <excel maxExportBatched="10000" isEmailAttachment="true" maxExportStreamed="900" />
+    </export>
+    <report_limits max="5000" />
+  </category>
+</gridconfig>

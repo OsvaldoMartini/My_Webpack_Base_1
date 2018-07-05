@@ -1,0 +1,176 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.ProfileFormDetails
+
+@{
+    var profileFormId = CmpHtmlHelpers.CreateUniqueId(("profileForm"));
+}
+
+<div id="@profileFormId" style="line-height:normal">
+
+    @using (Ajax.BeginForm("ProfileFormUpdate", "MyProfile", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = profileFormId }))
+    {
+        <fieldset>
+            <div class="grid">
+
+                <div class="grid-1" style="line-height: 1.428571429">
+                    Please complete your profile. Required fields are indicated by <span class="red1">*</span>. We will keep your information confidential. We never share with third parties.
+                </div>
+
+                @if (ViewBag.UpdateSuccess != null && ViewBag.UpdateSuccess)
+                {
+                    <div id="updateConfirmed" class="grid-1" style="line-height: 1.428571429">
+                        <div class="alert alert-success">
+                            <p>Your profile was successfully updated.</p>
+                        </div>
+                    </div>
+                }
+
+                @if (ViewBag.UpdateSuccess != null && !ViewBag.UpdateSuccess)
+                {
+                    <div id="updateConfirmed" class="grid-1" style="line-height: 1.428571429">
+                        <div class="validation-summary-errors alert alert-danger">
+                                We apologise that we were unable to update your profile. If this problem persists, please contact customer care at <a href="mailto:customercare@ihsmarkit.com?subject=Janes%202%20Site">customercare@ihsmarkit.com</a>.
+                        </div>
+                    </div>
+                }
+
+                <div class="grid-1" style="line-height: 1.428571429">
+                    @Html.ValidationSummary(false, "", new { @class = "form-control" })
+                </div>
+
+                <div class="grid-2-5">
+                    @Html.LabelFor(model => model.FirstName, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    <div class="input-group right-inner-addon" style="width:100%">
+                        <i class="asterisk"></i>
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="grid-1-6">
+                    @Html.LabelFor(model => model.MiddleInitial, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.MiddleInitial, new { @class= "form-control", style="width:100%" })
+                </div>
+
+                <div class="grid-2-5">
+                    @Html.LabelFor(model => model.LastName, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    <div class="input-group right-inner-addon" style="width: 100%">
+                        <i class="asterisk"></i>
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                    </div>
+               </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.EmailAddress, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.PhoneNumber, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.JobTitle, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.JobTitle, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2"></div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.CompanyName, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.Department, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1">
+                    @Html.LabelFor(model => model.Country, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    <div class="input-group right-inner-addon form-control" style="width: 100%">
+                        <i class="asterisk"></i>
+                        @Html.DropDownListFor(model => model.Country, Model.AllCountriesSelectListItems, new { style = "width:97%;border:0;outline:0" })
+                    </div>
+               </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.AddressLineOne, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    <div class="input-group right-inner-addon" style="width: 100%">
+                        <i class="asterisk"></i>
+                        @Html.TextBoxFor(model => model.AddressLineOne, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.AddressLineTwo, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.AddressLineTwo, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.AddressLineThree, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.AddressLineThree, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.City, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.State, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                </div>
+
+                <div class="grid-1-2">
+                    @Html.LabelFor(model => model.ZipCode, new { style = "margin-bottom: 8px; margin-top: 6px" })
+                    @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control" })
+                </div>
+
+                @Html.HiddenFor(model => model.ShowCancelButton)
+                @Html.HiddenFor(model => model.CloseOnSubmit)
+                @Html.HiddenFor(model => model.AddressName)
+
+
+                <div class="grid-1" style="padding-top:10px">
+                    <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+                    @if (Model.ShowCancelButton)
+                    {
+                        <button class="btn btn-default" type="button" value="Close" data-dismiss="modal">Close</button>
+                    }
+                </div>
+            </div>
+        </fieldset>
+
+
+    }
+
+    <div id="formloader"></div>
+
+</div>
+<script type="text/javascript">
+    $(document)
+        .ready(function () {
+            $.validator.unobtrusive.parse($("#@profileFormId"));
+
+            $("#@profileFormId").find("input[type='text']")
+                .focusout(function () {
+                    if ($(this).closest("form").valid()) {
+                        $(".validation-summary-errors")
+                             .removeClass("validation-summary-errors")
+                             .addClass("validation-summary-valid");
+                    }
+                    $("#updateConfirmed").hide();
+                });
+
+            $("#@profileFormId")
+                .find("button[type='submit']")
+                .click(function() {
+                    var $form = $("#@profileFormId").find("form");
+                    if ($form.valid()) {
+                        $("#@profileFormId > div#formloader").addClass( "loading dimmer" );
+                    }
+            });
+
+        });
+
+</script>

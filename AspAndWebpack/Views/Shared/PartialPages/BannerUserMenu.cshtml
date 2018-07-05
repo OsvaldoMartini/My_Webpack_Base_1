@@ -1,0 +1,115 @@
+﻿@using IHS.Apps.CMP.Models.Security
+@model IHS.Apps.CMP.Models.ViewModels.BannerUserMenu
+
+@{
+    var isDropdown = Model.IsDeveloper
+        || Model.IsSuperUser
+        || Model.AccountType == AccountType.Individual
+        || (Model.AccountType == AccountType.SharedWithLogOnAccess && (Model.ReloginUrl != null || Model.RegistrationUrl != null));
+}
+
+<a href="#" class="action-button">
+    <i class="icon-user"></i><span class="hidden-xs">@User.DisplayName</span>
+</a>
+@if (isDropdown)
+{
+    <ul class="dropdown-menu">
+        @if (Model.IsDeveloper)
+        {
+            <li>
+                <a href="/Admin/Default.aspx" target="_blank">Developer Centre</a>
+            </li>
+            <li>
+                <a href="/Admin/Entitlement" target="entitlements">Entitlements</a>
+            </li>
+            <li>
+                <a href="/CMPBugs/search">Error Logs</a>
+            </li>
+            <li>
+                <a href="#" onclick="$.post('/Admin/CacheAdmin/ClearAll').done(function() { alert('Cache Cleared!') }).fail(function() { alert('Failed to clear cache!') })">Clear Cache*</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=FeedbackSurveyNextDate&value=').done(function () { document.cookie = 'IHS_FEEDBACK_SURVEY=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Survey Re-enabled!') }).fail(function () { alert('Failed to reactivate survey!') })">Reset Survey</a>
+            </li>
+            <li class="dropdown-submenu">
+                <a href="#">Reactivate tutorials</a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=HideResultsTutorial&value=false').done(function () { document.cookie = 'IHS_RESULTS_TUTORIAL_D5816CA0-C2EA-4D42-B244-CD034E4CD5E0=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Tutorial reactivated!') }).fail(function () { alert('Failed to reactivate tutorial!') })">Results Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=HideDashboardTutorial&value=false').done(function () { document.cookie = 'IHS_POPUP_45A9BA72-7A6B-4FB7-8B8F-B556AABDADF6=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Tutorial reactivated!') }).fail(function () { alert('Failed to reactivate tutorial!') })">Dashboard Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=HideChartTutorial&value=false').done(function() { document.cookie = 'IHS_POPUP_EDCD83EA-9ADE-44DC-8D41-9B2333C313D6=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Tutorial reactivated!') }).fail(function() { alert('Failed to reactivate tutorial!') })">Chart Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=OrbatExplorerTutorial&value=false').done(function() { document.cookie = 'IHS_POPUP_2E499817_849F_45FF_B7C7_10A83F81DDF7=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Tutorial reactivated!') }).fail(function() { alert('Failed to reactivate tutorial!') })">ORBAT Explorer Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="$.post('/MyProfile/SetSetting?propertyName=EquipmentExplorerTutorial&value=false').done(function () { document.cookie = 'IHS_POPUP_E047634E_33CF_443F_9F07_FCC82379BA94=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'; alert('Tutorial reactivated!') }).fail(function () { alert('Failed to reactivate tutorial!') })">Equipment Explorer Tutorial</a>
+                    </li>
+                </ul>
+            </li>
+        }
+        @if (Model.IsSuperUser && !Model.IsDeveloper)
+        {
+            <li>
+                <a href="/Admin/Default.aspx" target="_blank">Developer Centre</a>
+            </li>
+        }
+
+        @if (Model.AccountType == AccountType.Individual)
+        {
+            if (Model.LoginProfileUrl != null)
+            {
+
+                <li>
+                    @if (Model.IsAspxPage)
+                    {
+                        @Html.ActionLink("Update Profile", "ProfileFormPage", "MyProfile")
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)" onclick="loadPopup('Update Profile', '@Url.Action("ProfileFormDetails", "MyProfile")')">@this.GlobalResources("MyProfileText")</a>
+                    }
+                </li>
+
+            }
+            <li>
+                @Html.ActionLink(this.GlobalResources("MySubscriptionsText"), "Default", "MySubscriptions")
+            </li>
+            <li>
+                @if (Model.IsAspxPage)
+                {
+                    @Html.ActionLink("Change Password", "ChangePasswordPage", "MyProfile")
+                }
+                else
+                {
+                    <a href="javascript:void(0)" onclick="loadPopup('Change Password', '@Url.Action("ChangePasswordForm", "MyProfile")')">Change Password</a>
+                }
+            </li>
+        }
+
+        @if (Model.UseLogoutLink)
+        {
+            <li><a href="/Logout">@this.LocalResources("LogoutText")</a></li>
+        }
+
+        @if (Model.AccountType == AccountType.SharedWithLogOnAccess)
+        {
+            if (Model.ReloginUrl != null)
+            {
+                <li>
+                    <a href="@Model.ReloginUrl.AbsoluteUri">@this.GlobalResources("ReloginURLText")</a>
+                </li>
+            }
+            if (Model.RegistrationUrl != null)
+            {
+                <li>
+                    <a href="@Model.RegistrationUrl.AbsoluteUri">@this.GlobalResources("RegistrationText")</a>
+                </li>
+            }
+        }
+    </ul>
+}

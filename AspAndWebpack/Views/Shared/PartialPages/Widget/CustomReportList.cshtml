@@ -1,0 +1,13 @@
+﻿@model  List<IHS.Apps.CMP.Models.ViewModels.CustomReportLink>
+
+@{
+    string containerId = string.Concat("dvCustomReportList", Guid.NewGuid().ToString().Replace("-", string.Empty));
+}
+<div id="@containerId" style="width: 100%;">
+        
+        @foreach (var link in Model)
+        {
+            <a href="@link.Target">@link.Title</a>
+            <hr/>
+        }
+</div>

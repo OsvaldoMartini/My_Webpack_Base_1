@@ -1,0 +1,283 @@
+﻿
+
+<div id="guidedSearchContainer" class="hidden u-border-all u-overflow-scroll u-padding-Axl u-padding-Txs grey4-bg">
+    <style>
+        .filterBox {
+            border: 1px solid;
+            font-size: 12px;
+            font-weight: bold;
+            height: 60px;
+            width: 80px;
+            vertical-align: top;
+            margin: 10px 10px 10px 10px;
+            border: 1px solid #A1ABB2;
+             background-color: #F8F8F8;
+            color: #424242; }
+        
+        .filterBoxSelected {
+            border: 1px solid #0097d1;
+            color: #0097d1;
+        }
+
+        .filterBox_list_item {
+            padding-left: 1px;
+            padding-right: 15px;
+            list-style-type: none;
+            font-size: medium;
+            display: inline;
+        }
+
+        .filterCard {
+            margin-top: -40px;
+        }
+
+        .filterCardChooser {
+            z-index: 1000;
+        }
+
+        .height150 {
+            height: 150px;
+        }
+
+        div.selectedFilter {
+            vertical-align: top;
+            float: left;
+        }
+
+        .filterListing {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-right: 70px;
+            margin-left: -30px;
+        }
+
+        .list_item_GS_DetailFloatLeft {
+            float: left !important;
+        }
+
+        .list_item_GS_Detail {
+            padding-left: 1px;
+            padding-right: 35px;
+            list-style-type: none;
+            /*font-size: medium;*/
+        }
+
+
+        .width30Xscr {
+            width: 27%;
+            font-size: smaller !important;
+            margin-right: 3px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .width70Xscr {
+            font-size: smaller;
+            width: 69%;
+            overflow-x: auto;
+            margin-right: 3px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #segmentList {
+            width: 400px;
+            padding: 10px 10px 10px 10px;
+            position: fixed;
+            background-color: #fff;
+            opacity: 0.9;
+            border-radius: 2px;
+            border: 1px solid #A1ABB2;
+        }
+
+        #HeaderWrapper {
+            border-color: rgb(204, 204, 204);
+            border-width: 1px;
+            border-style: solid;
+            margin-top: -21px;
+            margin-bottom:10px
+        }
+    </style>
+
+    <a class="pull-right" data-bind="click:HideGuidedSearch" href="#">Close</a>
+<h1 class="green1">Guided Search</h1>
+<h3>** DEMO Not for release - please do not remove**</h3>
+    <span class="u-font-125 u-margin-Bs">*PROTOTYPING* Click one of the buttons below to show a list of available options. Click on an item to add it to your selected items for the chart. Then choose another item from another button which will be refined based on your previous choices.</span>
+
+
+
+    <div id="Header" class="card filterCardChooser u-margin-Ts">
+        <ul class="nav nav-tabs u-margin-Txs" data-bind="foreach:lenses">
+            <li data-bind="css:{active: $index == 0 }"><a class="hand u-font-125" data-bind="text:name,click:$parent.SelectLens" data-toggle="tab" href="#home"></a></li>
+          
+        </ul>
+
+
+
+        <div id="HeaderWrapper" class="">
+            <div class="grid u-padding-Am" data-bind="visible:filteredSegments().length > 0" >
+                
+                <div class="grid-1-6 u-border-right">
+                    <div>
+                        <h2> View data & chart by<i class="icon-help-circled hand grey2 helpButton u-margin-Lxs"></i>
+                        </h2>
+                    </div>
+                    <div>
+                        <ul data-bind="foreach:filteredSegments">
+                            <li data-bind="text:text,click:function(){$parent.setCurrentSegment($data)}, css:{'blue1 grey4-bg': $data.selected() == true }" class="hand list_item_GS_Detail u-font-125">
+
+                            </li>
+                        </ul>
+                    </div>
+                  
+                    @*<select class="form-control u-font-125" data-bind="options: $parent.gridChartVM.settings.marketSegments,
+                       optionsText: 'text',
+                       value: $parent.gridChartVM.MarketSegment,
+                       optionsCaption: 'Choose...'"></select>*@
+                </div>
+                <div class="grid-5-6">
+                    <div>
+                        <h2> Refine data & chart by<i class="icon-help-circled hand grey2 helpButton u-margin-Lxs"></i></h2>
+                    </div>
+                    <!-- ko foreach: filters -->
+                    <div class="filterBox_list_item" data-bind="visible:included">
+                        <button data-bind="click:ToggleVisible,css:{filterBoxSelected: Visible}" class="u-font-135 light-grey filterBox">
+                            <span data-bind="text:name"></span>
+                        </button>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+          
+
+            
+        </div>
+    </div>
+
+
+
+
+    <div class="">
+        <ul class="slides u-padding-Ln">
+            <!-- ko foreach: filters -->
+            <li class="u-padding-Am list-unstyled" data-bind="css:{hidden : Visible() != true}">
+
+                <div class="card height150 filterCard" data-bind="css:{hidden:loadingData()==false}">
+                    <div class="loading text lg">Loading...</div>
+                </div>
+                <div class="card filterCard" data-bind="css:{hidden:loadingData()==true}">
+                    <div>
+                        <h2 class="blue1 u-margin-An inline u-margin-Rl" data-bind="text:name"></h2>
+                        <input class="u-font-135 u-margin-Bs" type="text" data-bind="css:{ hidden: items().length < 25},textInput:filtertext" placeholder="filter list" />
+                        <span data-bind="text:filteredItems().length + ' items available'"></span>
+                        <span>
+                            <input id="cboShowSingleList" class="pull-right hand tipsyMe" title="Click here to show a single column list when looking at data." type="checkbox" data-bind="checked:$parent.showSingleList" />
+                            <label class="hand tipsyMe pull-right u-padding-Rs grey2" title="Click here to show a single column list when looking at data." for="cboShowSingleList">Show single lists for data</label>
+                        </span>
+                    </div>
+                    <div data-bind="css:{hidden : items().length < 30}" class="u-margin-Ls">
+                        <!-- ko foreach: $parent.alphabet -->
+                        <span class="hand u-border-all u-font-125 u-padding-Ls u-padding-Rs tipsyMe" title="Click here to filter the list below to items which start with this letter. Click again to unfilter."
+                              data-bind="text: $data,click:$parents[0].setSelectedLetter, css:{hidden: $parents[0].selectedLetter() == $data, 'green1-bg': $parents[0].selectedLetter() == $data }">
+                        </span>
+                        <span class="hand u-border-all u-font-125 u-padding-Ls u-padding-Lxs tipsyMe" title="Click to remove the filter."
+                              data-bind=",click:$parents[0].setSelectedLetter, css:{hidden: $parents[0].selectedLetter() != $data, 'green1-bg': $parents[0].selectedLetter() == $data }">
+                            <span data-bind="text: $data "></span><i class="icon-plus small white "></i>
+                        </span>
+                        <!-- /ko -->
+                    </div>
+                    <div data-bind="text:$parent.selectedLetter"></div>
+                    <div class="filterListing u-margin-Ts">
+                        <ul data-bind="foreach:filteredItems">
+                            <li class="hand list_item_GS_Detail"
+                                data-bind="css:{ grey2: $index()%2 , list_item_GS_DetailFloatLeft : !$parents[1].showSingleList()  }, text:value,click:$parents[1].AddedFilter,toggleClick:$data.selected"></li>
+                        </ul>
+                    </div>
+                    <div class="filterListing blue3 u-padding-Ll" data-bind="css:{ hidden: filteredItems().length > 0}">
+                        <h3>No more options available.</h3>
+                    </div>
+                </div>
+            </li>
+            <!-- /ko -->
+        </ul>
+
+    </div>
+
+    <div class="card u-padding-Tm "  data-bind="css:{ hidden: ! isAnythingSelected()}">
+       
+            <div class="" data-bind="css:{ hidden: isAnythingSelected()}">
+                <h2 class="blue2">Please select some filters from the options above. Once you have some we will give you some more options....</h2>
+            </div>
+            <div id="dataTableContainer" class="card width70Xscr  " data-bind="css:{ hidden: showDataTable()==false}">
+                <div id="chartChooser">
+                    <div data-bind="css:{ hidden: showDataTable()==false}">
+
+                        <div>
+                            <div data-bind="css:{ hidden: loadingDataTable()==false}">
+                                <div class="loading text">Loading Data...</div>
+                            </div>
+                            <div id="GuidedDataTable">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="width30Xscr" data-bind="css:{ hidden: isAnythingSelected()==false}">
+                <div class="grid">
+                    <div class="grid-3-4">
+                        <div>
+                            @*<input id="chkShowDatatable" type="checkbox" data-bind="checked:showDataTable" class="form-inline" />
+            <label for="chkShowDatatable" class="grey2">Show the datatable when I change my filters.</label>*@
+                            <button data-bind="click:function(){showChart(false)},visible:!autoUpdate()" class="u-margin-Tm btn btn-sm btn-info btn-default">Update Filters</button>
+                            <input id="chkShowDatatable" type="checkbox" data-bind="checked:autoUpdate" class="form-inline" />
+                            <label for="chkShowDatatable" class="grey2">Auto update my results when I add and remove filters</label>
+                            <button data-bind="click:function(){showChart(true);}" class="u-margin-Tm green4-bg u-font-135 btn btn btn-primary btn-block">Show Chart</button>
+                            <h2 data-bind="css:{ 'red2-bg'  : justChangedFilter}" class="blue2">You have selected the following to search on.</h2>
+                            <div data-bind="foreach:filters" class="clearfix">
+                                <div class="" data-bind="css:{ hidden: selectedItems().length < 1 }">
+                                    <br/>
+                                    <div class="corp-blue u-font-135 blue2 bold " data-bind="text:name,css:{ hidden: selectedItems().length < 1}"></div>
+                                    <ul data-bind="foreach:selectedItems()">
+                                        <li class="hand list_item_GS_Detail" data-bind="text:'x ' + value , click:$parent.removeFilter">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button data-bind="click:clearAllSelected" class="u-margin-Tm btn btn-sm btn-default btn-block">Clear all filters</button>
+
+                         </div>
+                    </div>
+                    <div class="grid-1-4">
+                       
+                    </div>
+                </div>
+            </div>
+         
+    </div>
+
+</div>
+
+
+<div id="segmentList" class="u-border-all dialog width-60 modal-content" data-bind="visible:filtering">
+    <div class="grey4-bg u-padding-Axxs u-padding-Lm modal-header draggable">
+        <span class="pull-right"><a data-bind="toggleClick:filtering" class="hand">Close</a></span>
+        <h2 data-bind="text:filterValue().value"></h2>
+    </div>
+    <h3>You are about to add '<span data-bind="text:filterValue().value"></span>' to your search.</h3>
+    <h4>Choose a new subject to view the chart by.</h4>
+    <ul data-bind="foreach:filteredSegments">
+        <li>
+            <a data-bind="click:function(){$parent.filter($data)}, text:text" class="hand"></a>
+        </li>
+    </ul>
+    <span class="u-font-85">Full List</span>
+    <div>
+        <ul data-bind="foreach:allSegments">
+            <li class="list_item_GS_Detail">
+                <a data-bind="click:function(){$parent.filter($data)}, text:text" class="hand"></a>
+            </li>
+        </ul>
+    </div>
+</div>

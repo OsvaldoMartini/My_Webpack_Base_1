@@ -1,0 +1,78 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.CountryRiskModel
+
+@{
+    string containerId = CmpHtmlHelpers.CreateUniqueId("dvCountryRisk");
+    string currentRatingTab = CmpHtmlHelpers.CreateUniqueId("dvCurrentRating");
+    string historicalTab = CmpHtmlHelpers.CreateUniqueId("dvHistorical");
+    string countryRiskChart = CmpHtmlHelpers.CreateUniqueId("dvCountryRiskChart");
+}
+
+<ul class="nav nav-tabs nav-tabs-line nav-tabs-center">
+    <li class="active"><a href="#@currentRatingTab" data-toggle="tab">Current Rating</a></li>
+    <li><a href="#@historicalTab" data-toggle="tab" class="countryriskchart">Historical</a></li>
+</ul>
+
+<div id="@containerId" class="tab-content">
+    <div class="tab-pane fade active in" id="@currentRatingTab">
+
+        <table class="table">
+            @foreach (var countryRiskViewModel in Model.CountryRiskViewModels)
+            {
+                <tr class="text-middle">
+                    <td>@countryRiskViewModel.RiskType</td>
+                    <td class="width-30"><span class="@countryRiskViewModel.RiskRatingColor">@string.Format("{0:0.00}", countryRiskViewModel.RiskRatingValue)</span></td>
+                    <td class="text-right risk-icons"><i class="@countryRiskViewModel.IconClassName"></i></td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="tab-pane fade" id="@historicalTab">
+        <div id="countryRiskChart" class="nopadding u-padding-Bxxs"></div>
+        <div style="text-align: center; font-size: 0.9em;">
+            <b>Click on legend items to hide</b>
+        </div>
+    </div>
+
+    @{
+        var link = new IHS.Apps.CMP.Models.ViewModels.Link()
+        {
+            Text = "Risk Rating Methodology"
+        };
+
+        if (Model.UseEnergyFooterLink)
+        {
+            link.NavigateUrl = "/content.axd?key=RatingsRankingsHelp";
+            link.RemoveRightOpenIcon = true;
+        }
+        else
+        {
+            link.NavigateUrl = "/CustomPages/Janes/controls/RiskRatingDefinitions.html";
+            link.Attributes.Add("data-toggle", "modal");
+            link.Attributes.Add("data-target", "#generalDialog");
+        }
+    }
+
+    @Html.Partial("Widget/LinkListWidgetFooter", new[] { link })
+</div>
+
+<script>
+    $(function () {
+        var chart = new CountryRisk('@countryRiskChart');
+        var data = @Html.Raw(string.IsNullOrEmpty(Model.ChartDataList) ? "undefined" : Model.ChartDataList);
+        chart.populateChart(data);
+
+        //Register with dashboard
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('@containerId', chart);
+        }
+
+        if (typeof window["PostOffice"] !== "undefined") {
+            window.PostOffice.send("NewCountryRisk", chart);
+        }
+
+        $('a.countryriskchart').on('shown.bs.tab', function(e) {
+            $(window).resize();
+        });
+    });
+</script>

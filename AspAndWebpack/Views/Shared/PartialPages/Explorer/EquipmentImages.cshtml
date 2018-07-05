@@ -1,0 +1,30 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.EquipmentModel
+
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId("equipmentImages");
+}
+
+<div id="@containerId">
+    <div class="alert alert-info">
+        The images shown are those of the @Model.OverallFamily
+    </div>
+
+    @Html.Action("GetCarouselForRecord", "JanesImages", new { uniqueIdentifier = Model.MainDocument.UniqueIdentifier })
+
+    <style>
+        .flexslider > .flex-control-nav > li {
+            width: auto !important;
+            float: none !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document)
+            .ready(function () {
+                $("#@containerId > .flexslider")
+                    .flexslider({
+                        controlNav: "thumbnails"
+                    });
+            });
+    </script>
+</div>

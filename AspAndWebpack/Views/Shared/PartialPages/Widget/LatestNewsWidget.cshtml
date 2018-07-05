@@ -1,0 +1,148 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.NewsModel
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId("news");
+}
+<div id="@containerId">
+
+    @if (Model.Filters.Count == 1)
+    {
+        <span>@Model.Filters.First()</span>
+        <br/>
+        <br/>
+    }
+    else if (Model.Filters.Count > 1)
+    {
+        <ul class="nav nav-tabs nav-tabs-line nav-tabs-center">
+            @foreach (var filter in Model.Filters)
+            {
+                var className = string.Empty;
+                if (filter == Model.Filters.First())
+                {
+                    className = "active";
+                }
+                <li class="@className">
+                    <a data-tab-button="true" class="filter" data-tab-loaded="true" data-tab-reload="false" data-toggle="tab" href="#" onclick="setFilter(this)">@filter</a>
+                </li>
+            }
+        </ul>
+    }
+
+    @foreach (var newsStory in Model.GetNews)
+    {
+        <div class="news" data-filter="@newsStory.Filter" style="display: none">
+            @if (!string.IsNullOrWhiteSpace(newsStory.Header))
+            {
+                <div class="well well-sm">
+                    <span class="moduleTitle">@newsStory.Header</span>
+                </div>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(newsStory.HyperLink))
+            {
+                <a href="@newsStory.HyperLink" class="visitedlink" target="_blank">
+                    @newsStory.Title <i class="icon-link-ext u-font-65 grey2"></i>
+                    @if (!string.IsNullOrEmpty(newsStory.Icon))
+                    {
+                        <i class="@newsStory.Icon"></i>
+                    }
+                </a>
+
+                <a href="@newsStory.HyperLink" class="visitedtick">
+                    <span class="visitedtick_tt"></span>
+                </a>
+
+                if (!string.IsNullOrEmpty(newsStory.Id) && !string.IsNullOrEmpty(newsStory.CategoryKey))
+                {
+                    if (Model.AllowBookmarks)
+                    {
+                        <a style="display:inline;" href="#" onclick="SaveBookmark('@newsStory.CategoryKey','@newsStory.Id','@newsStory.Title'); return false;"><i class="icon-bookmark tipsyMe u-font-65" title="add bookmark"></i></a>
+                    }
+
+                    if (Model.AllowSharing)
+                    {
+                        <a style="display:inline;" href="#" onclick="SetupShareDialog('@newsStory.CategoryKey', '@Model.ProviderKey', '@newsStory.Id', 'Document', '@Model.ApplicationName', '@newsStory.Title', '@this.User.UniqueId'); return false;" data-toggle="modal" data-target="#shareModal" original-title="share"><i class="icon-share tipsyMe u-font-65" title="share"></i></a>
+                    }
+                }
+
+                if (newsStory.IsNew)
+                {
+                    <i class="icon-plus" title="New"></i>
+                }
+
+                if (newsStory.IsUpdate)
+                {
+                    <i class="icon-cw" title="Updated"></i>
+                }
+            }
+            else
+            {
+                @Html.Raw(newsStory.Title);
+
+                if (!string.IsNullOrEmpty(newsStory.Icon))
+                {
+                    <i class="@newsStory.Icon"></i>
+                }
+
+                if (newsStory.IsNew)
+                {
+                    <i class="icon-plus" title="New"></i>
+                }
+
+                if (newsStory.IsUpdate)
+                {
+                    <i class="icon-cw" title="Updated"></i>
+                }
+            }
+
+            @if (newsStory.IsSummaryHtml)
+            {
+                <p>@newsStory.SummaryAsHtml</p>
+            }
+            else
+            {
+                <p>@newsStory.Summary</p>
+            }
+
+            @if (!string.IsNullOrEmpty(newsStory.Section) || !string.IsNullOrEmpty(newsStory.Country))
+            {
+                <p style="color: #888c8d;">@newsStory.Country - @newsStory.Section</p>
+            }
+
+            <p class="date">@newsStory.PostDate</p>
+
+            @if (!string.IsNullOrWhiteSpace(newsStory.Meta))
+            {
+                <p class="meta">@newsStory.Meta</p>
+            }
+        </div>
+    }
+
+    @if (Model.MoreLinks != null && Model.MoreLinks.Any())
+    {
+        @Html.Partial("Widget/LinkListWidgetFooter", Model.MoreLinks.Select(p => p.ToLink()))
+    }
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        var filter = $(".filter", "#@containerId");
+        if (filter[0]) {
+            setFilter(filter[0]);
+        } else {
+            var toShow = $('[data-filter]', "#@containerId");
+            toShow.show();
+      }
+    });
+
+    function setFilter(item) {
+        $('[data-filter]', "#@containerId").hide();
+        var filter = $(item).text();
+        var toShow = $('*[data-filter="' + filter + '"]', "#@containerId");
+        if (toShow.length <= 1 && toShow.text().indexOf("More " + filter) !== -1) {
+           // toShow.remove();
+            toShow.html("Data is not available at this time.");
+            toShow.removeAttr('href');
+        }
+        toShow.show();
+    }
+</script>

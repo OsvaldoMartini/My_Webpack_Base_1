@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<control_config xmlns="http://www.ihs.com/CMP/ControlConfig.xsd">
+    <application name="IHSDRILLINGDATA" product_dependency="DRILLINGDATA" title_resource_key="IDDApplicationTitle" default_provider_key="IDDSQLProvider" startup_option="first_entitled_category" help_url="/ExternalItems/Help/IDD/index.html" audit_id="11" business_line="Energy Technical"
+                 errorpage_background="https://my.ihs.com/Content/images/Energy/energy-portal-background.jpg">
+        <category_reference category_key="OFFSETDRILLINGDATA" user_subscribed="true" data_provider_key="IDDSQLProvider" title_resource_key="Offset Drilling Data" audit_id="1115"/>
+        <category_reference category_key="LICENSEPERMITS" user_subscribed="true" data_provider_key="IDDOracleProvider" title_resource_key="Permits" audit_id="1116"/>
+        <category_reference category_key="RIGACTIVITY" user_subscribed="true" data_provider_key="IDDOracleProvider" title_resource_key="Rig Activity" audit_id="1117"/>
+      <footer
+        facebook_link="http://facebook.com/Explore.IHS"
+        twitter_link="https://twitter.com/ihs"
+        you_tube_link="http://youtube.com/ihschannel"
+        linked_in_link ="http://linkedin.com/company/ihs">
+
+        <fixed_link key="1" navigation_type="fixed" title_resource_key="IHS_Energy" url="http://energy.ihs.com/" url_target="_blank"></fixed_link>
+        <fixed_link key="2" navigation_type="fixed" title_resource_key="AboutUs" url="http://www.ihs.com/about/" url_target="_blank"></fixed_link>
+        <fixed_link key="3" navigation_type="fixed" title_resource_key="Press" url="http://press.ihs.com/" url_target="_blank"></fixed_link>
+
+        <fixed_link key="5" navigation_type="fixed" title_resource_key="Support" url="http://energy.ihs.com/Support/?WBCMODE=http%3a%25" url_target="_blank" />
+
+        <fixed_link key="7" navigation_type="fixed" title="Contact Us" url="https://www.ihs.com/about/contact-us.html" url_target="_blank"></fixed_link>
+        <fixed_link key="8" navigation_type="fixed" title=" - Customer Care" url="mailto:customercare@ihsmarkit.com"></fixed_link>
+      </footer>
+    </application>
+
+    <!-- Category Definitions -->
+    <category_definitions>
+        <category key="OFFSETDRILLINGDATA">
+            <settings retain_attributes_on_category_switch="true" saved_search_date_key="ODD_Reporting$DateLastEdited">
+                <pages home_page="/OffsetDrillingData/Home" search_results_grid_page="/Grid.aspx"/>
+                <skin/>
+                <data/>
+            </settings>
+            <banner show_category_name="false" text_resource_key="IHS Drilling Data" banner_menu_text="Drilling Data">
+                <ShowTitleBanner>false</ShowTitleBanner>
+                <fixed_link key="HOME" always_visible="true" navigation_type="fixed" title="Offset Drilling Data" url="/OffsetDrillingData/Home">
+                  <fixed_link navigation_type="link_tree" key="ProductDropdown"/>
+                </fixed_link>
+                <fixed_link key="MAP" navigation_type="fixed" title="Map" url="/LiveMapArcGIS.aspx?disableConsolidation=true" />
+                <fixed_link key="SEARCH_RESULTS" navigation_type="fixed" title="Search Results" url="/Grid.aspx" />
+                <fixed_link key="MY_SEARCHES" navigation_type="fixed" title="My Searches/Alerts" url="/OffsetDrillingData/MySavedSearches" />
+                <fixed_link key="MY_ARTIFACTS" navigation_type="fixed" title="My Files" url="/OffsetDrillingData/MyFiles" />
+            </banner>            
+            
+            <retained_attribute key="ODD_Reporting$WellName" foreignKey="License_Reporting$wellname" />          
+            <retained_attribute key="ODD_Reporting$WellName" foreignKey="RigActivity_Reporting$wellname" />            
+          
+            <retained_attribute key="ODD_Reporting$Operator" foreignKey="License_Reporting$OperatorName" />
+            <retained_attribute key="ODD_Reporting$Operator" foreignKey="RigActivity_Reporting$OperatorName" />
+          
+            <retained_attribute key="ODD_Reporting$Contractor" foreignKey="License_Reporting$contractor" />
+            <retained_attribute key="ODD_Reporting$Contractor" foreignKey="RigActivity_Reporting$Contractor" />
+          
+            <retained_attribute key="ODD_Reporting$USAField" foreignKey="License_Reporting$field" />
+            <retained_attribute key="ODD_Reporting$USAField" foreignKey="RigActivity_Reporting$field" />
+
+            <retained_attribute key="ODD_Reporting$StateName" foreignKey="License_Reporting$State" />
+            <retained_attribute key="ODD_Reporting$StateName" foreignKey="RigActivity_Reporting$State" />
+          
+            <retained_attribute key="ODD_Reporting$CountyName" foreignKey="License_Reporting$County" />
+            <retained_attribute key="ODD_Reporting$CountyName" foreignKey="RigActivity_Reporting$County" />
+          
+            <retained_attribute key="ODD_Reporting$BOE_REGION_NAME" foreignKey="License_Reporting$BOE_REGION_NAME" />
+            <retained_attribute key="ODD_Reporting$BOE_REGION_NAME" foreignKey="RigActivity_Reporting$BOE_REGION_NAME" />
+          
+            <retained_attribute key="ODD_Reporting$Basin" foreignKey="License_Reporting$Basin" />
+            <retained_attribute key="ODD_Reporting$Basin" foreignKey="RigActivity_Reporting$Basin" />
+
+            <retained_attribute key="ODD_Reporting$WellID" foreignKey="License_Reporting$uwi" />
+            <retained_attribute key="ODD_Reporting$WellID" foreignKey="RigActivity_Reporting$UWI" />
+
+            <retained_attribute key="ODD_Reporting$Formation" foreignKey="License_Reporting$TERMINATINGZONE" />
+
+            <panel title_resource_key="Advanced Search" redirect_page="/CustomPages/IHSDrillingData/IDDSearch.aspx" leave_blank_after_panel="true"></panel>
+            <panel title_resource_key="ODD_Reporting$BOE_REGION_NAME" always_expanded="false" width="340">
+                <tree_control control_key="ODD_Reporting$BOE_REGION_NAME" height="200" />
+            </panel>
+            <panel title_resource_key="ODD_Reporting$Formation" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$Formation" height="200" />
+            </panel>            
+            <panel title_resource_key="ODD_Reporting$StateName" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$StateName" height="200" />
+            </panel>
+            <panel title_resource_key="ODD_Reporting$CountyName" always_expanded="false" width="270">
+               <tree_control control_key="ODD_Reporting$CountyName" height="200" />
+            </panel>
+            <panel title_resource_key="ODD_Reporting$USAField" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$USAField" height="200" />
+            </panel>
+            <panel title_resource_key="ODD_Reporting$Basin" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$Basin" height="200" />
+            </panel>
+            <panel title_resource_key="ODD_Reporting$Operator" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$Operator" height="200" />
+            </panel>
+            <panel title_resource_key="Contractor" always_expanded="false" width="270">
+                <tree_control control_key="ODD_Reporting$Contractor" height="200" />
+            </panel>
+            <panel title_resource_key="Depth" always_expanded="false" width="270">
+                <range_nav key="ODD_Reporting$DepthTotal" data_type="integer" title_text_resource_key="Depth" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="Water Depth" always_expanded="false" width="270">
+                <range_nav key="ODD_Reporting$DepthWater" data_type="integer" title_text_resource_key="Water Depth" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="ODD_Reporting$SpudDateTime" always_expanded="false" width="270">
+                <range_nav key="ODD_Reporting$SpudDateTime" data_type="date" min_date="new Date(1900,1-1,1)" year_range="1990:+0" max_date="0" title_text_resource_key="ODD_Reporting$SpudDateTime" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="ODD_Reporting$RigReleaseDateTime" always_expanded="false" width="270">
+                <range_nav key="ODD_Reporting$RigReleaseDateTime" data_type="date" title_text_resource_key="ODD_Reporting$RigReleaseDateTime" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="Well Name" always_expanded="false">
+                <tree_control control_key="ODD_Reporting$WellName" height="200" />
+            </panel>
+            <panel title_resource_key="Scanned Images" always_expanded="false">
+                <tree_control control_key="ODD_Reporting$HasScan" height="200" />
+            </panel>
+          <panel title_resource_key="DigitalReports$Value" always_expanded="false">
+            <tree_control control_key="ODD_Reporting$HasDigitalReports" height="200" />
+          </panel>
+            <panel title_resource_key="ODD_Reporting$WellType" always_expanded="false">
+                <tree_control control_key="ODD_Reporting$WellType" height="200" />
+            </panel>
+
+            <email_alert template_content_key="PrgIDD" show_articles="true" email_subject_prefix="Drilling Activity Change for Report" table_attributes="ODD_Reporting$Operator,ODD_Reporting$WellName,ODD_Reporting$LicenseAPI,ODD_Reporting$SpudDateTime" logoFile="IDD-IHSM-logo.png" logoFileWidth="146">
+                <intervals>
+                    <interval title_resource_key="Weekly" minutes="10080" />
+                    <interval title_resource_key="BiWeekly" minutes="20160" />
+                    <interval title_resource_key="FourWeekly" minutes="40320" />
+                </intervals>
+            </email_alert>
+        </category>
+        <category key="LICENSEPERMITS">
+            <settings retain_attributes_on_category_switch="true" saved_search_date_key="License_Reporting$datelastupdated">
+                <pages home_page="/Permits/Home" search_results_grid_page="/Grid.aspx"/>
+                <skin/>
+                <data/>
+            </settings>
+            <banner show_category_name="false" text_resource_key="IHS Drilling Data" banner_menu_text="Drilling Data">
+                <ShowTitleBanner>false</ShowTitleBanner>
+                <fixed_link key="HOME" always_visible="true" navigation_type="fixed" title="Permits" url="/Permits/Home">
+                  <fixed_link navigation_type="link_tree" key="ProductDropdown"/>
+                </fixed_link>
+                <fixed_link key="MAP" navigation_type="fixed" title="Map" url="/LiveMapArcGIS.aspx?disableConsolidation=true" />
+                <fixed_link key="SEARCH_RESULTS" navigation_type="fixed" title="Search Results" url="/Grid.aspx" />
+                <fixed_link key="MY_SEARCHES" navigation_type="fixed" title="My Searches/Alerts" url="/Permits/MySavedSearches" />
+                <fixed_link key="MY_ARTIFACTS" navigation_type="fixed" title="My Files" url="/Permits/MyFiles" />
+            </banner>
+
+            <retained_attribute key="License_Reporting$wellname" foreignKey="ODD_Reporting$WellName" />
+            <retained_attribute key="License_Reporting$wellname" foreignKey="RigActivity_Reporting$wellname" />
+
+            <retained_attribute key="License_Reporting$OperatorName" foreignKey="ODD_Reporting$Operator" />
+            <retained_attribute key="License_Reporting$OperatorName" foreignKey="RigActivity_Reporting$OperatorName" />
+
+            <retained_attribute key="License_Reporting$contractor" foreignKey="ODD_Reporting$Contractor" />
+            <retained_attribute key="License_Reporting$contractor" foreignKey="RigActivity_Reporting$Contractor" />
+
+            <retained_attribute key="License_Reporting$field" foreignKey="ODD_Reporting$USAField" />
+            <retained_attribute key="License_Reporting$field" foreignKey="RigActivity_Reporting$field" />
+
+            <retained_attribute key="License_Reporting$State" foreignKey="ODD_Reporting$StateName" />
+            <retained_attribute key="License_Reporting$State" foreignKey="RigActivity_Reporting$State" />
+
+            <retained_attribute key="License_Reporting$County" foreignKey="ODD_Reporting$CountyName" />
+            <retained_attribute key="License_Reporting$County" foreignKey="RigActivity_Reporting$County" />
+
+            <retained_attribute key="License_Reporting$BOE_REGION_NAME" foreignKey="ODD_Reporting$BOE_REGION_NAME" />
+            <retained_attribute key="License_Reporting$BOE_REGION_NAME" foreignKey="RigActivity_Reporting$BOE_REGION_NAME" />
+
+            <retained_attribute key="License_Reporting$Basin" foreignKey="ODD_Reporting$Basin" />
+            <retained_attribute key="License_Reporting$Basin" foreignKey="RigActivity_Reporting$Basin" />
+
+            <retained_attribute key="License_Reporting$uwi" foreignKey="ODD_Reporting$WellID" />
+            <retained_attribute key="License_Reporting$uwi" foreignKey="RigActivity_Reporting$UWI" />
+
+            <retained_attribute key="License_Reporting$TERMINATINGZONE" foreignKey="ODD_Reporting$Formation" />
+
+            <panel title_resource_key="Advanced Search" redirect_page="/CustomPages/IHSDrillingData/IDDSearch.aspx" leave_blank_after_panel="true">
+            </panel>
+            <panel title_resource_key="License_Reporting$Basin" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$Basin" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$BOE_REGION_NAME" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$BOE_REGION_NAME" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$field" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$field" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$State" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$State" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$County" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$County" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$OperatorName" always_expanded="false" width="270">
+                <tree_control control_key="License_Reporting$OperatorName" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$TERMINATINGZONE" always_expanded="false" width="270">
+              <tree_control control_key="License_Reporting$TERMINATINGZONE" height="200" />
+            </panel>
+          
+            <panel title_resource_key="License_Reporting$welltype" always_expanded="false" width="270">
+                  <tree_control control_key="License_Reporting$welltype" height="200" />
+            </panel>
+
+            <panel title_resource_key="License_Reporting$wellname" always_expanded="false">
+                <tree_control control_key="License_Reporting$wellname" height="200" />
+            </panel>
+            <panel title_resource_key="License_Reporting$licensedate" always_expanded="false" width="270">
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="1 Week" ignore_entitlements="true" data_value_resource_key="-6" display_data_value_resource_key="1 Week" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="2 Weeks" ignore_entitlements="true" data_value_resource_key="-13" display_data_value_resource_key="2 Weeks" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="1 Month" ignore_entitlements="true" data_value_resource_key="-29" display_data_value_resource_key="1 Month" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="2 Months" ignore_entitlements="true" data_value_resource_key="-59" display_data_value_resource_key="2 Months" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="6 Months" ignore_entitlements="true" data_value_resource_key="-181" display_data_value_resource_key="6 Months" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="1 Year" ignore_entitlements="true" data_value_resource_key="-364" display_data_value_resource_key="1 Year" />
+                <fixed_link navigation_type="add_constraint" constraint_key="License_Reporting$licensedate" title_resource_key="2 Year" ignore_entitlements="true" data_value_resource_key="-729" display_data_value_resource_key="2 Year" />
+                <range_nav key="License_Reporting$licensedate" data_type="date" title_text_resource_key="License_Reporting$licensedate" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+
+            <panel title_resource_key="License_Reporting$projecteddepth" always_expanded="false" width="270">
+                <range_nav key="License_Reporting$projecteddepth" data_type="integer" title_text_resource_key="License_Reporting$projecteddepth" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="License_Reporting$productiontype" always_expanded="false">
+                <tree_control control_key="License_Reporting$productiontype" height="200" />
+            </panel>
+
+            <email_alert template_content_key="PrgIDD" show_articles="true" email_subject_prefix="Permit Activity Change for Report" table_attributes="License_Reporting$OperatorName,License_Reporting$wellname,License_Reporting$wellnumber,License_Reporting$uwi,License_Reporting$County,License_Reporting$State" logoFile="IDD-IHSM-logo.png" logoFileWidth="146">
+                <intervals>
+                    <interval title_resource_key="Weekly" minutes="10080" />
+                    <interval title_resource_key="BiWeekly" minutes="20160" />
+                    <interval title_resource_key="FourWeekly" minutes="40320" />
+                </intervals>
+            </email_alert>
+        </category>
+        <category key="RIGACTIVITY">
+            <settings retain_attributes_on_category_switch="true" saved_search_date_key="RigActivity_Reporting$datelastupdated">
+                <pages home_page="/Rigs/Home" search_results_grid_page="/Grid.aspx"/>
+                <skin/>
+                <data/>
+            </settings>
+            <banner show_category_name="false" text_resource_key="IHS Drilling Data" banner_menu_text="Drilling Data">
+              <ShowTitleBanner>false</ShowTitleBanner>
+              <fixed_link key="HOME" always_visible="true" navigation_type="fixed" title="Rig Activity" url="/Rigs/Home">
+                  <fixed_link navigation_type="link_tree" key="ProductDropdown"/>
+                </fixed_link>
+                <fixed_link key="MAP" navigation_type="fixed" title="Map" url="/LiveMapArcGIS.aspx?disableConsolidation=true" />
+                <fixed_link key="SEARCH_RESULTS" navigation_type="fixed" title="Search Results" url="/Grid.aspx" />
+                <fixed_link key="MY_SEARCHES" navigation_type="fixed" title="My Searches/Alerts" url="/Rigs/MySavedSearches" />
+                <fixed_link key="MY_ARTIFACTS" navigation_type="fixed" title="My Files" url="/Rigs/MyFiles" />
+            </banner>
+
+            <retained_attribute key="RigActivity_Reporting$wellname" foreignKey="ODD_Reporting$WellName" />
+            <retained_attribute key="RigActivity_Reporting$wellname" foreignKey="License_Reporting$wellname" />
+
+            <retained_attribute key="RigActivity_Reporting$OperatorName" foreignKey="ODD_Reporting$Operator" />
+            <retained_attribute key="RigActivity_Reporting$OperatorName" foreignKey="License_Reporting$OperatorName" />
+
+            <retained_attribute key="RigActivity_Reporting$Contractor" foreignKey="ODD_Reporting$Contractor" />
+            <retained_attribute key="RigActivity_Reporting$Contractor" foreignKey="License_Reporting$contractor" />
+
+            <retained_attribute key="RigActivity_Reporting$field" foreignKey="ODD_Reporting$USAField" />
+            <retained_attribute key="RigActivity_Reporting$field" foreignKey="License_Reporting$field" />
+
+            <retained_attribute key="RigActivity_Reporting$State" foreignKey="ODD_Reporting$StateName" />
+            <retained_attribute key="RigActivity_Reporting$State" foreignKey="License_Reporting$State" />
+
+            <retained_attribute key="RigActivity_Reporting$County" foreignKey="ODD_Reporting$CountyName" />
+            <retained_attribute key="RigActivity_Reporting$County" foreignKey="License_Reporting$County" />
+
+            <retained_attribute key="RigActivity_Reporting$BOE_REGION_NAME" foreignKey="ODD_Reporting$BOE_REGION_NAME" />
+            <retained_attribute key="RigActivity_Reporting$BOE_REGION_NAME" foreignKey="License_Reporting$BOE_REGION_NAME" />
+
+            <retained_attribute key="RigActivity_Reporting$Basin" foreignKey="ODD_Reporting$Basin" />
+            <retained_attribute key="RigActivity_Reporting$Basin" foreignKey="License_Reporting$Basin" />
+
+            <retained_attribute key="RigActivity_Reporting$UWI" foreignKey="ODD_Reporting$WellID" />
+            <retained_attribute key="RigActivity_Reporting$UWI" foreignKey="License_Reporting$uwi" />
+            
+            <panel title_resource_key="Advanced Search" redirect_page="/CustomPages/IHSDrillingData/IDDSearch.aspx" leave_blank_after_panel="true">
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$Basin" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$Basin" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$BOE_REGION_NAME" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$BOE_REGION_NAME" height="200" />
+            </panel>
+
+            <panel title_resource_key="RigActivity_Reporting$State" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$State" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$CNTY_NAME" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$CNTY_NAME" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$field" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$field" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$Contractor" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$Contractor" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$OperatorName" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$OperatorName" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$RigName" always_expanded="false" width="270">
+                <tree_control control_key="RigActivity_Reporting$RigName" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$spud_date" always_expanded="false" width="270">
+                <range_nav key="RigActivity_Reporting$spud_date" data_type="date" min_date="new Date(1976,1-1,1)" max_date="0" title_text_resource_key="RigActivity_Reporting$spud_date" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$actualrr" always_expanded="false" width="270">
+                <range_nav key="RigActivity_Reporting$actualrr" data_type="date" title_text_resource_key="RigActivity_Reporting$actualrr" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$Status" always_expanded="false" width="270">
+              <tree_control control_key="RigActivity_Reporting$Status" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$Sub_Status" always_expanded="false" width="270">
+              <tree_control control_key="RigActivity_Reporting$Sub_Status" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$totaldepth" always_expanded="false" width="270">
+                <range_nav key="RigActivity_Reporting$totaldepth" data_type="integer" title_text_resource_key="RigActivity_Reporting$totaldepth" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$projecteddepth" always_expanded="false" width="270">
+                <range_nav key="RigActivity_Reporting$projecteddepth" data_type="integer" title_text_resource_key="RigActivity_Reporting$projecteddepth" from_label_resource_key="From" to_label_resource_key="To"/>
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$wellname" always_expanded="false">
+                <tree_control control_key="RigActivity_Reporting$wellname" height="200" />
+            </panel>
+            <panel title_resource_key="RigActivity_Reporting$PRODUCTIONTYPE" always_expanded="false">
+                <tree_control control_key="RigActivity_Reporting$PRODUCTIONTYPE" height="200" />
+            </panel>
+          <panel title_resource_key="RigActivity_Reporting$WellType" always_expanded="false">
+              <tree_control control_key="RigActivity_Reporting$WellType" height="200" />
+          </panel>
+
+          <email_alert template_content_key="PrgIDD" show_articles="true" email_subject_prefix="Rig Activity Change for Report" table_attributes="RigActivity_Reporting$OperatorName,RigActivity_Reporting$wellname,RigActivity_Reporting$UWI,RigActivity_Reporting$spud_date,RigActivity_Reporting$WellType,RigActivity_Reporting$Contractor,RigActivity_Reporting$RigID" logoFile="IDD-IHSM-logo.png" logoFileWidth="146">
+              <intervals>
+                  <interval title_resource_key="Weekly" minutes="10080" />
+                  <interval title_resource_key="BiWeekly" minutes="20160" />
+                  <interval title_resource_key="FourWeekly" minutes="40320" />
+              </intervals>
+          </email_alert>
+        </category>
+
+    </category_definitions>
+
+    <!-- Tree Definitions -->
+    <tree_definitions>
+
+        <tree tree_key="TBL_RIG_COUNT_STATS$STATE">
+          <tree_node key="R_PROVINCE_STATE$LONG_NAME" grouped="false" query_db_for_counts="false" />
+        </tree>
+        <tree tree_key="ODD_Reporting$StateName">
+            <tree_node key="ODD_Reporting$StateName" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$State">
+            <tree_node key="License_Reporting$State" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$welltype">
+            <tree_node key="License_Reporting$welltype" grouped="false" query_db_for_counts="false">
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$State">
+            <tree_node key="RigActivity_Reporting$State" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$Basin">
+            <tree_node key="RigActivity_Reporting$Basin" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$PRODUCTIONTYPE">
+            <tree_node key="RigActivity_Reporting$PRODUCTIONTYPE" grouped="false" query_db_for_counts="false">
+            </tree_node>
+        </tree>
+      <tree tree_key="RigActivity_Reporting$WellType">
+        <tree_node key="RigActivity_Reporting$WellType" grouped="false" query_db_for_counts="false">
+        </tree_node>
+      </tree>      
+      <tree tree_key="License_Reporting$productiontype">
+            <tree_node key="License_Reporting$productiontype" grouped="false" query_db_for_counts="false">
+            </tree_node>
+        </tree>
+        <tree tree_key="V_RIGINVENTORY$region">
+            <tree_node key="V_RIGINVENTORY$region" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$CNTY_NAME" >
+            <tree_node key="RigActivity_Reporting$CNTY_NAME" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$BOE_REGION_NAME" >
+            <tree_node key="ODD_Reporting$BOE_REGION_NAME" grouped="false" query_db_for_counts="true">
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$County">
+            <tree_node key="License_Reporting$County" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$Operator">
+            <tree_node key="ODD_Reporting$Operator" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$CountyName">
+            <tree_node key="ODD_Reporting$CountyName" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$BOE_REGION_NAME">
+            <tree_node key="RigActivity_Reporting$BOE_REGION_NAME" grouped="false" query_db_for_counts="true"></tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$BOE_REGION_NAME">
+            <tree_node key="License_Reporting$BOE_REGION_NAME" grouped="false" query_db_for_counts="true"></tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$USAField">
+            <tree_node key="ODD_Reporting$USAField" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$Contractor">
+            <tree_node key="ODD_Reporting$Contractor" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$WellName">
+            <tree_node key="ODD_Reporting$WellName" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="B" end_inclusive="true" display_value="A"></tree_node_group>
+                <tree_node_group start_value="B" start_inclusive="true" end_value="C" end_inclusive="true" display_value="B"></tree_node_group>
+                <tree_node_group start_value="C" start_inclusive="true" end_value="D" end_inclusive="true" display_value="C"></tree_node_group>
+                <tree_node_group start_value="D" start_inclusive="true" end_value="E" end_inclusive="true" display_value="D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="F" end_inclusive="true" display_value="E"></tree_node_group>
+                <tree_node_group start_value="F" start_inclusive="true" end_value="G" end_inclusive="true" display_value="F"></tree_node_group>
+                <tree_node_group start_value="G" start_inclusive="true" end_value="H" end_inclusive="true" display_value="G"></tree_node_group>
+                <tree_node_group start_value="H" start_inclusive="true" end_value="I" end_inclusive="true" display_value="H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="J" end_inclusive="true" display_value="I"></tree_node_group>
+                <tree_node_group start_value="J" start_inclusive="true" end_value="K" end_inclusive="true" display_value="J"></tree_node_group>
+                <tree_node_group start_value="K" start_inclusive="true" end_value="L" end_inclusive="true" display_value="K"></tree_node_group>
+                <tree_node_group start_value="L" start_inclusive="true" end_value="M" end_inclusive="true" display_value="L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="N" end_inclusive="true" display_value="M"></tree_node_group>
+                <tree_node_group start_value="N" start_inclusive="true" end_value="O" end_inclusive="true" display_value="N"></tree_node_group>
+                <tree_node_group start_value="O" start_inclusive="true" end_value="P" end_inclusive="true" display_value="O"></tree_node_group>
+                <tree_node_group start_value="P" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="R" end_inclusive="true" display_value="Q"></tree_node_group>
+                <tree_node_group start_value="R" start_inclusive="true" end_value="S" end_inclusive="true" display_value="R"></tree_node_group>
+                <tree_node_group start_value="S" start_inclusive="true" end_value="T" end_inclusive="true" display_value="S"></tree_node_group>
+                <tree_node_group start_value="T" start_inclusive="true" end_value="U" end_inclusive="true" display_value="T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="V" end_inclusive="true" display_value="U"></tree_node_group>
+                <tree_node_group start_value="V" start_inclusive="true" end_value="W" end_inclusive="true" display_value="V"></tree_node_group>
+                <tree_node_group start_value="W" start_inclusive="true" end_value="X" end_inclusive="true" display_value="W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Y" end_inclusive="true" display_value="X"></tree_node_group>
+                <tree_node_group start_value="Y" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="Y"></tree_node_group>
+                <tree_node_group start_value="Z" start_inclusive="true" end_value="" end_inclusive="true" display_value="Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$Basin">
+            <tree_node key="ODD_Reporting$Basin" grouped="false" query_db_for_counts="true"/>
+        </tree>
+        <tree tree_key="ODD_Reporting$HasScan">
+            <tree_node key="ODD_Reporting$HasScan" grouped="false" query_db_for_counts="false"/>
+        </tree>
+      <tree tree_key="ODD_Reporting$HasDigitalReports">
+        <tree_node key="ODD_Reporting$HasDigitalReports" grouped="false" query_db_for_counts="false"/>
+      </tree>      
+      
+      <tree tree_key="ODD_Reporting$WellType">
+            <tree_node key="ODD_Reporting$WellType" grouped="false" query_db_for_counts="false"/>
+        </tree>
+
+        <tree tree_key="RigActivity_Reporting$wellname">
+            <tree_node key="RigActivity_Reporting$wellname" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="B" end_inclusive="true" display_value="A"></tree_node_group>
+                <tree_node_group start_value="B" start_inclusive="true" end_value="C" end_inclusive="true" display_value="B"></tree_node_group>
+                <tree_node_group start_value="C" start_inclusive="true" end_value="D" end_inclusive="true" display_value="C"></tree_node_group>
+                <tree_node_group start_value="D" start_inclusive="true" end_value="E" end_inclusive="true" display_value="D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="F" end_inclusive="true" display_value="E"></tree_node_group>
+                <tree_node_group start_value="F" start_inclusive="true" end_value="G" end_inclusive="true" display_value="F"></tree_node_group>
+                <tree_node_group start_value="G" start_inclusive="true" end_value="H" end_inclusive="true" display_value="G"></tree_node_group>
+                <tree_node_group start_value="H" start_inclusive="true" end_value="I" end_inclusive="true" display_value="H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="J" end_inclusive="true" display_value="I"></tree_node_group>
+                <tree_node_group start_value="J" start_inclusive="true" end_value="K" end_inclusive="true" display_value="J"></tree_node_group>
+                <tree_node_group start_value="K" start_inclusive="true" end_value="L" end_inclusive="true" display_value="K"></tree_node_group>
+                <tree_node_group start_value="L" start_inclusive="true" end_value="M" end_inclusive="true" display_value="L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="N" end_inclusive="true" display_value="M"></tree_node_group>
+                <tree_node_group start_value="N" start_inclusive="true" end_value="O" end_inclusive="true" display_value="N"></tree_node_group>
+                <tree_node_group start_value="O" start_inclusive="true" end_value="P" end_inclusive="true" display_value="O"></tree_node_group>
+                <tree_node_group start_value="P" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="R" end_inclusive="true" display_value="Q"></tree_node_group>
+                <tree_node_group start_value="R" start_inclusive="true" end_value="S" end_inclusive="true" display_value="R"></tree_node_group>
+                <tree_node_group start_value="S" start_inclusive="true" end_value="T" end_inclusive="true" display_value="S"></tree_node_group>
+                <tree_node_group start_value="T" start_inclusive="true" end_value="U" end_inclusive="true" display_value="T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="V" end_inclusive="true" display_value="U"></tree_node_group>
+                <tree_node_group start_value="V" start_inclusive="true" end_value="W" end_inclusive="true" display_value="V"></tree_node_group>
+                <tree_node_group start_value="W" start_inclusive="true" end_value="X" end_inclusive="true" display_value="W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Y" end_inclusive="true" display_value="X"></tree_node_group>
+                <tree_node_group start_value="Y" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="Y"></tree_node_group>
+                <tree_node_group start_value="Z" start_inclusive="true" end_value="ZZ" end_inclusive="true" display_value="Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$wellname">
+            <tree_node key="License_Reporting$wellname" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="B" end_inclusive="true" display_value="A"></tree_node_group>
+                <tree_node_group start_value="B" start_inclusive="true" end_value="C" end_inclusive="true" display_value="B"></tree_node_group>
+                <tree_node_group start_value="C" start_inclusive="true" end_value="D" end_inclusive="true" display_value="C"></tree_node_group>
+                <tree_node_group start_value="D" start_inclusive="true" end_value="E" end_inclusive="true" display_value="D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="F" end_inclusive="true" display_value="E"></tree_node_group>
+                <tree_node_group start_value="F" start_inclusive="true" end_value="G" end_inclusive="true" display_value="F"></tree_node_group>
+                <tree_node_group start_value="G" start_inclusive="true" end_value="H" end_inclusive="true" display_value="G"></tree_node_group>
+                <tree_node_group start_value="H" start_inclusive="true" end_value="I" end_inclusive="true" display_value="H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="J" end_inclusive="true" display_value="I"></tree_node_group>
+                <tree_node_group start_value="J" start_inclusive="true" end_value="K" end_inclusive="true" display_value="J"></tree_node_group>
+                <tree_node_group start_value="K" start_inclusive="true" end_value="L" end_inclusive="true" display_value="K"></tree_node_group>
+                <tree_node_group start_value="L" start_inclusive="true" end_value="M" end_inclusive="true" display_value="L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="N" end_inclusive="true" display_value="M"></tree_node_group>
+                <tree_node_group start_value="N" start_inclusive="true" end_value="O" end_inclusive="true" display_value="N"></tree_node_group>
+                <tree_node_group start_value="O" start_inclusive="true" end_value="P" end_inclusive="true" display_value="O"></tree_node_group>
+                <tree_node_group start_value="P" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="R" end_inclusive="true" display_value="Q"></tree_node_group>
+                <tree_node_group start_value="R" start_inclusive="true" end_value="S" end_inclusive="true" display_value="R"></tree_node_group>
+                <tree_node_group start_value="S" start_inclusive="true" end_value="T" end_inclusive="true" display_value="S"></tree_node_group>
+                <tree_node_group start_value="T" start_inclusive="true" end_value="U" end_inclusive="true" display_value="T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="V" end_inclusive="true" display_value="U"></tree_node_group>
+                <tree_node_group start_value="V" start_inclusive="true" end_value="W" end_inclusive="true" display_value="V"></tree_node_group>
+                <tree_node_group start_value="W" start_inclusive="true" end_value="X" end_inclusive="true" display_value="W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Y" end_inclusive="true" display_value="X"></tree_node_group>
+                <tree_node_group start_value="Y" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="Y"></tree_node_group>
+                <tree_node_group start_value="Z" start_inclusive="true" end_value="" end_inclusive="true" display_value="Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$Contractor">
+            <tree_node key="ODD_Reporting$Contractor" grouped="true" group_expandable="true" query_db_for_counts="false">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$OperatorName">
+            <tree_node key="RigActivity_Reporting$OperatorName" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$RigName">
+            <tree_node key="RigActivity_Reporting$RigName" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$OperatorName">
+            <tree_node key="License_Reporting$OperatorName" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+      <tree tree_key="License_Reporting$TERMINATINGZONE">
+        <tree_node key="License_Reporting$TERMINATINGZONE" grouped="true" group_expandable="true" query_db_for_counts="true">
+          <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+          <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+          <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+          <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+          <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+          <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+          <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+        </tree_node>
+      </tree>      
+      <tree tree_key="License_Reporting$contractor">
+            <tree_node key="License_Reporting$contractor" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="0" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$Contractor">
+            <tree_node key="RigActivity_Reporting$Contractor" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="RigActivity_Reporting$field">
+            <tree_node key="RigActivity_Reporting$field" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="ODD_Reporting$Formation">
+            <tree_node key="ODD_Reporting$Formation" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="License_Reporting$field">
+            <tree_node key="License_Reporting$field" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="IDD_Region$Region">
+            <tree_node key="IDD_Region$Region" grouped="false" query_db_for_counts="false" />
+        </tree>
+        <tree tree_key="RigActivity_Reporting$Status">
+          <tree_node key="RigActivity_Reporting$Status" grouped="false" query_db_for_counts="true" />
+        </tree>
+        <tree tree_key="RigActivity_Reporting$Sub_Status">
+          <tree_node key="RigActivity_Reporting$Sub_Status" grouped="false" query_db_for_counts="true" />
+        </tree>
+        <tree tree_key="License_Reporting$Basin">
+            <tree_node key="License_Reporting$Basin" grouped="false" query_db_for_counts="true" />
+        </tree>
+        <tree tree_key="License_Reporting$State">
+            <tree_node key="License_Reporting$State" grouped="true" group_expandable="true" query_db_for_counts="true">
+                <tree_node_group start_value="A" start_inclusive="true" end_value="E" end_inclusive="true" display_value="A - D"></tree_node_group>
+                <tree_node_group start_value="E" start_inclusive="true" end_value="I" end_inclusive="true" display_value="E - H"></tree_node_group>
+                <tree_node_group start_value="I" start_inclusive="true" end_value="M" end_inclusive="true" display_value="I - L"></tree_node_group>
+                <tree_node_group start_value="M" start_inclusive="true" end_value="Q" end_inclusive="true" display_value="M - P"></tree_node_group>
+                <tree_node_group start_value="Q" start_inclusive="true" end_value="U" end_inclusive="true" display_value="Q - T"></tree_node_group>
+                <tree_node_group start_value="U" start_inclusive="true" end_value="X" end_inclusive="true" display_value="U - W"></tree_node_group>
+                <tree_node_group start_value="X" start_inclusive="true" end_value="Z" end_inclusive="true" display_value="X - Z"></tree_node_group>
+            </tree_node>
+        </tree>
+        <tree tree_key="r_geographic_reg$long_name">
+            <tree_node key="r_geographic_reg$long_name" grouped="false" query_db_for_counts="false" />
+        </tree>
+        <!--  <tree tree_key="ODD_Reporting.DigitalImages">
+      <tree_node key="ODD_Reporting.DigitalImages" grouped="true" query_db_for_counts="false" group_expandable="false">
+        <tree_node_group start_value="DigitalImages" start_inclusive="true" end_value="DigitalImages" end_inclusive="true" display_value="Digital Images"></tree_node_group>
+      </tree_node>
+    </tree>
+    -->
+        <link_tree tree_key="ProductDropdown">
+          <fixed_link target_category_key="OFFSETDRILLINGDATA" navigation_type="category" title_resource_key="Offset Drilling Data" target_domain_key="IHSDRILLINGDATA">
+            <restrictions>
+              <entitlement_restriction name="OFFSETDRILLINGDATA"/>
+              <entitlement_restriction name="ODD and Benchmark"/>
+            </restrictions>
+          </fixed_link>
+        </link_tree>
+    </tree_definitions>
+</control_config>

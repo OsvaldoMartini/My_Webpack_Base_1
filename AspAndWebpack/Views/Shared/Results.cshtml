@@ -1,0 +1,190 @@
+﻿@{
+    if (ViewBag.Title != null)
+    {
+        ViewBag.Title += " - Search Results";
+    }
+
+    Layout = "~/Views/Shared/_LayoutWithFilter.cshtml";
+}
+
+@using IHS.Apps.CMP.Utilities
+@model IHS.Apps.CMP.Models.ViewModels.ResultsPageModel
+
+@section page_title
+{
+    <div class="page-header with-search-bar with-data-bind position-fixed-x">
+        <div class="search-bar">
+            <div class="dashboardHeader grid">
+                @{
+                    var titleCss = "title grid-lg-1-4 grid-md-1-4 grid-xs-1-2 h1";
+                    if (!Model.ShowSearchBar && string.IsNullOrEmpty(Model.HeaderPartial))
+                    {
+                        titleCss = "title grid-1-1 h1";
+                    }
+                    else if (!string.IsNullOrEmpty(Model.HeaderPartial))
+                    {
+                        titleCss = "title grid-1-2 h1";
+                    }
+                }
+                <span class="@titleCss" data-bind="with : facetsVM">
+                    @if (Model.Breadcrumb != null && Model.Breadcrumb.RenderInHeader)
+                    {
+                        @Html.Partial("LinkBreadCrumb", Model.Breadcrumb)
+                    }
+                    else
+                    {
+                        @Model.Name
+                    }
+                    @if (!string.IsNullOrEmpty(Model.SubTitle))
+                    {
+                        <small>@Model.SubTitle</small>
+                    }
+                </span>
+
+                @if (!string.IsNullOrEmpty(Model.HeaderPartial))
+                {
+                    @Html.Partial(Model.HeaderPartial)
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section additional_css
+{
+    @Styles.Render("~/Content/results")
+    
+    @{
+        if (Model.CategoryName.Equals("EQUIP"))
+        {
+            @Styles.Render("~/Content/explorerResults")
+        }
+    }
+}
+
+@section additional_scripts
+{
+    @Scripts.Render("~/bundles/results")
+
+    @{
+        if (Model.CategoryName.Equals("EQUIP"))
+        {
+            @Scripts.Render("~/bundles/explorerResults")
+        }
+    }
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var searchQuery = window.location.search.substring(1) + window.location.hash;
+
+            var options = {
+                enableSearchBarAutoComplete: @Model.EnableSearchBarAutoComplete.ToString().ToLowerInvariant(),
+                showAdvancedSearch: @Model.ShowAdvancedSearch.ToString().ToLowerInvariant()
+            };
+
+            window.vm = new ResultsVM('container', searchQuery, options);
+            window.vm.rightHandPanelVM.setPanels(@Html.Raw(Model.RightHandPanels.ToJson()));
+        });
+    </script>
+}
+
+@section filters
+{
+    <div data-bind="with : facetsVM">
+
+        @if (Model.Breadcrumb != null && !Model.Breadcrumb.RenderInHeader)
+        {
+            @Html.Partial("LinkBreadCrumb", Model.Breadcrumb)
+        }
+
+        @Html.Partial("Results/Facets/FacetsPanel")
+    </div>
+
+    <div data-bind="with : tutorial" class="u-inline-block">
+        <div class="startHint leftpointer res1" data-tutorial="1">
+            <h3>New filtering functionality</h3>
+            <p>As well as selecting multiple items by selecting the check boxes in the usual way...</p>
+            <p>
+                <img width="220" height="220" src="~/Assets/Images/AandD/facet-tutorial-1.png" />
+            </p>
+            <br />
+        </div>
+
+        <div class="startHint leftpointer res2" data-tutorial="2">
+            <h3>New filtering functionality</h3>
+            <p>You can now single select by selecting the text on the right hand side and it will then automatically apply the filter and update your results.</p>
+            <p>
+                <img width="220" height="220" src="~/Assets/Images/AandD/facet-tutorial-2.png" />
+            </p>
+            <br />
+        </div>
+    </div>
+}
+
+@{
+    string mainGridClass = "grid";
+
+    if (Model.RightHandPanels.Count > 0)
+    {
+        mainGridClass += "-7-8";
+    }
+}
+
+@Html.Action("GetTopPanel", "Search")
+
+<div class="grid">
+    <div class="grid-1">
+        <div data-bind="with : filterTabsVM">
+            @Html.Action("GetFilterTabs", "Search")
+        </div>
+
+        <div data-bind="with: paginationVM">
+            @Html.Partial("Results/GridMenu", Model.GridMenu)
+        </div>
+    </div>
+    <div class="@mainGridClass">
+
+        <div class="grid-1 resultsContainer" data-bind="with : gridVM">
+            <div class="alert alert-info" data-bind="visible : showAdvancedSearchMessage" style="display: none;">
+                @{
+                    var key = Model.CategoryName + "_AdvancedSearchMessage";
+                    var text = LanguageUtils.GetGlobalResourceString(key);
+                    if (text.Equals(key))
+                    {
+                        <br /><p>Enter your search terms and then select the search button to view your results. You can use stemming, wildcards and proximity to narrow your search.</p><br /><p>To add filters, select the left filter/s you require and then select the ‘Apply Filters’ button.</p>
+                    }
+                    else
+                    {
+                        @Html.Raw(text)
+                    }
+                }
+            </div>
+
+            <div id="resultsGrid" data-bind="dynamicHtml : resultsBodyHtml">
+            </div>
+
+            <div class="hide" data-bind="css: {hide: ! isAppending()}" style="height: 60px; position: relative">
+                <div class="loading"></div>
+            </div>
+        </div>
+
+        <div class="grid-1 text-center" data-bind="with : paginationVM">
+            @Html.Partial("Results/Pagination")
+        </div>
+        <div class="loadingOverlay" data-bind="visible : gridVM.isLoading"><div class="loading dimmer"></div></div>
+    </div>
+
+    @if (Model.RightHandPanels.Count > 0)
+    {
+        <!-- ko with: rightHandPanelVM -->
+        <div class="grid-1-8">
+            <!-- ko foreach: panels -->
+            <button class="grid-1 text-center well hand u-padding-Axs" data-bind="attr:{id: id}">
+                <i class="xlarge" data-bind="css : icon"></i>
+                <span class="show" data-bind="text: title"></span>
+            </button>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+    }
+</div>

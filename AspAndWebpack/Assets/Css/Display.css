@@ -1,0 +1,208 @@
+﻿.mainNav > li a,
+.mainNav .toggleSwitch,
+.mainNav li > span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 115%;
+}
+.mainNav .form-control {
+    font-size: 115%;
+    height: 22px;
+    line-height: 22px;
+    margin: 0 10px;
+    padding: 0 5px;
+    width: auto;
+    display: inline;
+}
+.mainNav {
+    color: #fff;
+    text-align: right;
+}
+
+.reportBuilderLink svg {
+    margin-right: 4px;
+    position: relative;
+    top: -1px;
+}
+.activeNav.loading h1 {
+    display: none;
+}
+
+.activeNav.loading {
+    display: block !important;
+    background: url("/App_Themes/Default/Images/loadinganim.gif") no-repeat center center #FFFFFF;
+    background-size: 20% auto;
+    height: 100px;
+}
+
+.activeNav h1 {
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+.activeNav h2 {
+    font-size: 1em;
+    margin: 12px 0 5px;
+}
+
+.activeNav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.activeNav li {
+    line-height: inherit;
+    padding: 4px 0 4px 5px;
+    position: relative;
+}
+
+.activeNav ul ul {
+    display: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    left: -210px;
+    position: absolute;
+    top: -3px;
+    width: 200px;
+    background-color: #f8f8f8;
+    padding: 3px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.activeNav ul ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.activeNav ul ul li a {
+    display: block;
+    padding: 5px 10px;
+}
+
+#activeNavDialogLinks {
+    list-style: none;
+}
+
+#activeNavDialogLinks a {
+    padding: 5px 10px 5px 15px;
+}
+
+.activeNav ul ul li span.anLockedLink, #activeNavDialogLinks .anLockedLink {
+    display: block;
+    padding: 5px 10px 5px 15px;
+    margin-left: 10px;
+    color: #666;
+    background-image: url('data:image/gif;base64,R0lGODlhCwANAKIAAGyg5ZW67Mjb9e3z/K7L8XKk5v///wAAACH5BAEHAAYALAAAAAALAA0AAAMtaCpRISqKAmqBMQAyCAiRQQ3GABRhFakr0CpVLMdEbdvVrec6vvU1HnBGBCQAADs=') /*/App_Themes/Default/images/padlock_icon.gif*/;
+    background-size: 10px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.activeNav ul ul li a.anAuthorised, #activeNavDialogLinks .anAuthorised {
+    display: block;
+    padding: 5px 5px 5px 15px;
+    margin-left: 10px;
+    background-image: url('data:image/gif;base64,R0lGODlhCgAKAIABAC5+z////yH5BAEAAAEALAAAAAAKAAoAAAIUjA8Jxxr+3DLy0dQus5nuGSnYRhYAOw==') /*/App_Themes/Default/images/goicon.gif*/;
+    background-size: 10px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.activeNav ul ul li span.anAuthorisingLink, #activeNavDialogLinks li .anAuthorisingLink {
+    display: block;
+    padding: 5px 10px 5px 15px;
+    margin-left: 10px;
+    color: #666;
+    background-image: url('data:image/gif;base64,R0lGODlhFAAUAPABAN7e3gAAACH5BAkDAAEAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAFAAUAAACMYyPqcvtD6OcDFgwrdEIK755wfWV4SWKCwo+rOqQpMuh8TziiX2wn356+VbCVmWYKAAAIfkECQMAAQAsAAAAABQAFAAAAjKMj6nL7Q+jnAEogO3KCBt/gZX2kQfXmKWasCiUvQ8nM2js4Cu7d7ovOsWGvxaxthkuCgAh+QQJAwABACwAAAAAFAAUAAACMYyPqcvtDxEAUU5aw7WT7dNpWPItIeeM4GkqpasabzVDV0yyt/fe+J7zCRtCYMq3KAAAIfkECQMAAQAsAAAAABQAFAAAAjCMj6nLC9/cA1FNWs/NaHYvYZoBWaVkik4aqeRpsoyrwdzG1Xad7vh3Ce50QlpvWAAAIfkECQMAAQAsAAAAABQAFAAAAjCMH6DIrd/im5FNUCXMdnPkGSG4aBpWlSSaOqrksm6cyutcv584fte+uuhOP6AwUgAAIfkECQMAAQAsAAAAABQAFAAAAjKMH6CLfQuVezHOBO/MuvGOMA5wiSN5optKsWPauZhMwWsphfm6gy0dM/kMliFRaOxNCgAh+QQJAwABACwAAAAAFAAUAAACM4wfoIt9C5lLsaoWHcRSA35NYieC5eehU4iQWlom8Kg+rIHe7b3ReoxzASk/oHBYGyobBQAh+QQJAwABACwAAAAAFAAUAAACMowfoIt9C5lLsaoWXX5SdzhxgBgio9GV2FWeJhu6ZOvJa/2i9qzD9a6iAIPDoPGITB4KACH5BAkDAAEALAAAAAAUABQAAAIwjB+gi30LmUuxKgdxflJfs03U14njaSJVqkYpwIVwM7f1B9Zxm7O27gsKh8Si8VgAACH5BAkDAAEALAAAAAAUABQAAAIwjB+gi30LmTOxKgdxflJf2k1bOCUXWZpbygEYi7ppLIOtKH9g3aw2CwwKh8SiMVgAACH5BAkDAAEALAAAAAAUABQAAAIyjB+gi30LmTOxKgdxflJfDkxg+IhIZ3qaiVJpm7zfSU5wQs543WyUnvoBgzii8YhMEgsAIfkECQMAAQAsAAAAABQAFAAAAjGMH6CLfQuZM7GqKVGcPOXeQCB2Yd1HAWepgWjiso/KvR4Vytpnr3r88wV9IwetOCoAACH5BAkDAAEALAAAAAAUABQAAAIvjG+git0LgZsRzhsspmtzdoFIx4XicT5ptpFju66oLGe1m9Sm7mhejtv5YEHipAAAIfkECQMAAQAsAAAAABQAFAAAAjKMjwbJHQCdhFE2uizDetP5HaHnjGJ2VQiasoplKu6q0mW9th2Nw7H/k2GGoGHPw2EUAAAh+QQJAwABACwAAAAAFAAUAAACMoyPqcvdAByDUSZa7cGPIr9ARjaKF3migfqZnwO2Heum2lZb3DXFuIpBBYe+FpGVKhoKACH5BAUDAAEALAAAAAAUABQAAAIyjI+py+0PYwJAIloZzgbrTF3hxCne5JxXOoqNun5cKXewqW5yudFBT+oJfbYhMXgzFAAAOw==') /*/App_Themes/Default/Images/loadinganimsmall.gif*/;
+    background-size: 10px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.activeNav ul ul:after, .activeNav ul ul:before {
+    left: 100%;
+    top: 15px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.activeNav ul ul:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #f8f8f8;
+    border-width: 6px;
+    margin-top: -6px;
+}
+
+.activeNav ul ul:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-left-color: #CCC;
+    border-width: 7px;
+    margin-top: -7px;
+}
+
+.activeNav ul ul.offset {
+    top: auto;
+    bottom: -10px;
+}
+
+.activeNav ul ul.offset:after {
+    top: auto;
+    bottom: 15px;
+    border-width: 6px;
+    margin-bottom: -1px;
+}
+
+.activeNav ul ul.offset:before {
+    top: auto;
+    bottom: 15px;
+    border-width: 7px;
+    margin-bottom: -2px;
+}
+
+.activeNav .anhide {
+    display: none;
+}
+
+.activeNav .anhide.on {
+    display: block;
+    background-color: inherit;
+}
+
+.more {
+    color: #0097D1;
+    padding-left: 15px;
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 0 13px !important;
+    margin: 5px 3px;
+    background: url("data:image/gif;base64,R0lGODlhBwAHAJEAAFVVVf///6GhoQAAACwAAAAABwAHAAACDxR+EngRltxq0ii5sLuhAAA7") no-repeat scroll 2px 4px transparent;
+}
+
+.more.on {
+    background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAFVVVf///6GhoQAAACwAAAAABwAHAAACD4xlGaAhgBKY6c04s8u3AAA7");
+}
+
+.tableauPlaceHolder {
+    width: 600px;
+    height: 600px;
+    display: inline-block;
+}
+
+.inlineLinkAnchor[disabled] {
+    pointer-events:none;
+    text-decoration:none;
+}
+
+.highlightDisabled{
+    background-color: transparent !important;
+}
+@media only screen {
+  .mainNav .toggleSwitch a {
+      padding: 0;
+  }
+}

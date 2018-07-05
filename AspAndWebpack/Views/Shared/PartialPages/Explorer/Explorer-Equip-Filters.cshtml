@@ -1,0 +1,10 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Explorer.ExplorerModel
+
+<div data-bind="with : facetsVM">
+    @if (Model.Breadcrumb != null)
+            {
+        @Html.Partial("LinkBreadCrumb", Model.Breadcrumb)
+    }
+
+    @Html.Partial("Results/Facets/FacetsPanel")
+</div>

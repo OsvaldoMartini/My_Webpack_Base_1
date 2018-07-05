@@ -1,0 +1,92 @@
+﻿@using IHS.Apps.CMP.Models.ViewModels
+@model ResultsDataModel<IHS.Core.Catalog.Model.IItem>
+
+<table class="table hover checkboxes results-story">
+    <caption class="sr-only">Search results for the selected filters</caption>
+
+    @{
+        foreach (var record in Model.ResultItems)
+        {
+            <tr class="result-item" data-row-id="@record.Data.ID" data-bind="css : { warning : selectedRecords.indexOf('@record.Data.ID') >
+                -1 }">
+
+                <td class="checkboxcell row_selector">
+                    <input id="chkRow_@record.Data.ID" type="checkbox" data-bind="checked : selectedRecords, value : '@record.Data.ID'">
+                    <label for="chkRow_@record.Data.ID"></label>
+                </td>
+
+                <td class="story-contents">
+
+                    @{
+            var rowNumber = record.Cells.Single(p => p.Key == "ROWNUMBER");
+
+            var title = record.Cells.Single(p => p.Key == "TITLE");
+
+            var thumbnail = record.Cells.SingleOrDefault(p => p.Key == "THUMBNAIL");
+
+            if (thumbnail != null)
+            {
+                @Html.Partial(thumbnail.PartialViewName, thumbnail)
+            }
+
+            <p>
+
+                <span class="@rowNumber.CssClass">
+                    @Html.Partial(rowNumber.PartialViewName, rowNumber):
+                </span>
+
+            </p>
+
+                        <p class="@title.CssClass">
+                            @Html.Partial(title.PartialViewName, title)
+                        </p>
+
+            var teaser = record.Cells.Single(p => p.Key == "TEASER");
+
+            <p class="@teaser.CssClass">
+                @Html.Partial(teaser.PartialViewName, teaser)
+            </p>
+                    }
+
+                    @{
+            var country = record.Cells.Single(p => p.Key == "COUNTRYSORT");
+
+            <p class="@country.CssClass">
+                <strong>Country:</strong>
+                @Html.Partial(country.PartialViewName, country)
+            </p>
+                    }
+
+                    @{
+            var pub = record.Cells.Single(p => p.Key == "PUBLICATION");
+
+            <p class="@pub.CssClass">
+                <strong>Publication:</strong>
+                @Html.Partial(pub.PartialViewName, pub)
+            </p>
+
+            var sect = record.Cells.Single(p => p.Key == "SECTION");
+
+            <p class="@sect.CssClass">
+                <strong>Section:</strong>
+                @Html.Partial(sect.PartialViewName, sect)
+            </p>
+                    }
+
+                    @{
+            var postDate = record.Cells.Single(p => p.Key == "POSTDATE");
+
+            <p class="@postDate.CssClass">
+                <strong>Publication Date:</strong>
+                @Html.Partial(postDate.PartialViewName, postDate)
+            </p>
+
+                    }
+
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>

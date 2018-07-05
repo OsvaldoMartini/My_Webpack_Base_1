@@ -1,0 +1,240 @@
+﻿@using IHS.Apps.CMP.Utilities
+@model Dictionary<string, System.Data.DataTable>
+
+    @{
+        string containerId = CmpHtmlHelpers.CreateUniqueId();
+        string idBySubject = CmpHtmlHelpers.CreateUniqueId("dvBySubject");
+        string idAtoZ = CmpHtmlHelpers.CreateUniqueId("dvByAZ");
+        string idFavourites = CmpHtmlHelpers.CreateUniqueId("dvFavourites");
+        string idNotSubscribed = CmpHtmlHelpers.CreateUniqueId("dvUnSubscribed");
+        string idDisabled = CmpHtmlHelpers.CreateUniqueId("dvDisabled");
+        var myAccount = CmpHtmlHelpers.CreateUniqueId("dvMySubAccount");
+        var searchBarId = CmpHtmlHelpers.CreateUniqueId("dvSubscriptionSearch");
+        var rootClass = "card";
+        if (Model.ContainsKey("HideTitle")) { rootClass = string.Empty; }
+    }
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "/MySubscriptions/Account",
+                timeout: 20000,
+                cache: false
+            })
+            .success(function (data) {
+                var accountTab = $("#@myAccount");
+                if (data != "") {
+                    $("#@myAccount").html(data);
+                }
+                else {
+                    $("#@(myAccount)_li").hide();
+                }
+            })
+            .error(function (jqXhr, textStatus) {
+                $("#@myAccount").html("Account information cannot be retrieved, please try again later");
+            });
+
+            $("#@searchBarId").chosen({
+                search_contains: true,
+                width: '100%'
+            });
+
+            // hook up the help indicators of the clone
+            if (typeof (SetupHelpClick) == "function") {
+                SetupHelpClick($("#@containerId"));
+            }
+        });
+    </script>
+
+    @helper subscriptionRow(System.Data.DataRow row, string sectionId, int rowId)
+    {
+
+if (User.IsInRole(IHS.Apps.CMP.Models.Configuration.available_roles.CanCreateFavourites.ToString()) && Convert.ToBoolean(row["CANCREATEFAVOURITE"]))
+{
+        <button class="@(((Convert.ToBoolean(row["ISFAVOURITE"])) ? "icon-star" : "icon-star-empty") + " helpButton hand tipsyMe orange2")" title="@(((Convert.ToBoolean(row["ISFAVOURITE"])) ? this.LocalResources("RemoveFavourite") : this.LocalResources("AddFavourite")))" onclick="_favouritesService.toggleFavouriteCategory(this);" data-jsinstance="_favouritesService" data-catkey="@row["CATEGORYKEY"]"></button>
+}
+else
+{
+        <i class="icon-blank"></i>
+}
+    <a class="abortAllRequests" href="@row["LINK"]">@row["TITLE"]</a>
+    <button class="icon-info-circled helpButton hand u-margin-Lxs grey3" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@this.ViewBag.AppName" data-groupid="PRODUCT_DESRIPTIONS" data-itemid="@row["CATEGORYKEY"]_description" aria-label="View information about @row["TITLE"]"></button>
+
+if (row["FILTERS"] != null && !string.IsNullOrEmpty(row["FILTERS"].ToStringSafe(string.Empty)))
+{
+    string filterText = this.LocalResources("Restricted");
+    string filterTitle = this.LocalResources("RestrictedTitle");
+    if (row["CATEGORYKEY"].ToStringSafe().Equals("JDSF14", StringComparison.OrdinalIgnoreCase))
+    {
+        filterText = this.LocalResources("JDSF14Restricted");
+        filterTitle = this.LocalResources("JDSF14RestrictedTitle");
+    }
+
+    <span class="label label-warning hand tipsyMe restriction u-font-85" title="@filterTitle" data-toggle="collapse" data-target="#restriction_@(sectionId + "_" + rowId)" aria-expanded="false" aria-controls="restriction_@(sectionId + "_" + rowId)">@filterText</span>
+    <div class="collapse" id="restriction_@(sectionId + "_" + rowId)">
+        <div class="well">
+            @foreach (string restriction in row["FILTERS"].ToStringSafe(string.Empty).Split(','))
+            {
+                <p><i class="icon-angle-right"></i>@restriction</p>
+            }
+        </div>
+    </div>
+}
+}
+
+    <div id="@containerId" class="mySubscriptions @rootClass">
+        @if (!Model.ContainsKey("HideTitle"))
+        {<h3>@this.LocalResources("Title")</h3>}
+
+        @if (Model.ContainsKey("AZSubscribed"))
+        {
+            <select id="@searchBarId" data-placeholder="Search here for your subscriptions" class="chosenselect" style="width:100%" onchange="location.href = this.value">
+                <option></option>
+                @foreach (System.Data.DataRow row in Model["AZSubscribed"].Rows)
+                {
+                    <option value="@row["Link"]">
+                        @row["TITLE"]
+                    </option>
+                }
+            </select>
+            <span class="mySubscriptions-info">Start typing to get a list of your subscriptions or press down to select</span>
+        }
+        <div role="tabpanel">
+            <ul class="nav nav-tabs nav-tabs-line nav-tabs-center u-margin-Txs" role="tablist">
+                <li role="presentation"><a href="#@idBySubject" data-toggle="tab" role="tab">@this.LocalResources("BySubject")</a></li>
+                <li role="presentation" class="@(Model.ContainsKey("Favourites") ? "" : "active")"><a href="#@idAtoZ" data-toggle="tab" role="tab">@this.LocalResources("AToZ")</a></li>
+                <li role="presentation" class="@(Model.ContainsKey("Favourites") ? "active" : "")"><a href="#@idFavourites" data-toggle="tab" role="tab">@this.LocalResources("Favourites")</a></li>
+                <li role="presentation"><a href="#@idNotSubscribed" data-toggle="tab" role="tab">@this.LocalResources("Unsubscribed")</a></li>
+                @if (Model.ContainsKey("Disabled"))
+                {
+                    <li role="presentation"><a href="#@idDisabled" data-toggle="tab" role="tab">@this.LocalResources("Disabled")</a></li>
+                }
+                <li role="presentation" @("id=" + myAccount + "_li")><a href="#@myAccount" data-toggle="tab" role="tab">@this.LocalResources("Account")</a></li>
+            </ul>
+            <div class="tab-content" role="presentation">
+                <div class="tab-pane fade mySubSubjects" id="@idBySubject" role="tabpanel">
+                    @if (Model.ContainsKey("Subscribed"))
+                    {
+                        <div role="tree">
+                            @foreach (System.Data.DataRow row in Model["Subscribed"].Rows)
+                            {
+                                <div class="@row["DIVISION"]" role="group">
+                                    @{ string topGroupId = CmpHtmlHelpers.CreateUniqueId(); }
+                                    @foreach (System.Data.DataRow childRow in row.GetChildRows("Column_Groups"))
+                                    {
+                                        <p href="#topgroup_@topGroupId" aria-owns="topgroup_@topGroupId" class="icon-collapse-arrow hand" role="treeitem" tabindex="0" data-toggle="collapse" aria-expanded="false"><strong>@childRow["SUPERGROUP"]</strong></p>
+                                        <div class="collapse" id="topgroup_@topGroupId" role="group">
+                                            @{int superGroupId = 0; }
+
+                                            @foreach (System.Data.DataRow topGroupsRow in childRow.GetChildRows("Top_Groups"))
+                                            {
+                                                <p href="#supergroup_@(topGroupId + "_" + superGroupId)" class="icon-collapse-arrow hand indent" data-toggle="collapse" role="treeitem" aria-expanded="false"><strong>@topGroupsRow["GROUP"]</strong></p>
+                                                <div class="collapse indent" id="supergroup_@(topGroupId + "_" + superGroupId)" role="group">
+                                                    <ul class="indent list-unstyled">
+                                                        @foreach (System.Data.DataRow superGroupsRow in topGroupsRow.GetChildRows("Super_Groups"))
+                                                        {
+                                                            <li role="treeitem">
+                                                                @subscriptionRow(superGroupsRow, topGroupId, superGroupId)
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                                superGroupId++;
+                                            }
+                                        </div>
+                                                    topGroupId = CmpHtmlHelpers.CreateUniqueId();
+                                                }
+                                </div>
+                                                }
+                        </div>
+                                                }
+                </div>
+                <div class="tab-pane fade @(Model.ContainsKey("Favourites") ? "" : "active in")" id="@idAtoZ">
+                    @{int rowId = 0;}
+                    @if (Model.ContainsKey("AZSubscribed"))
+                    {
+                        <ul class="list-unstyled">
+                            @foreach (System.Data.DataRow row in Model["AZSubscribed"].Rows)
+                            {
+                                <li>
+                                    @subscriptionRow(row, idAtoZ, rowId)
+                                </li>
+                                rowId++;
+                            }
+                        </ul>
+                    }
+                </div>
+                <div class="tab-pane fade mySubFavourites @(Model.ContainsKey("Favourites") ? "active in" : "")" id="@idFavourites">
+                    @if (Model.ContainsKey("Favourites"))
+                    {
+                        foreach (System.Data.DataRow row in Model["Favourites"].Rows)
+                        {
+                            <div class="@row["DIVISION"]">
+                                @{int topGroupId = 0; }
+                                @foreach (System.Data.DataRow childRow in row.GetChildRows("Column_Groups"))
+                                {
+                                    <p><strong>@childRow["SUPERGROUP"]</strong></p>
+                                    <div class="indent">
+                                        @{int superGroupId = 0; }
+                                        @foreach (System.Data.DataRow topGroupsRow in childRow.GetChildRows("Top_Groups"))
+                                        {
+                                            <strong>@topGroupsRow["GROUP"]</strong>
+                                            <div>
+                                                <ul class="indent list-unstyled u-padding-Txxs">
+                                                    @foreach (System.Data.DataRow superGroupsRow in topGroupsRow.GetChildRows("Super_Groups"))
+                                                    {
+                                                        <li>
+                                                            @subscriptionRow(superGroupsRow, topGroupId.ToString(), superGroupId)
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                            superGroupId++;
+                                        }
+                                    </div>
+                                                topGroupId++;
+                                            }
+                            </div>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p>@this.LocalResources("NoFavourites")</p>
+                                            }
+                </div>
+                <div class="tab-pane fade" id="@idNotSubscribed">
+                    @if (Model.ContainsKey("UnSubscribed"))
+                    {
+                        foreach (System.Data.DataRow row in Model["UnSubscribed"].Rows)
+                        {
+                            <p>
+                                @row["TITLE"]
+                                <i class="icon-info-circled helpButton hand u-margin-Lxs grey3" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@this.ViewBag.AppName" data-groupid="PRODUCT_DESRIPTIONS" data-itemid="@row["CATEGORYKEY"]_description"></i>
+                            </p>
+                        }
+                    }
+                </div>
+                @if (Model.ContainsKey("Disabled"))
+                {
+                    <div class="tab-pane fade" id="@idDisabled">
+                        <div class="alert alert-info">@Html.Raw(LanguageUtils.GetGlobalResourceString("DisabledProducts"))</div>
+                        @foreach (System.Data.DataRow row in Model["Disabled"].Rows)
+                        {
+                            <p>
+                                @row["TITLE"]
+                                <i class="icon-info-circled helpButton hand u-margin-Lxs grey3" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@this.ViewBag.AppName" data-groupid="PRODUCT_DESRIPTIONS" data-itemid="@row["CATEGORYKEY"]_description"></i>
+                            </p>
+                        }
+                    </div>
+                }
+                <div id="@myAccount" class="tab-pane fade" style="position: relative">
+                    <div class="loading"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.a11y && window.a11y
+            .tabpanel($('#@containerId [role="tabpanel"]'))
+            .treeview($('#@containerId .mySubSubjects'));
+    </script>

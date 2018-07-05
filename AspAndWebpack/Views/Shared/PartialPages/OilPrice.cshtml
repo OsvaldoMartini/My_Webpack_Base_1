@@ -1,0 +1,109 @@
+﻿@model  Tuple<IHS.Apps.CMP.Models.ViewModels.OilPrice, System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.Link>>
+
+@if (!Model.Item1.HasAccess)
+{
+    Html.Action("PopulateNoAccess", "NoAccess", new { warningType = ViewBag.AuthorizationWarningType, titleOnly = false });
+}
+else
+{
+<script>var oilChartSeries = @Html.Raw(Model.Item1.CommodityDataAsChartSeries);</script>
+
+<div class="grid-1">
+    <div id="oilChart" style="min-height:500px;">
+
+    </div>
+    @if (Model.Item2 != null)
+    {
+        @Html.Partial("Widget/LinkListWidgetFooter", Model.Item2)
+    }
+    @if (Model.Item1.CommodityData.Rows != null && Model.Item1.CommodityData.Rows.Count > 0)
+    {
+    <div class="table-scroll">
+        <div class="table-container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>@this.LocalResources("Date")<div>@this.LocalResources("Date")</div></th>
+                        <th>@this.LocalResources("Brent")<div>@this.LocalResources("Brent")</div></th>
+                        <th>@this.LocalResources("OPECBasket")<div>@this.LocalResources("OPECBasket")</div></th>
+                        <th>@this.LocalResources("WTI")<div>@this.LocalResources("WTI")</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (System.Data.DataRow row in Model.Item1.CommodityData.Rows)
+                    {
+                        <tr>
+                            <td>@IHS.Apps.CMP.Common.CommonUtilities.TryConvertDate(row["Date"].ToStringSafe(string.Empty))</td>
+                            <td @{
+                                decimal brent;
+                                decimal brentChange;
+                                decimal.TryParse(row["Brent"].ToString(), out brent);
+                                decimal.TryParse(row["Brent Price Change"].ToString(), out brentChange);
+                                }
+                                @(brentChange > decimal.Zero ? "class=success" : brentChange == decimal.Zero ? "class=warning" : "class=danger")>
+
+                                @(brent == decimal.Zero ? "N/A" : "$" + brent.ToString() + " ($" + brentChange.ToString() + ")")
+                                <i @(brentChange > decimal.Zero ? "class=icon-up-dir" : brentChange == decimal.Zero ? "class=icon-blank" : "class=icon-down-dir")></i>
+                            </td>
+
+                            <td @{
+                                decimal opec;
+                                decimal opecChange;
+                                decimal.TryParse(row["OPEC Basket"].ToString(), out opec);
+                                decimal.TryParse(row["OPEC Basket Price Change"].ToString(), out opecChange);
+                                }
+                                @(opecChange > decimal.Zero ? "class=success" : opecChange == decimal.Zero ? "class=warning" : "class=danger")>
+
+                                @(opec == decimal.Zero ? "N/A" : "$" + opec.ToString() + " ($" + opecChange.ToString() + ")")
+                                <i @(opecChange > decimal.Zero ? "class=icon-up-dir" : opecChange == decimal.Zero ? "class=icon-blank" : "class=icon-down-dir")></i>
+                            </td>
+                            <td @{
+                                decimal wti;
+                                decimal wtiChange;
+                                decimal.TryParse(row["WTI"].ToString(), out wti);
+                                decimal.TryParse(row["WTI Price Change"].ToString(), out wtiChange);
+                            }
+                                @(wtiChange > decimal.Zero ? "class=success" : wtiChange == decimal.Zero ? "class=warning" : "class=danger")>
+
+                                @(wti == decimal.Zero ? "N/A" : "$" + wti.ToString() + " ($" + wtiChange.ToString() + ")")
+                                <i @(wtiChange > decimal.Zero ? "class=icon-up-dir" : wtiChange == decimal.Zero ? "class=icon-blank" : "class=icon-down-dir")></i>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    }
+</div>
+if (Model.Item1.Reports != null && Model.Item1.Reports.Count > 0)
+{
+<div class="grid-1 grid-sm-1-4">
+    <div class="card">
+        <h4 class="moduleTitle">@this.LocalResources("LatestOilArticles")</h4>
+        <ul class="list-group list-links">
+            @foreach (IHS.Apps.CMP.Models.ViewModels.Article article in Model.Item1.Reports)
+            {
+                <li class="list-group-item">
+                    <a class="visitedlink" href='/OilPriceAnalysis/Display/@article.Id?from=OilReview' target="_blank">@article.PublishedDate - @article.Title<i class="icon-right-open pull-right"></i></a>
+                    <a class="visitedtick" href='/OilPriceAnalysis/Display/@article.Id?from=OilReview' target="_blank"><span class='visitedtick_tt'></span></a>
+                </li>
+            }
+        </ul>
+        <a href="/CMPBase/SwitchToWebFormsCategory?categoryKey=WEEKLY_OIL_PRICE_ANALYSIS" class="btn btn-primary u-margin-Ts">@this.LocalResources("ViewMore")</a>
+    </div>
+</div>
+}
+}
+
+<script>
+    $(function () {
+        var chart = new OilChart();
+        chart.Populate();
+
+        //Register with dashboard
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('oilChart', chart);
+        }
+    });
+</script>

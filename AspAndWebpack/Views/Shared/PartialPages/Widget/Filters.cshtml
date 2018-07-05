@@ -1,0 +1,116 @@
+﻿@model Tuple<IEnumerable<IHS.Apps.CMP.Models.ViewModels.FilterVM>, string>
+
+@{
+    List<String> FiltersId = new List<string>();
+    bool AllowDeselect = true;
+    bool spaced = false;
+}
+
+@foreach (IHS.Apps.CMP.Models.ViewModels.FilterVM filter in Model.Item1)
+{
+    string FilterId = CmpHtmlHelpers.CreateUniqueId("filter_" + filter.Indexer);
+    FiltersId.Add(FilterId);
+    if (filter.Autocomplete)
+    {
+        <div id="@(FilterId)_container"  class="--input-group-- autocomplete u-margin-Ts u-margin-Bxxs" style="display: table; width: 100%; position: relative">
+            <div class="loading sm" style="display: none; left: auto; right: 5px; top: 16px;"></div>
+            <input type="text" id="@FilterId" name="platformText" class="form-control ui-autocomplete-input dark-placeholder" data-index="@filter.Indexer" placeholder="Filter by @filter.Title" autocomplete="off" aria-describedby="@(FilterId)_info">
+            <span class="clear-searchterm hand grey2 absolute u-bold" style="font-size: 150%; right: 30px; top: 2px; display: none">&times;</span>
+            <span id="@(FilterId)_info" class="platform-info fade">Start typing a @filter.SubTitle to get a list of possible matches</span>
+        </div>
+        <script>
+            $(function(){
+                var autocompleteFilter = $('#@(FilterId)_container');
+                var filter = $('#@FilterId', autocompleteFilter);
+                var clear =  $('.clear-searchterm', autocompleteFilter);
+                clear.click(function(){
+                    filter
+                        .val('')
+                        .change();
+                });
+
+                filter
+                    .change(function(){clear.toggle(!!this.value);})
+                    .focus(function(){$('#@(FilterId)_info', autocompleteFilter).addClass('in');})
+                    .blur(function(){$('#@(FilterId)_info', autocompleteFilter).removeClass('in');})
+                    .autocomplete({
+                        source: function (request, response) {
+                            $(".loading", autocompleteFilter).show();
+                            var loadOptions = function(data){
+                                if (!data.length){
+                                    response([{label: 'No matches found', value: response.term}]);
+                                    return;
+                                }
+
+                                response(data);
+                                $('.ui-autocomplete', autocompleteFilter).css('z-index', 2000);
+                            };
+
+                            var always = function()
+                            {
+                                filter.data('loadOptions', '');
+                                $(".loading", autocompleteFilter).hide();
+                            }
+
+                            filter.data('loadOptions', loadOptions);
+                            filter.data('loadedOptions', always);
+                            filter.change();
+                        },
+                        messages: {
+                                noResults: '',
+                                results: function () { }
+                            },
+                        minLength: 3,
+                        select: function (a, b) {
+                            filter
+                                .val(b.item.value)
+                                .change();
+                        }
+                    });
+            });
+        </script>
+    }
+    else
+    {
+
+
+        AllowDeselect = filter.AllowDeselect;
+<select id="@FilterId" data-placeholder="Select @filter.Title" data-index="@filter.Indexer" class="chosenselect" style="width: 250px;">
+    <option></option>
+    @foreach (var opt in filter.Options)
+    {
+        if (filter.SelectedOption == opt.Value)
+        {
+            <option value="@opt.Value" selected="selected" @Html.Raw(opt.DataText)>@opt.Text</option>
+        }
+        else
+        {
+            <option value="@opt.Value" @Html.Raw(opt.DataText)>@opt.Text</option>
+        }
+    }
+</select>
+    spaced = false;
+    if(filter.Width == 100)
+    {
+        spaced = true;
+        <br/>
+    }
+<script>
+    $("#@FilterId").chosen({
+        search_contains: true,
+        width: '@filter.Width%',
+        allow_single_deselect: @(AllowDeselect?"true":"false")
+        });
+</script>
+    }
+}
+<script>
+    $("#@string.Join(",#",FiltersId)").change(function () {
+        @(Model.Item2)('#@string.Join(",#",FiltersId)');
+    });
+</script>
+@if (!spaced)
+{
+<br/>
+}
+<br/>

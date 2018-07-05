@@ -1,0 +1,159 @@
+@model IHS.Apps.CMP.Models.ViewModels.SearchBar
+
+@if (Model.GlobalRoute == "janes" || this.ViewBag.HideBannerSearch == null || this.ViewBag.HideBannerSearch != true)
+{
+    <div class="with-search-bar with-data-bind header-search-bar">
+        <!-- ko  with: searchBarVM -->
+        <div id="header-search-bar" role="search">
+            <input type="hidden" data-bind="value:(globalSearch('@Model.GlobalRoute.Replace("'", @"\'")'),globalSearch())">
+            <input type="hidden" data-bind="value:('@Model.CategoryMapping.Replace("'", @"\'")' && categoryMapping('@Model.CategoryMapping.Replace("'", @"\'")'),categoryMapping())">
+            <input type="hidden" data-bind="value:('@Model.Watermark.Replace("'", @"\'")' && categoryTitle('@Model.Watermark.Replace("'", @"\'")'),categoryTitle())">
+            <input type="hidden" data-bind="value:('@Model.CategoryUrl.Replace("'", @"\'")' && categoryUrl('@Model.CategoryUrl.Replace("'", @"\'")'),categoryUrl())">
+            <input type="hidden" data-bind="value:('@Model.AutocompleteUrl.Replace("'", @"\'")' && categoryAutoComplete('@Model.AutocompleteUrl.Replace("'", @"\'")'),categoryAutoComplete())">
+            <input type="hidden" data-bind="value:(@(Model.AllowAdvancedSearch?"true":"false") && allowAdvancedSearch(@(Model.AllowAdvancedSearch?"true":"false")),allowAdvancedSearch())">
+            <form style="width: auto;" data-bind="submit: applySearch">
+
+                <div class="input-group input-group-sm search-bar-line" data-bind="with:searchBar">
+                    <!-- ko if: parent.dropdown().length>0 -->
+                    <div class="input-group-btn" data-bind="with: parent, visible: parent.dropdown().length" style="display:none;">
+                        <button type="button" class="btn btn-default dropdown-toggle zone-search-select" data-toggle="dropdown" aria-label="Search by zone" aria-expanded="false">
+                            <span data-bind="text: selectedZone().value"></span>&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" data-bind="foreach: dropdown">
+                            <!-- ko if: key == '--' -->
+                            <li class="divider" role="separator"></li>
+                            <!-- /ko -->
+                            <!-- ko ifnot: key == '--' -->
+                            <!-- ko if: value-->
+                            <li role="menuitem">
+                                <a href="javascript:void(0)" data-bind="click: $parent.selectedZone, text:value, css:$data.css||{}"></a>
+                            </li>
+                            <!-- /ko -->
+                            <!-- ko ifnot: value -->
+                            <li disabled="disabled" class="dropdown-header" data-bind="text:key"></li>
+                            <!-- /ko -->
+                            <!-- /ko -->
+                        </ul>
+                    </div>
+                    <!-- /ko -->
+                    <div class="relative input-group-sm">
+                        <input type="text" class="form-control" aria-label="..." id="siteSearch" autocomplete="off" data-bind="textInput: searchText,
+                                    css:{'input-dirty':isDirty,
+                                        'input-middle' : parent.dropdown().length},
+                                    event:{focus:$parent.onFocus},
+                                    searchBarAutoComplete:{chars : 3, enableAutoComplete: $parent.enableSearchBarAutoComplete}">
+                        <label for="siteSearch" class="grey1">
+                            Search
+                            <!-- ko
+                        if: parent.dropdown().length > 1 && $parent.selectedZone() && $parent.selectedZone().key != 'AllJanes'
+                    -->
+                            <!-- ko text: 'within' --><!-- /ko --> <!-- ko text: $parent.selectedZone().value --><!-- /ko --><!-- /ko -->
+                            <!-- ko
+                        if: !parent.dropdown().length && !$parent.allowGlobalSearch() && $parent.categoryTitle() && $parent.categoryTitle() != "Search"
+                    -->
+                            <!-- ko text: 'within' --><!-- /ko --> <!-- ko text: $parent.categoryTitle() --><!-- /ko --><!-- /ko -->
+                        </label>
+                        <span class="loading loading-sm sm" data-bind="visible: isLoading" style="display: none;"></span>
+                    </div>
+
+                    <div class="input-group-btn" data-bind="visible:$parent.advancedSearch_delayed" style="display: none;">
+                        <!-- FILTER -->
+                        <button type="button" class="btn btn-default dropdown-toggle searchbox-filter" data-toggle="dropdown" aria-expanded="false"
+                                aria-haspopup="true" data-bind="tabbable:enabled">
+                            <span data-bind="text:filter().label">Full Text</span>&nbsp;
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-haspopup="true" aria-expanded="false" data-bind="foreach: filters">
+                            <li role="presentation">
+                                <a href="javascript:void(0)" data-bind="tabbable:$parent.enabled, text: label, click: $parent.filter">Full Text</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="input-group-btn" data-bind="visible:!$parent.advancedSearch_delayed()">
+                        <button class="btn btn-ihsm btn-last btn-primary u-border-An" type="submit">
+                            <i class="icon-search"></i>
+                            <span class="sr-only">Search</span>
+                        </button>
+                    </span>
+                </div>
+                <!-- ko if:allowAdvancedSearch -->
+                <button class="btn btn-link u-padding-An pull-right" style="border: 0;display: none;" role="button"
+                        data-bind="click:toggleAdvanced, visible:allowAdvancedSearch">
+                    <i class="icon-up-dir" data-bind="css:{'icon-up-dir' : advancedSearch, 'icon-down-dir':!advancedSearch()}"></i>
+                    <span data-bind="text:advancedSearch() ? 'Simple Search':'Advanced Search'">Advanced Search</span>
+                </button>
+                <div class="advanced-search-box" data-bind="if:allowAdvancedSearch">
+                    <div>
+                        <div class="advanced-searchbox">
+
+                            <div data-bind="foreach: searchBars">
+                                <!-- ko if:$index() > 1-->
+                                <div class="input-group input-group-sm u-margin-Bxs search-bar-line">
+                                    <!-- BOOLEAN OPERATOR -->
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+                                                data-bind="tabbable:enabled">
+                                            <span data-bind="text:operator().label">AND</span>&nbsp;
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" aria-haspopup="true" aria-expanded="false" data-bind="foreach: booleanOperators">
+                                            <li role="presentation">
+                                                <a href="javascript:void(0)" data-bind="text:label, click:$parent.operator, tabbable:$parent.enabled"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- SEARCH BAR -->
+
+                                    <input type="text" class="form-control ui-autocomplete-input" placeholder="Search" autocomplete="off"
+                                           data-bind="tabbable:enabled, textInput: searchText, attr: { id: id}">
+
+                                    <div class="loading sm" data-bind="visible:isLoading"></div>
+
+                                    <div class="input-group-btn">
+                                        <!-- FILTER -->
+                                        <button type="button" class="btn btn-default btn-last dropdown-toggle searchbox-filter" data-toggle="dropdown" aria-expanded="false"
+                                                aria-haspopup="true" data-bind="tabbable:enabled">
+                                            <span data-bind="text:filter().label">Full Text</span>&nbsp;
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu" aria-haspopup="true" aria-expanded="false" data-bind="foreach: filters">
+                                            <li role="presentation">
+                                                <a href="javascript:void(0)" data-bind="tabbable:$parent.enabled, text: label, click: $parent.filter">Full Text</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-link adv-remove-searchbar" title="Remove" type="button" data-bind="tabbable:enabled, click:$parent.removeSearchBar.bind($parent)">
+                                            <i class="icon-minus"></i>
+                                            <span class="sr-only">Remove search term</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                            <div>
+                                <button class="btn btn-link btn-block text-left" type="button" data-bind="tabbable:advancedSearch, click:addAdditionalTerm, enable: searchBars().length < maxSearchBars">
+                                    <i class="icon-plus"></i>Add Additional Term
+                                </button>
+                            </div>
+
+                            <div class="input-group-btn advanced-search">
+                                <button class="btn btn-link adv-clear-all pull-right" type="button" data-bind="tabbable:advancedSearch, click: clearAll">
+                                    <span>Clear All</span>
+                                </button>
+
+                                <button class="btn btn-full btn-primary adv-apply-search pull-right btn-ihsm" type="submit" data-bind="tabbable:advancedSearch">
+                                    <i class="icon-search"></i>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /ko  -->
+            </form>
+        </div>
+        <!-- /ko -->
+    </div>
+}

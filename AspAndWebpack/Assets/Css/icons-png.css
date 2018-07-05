@@ -1,0 +1,654 @@
+.ie8 [class^="icon-"],
+.ie8 [class*=" icon-"],
+.ie8 .ui-datepicker .ui-datepicker-prev, 
+.ie8 .ui-datepicker .ui-datepicker-next,
+.ie8 a.bookmark, 
+.ie8 .flex-pause, 
+.ie8 .flex-play, 
+.ie8 .flex-prev, 
+.ie8 .flex-next,
+.ie8 .card-thumbnails .card .img:after, 
+.ie8 .imagePopupCarousel:after {
+  background-image: url(/Assets/Images/icons-png.png);
+  background-size: initial;
+  width: 16px;
+  height: 16px;
+}
+.ie8 [class^="icon-"].white,
+.ie8 [class*=" icon-"].white {
+  background-position-y: -16px;
+}
+.ie8 [class^="icon-"].blue,
+.ie8 [class*=" icon-"].blue {
+  background-position-y: -32px;
+}
+.ie8 i.grey2 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=45)";
+}
+.ie8 i.grey3 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+}
+.ie8 i.grey3.hand:hover,
+.ie8 i.grey2.hand:hover {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+.ie8 .subNav [class^="icon-"] {
+  background-position-y: -16px;
+}
+.ie8 .subNav .subDropdown:hover .icon-user {
+  background-position-y: 0;
+}
+.ie8 #footer .icon-ihs {
+  height: 96px;
+  width: 96px;
+  background-position: -3040px 0;
+}
+.ie8 #footer .social i {
+  height: 48px;
+  width: 48px;
+  background-color: transparent;
+}
+.ie8 #footer .social i.icon-facebook {
+  background-position: -3152px 0;
+}
+.ie8 #footer .social i.icon-twitter {
+  background-position: -3248px 0;
+}
+.ie8 #footer .social i.icon-linkedin {
+  background-position: -3200px 0;
+}
+.ie8 #footer .social i.icon-youtube {
+  background-position: -3296px 0;
+}
+.ie8 #footer .social a:hover i {
+  background-position-y: -48px;
+  background-color: transparent;
+}
+.ie8 .icon-angle-right {
+  background-position: 0 0;
+}
+.ie8 .icon-arrow-right {
+  background-position: -32px 0;
+}
+.ie8 .icon-arrows-cw {
+  background-position: -64px 0;
+}
+.ie8 .icon-attention {
+  background-position: -96px 0;
+}
+.ie8 .icon-bell {
+  background-position: -128px 0;
+}
+.ie8 .icon-bookmark, .ie8 a.bookmark {
+  background-position: -160px 0;
+}
+.ie8 .icon-book-open {
+  background-position: -192px 0;
+}
+.ie8 .icon-building {
+  background-position: -224px 0;
+}
+.ie8 .icon-calendar {
+  background-position: -256px 0;
+}
+.ie8 .icon-camera {
+  background-position: -288px 0;
+}
+.ie8 .icon-cancel {
+  background-position: -320px 0;
+}
+.ie8 .icon-ccw {
+  background-position: -352px 0;
+}
+.ie8 .icon-chart-area {
+  background-position: -384px 0;
+}
+.ie8 .icon-chart-bar {
+  background-position: -416px 0;
+}
+.ie8 .icon-chart-line {
+  background-position: -448px 0;
+}
+.ie8 .icon-chart-pie {
+  background-position: -480px 0;
+}
+.ie8 .icon-cog {
+  background-position: -512px 0;
+}
+.ie8 .icon-comment {
+  background-position: -544px 0;
+}
+.ie8 .icon-cw {
+  background-position: -576px 0;
+}
+.ie8 .icon-doc {
+  background-position: -608px 0;
+}
+.ie8 .icon-doc-text {
+  background-position: -640px 0;
+}
+.ie8 .icon-down-dir {
+  background-position: -672px 0;
+}
+.ie8 .icon-download {
+  background-position: -704px 0;
+}
+.ie8 .icon-down-open {
+  background-position: -736px 0;
+}
+.ie8 .icon-edit {
+  background-position: -768px 0;
+}
+.ie8 .icon-export {
+  background-position: -800px 0;
+}
+.ie8 .icon-facebook {
+  background-position: -832px 0;
+}
+.ie8 .icon-file-csv {
+  background-position: -864px 0;
+}
+.ie8 .icon-file-excel {
+  background-position: -896px 0;
+}
+.ie8 .icon-file-image {
+  background-position: -928px 0;
+}
+.ie8 .icon-file-pdf {
+  background-position: -960px 0;
+}
+.ie8 .icon-file-powerpoint {
+  background-position: -992px 0;
+}
+.ie8 .icon-file-tab {
+  background-position: -1024px 0;
+}
+.ie8 .icon-file-word {
+  background-position: -1056px 0;
+}
+.ie8 .icon-file-xml {
+  background-position: -1088px 0;
+}
+.ie8 .icon-file-zip {
+  background-position: -1120px 0;
+}
+.ie8 .icon-filter {
+  background-position: -1152px 0;
+}
+.ie8 .icon-flow-merge {
+  background-position: -1184px 0;
+}
+.ie8 .icon-folder {
+  background-position: -1216px 0;
+}
+.ie8 .icon-folder-open {
+  background-position: -1248px 0;
+}
+.ie8 .icon-globe {
+  background-position: -1280px 0;
+}
+.ie8 .icon-help {
+  background-position: -1312px 0;
+}
+.ie8 .icon-help-circled {
+  background-position: -1344px 0;
+}
+.ie8 .icon-home {
+  background-position: -1376px 0;
+}
+.ie8 .icon-ihs {
+  background-position: -1408px 0;
+}
+.ie8 .icon-info {
+  background-position: -1440px 0;
+}
+.ie8 .icon-info-circled {
+  background-position: -1472px 0;
+}
+.ie8 .icon-left-dir {
+  background-position: -1504px 0;
+}
+.ie8 .icon-left-open, .ie8 .flex-prev, .ie8 .ui-datepicker .ui-datepicker-prev {
+  background-position: -1536px 0;
+}
+.ie8 .icon-link-ext {
+  background-position: -1568px 0;
+}
+.ie8 .icon-linkedin {
+  background-position: -1600px 0;
+}
+.ie8 .icon-lock {
+  background-position: -1632px 0;
+}
+.ie8 .icon-lock-open {
+  background-position: -1664px 0;
+}
+.ie8 .icon-logout {
+  background-position: -1696px 0;
+}
+.ie8 .icon-mail {
+  background-position: -1728px 0;
+}
+.ie8 .icon-menu {
+  background-position: -1760px 0;
+}
+.ie8 .icon-minus {
+  background-position: -1792px 0;
+}
+.ie8 .icon-move {
+  background-position: -1824px 0;
+}
+.ie8 .icon-ok {
+  background-position: -1856px 0;
+}
+.ie8 .icon-ok-squared {
+  background-position: -1888px 0;
+}
+.ie8 .icon-pause, .ie8 .flex-pause {
+  background-position: -1920px 0;
+}
+.ie8 .icon-pencil {
+  background-position: -1952px 0;
+}
+.ie8 .icon-picture {
+  background-position: -1984px 0;
+}
+.ie8 .icon-play, .ie8 .flex-play {
+  background-position: -2016px 0;
+}
+.ie8 .icon-plus {
+  background-position: -2048px 0;
+}
+.ie8 .icon-plus-squared {
+  background-position: -2080px 0;
+}
+.ie8 .icon-popup {
+  background-position: -2112px 0;
+}
+.ie8 .icon-print {
+  background-position: -2144px 0;
+}
+.ie8 .icon-resize-full {
+  background-position: -2176px 0;
+}
+.ie8 .icon-resize-full-alt {
+  background-position: -2208px 0;
+}
+.ie8 .icon-resize-small {
+  background-position: -2240px 0;
+}
+.ie8 .icon-right-dir {
+  background-position: -2272px 0;
+}
+.ie8 .icon-right-open, .ie8 .flex-next, .ie8 .ui-datepicker .ui-datepicker-next {
+  background-position: -2304px 0;
+}
+.ie8 .icon-rss {
+  background-position: -2336px 0;
+}
+.ie8 .icon-search {
+  background-position: -2368px 0;
+}
+.ie8 .icon-share {
+  background-position: -2400px 0;
+}
+.ie8 .icon-star {
+  background-position: -2432px 0;
+}
+.ie8 .icon-star-empty {
+  background-position: -2464px 0;
+}
+.ie8 .icon-th {
+  background-position: -2496px 0;
+}
+.ie8 .icon-th-large {
+  background-position: -2528px 0;
+}
+.ie8 .icon-th-list {
+  background-position: -2560px 0;
+}
+.ie8 .icon-trash {
+  background-position: -2592px 0;
+}
+.ie8 .icon-tutorial {
+  background-position: -2624px 0;
+}
+.ie8 .icon-twitter {
+  background-position: -2656px 0;
+}
+.ie8 .icon-up-dir {
+  background-position: -2688px 0;
+}
+.ie8 .icon-up-open {
+  background-position: -2720px 0;
+}
+.ie8 .icon-user, .ie8 .subDropdown:hover .icon-user {
+  background-position: -2752px 0;
+}
+.ie8 .icon-users {
+  background-position: -2784px 0;
+}
+.ie8 .icon-wrench {
+  background-position: -2816px 0;
+}
+.ie8 .icon-youtube {
+  background-position: -2848px 0;
+}
+.ie8 .icon-savedashboard {
+  background-position: -2880px 0;
+}
+.ie8 .icon-savewidget {
+  background-position: -2912px 0;
+}
+.ie8 .icon-layers {
+  background-position: -2944px 0;
+}
+.ie8 .icon-target {
+  background-position: -2976px 0;
+}
+.ie8 .icon-angle-right.white, .ie8 .btn-primary .icon-angle-right {
+  background-position: 0px -16px;
+}
+.ie8 .icon-arrow-right.white, .ie8 .btn-primary .icon-arrow-right {
+  background-position: -32px -16px;
+}
+.ie8 .icon-arrows-cw.white, .ie8 .btn-primary .icon-arrows-cw {
+  background-position: -64px -16px;
+}
+.ie8 .icon-attention.white, .ie8 .btn-primary .icon-attention {
+  background-position: -96px -16px;
+}
+.ie8 .icon-bell.white, .ie8 .btn-primary .icon-bell {
+  background-position: -128px -16px;
+}
+.ie8 .icon-bookmark.white, .ie8 .btn-primary .icon-bookmark, .ie8 .mainNav .icon-bookmark {
+  background-position: -160px -16px;
+}
+.ie8 .icon-book-open.white, .ie8 .btn-primary .icon-book-open {
+  background-position: -192px -16px;
+}
+.ie8 .icon-building.white, .ie8 .btn-primary .icon-building {
+  background-position: -224px -16px;
+}
+.ie8 .icon-calendar.white, .ie8 .btn-primary .icon-calendar {
+  background-position: -256px -16px;
+}
+.ie8 .icon-camera.white, .ie8 .btn-primary .icon-camera {
+  background-position: -288px -16px;
+}
+.ie8 .icon-cancel.white, .ie8 .btn-primary .icon-cancel {
+  background-position: -320px -16px;
+}
+.ie8 .icon-ccw.white, .ie8 .btn-primary .icon-ccw {
+  background-position: -352px -16px;
+}
+.ie8 .icon-chart-area.white, .ie8 .btn-primary .icon-chart-area {
+  background-position: -384px -16px;
+}
+.ie8 .icon-chart-bar.white, .ie8 .btn-primary .icon-chart-bar {
+  background-position: -416px -16px;
+}
+.ie8 .icon-chart-line.white, .ie8 .btn-primary .icon-chart-line {
+  background-position: -448px -16px;
+}
+.ie8 .icon-chart-pie.white, .ie8 .btn-primary .icon-chart-pie {
+  background-position: -480px -16px;
+}
+.ie8 .icon-cog.white, .ie8 .btn-primary .icon-cog {
+  background-position: -512px -16px;
+}
+.ie8 .icon-comment.white, .ie8 .btn-primary .icon-comment, .ie8 .subNav .icon-comment {
+  background-position: -544px -16px;
+}
+.ie8 .icon-cw.white, .ie8 .btn-primary .icon-cw {
+  background-position: -576px -16px;
+}
+.ie8 .icon-doc.white, .ie8 .btn-primary .icon-doc {
+  background-position: -608px -16px;
+}
+.ie8 .icon-doc-text.white, .ie8 .btn-primary .icon-doc-text {
+  background-position: -640px -16px;
+}
+.ie8 .icon-down-dir.white, .ie8 .btn-primary .icon-down-dir {
+  background-position: -672px -16px;
+}
+.ie8 .icon-download.white, .ie8 .btn-primary .icon-download {
+  background-position: -704px -16px;
+}
+.ie8 .icon-down-open.white, .ie8 .btn-primary .icon-down-open {
+  background-position: -736px -16px;
+}
+.ie8 .icon-edit.white, .ie8 .btn-primary .icon-edit {
+  background-position: -768px -16px;
+}
+.ie8 .icon-export.white, .ie8 .btn-primary .icon-export {
+  background-position: -800px -16px;
+}
+.ie8 .icon-facebook.white, .ie8 .btn-primary .icon-facebook {
+  background-position: -832px -16px;
+}
+.ie8 .icon-file-csv.white, .ie8 .btn-primary .icon-file-csv {
+  background-position: -864px -16px;
+}
+.ie8 .icon-file-excel.white, .ie8 .btn-primary .icon-file-excel {
+  background-position: -896px -16px;
+}
+.ie8 .icon-file-image.white, .ie8 .btn-primary .icon-file-image {
+  background-position: -928px -16px;
+}
+.ie8 .icon-file-pdf.white, .ie8 .btn-primary .icon-file-pdf, .ie8 .mainNav .icon-file-pdf {
+  background-position: -960px -16px;
+}
+.ie8 .icon-file-powerpoint.white, .ie8 .btn-primary .icon-file-powerpoint {
+  background-position: -992px -16px;
+}
+.ie8 .icon-file-tab.white, .ie8 .btn-primary .icon-file-tab {
+  background-position: -1024px -16px;
+}
+.ie8 .icon-file-word.white, .ie8 .btn-primary .icon-file-word, .ie8 .mainNav .icon-file-word {
+  background-position: -1056px -16px;
+}
+.ie8 .icon-file-xml.white, .ie8 .btn-primary .icon-file-xml {
+  background-position: -1088px -16px;
+}
+.ie8 .icon-file-zip.white, .ie8 .btn-primary .icon-file-zip {
+  background-position: -1120px -16px;
+}
+.ie8 .icon-filter.white, .ie8 .btn-primary .icon-filter {
+  background-position: -1152px -16px;
+}
+.ie8 .icon-flow-merge.white, .ie8 .btn-primary .icon-flow-merge {
+  background-position: -1184px -16px;
+}
+.ie8 .icon-folder.white, .ie8 .btn-primary .icon-folder {
+  background-position: -1216px -16px;
+}
+.ie8 .icon-folder-open.white, .ie8 .btn-primary .icon-folder-open {
+  background-position: -1248px -16px;
+}
+.ie8 .icon-globe.white, .ie8 .btn-primary .icon-globe {
+  background-position: -1280px -16px;
+}
+.ie8 .icon-help.white, .ie8 .btn-primary .icon-help, .ie8 .subNav .icon-help {
+  background-position: -1312px -16px;
+}
+.ie8 .icon-help-circled.white, .ie8 .btn-primary .icon-help-circled {
+  background-position: -1344px -16px;
+}
+.ie8 .icon-home.white, .ie8 .btn-primary .icon-home, .ie8 a .icon-home {
+  background-position: -1376px -16px;
+}
+.ie8 .icon-ihs.white, .ie8 .btn-primary .icon-ihs {
+  background-position: -1408px -16px;
+}
+.ie8 .icon-info.white, .ie8 .btn-primary .icon-info {
+  background-position: -1440px -16px;
+}
+.ie8 .icon-info-circled.white, .ie8 .btn-primary .icon-info-circled {
+  background-position: -1472px -16px;
+}
+.ie8 .icon-left-dir.white, .ie8 .btn-primary .icon-left-dir {
+  background-position: -1504px -16px;
+}
+.ie8 .icon-left-open.white, .ie8 .btn-primary .icon-left-open, .ie8 .flex-prev, .ie8 .ui-datepicker .ui-datepicker-prev {
+  background-position: -1536px -16px;
+}
+.ie8 .icon-link-ext.white, .ie8 .btn-primary .icon-link-ext {
+  background-position: -1568px -16px;
+}
+.ie8 .icon-linkedin.white, .ie8 .btn-primary .icon-linkedin {
+  background-position: -1600px -16px;
+}
+.ie8 .icon-lock.white, .ie8 .btn-primary .icon-lock {
+  background-position: -1632px -16px;
+}
+.ie8 .icon-lock-open.white, .ie8 .btn-primary .icon-lock-open {
+  background-position: -1664px -16px;
+}
+.ie8 .icon-logout.white, .ie8 .btn-primary .icon-logout {
+  background-position: -1696px -16px;
+}
+.ie8 .icon-mail.white, .ie8 .btn-primary .icon-mail {
+  background-position: -1728px -16px;
+}
+.ie8 .icon-menu.white, .ie8 .btn-primary .icon-menu {
+  background-position: -1760px -16px;
+}
+.ie8 .icon-minus.white, .ie8 .btn-primary .icon-minus {
+  background-position: -1792px -16px;
+}
+.ie8 .icon-move.white, .ie8 .btn-primary .icon-move {
+  background-position: -1824px -16px;
+}
+.ie8 .icon-ok.white, .ie8 .btn-primary .icon-ok {
+  background-position: -1856px -16px;
+}
+.ie8 .icon-ok-squared.white, .ie8 .btn-primary .icon-ok-squared {
+  background-position: -1888px -16px;
+}
+.ie8 .icon-pause.white, .ie8 .btn-primary .icon-pause {
+  background-position: -1920px -16px;
+}
+.ie8 .icon-pencil.white, .ie8 .btn-primary .icon-pencil {
+  background-position: -1952px -16px;
+}
+.ie8 .icon-picture.white, .ie8 .btn-primary .icon-picture {
+  background-position: -1984px -16px;
+}
+.ie8 .icon-play.white, .ie8 .btn-primary .icon-play {
+  background-position: -2016px -16px;
+}
+.ie8 .icon-plus.white, .ie8 .btn-primary .icon-plus {
+  background-position: -2048px -16px;
+}
+.ie8 .icon-plus-squared.white, .ie8 .btn-primary .icon-plus-squared {
+  background-position: -2080px -16px;
+}
+.ie8 .icon-popup.white, .ie8 .btn-primary .icon-popup {
+  background-position: -2112px -16px;
+}
+.ie8 .icon-print.white, .ie8 .btn-primary .icon-print, .ie8 .mainNav .icon-print {
+  background-position: -2144px -16px;
+}
+.ie8 .icon-resize-full.white, .ie8 .btn-primary .icon-resize-full {
+  background-position: -2176px -16px;
+}
+.ie8 .icon-resize-full-alt.white, .ie8 .btn-primary .icon-resize-full-alt {
+  background-position: -2208px -16px;
+}
+.ie8 .icon-resize-small.white, .ie8 .btn-primary .icon-resize-small {
+  background-position: -2240px -16px;
+}
+.ie8 .icon-right-dir.white, .ie8 .btn-primary .icon-right-dir {
+  background-position: -2272px -16px;
+}
+.ie8 .icon-right-open.white, .ie8 .btn-primary .icon-right-open {
+  background-position: -2304px -16px;
+}
+.ie8 .icon-rss.white, .ie8 .btn-primary .icon-rss {
+  background-position: -2336px -16px;
+}
+.ie8 .icon-search.white, .ie8 .btn-primary .icon-search, .ie8 .card-thumbnails .card .img:after, .ie8 .imagePopupCarousel:after {
+  background-position: -2368px -16px;
+}
+.ie8 .icon-share.white, .ie8 .btn-primary .icon-share {
+  background-position: -2400px -16px;
+}
+.ie8 .icon-star.white, .ie8 .btn-primary .icon-star {
+  background-position: -2432px -16px;
+}
+.ie8 .icon-star-empty.white, .ie8 .btn-primary .icon-star-empty {
+  background-position: -2464px -16px;
+}
+.ie8 .icon-th.white, .ie8 .btn-primary .icon-th {
+  background-position: -2496px -16px;
+}
+.ie8 .icon-th-large.white, .ie8 .btn-primary .icon-th-large {
+  background-position: -2528px -16px;
+}
+.ie8 .icon-th-list.white, .ie8 .btn-primary .icon-th-list {
+  background-position: -2560px -16px;
+}
+.ie8 .icon-trash.white, .ie8 .btn-primary .icon-trash {
+  background-position: -2592px -16px;
+}
+.ie8 .icon-tutorial.white, .ie8 .btn-primary .icon-tutorial {
+  background-position: -2624px -16px;
+}
+.ie8 .icon-twitter.white, .ie8 .btn-primary .icon-twitter {
+  background-position: -2656px -16px;
+}
+.ie8 .icon-up-dir.white, .ie8 .btn-primary .icon-up-dir {
+  background-position: -2688px -16px;
+}
+.ie8 .icon-up-open.white, .ie8 .btn-primary .icon-up-open {
+  background-position: -2720px -16px;
+}
+.ie8 .icon-user.white, .ie8 .btn-primary .icon-user, .ie8 .subNav .icon-user {
+  background-position: -2752px -16px;
+}
+.ie8 .icon-users.white, .ie8 .btn-primary .icon-users {
+  background-position: -2784px -16px;
+}
+.ie8 .icon-wrench.white, .ie8 .btn-primary .icon-wrench {
+  background-position: -2816px -16px;
+}
+.ie8 .icon-youtube.white, .ie8 .btn-primary .icon-youtube {
+  background-position: -2848px -16px;
+}
+.ie8 .icon-savedashboard.white, .ie8 .btn-primary .icon-savedashboard {
+  background-position: -2880px -16px;
+}
+.ie8 .icon-savewidget.white, .ie8 .btn-primary .icon-savewidget {
+  background-position: -2912px -16px;
+}
+.ie8 .icon-layers.white, .ie8 .btn-primary .icon-layers {
+  background-position: -2944px -16px;
+}
+.ie8 .icon-target.white, .ie8 .btn-primary .icon-target  {
+  background-position: -2976px -16px;
+}
+.ie8 .icon-cancel.blue, .ie8 .subNav .icon-cancel, .ie8 a .icon-cancel {
+  background-position: -320px -32px;
+}
+.ie8 .icon-home.blue, .ie8 .subNav .icon-home, .ie8 a .icon-home {
+  background-position: -1376px -32px;
+}
+.ie8 .icon-link-ext.blue, .ie8 a .icon-link-ext {
+  background-position: -1568px -32px;
+}
+.ie8 .icon-logout.blue, .ie8 .subNav .icon-logout, .ie8 a .icon-logout {
+  background-position: -1696px -32px;
+}
+.ie8 .icon-pencil.blue, .ie8 .icon-pencil.hand:hover {
+  background-position: -1952px -32px;
+}
+.ie8 .icon-popup.blue, .ie8 a .icon-popup {
+  background-position: -2112px -32px;
+}
+.ie8 .icon-right-open.blue, .ie8 a .icon-right-open, .ie8 .list-group-item .icon-right-open {
+  background-position: -2304px -32px;
+}
+.ie8 .icon-search.blue, .ie8 .icon-search.hand:hover {
+  background-position: -2368px -32px;
+}

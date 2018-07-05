@@ -1,0 +1,80 @@
+﻿@using IHS.Apps.CMP.DataProviders.FastProviderObjects
+@model IHS.Apps.CMP.Models.ViewModels.SearchBar
+@if(Model.GlobalRoute != "janes") {
+    var display = CmpHtmlHelpers.GetQueryValue<string>(this.Request, "mode") != "advanced"
+        ? string.Empty :
+        "display:none";
+<div class="with-search-bar with-data-bind header-search-bar">
+    <div style="@display" data-bind="visible : isVisible">
+        <input type="hidden" data-bind="value:(globalSearch('@Model.GlobalRoute.Replace("'", @"\'")'),globalSearch())" >
+        <input type="hidden" data-bind="value:('@Model.CategoryMapping.Replace("'", @"\'")' && categoryMapping('@Model.CategoryMapping.Replace("'", @"\'")'),categoryMapping())" >
+        <input type="hidden" data-bind="value:('@Model.Watermark.Replace("'", @"\'")' && categoryTitle('@Model.Watermark.Replace("'", @"\'")'),categoryTitle())" >
+        <input type="hidden" data-bind="value:('@Model.CategoryUrl.Replace("'", @"\'")' && categoryUrl('@Model.CategoryUrl.Replace("'", @"\'")'),categoryUrl())" >
+        <input type="hidden" data-bind="value:('@Model.AutocompleteUrl.Replace("'", @"\'")' && categoryAutoComplete('@Model.AutocompleteUrl.Replace("'", @"\'")'),categoryAutoComplete())" >
+        <form style="width: auto;" data-bind="submit: applySearch">
+        <div class="input-group input-group-lg searchbox">
+            @if (Model.DropDown != null)
+                {
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-label="Search by zone" aria-expanded="false">
+                        <span data-bind="text: selectedZone()"></span>&nbsp;<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="menuitem">
+                            <a href="javascript:void(0)" data-bind="click: setZone.bind($data, 'All', 'All')">All</a>
+                        </li>
+                        <li class="divider" role="separator"></li>
+                        <li disabled="disabled" class="dropdown-header">Subject</li>
+                        @foreach (var item in Model.DropDown.Where(p => p.Value == Taxonomy.SUBJECTTERMSTAXONOMY.ToString()))
+                            {
+                            <li role="menuitem">
+                                <a href="javascript:void(0)" data-bind="click: setZone.bind($data,'@item.Value', '@item.Key')">@item.Key</a>
+                            </li>
+                            }
+                        <li class="divider" role="separator"></li>
+                        <li disabled="disabled" class="dropdown-header">Equipment</li>
+                        @foreach (var item in Model.DropDown.Where(p => p.Value == Taxonomy.DEFENCEEQUIPMENTTAXONOMY.ToString()))
+                            {
+                            <li role="menuitem">
+                                <a href="javascript:void(0)" data-bind="click: setZone.bind($data, '@item.Value', '@item.Key')">@item.Key</a>
+                            </li>
+                            }
+                    </ul>
+                </div>
+                }
+                <!-- ko with:searchBar -->
+            <div class="loading sm"></div>
+
+            <!-- Search Bar -->
+            <div class="relative input-group-lg">
+                <input type="text" class="form-control" aria-label="..." id="siteSearch" autocomplete="off" data-bind="textInput: searchText, 
+                                css:{'input-dirty':isDirty,
+                                    'input-middle' : parent.dropdown().length}, 
+                                event:{focus:$parent.onFocus},
+                                searchBarAutoComplete:{chars : 3, enableAutoComplete: $parent.enableSearchBarAutoComplete}">
+                <label for="siteSearch" class="grey1"> Search <!-- ko 
+                    if: parent.dropdown().length > 1 && $parent.selectedZone() && $parent.selectedZone().key != 'AllJanes' 
+                --><!-- ko text: 'within' --><!-- /ko --> <!-- ko text: $parent.selectedZone().value --><!-- /ko --><!-- /ko --></label>
+                <span class="loading loading-sm sm" data-bind="visible: isLoading" style="display: none;"></span>
+            </div>
+            <!-- /ko -->
+            <div class="input-group-btn">
+                <button class="btn btn-primary btn-last btn-ihsm" type="submit" role="search" data-bind="click: applySearch.bind($data, '@Model.CategoryMapping')">
+                    <i class="icon-search"></i>
+                </button>
+            </div>
+            <div class="advanced-search-link" style="display:none;" data-bind="visible: allowAdvancedSearch">
+                <button class="btn btn-link" type="submit" data-bind="click: switchSearchMode">
+                    <i class="icon-down-dir"></i>Advanced Search
+                </button>
+            </div>
+            <div class="search-help">
+                <button class="btn btn-link helpButton" role="button" tabindex="0" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="@Model.AppName" data-groupid="SEARCHHELP" data-itemid="SEARCHHELP">
+                    <i class="icon-help-circled"></i><span class="hidden-sm">Search tips</span>
+                </button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+}

@@ -1,0 +1,396 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus {
+    outline: none;
+}
+
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {
+    margin: 0;
+    padding: 0;
+}
+
+.flexslider .slides > li {
+    display: none;
+    -webkit-backface-visibility: hidden;
+    position: relative;
+}
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {
+    max-width: 100%;
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+.flex-pauseplay span {
+    text-transform: capitalize;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+html[xmlns] .slides {
+    display: block;
+}
+
+* html .slides {
+    height: 1%;
+}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+    display: block;
+}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {
+    margin: 0 0 50px;
+    position: relative;
+    zoom: 1;
+}
+
+.flex-viewport {
+    max-height: 2000px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+    max-height: 300px;
+}
+
+.flexslider .slides {
+    zoom: 1;
+}
+
+.carousel li {
+    margin-right: 5px;
+}
+
+/* Direction Nav */
+.flex-direction-nav {
+    *height: 0;
+}
+
+.flex-direction-nav a {
+    text-decoration: none;
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: -12px 0 0;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    filter: alpha(opacity=0);
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: 999em;
+}
+
+.flex-direction-nav .flex-prev {
+    left: -20px;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22200%22%20width%3D%22200%22%20viewBox%3D%220%200%201000%201000%22%3E%3Cpath%20fill%3D%22%230097D1%22%20d%3D%22M795.85%20168l-296%20296%20296%20297q11%2010%2011%2025t-11%2025l-92%2093q-11%2010-25%2010t-25-10l-414-415q-11-10-11-25t11-25l414-414q10-10%2025-10t25%2010l92%2093q11%2010%2011%2025t-11%2025z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.flex-direction-nav .flex-next {
+    right: -20px;
+    text-align: right;
+    background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22200%22%20width%3D%22200%22%20viewBox%3D%220%200%201000%201000%22%3E%3Cpath%20fill%3D%22%230097D1%22%20d%3D%22M760.85%20489l-414%20415q-11%2010-25%2010t-26-10l-92-93q-11-11-11-25t11-25l296-297-296-296q-11-11-11-25t11-25l92-93q11-10%2026-10t25%2010l414%20414q10%2011%2010%2025t-10%2025z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.flexslider:hover .flex-prev {
+    opacity: 0.7;
+    left: 10px;
+    filter: alpha(opacity=70);
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}
+
+.flexslider:hover .flex-next {
+    opacity: 0.7;
+    right: 10px;
+    filter: alpha(opacity=70);
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}
+
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {
+    opacity: 1;
+}
+
+.flex-direction-nav .flex-disabled {
+    opacity: 0 !important;
+    filter: alpha(opacity=0);
+    cursor: default;
+}
+/*.flex-direction-nav a:before  { font-family: "icons"; font-size: 25px; line-height:1; display: inline-block; content: '\e81d'; }
+.flex-direction-nav a.flex-next:before  { content: '\e81e'; }*/
+
+/* Pause/Play */
+.flex-pauseplay a {
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: -36px;
+    right: 20px;
+    opacity: 0.2;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    text-indent: 999em;
+    background-size: contain;
+}
+/*.flex-pauseplay a:before  { font-family: "icons"; font-size: 15px; display: inline-block; content: '\e858'; }*/
+.flex-pauseplay a:hover {
+    opacity: 1;
+    color: #0097d1;
+}
+/*.flex-pauseplay a.flex-play:before { content: '\e82f'; }*/
+
+/* Control Nav */
+.flex-control-nav {
+    width: 100%;
+    text-align: center;
+}
+
+.flex-control-nav li {
+    margin: 0 6px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.flex-control-paging li a {
+    width: 9px;
+    height: 9px;
+    display: block;
+    background: #666;
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+    text-indent: -9999px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.flex-control-paging li a:hover {
+    background: #333;
+    background: rgba(0,151,209,0.5);
+}
+
+.flex-control-paging li a.flex-active {
+    background: #0097d1;
+    background: rgba(0,151,209,1);
+    cursor: default;
+}
+
+.flex-control-thumbs {
+    margin: 5px 0 0;
+    position: static;
+    overflow: hidden;
+}
+
+.flex-control-thumbs li {
+    width: 25%;
+    float: left;
+    margin: 0;
+}
+
+.flex-control-thumbs img {
+    width: 100%;
+    display: block;
+    opacity: .7;
+    cursor: pointer;
+}
+
+.flex-control-thumbs img:hover {
+    opacity: 1;
+}
+
+.flex-control-thumbs .flex-active {
+    opacity: 1;
+    cursor: default;
+}
+
+.prevent-overlap .flex-direction-nav a {
+    top: 70%;
+}
+
+.prevent-overlap .flexslider:hover .flex-prev {
+    left: 70px;
+}
+
+.prevent-overlap .flexslider:hover .flex-next {
+    right: 70px;
+}
+
+@media screen and (max-width: 860px) {
+    .flex-direction-nav .flex-prev {
+        opacity: 1;
+        left: 10px;
+    }
+
+    .flex-direction-nav .flex-next {
+        opacity: 1;
+        right: 10px;
+    }
+}
+
+.video-thumbs .flex-direction-nav .flex-prev,
+.video-thumbs .flex-direction-nav .flex-next {
+    background-color: #fff;
+    background-position: 0 50%;
+    height: 100%;
+    opacity: 0.9;
+    top: 12px;
+    width: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbs .flex-direction-nav .flex-prev {
+    left: 0;
+}
+
+.video-thumbs .flex-direction-nav .flex-next {
+    right: 0;
+}
+
+.flexslider.video-thumbs .slides > li {
+    padding: 0 3px;
+    height: 80px;
+}
+
+.flexslider.video-thumbs .slides img {
+    /*max-height: 55px;*/
+    cursor: pointer;
+}
+
+.video-thumbs .flex-selected:before {
+    background-color: #000;
+    border-radius: 3px;
+    color: #fff;
+    content: "Playing";
+    left: 50%;
+    opacity: 0.5;
+    padding: 32px 0 2px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+}
+
+.ie8 .video-thumbs .flex-selected:before {
+    margin: -25px 0 0 -29px;
+    background-color: #999;
+}
+
+.video-thumbs .flex-selected:after {
+    border-bottom: 13px solid transparent;
+    border-left: 18px solid #fff;
+    border-top: 13px solid transparent;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin: -20px 0 0 -8px;
+    opacity: 0.5;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+
+.flex-caption {
+    width: 100%;
+    padding: 2%;
+}
+
+.flex-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#8c000000', endColorstr='#8c000000'); /* IE */
+    bottom: 0;
+    color: #fff;
+    padding: 10px 20px;
+    position: absolute;
+}
+
+    .flex-overlay > h2 {
+        margin: 5px 0 10px;
+        padding: 0;
+    }
+
+.flex-overlay-left {
+    width: 40%;
+    height: 100%;
+}
+
+.flex-overlay-right {
+    width: 40%;
+    height: 100%;
+    right: 0;
+}
+
+.flex-overlay-top {
+    top: 0;
+    bottom: auto;
+    width: 100%;
+}
+
+.flex-overlay-light {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: inherit;
+}
+
+.flexslider-white .flex-overlay {
+    background-color: rgba(255, 255, 255, 0.85);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ddffffff', endColorstr='#ddffffff'); /* IE */
+    color: inherit;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}

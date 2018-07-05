@@ -1,0 +1,71 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Breadcrumb
+
+
+@helper BuildLink(IHS.Apps.CMP.Models.ViewModels.Link theLink, bool removeSearchResultsText)
+{
+    <li class="@theLink.CssClass">
+        @if (!string.IsNullOrEmpty(theLink.NavigateUrl))
+        {
+            <a href="@theLink.NavigateUrl" alt="@theLink.ToolTip" title="@theLink.ToolTip">@theLink.Text</a>
+        }
+        else
+        {
+            @theLink.Text
+        }
+    </li>
+
+    if (theLink.ChildLinks.Count > 0)
+    {
+        if (theLink.ChildLinks.Count == 1)
+        {
+            @BuildLink(theLink.ChildLinks[0], removeSearchResultsText)
+        }
+        else
+        {
+            <li class="dropdown">
+                @{
+                    var txt = "Search Results";
+                    var title = string.Empty;
+                    IHS.Apps.CMP.Models.ViewModels.Link l = theLink.ChildLinks.FirstOrDefault(s => s.Attributes["data-selected"] == "True");
+                    if (l != null)
+                    {
+                        txt = l.Text;
+                        title = l.ToolTip;
+                    }
+                }
+                <a class="dropdown-toggle" title="@title" data-toggle="dropdown" href="#">
+                    @txt<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @foreach (var sibling in theLink.ChildLinks)
+                    {
+                        <li>
+                            @if (sibling.Attributes.ContainsKey("data-onclick"))
+                            {
+                                <a title="@sibling.ToolTip" onclick='@sibling.Attributes["data-onclick"];return false;' href="#">@sibling.Text</a>
+                            }
+                            else
+                            {
+                                <a title="@sibling.ToolTip" href="@sibling.NavigateUrl">@sibling.Text</a>
+                            }
+                        </li>
+                    }
+                </ul>
+            </li>
+                        }
+                    }
+                    else
+                    {
+                        if (!removeSearchResultsText)
+                        {
+        <li class="active">Search Results</li>
+                            }
+                        }
+                    }
+
+@if (Model != null && Model.Link != null)
+{
+    <ol class="breadcrumb u-font-85">
+        @BuildLink(Model.Link, Model.RemoveSearchResultsCrumb)
+    </ol>
+}

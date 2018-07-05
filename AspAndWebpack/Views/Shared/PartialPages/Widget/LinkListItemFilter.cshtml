@@ -1,0 +1,21 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.LinkFilter
+@{
+    var selectContainerId = CmpHtmlHelpers.CreateUniqueId("linkFilter");
+}
+
+<script>
+    $(document).ready(function() {
+        $("#" + "@selectContainerId").chosen({
+            no_results_text: "@Model.NoResultsMessage",
+            allow_single_deselect: true
+        });
+    });
+</script>
+
+<select id="@selectContainerId" data-placeholder="@Model.DropDownMessage" onchange="javascript:if(this.value != '') window.open(this.value, '_blank')" class="chosenselect">
+    <option></option>
+    @foreach (var link in Model.SearchableLinks)
+    {
+        <option value="@link.NavigateUrl">@link.Text</option>
+    }
+</select>

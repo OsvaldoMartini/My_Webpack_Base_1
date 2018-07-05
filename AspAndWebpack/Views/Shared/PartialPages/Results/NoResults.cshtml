@@ -1,0 +1,41 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.ResultsDataModel<IHS.Core.Catalog.Model.IItem>
+
+
+<div class="noResultsCtrl">
+
+    <div class="alert alert-warning">
+        <h1>No Results Found</h1>
+    </div>
+
+    <br>
+    No results were found based on the current search criteria.
+
+    @if (Model.Suggestions.Any())
+    {
+        <br><br>
+        <table>
+            <tbody>
+            <tr>
+                <td valign="top" class="textLabelBold" style="width: 150px;">Did You Mean?</td>
+                <td>
+                    <ul>
+                        @foreach (var suggestion in Model.Suggestions)
+                        {
+                            <li>
+                                <a href="javascript:void(0)" data-bind="click : applySearchTerm.bind($data, '@Json.Encode(suggestion)')">@suggestion</a>
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    }
+
+    <br><br>Suggestions:
+    <ul>
+        <li class="bulletTitle">Make sure search terms are spelled correctly.</li>
+        <li class="bulletTitle">Try removing criteria from the search filters list.</li>
+        <li class="bulletTitle">Try entering different search terms.</li>
+    </ul>
+</div>

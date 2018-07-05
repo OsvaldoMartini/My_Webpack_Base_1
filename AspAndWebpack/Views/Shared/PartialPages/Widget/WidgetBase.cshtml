@@ -1,0 +1,176 @@
+﻿@using IHS.Apps.CMP.Models
+@using IHS.Apps.CMP.Models.Enums
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters
+
+@model DashboardWidget
+
+@{
+    string widgetContentId = CmpHtmlHelpers.CreateUniqueId("widgetContent");
+    var isFixed = Model.Settings.ContainsKey("Fixed") && Convert.ToBoolean(Model.Settings["Fixed"].ToString());
+    var notClosable = Model.Settings.ContainsKey("DisableClose") && Convert.ToBoolean(Model.Settings["DisableClose"].ToString());
+}
+
+<section class="widget @Model.Widget.WidgetClass" data-widget-id="@Model.Id" data-widget-content="@Url.RouteUrl("Widget", new RouteValueDictionary(new { controller = Model.Widget.ControllerName, action = "Content" }))"
+     data-widget-error="@Url.RouteUrl("Widget", new RouteValueDictionary(new { controller = Model.Widget.ControllerName, action = "Error" }))"
+     data-widget-height="@Model.Widget.HeightRatio" data-expand-reload="@Model.Widget.ReloadOnExpand.ToString().ToLower()" aria-labelledby="widgetHeader-@Model.Id">
+    <h2 class="widgetHeader" data-bind="css : { unmovable : !isDashboardRemovalAllowed() }">
+        <span class="widgetTitle" id="widgetHeader-@Model.Id">
+            @this.LocalResources(Model.Widget.Name)
+            <span class="small" data-bind="visible: isLoading">(Loading...)</span>
+        </span> 
+        <span class="toolbar" role="toolbar">
+            
+            @if (User.IsInRole("Developer"))
+            {
+                <a role="button" tabindex="0" data-bind="tipsy : { gravity: 'se', delayIn: 200, fade: true }" href="/Widget/@Model.Widget.ControllerName/Test?widgetId=@Model.Id&dashboardType=@Convert.ToInt32(Model.Type)&subject=@Model.Subject&isExpanded=false" target="_blank" class="u-padding-Ln action" title="Open widget in testbed"><i class="icon-wrench"></i></a>
+            }
+
+            @if (Model.Widget.IsExpandable && !isFixed)
+            {
+                <button data-bind="click: expand, tipsy : { gravity: 'se', delayIn: 200, fade: true }" title="expand widget" class="icon-resize-full full action" role="button" tabindex="0"></button>
+                <button data-bind="click: minify, tipsy : { gravity: 'se', delayIn: 200, fade: true }" title="shrink widget" class="icon-resize-small full action" role="button" tabindex="0"></button>
+            }
+
+            @if (!isFixed)
+            {
+                <button class="icon-plus action" data-bind="click: addToDashboard, tipsy : { gravity: 'ne', delayIn: 200, fade: true, aria:false }" role="button" tabindex="0" title="Add widget to dashboard" aria-label="Add '@this.LocalResources(Model.Widget.Name)' widget to dashboard"></button>
+            }
+
+            @{
+                bool hasActions = Model.Widget.WidgetActions.Any();
+                bool hasDescription = !string.IsNullOrWhiteSpace(Model.Widget.Description);
+                bool isCustomDashboard = Model.Type == EnumDashboardType.Custom;
+            }
+            @if (hasActions || hasDescription || isCustomDashboard)
+            {
+                <button class="icon-menu action" data-toggle="dropdown" title="Open Widget menu"></button>
+
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    @if (hasDescription)
+                    {
+                        <li role="menuitem">
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : showDescription.bind($data,'@Model.Widget.Name','@Model.Widget.Description')">About</a>
+                        </li>
+                    }
+
+                    <li role="menuitem">
+                        <a role="menuitem" aria-label="Save the widget to a custom dashboard" tabindex="-1" href="#" data-bind="click : addToCustomDashboard">Save Item to Custom Dashboard</a>
+                    </li>
+
+                    @if (isCustomDashboard)
+                    {
+                        <li role="menuitem">
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : removeFromCustomDashboard">Remove From Custom Dashboard</a>
+                        </li>
+                    }
+
+                    @helper OutputIcon(WidgetAction action)
+                    {
+if (!string.IsNullOrEmpty(action.Icon))
+{
+        <i class="icon-@action.Icon"></i>
+}
+}
+                    @helper OutputWidgeAction(WidgetAction action)
+                    {
+RouteValueDictionary arguments = action.Arguments;
+
+if ((action.IncludedArguments & EnumWidgetArgument.DashboardType) == EnumWidgetArgument.DashboardType)
+{
+    arguments.Add("dashboardType", Model.Type);
+}
+
+if ((action.IncludedArguments & EnumWidgetArgument.Subject) == EnumWidgetArgument.Subject)
+{
+    arguments.Add("subject", Model.Subject);
+}
+
+if ((action.IncludedArguments & EnumWidgetArgument.WidgetId) == EnumWidgetArgument.WidgetId)
+{
+    arguments.Add("widgetId", Model.Id);
+}
+
+if ((action.IncludedArguments & EnumWidgetArgument.IsExpanded) == EnumWidgetArgument.IsExpanded)
+{
+    arguments.Add("isExpanded", false);
+}
+
+if (action is MvcWidgetAction)
+{
+    var mvcAction = (MvcWidgetAction)action;
+
+    switch (mvcAction.ActionType)
+    {
+        case MvcWidgetAction.EnumActionType.Download:
+        case MvcWidgetAction.EnumActionType.RedirectNewTab:
+                <li role="menuitem">@Html.ActionLink(mvcAction.DisplayText, mvcAction.Action, mvcAction.Controller, arguments, new { @class = "menuitem", tabindex = -1, target = "_blank" })</li>
+            break;
+        case MvcWidgetAction.EnumActionType.RedirectSameTab:
+                <li role="menuitem">@Html.ActionLink(mvcAction.DisplayText, mvcAction.Action, mvcAction.Controller, arguments, new { @class = "menuitem", tabindex = -1 })</li>
+            break;
+        case MvcWidgetAction.EnumActionType.Alert:
+        case MvcWidgetAction.EnumActionType.Post:
+        case MvcWidgetAction.EnumActionType.Reload:
+            var actionUrl = Url.Action(mvcAction.Action, mvcAction.Controller);
+
+                <li role="menuitem">
+                    <a role="menuitem" tabindex="-1" href="#" data-bind="click : executeServerAction.bind($data,'@actionUrl', @JsonConvert.SerializeObject(arguments, new KeyValuePairConverter()), '@mvcAction.ActionType.ToString()')">@action.DisplayText</a>
+                </li>
+            break;
+        default:
+            break; //don't include.
+    }
+}
+else if (action is JavaScriptWidgetAction)
+{
+    var jsAction = (JavaScriptWidgetAction)action;
+        <li role="menuitem">
+            <a role="menuitem" tabindex="-1" href="#" data-bind="click : executeFunction.bind($data,'@jsAction.FunctionName', @JsonConvert.SerializeObject(arguments, new KeyValuePairConverter()))">@OutputIcon(action) @action.DisplayText</a>
+        </li>
+}
+else if (action is NestedWidgetAction)
+{
+        <li class="dropdown-submenu pull-left" role="menuitem">
+            <a tabindex="-1" href="#">@action.DisplayText</a>
+            <ul class="dropdown-menu" role="menu">
+                @foreach (WidgetAction subAction in ((NestedWidgetAction)action).ChildActions)
+                {
+                    @OutputWidgeAction(subAction)
+                }
+            </ul>
+        </li>
+}
+else
+{
+        <li class="dropdown-header" role="menuitem">@action.DisplayText</li>
+}
+}
+
+                    @foreach (WidgetAction action in Model.Widget.WidgetActions)
+                    {
+                        @OutputWidgeAction(action)
+                    }
+                </ul>
+            }
+            else if (!isFixed)
+            {
+                <button class="icon-savewidget action" title="Save item to Custom Dashboard" data-bind="click: addToCustomDashboard, tipsy : { gravity: 'se', delayIn: 200, fade: true }" role="button" tabindex="0"></button>
+            }
+
+            @if (!isFixed && !notClosable)
+            {
+                <button class="icon-cancel action" title="Remove item from dashboard" data-bind="click: remove, visible : isDashboardRemovalAllowed, tipsy : { gravity: 'se', delayIn: 200, fade: true }"></button>
+            }
+        </span>
+    </h2>
+
+
+
+    <div id="@widgetContentId" class="widgetcontent @Model.Widget.ContainerClass" data-bind="stopBindingChildren: true">
+        @* Some form of loading animation here. Will be replace by actual content via an AJAX request*@
+        <div class="widgetloading">
+            <div class="loading"></div>
+        </div>
+    </div>
+</section>

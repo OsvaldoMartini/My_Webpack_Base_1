@@ -1,0 +1,22 @@
+﻿@model string
+
+@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+}
+
+@section browser_title
+{
+    @this.LocalResources("Title")
+}
+
+@section page_title
+{
+    <div class="page-header"><h1>@this.LocalResources("Title")</h1></div>
+}
+
+<div class="grid-1-1">
+    <h3>@this.LocalResources("Heading")</h3>
+    <br />
+    @Html.Raw(Model)
+</div>
+

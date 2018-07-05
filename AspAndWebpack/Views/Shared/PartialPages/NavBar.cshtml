@@ -1,0 +1,23 @@
+﻿@model System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.BannerLink>
+
+<nav class="ihs-menu">
+    <div id="mainNav" class="navbar-nav">
+        <button class="menu-button" aria-haspopup="true">
+            Menu
+            <span class="caret"></span>
+        </button>
+        <ul class="nav-bar" role="menubar" data-menu-open-on="@(this.ViewBag.clickOpen?"click":"hover")">
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var link in Model)
+                {
+                    @CmpHtmlHelpers.BannerLink(link)
+                }
+            }
+            else
+            {
+                <li></li>
+            }
+        </ul>
+    </div>
+</nav>

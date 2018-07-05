@@ -1,0 +1,29 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.NoAccess
+<div class="grid">
+  <div class="grid-1 grid-md-1-2"><p></p></div>
+  <div class="grid-1 grid-md-2-4">
+    <div id="noSubscriptions">
+      <h1>
+        @if (!Model.TitleOnly)
+        {
+          <i class="icon-lock xxlarge"></i>
+        }
+        @Model.Title
+      </h1>
+      @if (!Model.TitleOnly)
+      {
+        <br />
+        @Model.Description
+        <br />
+        @Model.ContactDetails
+
+        if (Model.AutoRefresh)
+        {
+          <script type="text/javascript">
+            window.setTimeout(function () { window.location.reload(); }, 1000 * 130);
+          </script>
+        }
+      }
+    </div>  
+  </div>
+</div>

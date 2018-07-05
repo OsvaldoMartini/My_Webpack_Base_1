@@ -1,0 +1,58 @@
+﻿@using IHS.Apps.CMP.Models.ViewModels
+@model IHS.Apps.CMP.Models.ViewModels.SearchableLinksModel
+
+@if (!string.IsNullOrWhiteSpace(Model.Description))
+{
+    <p class="searchlistDescription">@Model.Description</p>
+}
+
+@{
+    string containerId = CmpHtmlHelpers.CreateUniqueId("selDashoardboards");
+}
+
+<script>
+    $(document).ready(function() {
+        $("#" + "@containerId").chosen({
+            width: '100%',
+            no_results_text: "@Model.NoResultsMessage"
+        });
+    });
+</script>
+
+<select id="@containerId" data-placeholder="@Model.DropDownMessage" onchange="loadUrlWithRequestCancel(this.value);" class="chosenselect" style="width: 100%;">
+    <option></option>
+    @foreach (Link link in Model.SearchableLinks)
+    {
+        var attributes = string.Join(" ", link.Attributes.Select(p => p.Key + "=\"" + p.Value + "\""));
+        <option value="@link.NavigateUrl" @Html.Raw(attributes)>@link.Text</option>
+    }
+</select>
+
+@if (Model.TopLinks != null && Model.TopLinks.Count > 0)
+{
+    if (!string.IsNullOrEmpty(Model.TopLinksHeading))
+    {
+        <p class="searchlistHeading">@Model.TopLinksHeading:</p>
+    }
+
+    <ul class="searchlist">
+
+        @foreach (Link link in Model.TopLinks)
+        {
+            var attributes = string.Join(" ", link.Attributes.Select(p => p.Key + "=\"" + p.Value + "\""));
+            <li><a href="@link.NavigateUrl" class="@link.CssClass" @Html.Raw(attributes)>@link.Text</a></li>
+        }
+
+        @if (Model.MoreLink != null)
+        {
+            <li><a href="@Model.MoreLink.NavigateUrl" class="more @Model.MoreLink.CssClass">@Model.MoreLink.Text</a></li>
+        }
+
+    
+    </ul>
+}
+
+@if (!string.IsNullOrEmpty(Model.MoreInfo))
+{
+    @Html.Raw(Model.MoreInfo)
+}

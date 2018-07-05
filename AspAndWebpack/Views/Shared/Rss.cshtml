@@ -1,0 +1,179 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.RssFeed
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+    <html class="ie7">
+<![endif]-->
+<!--[if IE 8]>
+    <html class="ie8">
+<![endif]-->
+<!--[if IE 9]>
+    <html class="ie9">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="IHS – The Source for Critical Information and Insight">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cleartype" content="on">
+
+    <title>@Model.Title</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    <!-- CDN Failover for JQuery -->
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            var e = document.createElement('script');
+            e.src = '@Url.Content("~/Assets/Javascript/Plugins/jquery-1.11.0.min.js")';
+            e.type = 'text/javascript';
+            document.getElementsByTagName("head")[0].appendChild(e);
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryui")
+    <!-- CDN Failover for JQuery UI -->
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            var e = document.createElement('script');
+            e.src = '@Url.Content("~/Assets/Javascript/Plugins/jquery-ui-1.12.0.min.js")';
+            e.type = 'text/javascript';
+            document.getElementsByTagName("head")[0].appendChild(e);
+        }
+    </script>
+
+    @Styles.Render("~/Content/mainCss")
+
+    <!--[if lte IE 7]>
+        @Styles.Render("~/Content/ie7Css")
+    <![endif]-->
+
+    <style>
+        header {
+            margin: 0 -2.5%;
+            padding: 0 2.5%;
+            background: #fff;
+        }
+
+            header .brand {
+                padding: 16px;
+            }
+
+            header .ihsm-logo {
+                margin: 15px -6px 15px -53px;
+                cursor: pointer;
+                display: inline-block;
+            }
+
+                header .ihsm-logo img {
+                    height: 35px;
+                }
+
+            header nav {
+                background: #00719d;
+                background: -moz-linear-gradient(left,#0097d1 10%,#0081c4 90%);
+                background: -webkit-linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)), linear-gradient(to right,#0097d1 10%,#0081c4 90%);
+                background: linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)), linear-gradient(to right,#0097d1 10%,#0081c4 90%);
+                height: 24px;
+                margin: 0 -2.6%;
+            }
+
+        .hero {
+            width: 500px;
+            max-width: 100%;
+            margin: 5em auto 10em;
+            background: #fff;
+            background: rgba(255,255,255,.9);
+            padding: 1.5em;
+        }
+
+            .hero h1 {
+                margin-top: 0;
+            }
+
+        footer {
+            height: 66px;
+        }
+    </style>
+    <!--[if gte IE 9]>
+      <style type="text/css">
+        .gradient {
+           filter: none;
+        }
+      </style>
+    <![endif]-->
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Assets/Images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/Assets/Images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/Assets/Images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/Assets/Images/favicons/manifest.json">
+    <link rel="mask-icon" href="/Assets/Images/favicons/safari-pinned-tab.svg" color="#97d700">
+    <link rel="shortcut icon" href="/Assets/Images/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/Assets/Images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header class="ihs-header-cmp">
+        <a id="scroll-to-top" href="#"></a>
+        <div class="banner">
+            <a href="/Default.aspx" class="brand pull-left dropdown-toggle">
+                <div class="ihsm-logo"><img src="~/Assets/Images/IHS-Markit-logo.svg" alt="IHS Markit" /></div>
+            </a>
+            
+            @Html.Action("LoadBannerSearchBar", "SearchBar")
+            <ul class="action-buttons navbar-nav nav-bar" data-navbar-align="right" role="menubar">
+                <li class="logout" role="none"><a href="#" onclick="window.close();" tabindex="-1" class="action-button" role="menuitem"><i class="icon-logout"></i><span class="hidden-xs">@this.LocalResources("Close")</span></a></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <nav>
+        </nav>
+    </header>
+
+    <h1 class="page-header u-margin-Tm">@Model.Title</h1>
+        <div class="grid-3-4 pull-left">
+            @if (Model.Articles == null || Model.Articles.GetNews == null || Model.Articles.GetNews.Count == 0)
+            {
+                <div class="alert alert-info" role="alert">No RSS articles found.</div>
+            }
+            else
+            {
+                <p>
+                    @Html.Partial("Widget/LatestNewsWidget", Model.Articles)
+                </p>
+            }
+        </div>
+        <div class="grid-1-4">
+            <div class="card">
+                <p>
+                    <div class="plaintext-bold u-padding-Bs">
+                        Your personal feed address has been created. <br />Please copy and use the following link in your rss reader.
+                    </div>
+                    <input type="text" class="form-control" value="@Model.NavigateUrl" />
+                    <div class="text-muted  u-padding-Bs u-padding-Ts">You are viewing a feed that contains frequently updated content. When you subscribe to a feed, it is added to the Common Feed List. Updated information from the feed is automatically downloaded to your computer and can be viewed in Internet Explorer and other programs.</div>
+                </p>
+            </div>
+        </div>
+    <footer>
+        <div>
+            <div class="grid u-margin-Tl">
+                <div class="grid-1 grid-md-5-6 legal">
+                    <div><a href="http://www.ihs.com/privacy-policy.aspx">Privacy Policy</a> <span class="separator"></span> <a href="http://www.ihs.com/terms-of-use.aspx">Terms Of Use</a> <span class="separator"></span> <a href="mailto:customercare@ihsmarkit.com">Customer Care</a></div>
+                    <div>@this.LocalResources("CopyrightStart") @DateTime.Now.Year.ToString(System.Globalization.CultureInfo.CurrentCulture) @this.LocalResources("CopyrightCompanyName") @this.LocalResources("CopyrightEnd")</div>
+                </div>
+
+                <div class="grid-1 grid-md-1-6 logo">
+                    <img src="/Assets/Images/ihsm-logo-white.svg" alt="IHS Markit">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

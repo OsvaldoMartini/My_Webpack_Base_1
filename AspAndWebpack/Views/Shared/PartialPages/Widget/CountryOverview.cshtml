@@ -1,0 +1,92 @@
+﻿@{
+    var tabProfileId = CmpHtmlHelpers.CreateUniqueId("tabProfile");
+    var tabRiskId = CmpHtmlHelpers.CreateUniqueId("tabRisk");
+    var tabInventoriesId = CmpHtmlHelpers.CreateUniqueId("tabInventories");
+
+    var tabContentStyle = "position:relative; min-height:100px;";
+}
+
+<div class="grid" id="countryOverviewModal">
+    <div class="grid-1">
+        <div class="pull-left">
+            <span style="padding: 19px;" class="flag-icon" data-bind="attr : { class : flagClass }"></span>
+
+            <select class="chosenselect" style="width: 300px;" tabindex="1" data-bind="value : selectedCountry, options : countries, optionsText : 'DisplayName', chosen : {}"></select>
+        </div>
+        <div class="pull-right u-margin-Am relative">
+            <button class="icon-export action pull-right" data-toggle="dropdown" title="Open Country Overview Menu"></button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li class="dropdown-submenu pull-left" role="menuitem" data-bind="if : countryRiskVM">
+                    <a tabindex="-1" href="#">Export Historical Risk Ratings</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="menuitem">
+                            <!-- ko with:countryRiskVM-->
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : exportChart.bind($data, { &quot;exportType&quot;:&quot;PDF&quot; })"> Export to PDF</a>
+                            <!-- /ko -->
+                        </li>
+                        <li role="menuitem">
+                            <!-- ko with:countryRiskVM-->
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : exportChart.bind($data, {&quot;exportType&quot;:&quot;JPEG&quot;})"> Export as JPEG Image</a>
+                            <!-- /ko -->
+                        </li>
+                        <li role="menuitem">
+                            <!-- ko with:countryRiskVM-->
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : exportChart.bind($data,  {&quot;exportType&quot;:&quot;PNG&quot;})"> Export as PNG Image</a>
+                            <!-- /ko -->
+                        </li>
+                        <li role="menuitem">
+                            <!-- ko with:countryRiskVM-->
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : exportChart.bind($data,  {&quot;exportType&quot;:&quot;SVG&quot;})"> Export as SVG Vector Image</a>
+                            <!-- /ko -->
+                        </li>
+                        <li role="menuitem">
+                            <!-- ko with:countryRiskVM-->
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="click : printChart"> Print Chart</a>
+                            <!-- /ko -->
+                        </li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu pull-left" role="menuitem">
+                    <a tabindex="-1" href="#">Export Inventory Data</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="menuitem">
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="attr: {href: exportCsv()}"> Export Inventory (CSV)</a>
+                        </li>
+                        <li role="menuitem">
+                            <a role="menuitem" tabindex="-1" href="#" data-bind="attr: {href: exportExcel()}"> Export Inventory (Excel)</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-1">
+        <ul class="nav nav-tabs">
+            <li data-bind="css:{'active': tab() == 'Profile' || !tab()}"><a href="#@tabProfileId" data-toggle="tab">Profile</a></li>
+            <li data-bind="css:{'active': tab() == 'Risk'}"><a href="#@tabRiskId" data-toggle="tab">Risk</a></li>
+            <li data-bind="css:{'active': tab() == 'Inventories'}"><a href="#@tabInventoriesId" data-toggle="tab">Inventories</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content bordered">
+            <div class="tab-pane fade active" id="@tabProfileId" data-bind="css:{'active in': tab() == 'Profile' || !tab()}">
+                <div style="@tabContentStyle">
+                    <div class="loading" data-bind="visible : countryProfileHtml().length === 0"></div>
+                    <div data-bind="visible : countryProfileHtml().length > 0, html : countryProfileHtml"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="@tabRiskId" data-bind="css:{'active in': tab() == 'Risk'}">
+                <div style="@tabContentStyle">
+                    <div class="loading" data-bind="visible : countryRiskHtml().length === 0"></div>
+                    <div data-bind="visible : countryRiskHtml().length > 0, html : countryRiskHtml"></div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="@tabInventoriesId" data-bind="css:{'active active': tab() == 'Inventories'}">
+                <div style="@tabContentStyle">
+                    <div class="loading" data-bind="visible : countryInventoriesHtml().length === 0"></div>
+                    <div data-bind="visible : countryInventoriesHtml().length > 0, html : countryInventoriesHtml"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

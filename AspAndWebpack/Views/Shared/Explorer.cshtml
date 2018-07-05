@@ -1,0 +1,113 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Explorer.ExplorerModel
+
+@{
+	Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+	var containerId = CmpHtmlHelpers.CreateUniqueId("explorer");
+	var treeContainerId = CmpHtmlHelpers.CreateUniqueId("tree");
+}
+
+@section additional_css
+{
+	@Styles.Render("~/Content/explorer")
+}
+
+@section additional_scripts{
+	@Scripts.Render("~/bundles/jqueryui")
+	@Scripts.Render("~/bundles/explorer")
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			var vm = new Explorer.ExplorerVM({
+				category : '@Model.CategoryKey',
+				tree: {
+						category : '@Model.CategoryKey',
+						containerId : '@treeContainerId',
+						rootId: '@Model.RootId',
+						childId : '@Model.ItemId'
+					}
+				});
+
+			ko.applyBindings(vm, document.getElementById('@containerId'));
+		});
+
+	</script>
+}
+
+@section page_title
+{
+	<h1 class="page-header u-margin-Bm u-margin-Ts u-padding-Bs">
+		@Model.Title
+	</h1>
+}
+
+<div id="@containerId" class="grid-1 white-bg explorer">
+	<div class="grid-1 resultsTreeContainer" data-bind="with : treeVM">
+
+		<div id="@treeContainerId" class="explorer-tree">
+			   
+		</div>
+
+		<div class="loading dimmer" data-bind="visible : isLoading"></div>
+
+	</div>
+	<div class="pull-right">
+		<div class="input-group width-100">
+			<div class="pull-right" align="right">
+				<div align="left" class="btn-group pull-left u-margin-Hs" role="group" aria-label="Explorer Options">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default" data-bind="click : closePage">
+							Close
+						</button>
+					</div>
+					<div class="btn-group" data-bind="with : commandsVM">
+						<button type="button" data-bind="visible : selectedRecords().length, click : exportResults.bind($data, false)" class="exportButton btn btn-primary" style="display:none">
+							Export (<span data-bind="text : selectedRecords().length"></span>)
+						</button>
+					</div>
+					<div class="btn-group" data-bind="with : commandsVM">
+						<button type="button" data-bind="click : exportResults.bind($data, true)" class="exportButton btn btn-default">
+							<i class="icon-export"></i>Export All Data
+						</button>
+					</div>
+					<div class="btn-group" role="group" data-bind="with : treeVM">
+						<div style="display: none" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-bind="hidden : isLoading">
+							<i class="icon-flow-merge"></i>
+							Tree options
+							<span class="caret"></span>
+						</div>
+						<ul class="dropdown-menu" role="menu">
+							<li data-bind="click:expandAll"><a role="menuitem" href="javascript:void(0)">View full family tree</a></li>
+							<li data-bind="click:collapseAll"><a role="menuitem" href="javascript:void(0)">Collapse family tree</a></li>
+							<li data-bind="click:switchTreeOrientation"><a role="menuitem" href="javascript:void(0)">Switch Orientation</a></li>
+						</ul>
+					</div>
+				</div>
+				<div data-bind="with : treeVM" class="pull-right">
+					<div class="btn-group-vertical" role="group" aria-label="Tree Controls" data-toggle="buttons" style="width: 50px; display:none;" data-bind="hidden : isLoading">
+						<button type="button" class="btn btn-default" data-bind="click:zoom.bind($data, 0.3, true)" title="Zoom In"><i class="icon-plus"></i></button>
+						<button type="button" class="btn btn-default" data-bind="click:zoomReset" title="Zoom Reset"><i class="icon-arrows-cw"></i></button>
+						<button type="button" class="btn btn-default" data-bind="click:zoom.bind($data, 0.3, false)" title="Zoom Out"><i class="icon-minus"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="explorer-panel-bottom panel-bottom closed grid-1" data-bind="css:{closed:gridClosed}">
+		<button class="showFilters show" data-bind="toggleClick:gridClosed,tipsy:{gravity:'s', title:function(){return (gridClosed()?'Show':'Hide')+' Grid'}}">
+			<span> <span data-bind="text: (gridClosed()?' Show' : 'Hide' )+' Grid'"></span> <i class="icon-down-open"></i></span>
+		</button>
+
+		<div class="explorer-panel-bottom-content" data-bind="with : gridVM">
+			<div id="resultsGrid" data-bind="dynamicHtml : resultsBodyHtml">
+			</div>
+
+			<div class="loading dimmer" data-bind="visible : isLoading"></div>
+		</div>
+
+	</div>
+</div>
+
+
+

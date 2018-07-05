@@ -1,0 +1,97 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Explorer.ExplorerWidgetModel
+@using System.Linq
+
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId("explorer");
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var vm = new ExplorerWidgetVM({
+            category: "Equipment",
+            treeFacetKey: "@Model.SubjectSearchFacetKey"
+        });
+
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('@containerId', vm);
+        }
+
+        ko.applyBindings(vm, document.getElementById("@containerId"));
+    });
+</script>
+
+<div id="@containerId">
+    <div class="chosen-container">
+        @{
+            if (Model.SelectedSubjectGroup != null)
+            {
+                <div class="grid">
+                    <div class="grid-1-1">
+                        <select class="form-control" data-bind="value : selectedSubject, chosen : {}">
+                            <option disabled="disabled" selected="selected" value="">Select @Model.SubjectLabel</option>
+                            @foreach (var item in Model.Subjects.OrderBy(p => p.DisplayValue))
+                            {
+                                <option value="@item.Id">@item.DisplayValue</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            }
+            else
+            {
+
+                <div class="grid">
+                    <div class="grid-1-1">
+                        <select class="form-control" data-bind="value : selectedSubjectGroup, chosen : {}">
+                            <option disabled="disabled" selected="selected" value="">Select @Model.SubjectGroupLabel</option>
+                            @foreach (var item in Model.SubjectGroups.OrderBy(p => p.DisplayValue))
+                            {
+                                <option value="@item.Id">@item.DisplayValue</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid-1-1">
+                        <select class="form-control" data-bind="value : selectedSubject,options:subjects, optionsText:'DisplayValue', optionsValue:'Id', optionsCaption : 'Select @Model.SubjectLabel', chosen : {}"></select>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+
+    <br />
+    <br />
+
+    <div class="grid">
+        <div class="grid-1-2">
+            <p>Select a family using the selector box above.</p>
+            <br />
+            <p>Equipment Explorer is a  tool that allows you to understand a family tree or development path.</p>
+        </div>
+        <div align="right">
+            @if (Model.IsTreeViewable)
+            {
+                <img src="~/Assets/Images/explorer.png" alt="The explorer page."/>
+            }
+            else
+            {
+                <img src="~/Assets/Images/explorer_grid.png" alt="The explorer page." />
+            }
+        </div>
+    </div>
+
+    <br />
+
+    <div class="list-group list-links widget-footer">
+        <a title="Equipment Explorer Page" class="list-group-item " href="javascript:void(0)" data-bind="click: goToExplorerPage">
+            Equipment Explorer - All equipment types
+            <i class="icon-link-ext u-margin-Lxs grey2" role="presentation"></i>
+
+            <i class="icon-right-open pull-right" role="presentation"></i>
+        </a>
+    </div>
+
+    <div class="loading text dimmer" data-bind="visible : isLoading"></div>
+</div>

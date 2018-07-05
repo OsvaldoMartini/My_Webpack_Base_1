@@ -1,0 +1,116 @@
+﻿@model System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.Note>
+
+@if (this.ViewBag.RenderMini)
+{
+    int rowId = 0;
+
+    foreach (IHS.Apps.CMP.Models.ViewModels.Note note in Model)
+    {
+        <div id="@rowId" class="noteRow panel panel-info">
+            <div class="panel-heading">
+                @note.DateCreated
+                @if (note.CanDelete)
+                {
+                    <button class="icon-trash large hand tipsyMe pull-right" title="@this.LocalResources("Delete")" onclick="DeleteNote(@rowId, '@note.Id');"></button>
+                }
+                @if (note.CanShare)
+                {
+                    <button class="icon-share large hand tipsyMe pull-right" title="@this.LocalResources("Share")" data-toggle="modal" data-target="#shareModal" onclick="SetupShareDialog('@note.CategoryKey', '', '@note.Id', 'Note')"></button>
+                }
+                @if (note.CanEdit)
+                {
+                    <button class="icon-edit large hand tipsyMe pull-right" title="@this.LocalResources("Edit")" onclick="ShowEdit('@rowId')"></button>
+                }
+                @if (note.IsShared)
+                {
+                    <button class="icon-users large tipsyMe pull-right" title="@this.LocalResources("SharedCompany")"></button>
+                }
+            </div>
+            <div class="panel-body">
+                <span @("id=" + @rowId + "_original")>@note.Text</span>
+                <div @("id=" + @rowId + "_new") class="grid" style="display:none;">
+                    <div class="grid-11-12">
+                        <textarea style="width:100%" rows="4" class="form-control">@note.Text</textarea>
+                    </div>
+                    <div class="grid-1-12">
+                        <button class="icon-ok hand tipsyMe" title="@this.LocalResources("Update")" onclick="UpdateEdit('@rowId', '@note.Id')"></button>
+                        <button class="icon-cancel hand tipsyMe" title="@this.LocalResources("Cancel")" onclick="CancelEdit('@rowId')"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+                rowId++;
+    }
+}
+else
+{
+    if (Model.Count == 0)
+    {
+        <div class="well text-center large">@this.LocalResources("NoneFound")</div>
+    }
+    else
+    {
+        <table id="noteTable" class="table">
+            <tbody>
+                @{
+                    string currentCategory = string.Empty;
+                    int rowId = 0;
+                }
+                @foreach (IHS.Apps.CMP.Models.ViewModels.Note note in Model)
+                {
+
+                    if (string.IsNullOrEmpty(currentCategory) || !currentCategory.Equals(note.CategoryKey))
+                    {
+                        currentCategory = note.CategoryKey;
+                        <tr class="noteCatRow light-grey-bg">
+                            <td colspan="6">
+                                <h4 class="u-margin-Tn u-margin-Bn">@note.CategoryName</h4>
+                            </td>
+                        </tr>
+                    }
+
+                    <tr id="@rowId" class="noteRow text-middle">
+                        <td class="u-padding-Vm u-padding-Lm large width-">
+                            <button @("id=" + @rowId + "_search") title="@this.LocalResources("View")" onclick="ViewDocument('@note.ArticleId', '@IHS.Apps.CMP.Utilities.MvcMappingsHelper.Instance.FindMvcMappingForCMPCategoryObjectKey(note.CategoryKey).url_key');" class="icon-search large hand tipsyMe u-margin-Rm"></button>
+                            <span @("id=" + @rowId + "_original")>@note.Text</span>
+                            @if (note.CanEdit)
+                            {
+                                <i @("id=" + @rowId + "_pencil") class="icon-pencil hand tipsyMe small u-margin-Ls grey2" title="@this.LocalResources("Edit")" onclick="ShowEdit('@rowId')"></i>
+                            }
+                            <div @("id=" + @rowId + "_new") class="grid" style="display:none;">
+                                <div class="grid-11-12">
+                                    <textarea style="width:100%" rows="4" class="form-control">@note.Text</textarea>
+                                </div>
+                                <div class="grid-1-12">
+                                    <button class="icon-ok hand tipsyMe large" title="@this.LocalResources("Update")" onclick="UpdateEdit('@rowId', '@note.Id')"></button><br />
+                                    <button class="icon-cancel hand tipsyMe large" title="@this.LocalResources("Cancel")" onclick="CancelEdit('@rowId')"></button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-right width-20 u-padding-Rm">
+                            @if (note.IsShared)
+                            {
+                                <i class="icon-users xlarge tipsyMe" title="@this.LocalResources("SharedCompany")"></i>
+                            }
+                            @if (note.CanShare)
+                            {
+                                <button class="icon-share xlarge hand tipsyMe" title="@this.LocalResources("Share")" data-toggle="modal" data-target="#shareModal" onclick="SetupShareDialog('@currentCategory', '', '@note.Id', 'Note')"></button>
+                            }
+                            @if (note.CanDelete)
+                            {
+                                <button class="icon-trash xlarge hand tipsyMe" title="@this.LocalResources("Delete")" onclick="DeleteNote(@rowId, '@note.Id');"></button>
+                            }
+                        
+                            <dl class="dl-horizontal text-muted u-margin-Ts u-margin-Bn">
+                                <dt>@this.LocalResources("CreatedDate")</dt>
+                                <dd>@note.DateCreated</dd>
+                            </dl>
+                        </td>
+                    </tr>
+                            rowId++;
+                }
+            </tbody>
+        </table>
+    }
+}

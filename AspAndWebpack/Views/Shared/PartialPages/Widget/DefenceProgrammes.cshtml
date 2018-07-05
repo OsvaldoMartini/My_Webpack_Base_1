@@ -1,0 +1,113 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.DefenceModel
+
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId("div").Replace('-','_');
+    var mainId = CmpHtmlHelpers.CreateUniqueId("main");
+    string modalId = CmpHtmlHelpers.CreateUniqueId("modalDiv");
+    string modalLabelId = CmpHtmlHelpers.CreateUniqueId("modalLabel");
+    List<String> FiltersId = new List<string>();
+}
+<div id="@mainId">
+    @if (Model.FilterOptions != null && Model.FilterOptions.Count() > 0)
+    {        
+        <script>
+            var onFilterChange_@(containerId) = function (filterIds) {
+                @*@Ajax.ActionLink(view, "GetData", Model.ControllerName, new { dash = Model.DashboardType, cat = Model.Category, taxonomyKey = Model.TaxonomyKey, subject = Model.Entity, view }, new AjaxOptions { UpdateTargetId = containerId, InsertionMode = InsertionMode.Replace, HttpMethod = "GET", LoadingElementId = containerId + "load" }, new { role = "menuitem" })*@
+                var url = "@Html.Raw(Url.Action("ChangeFilter", Model.ControllerName, new { dash = Model.DashboardType, cat = Model.Category, subject = Model.Entity }))";
+
+                var opts = $(filterIds);
+                for (var i = 0; i < opts.length; i++) {
+                    if (opts[i].value) {
+
+                        url += "&" + $(opts[i]).data('index') + "=" + encodeURI(opts[i].value);
+                    }
+                }
+                $('#@(containerId)load').show();
+                $('#@containerId').load(url, function () {
+                    $('#@(containerId)load').hide();
+                });
+            };
+        </script>
+
+        @Html.Partial("Widget/Filters", new Tuple<IEnumerable<IHS.Apps.CMP.Models.ViewModels.FilterVM>, string>( Model.FilterOptions, "onFilterChange_"+containerId))
+    }
+    @if (Model.Views != null && Model.Views.Count() > 0)
+    { 
+    <div class="dropdown u-margin-Bm" style="display: inline-block">
+        <h4 class="dropdown-toggle hand u-margin-An selectedView" data-toggle="dropdown">
+            @Model.SelectedView
+            <i class="icon-menu u-font-85 grey2"></i>
+        </h4>
+        <ul class="dropdown-menu" role="menu">
+            @foreach (var view in Model.Views)
+            {
+                <li>
+                    @Ajax.ActionLink(view, "GetData", Model.ControllerName, new { dash = Model.DashboardType, cat = Model.Category, taxonomyKey = Model.TaxonomyKey, subject = Model.Entity, view }, new AjaxOptions { UpdateTargetId = containerId, InsertionMode = InsertionMode.Replace, HttpMethod = "GET", LoadingElementId = containerId + "load" }, new { role = "menuitem" })
+                </li>
+            }
+        </ul>
+    </div>
+    }
+    <span></span>
+    <div id="@containerId">
+
+        @Html.Partial(Model.ItemModelView, Model)
+    </div>
+    <div id="@(containerId)load" class="loading dimmer" style="display: none;"></div>
+</div>
+
+<div class="modal fade" id="@modalId" tabindex="-1" role="dialog" aria-labelledby="@modalLabelId" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="@modalLabelId">Export Data</h4>
+            </div>
+            <div class="modal-body">
+                <form class="bs-component" action="/DefenceProgrammes/Export" method="post">
+                    <div class="form-group">
+                        <label class="control-label" for="@(modalId)_fileName">File Name</label>
+                        <input type="text" class="form-control" id="@(modalId)_fileName" name="fileName" value="@(Model.Entity) - @(Model.CategoryLabel)">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="exportType">File Type</label>
+                        <div class="btn-group " data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="exportType" value="EXCEL" autocomplete="off" checked="checked"><i class="icon-file-excel"></i> Excel
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="exportType" value="CSV" autocomplete="off"><i class="icon-file-csv"></i> CSV
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="exportType" value="TAB" autocomplete="off"><i class="icon-file-tab"></i> TAB
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="exportType" value="XML" autocomplete="off"><i class="icon-file-xml"></i> XML
+                            </label>
+                        </div>
+                    </div>
+                    <input type="hidden" name="dash" value="@Model.DashboardType" />
+                    <input type="hidden" name="cat" value="@Model.Category" />
+                    <input type="hidden" name="subject" value="@Model.Entity" />
+                    <input type="hidden" name="view" value="" />
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Export</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var vm = new DefenceProgrammesVM('@mainId', '@modalId');
+
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('@containerId', vm);
+        }
+    });
+</script>

@@ -1,0 +1,83 @@
+﻿@model ICollection<IHS.Apps.CMP.Models.Dashboard>
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId();
+}
+
+<div id="@containerId">
+    @{
+        if (this.User.AccountType == IHS.Apps.CMP.Models.Security.AccountType.Individual)
+        {
+            <div class="form-horizontal">
+                <p class="savedashboardtext" style="display: none;">
+                    Save a copy of this dashboard, which you can then add to later. You can access your custom dashboards <a href="/CustomDashboard">here</a>, or from ‘My Services’ in the top navigation menu.
+                </p>
+                <p class="savewidgettext" style="display: none;">
+                    Save this item to a dashboard, which you can then add to later. You can access your custom dashboards <a href="/CustomDashboard">here</a>, or from ‘My Services’ in the top navigation menu
+                </p>
+                <p>
+                    Learn how to use custom dashboards with our <button class="cd-tutorial-button btn btn-default"><i class="icon-tutorial"></i> Tutorial</button>.
+                </p>
+                <div class="form-group">
+                    <label for="newdashboard" class="grid-1 grid-sm-1-5 control-label u-padding-Rn newtextlabel">Save as New</label>
+                    <div class="grid-1 grid-sm-3-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" value="NEW" checked="checked" name="new_or_existing" />
+                            </span>
+                            <input type="text" class="form-control dashboardNewName" id="newdashboard">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="existingdashboard" class="grid-1 grid-sm-1-5 control-label u-padding-Rn">Add to Existing</label>
+                    <div class="grid-1 grid-sm-3-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" value="EXISTING" name="new_or_existing" />
+                            </span>
+                            <select data-placeholder="Choose a dashboard..." class="form-control dashboarExisting" id="existingdashboard">
+                                <option value="" disabled selected hidden>Choose existing dashboard</option>
+                                @{
+            foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="dashSaveDescGroup">
+                    <label for="saveDashDesc" class="grid-1 grid-sm-1-5 control-label u-padding-Rn">Description</label>
+                    <div class="grid-1 grid-sm-3-4">
+                        <textarea class="form-control dashboardDescription" rows="3" id="saveDashDesc"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="grid-1 text-center">
+                        <button type="button" class="btn btn-primary" data-bind="click:prepareSaveDashboard.bind($data, '@containerId')">Save Dashboard</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("CustomDashboardTutorial")
+        }
+        else
+        {
+            <div class="form-horizontal">
+                <p class="savedashboardtext" >
+                    You are currently logged in using your organisation's shared account.
+                    <br/>
+                    To access this feature please log in using your personal profile or create one using the link to the top right of the screen.
+                </p>
+            </div>
+        }
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        CustomDashboardTutorial.RegisterTutorialHelpSave('#@containerId');
+    });
+
+</script>

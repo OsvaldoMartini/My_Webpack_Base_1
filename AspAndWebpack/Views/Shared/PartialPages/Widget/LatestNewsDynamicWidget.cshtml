@@ -1,0 +1,65 @@
+﻿@model Tuple<string, string>
+
+@using IHS.Apps.CMP.Models.Enums;
+@using IHS.Apps.CMP.Models.ViewModels.AandD;
+
+@{
+    var containerId = CmpHtmlHelpers.CreateUniqueId("dvLatestNews");
+}
+<div class="news" id="@containerId">
+
+    <div data-bind="foreach: articles">
+        <div class="news" data-bind="visible: isVisible">
+            <a href="" target="_blank" class="visitedlink" data-bind="attr: {href: link}">
+                <span data-bind="text: headline"></span>
+                <i class="icon-link-ext u-font-65 grey2"></i>
+            </a>
+            <a href="" target="_blank" class="visitedtick" data-bind="attr: {href: link}"><span class="visitedtick_tt"></span></a>
+            <p data-bind="text: description" class="u-wrap-break-word"></p>
+            <span class="date" data-bind="dateTimeView: eventDate, dateTimeViewFormat: 'ddd mmm dd yyyy'"></span>
+            @*<span class="meta">
+                <span data-bind="foreach: eventCountry"><span data-bind="visible: $index() >0">, </span><a href="" data-bind="text: $data, click: $parents[1].updateCountry, attr: {href: $parents[1].countryLink($data)}"></a></span>
+            </span>*@
+        </div>
+    </div>
+    <div data-bind="if: articles().length == 0 && !isLoading()" >
+        @Html.Partial("Widget/WidgetNoContent",
+                new AlertMessageModel
+                {
+                    AlertType = EnumAlertType.Info,
+                    Message = "We do not currently hold information for this.",
+                    DisplayContactDetails = true
+                })
+    </div>
+
+    <div class="list-group list-links widgetfooter" data-bind="foreach: footerLinks, visible: footerLinks().length">
+        <!-- ko if: text && url && authorised -->
+        <a href="" data-bind="css: { 'list-group-item': true, tooltipHolder: tooltip, disabled: !authorised}, attr: {href: url, title: tooltip, target: target}">
+            <span data-bind="text: text"></span>
+            <i class="icon-link-ext u-margin-Lxs grey2" data-bind="visible: target"></i>
+
+            <i class='icon-right-open pull-right'></i>
+        </a>
+        <!-- /ko -->
+        <!-- ko if: text && (!url || !authorised) -->
+
+        <div href="" data-bind="css: {'list-group-item': true, tooltipHolder: tooltip, disabled: !authorised}, attr: {title: tooltip}">
+            <span data-bind="text: text"></span>
+            <i class='icon-right-open pull-right' data-bind="visible: url"></i>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <div class="loading dimmer" data-bind="visible: isLoading"></div>
+</div>
+
+<script>
+    (function () {
+        var articleVM = new ArticleListVM('@Model.Item1', "@Model.Item2");
+        ko.applyBindings(articleVM, document.getElementById('@containerId'));
+
+        if (typeof window["Dashboard"] !== "undefined") {
+            Dashboard.registerJavascriptObject('@containerId', articleVM);
+        }
+    })();
+</script>

@@ -1,0 +1,54 @@
+﻿
+@model IHS.Apps.CMP.Models.ViewModels.MyCustomDashboardsModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="min-width-100-px">@this.LocalResources("Name")</th>
+            <th>@this.LocalResources("Description")</th>
+            <th>@this.LocalResources("Created Date")</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CustomDashboards)
+        {
+            <tr id="csdb@(item.Id)">
+                <td >
+                    <h4>
+
+                        <a target='blank' href='/Dashboard/Custom/@item.Id' id='name(@item.Id)'>
+                            <span class="word-break inline-block" id="titleSpan@(item.Id)" title="Click to view the Dashboard">@item.Name</span>
+                        </a>
+                    </h4>
+                      
+                </td>
+
+                <td>
+                    <h5>
+                        <span class="word-break inline-block" id="DescSpan@(item.Id)">@(string.IsNullOrEmpty(item.Description) ? "No description set" : item.Description)</span>
+
+                          
+                    </h5>
+
+
+                </td>
+
+                <td>
+                    <h5>
+                        <span id="CreatedDate@(item.Id)" class="list-group-item-text orange1" >@CommonUtilities.TryConvertDate(@item.CreatedDate, CMPConfiguration.DateDisplayFormat)</span>
+
+                    </h5>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@Html.Partial("Widget/LinkListWidgetFooter", new[] { new IHS.Apps.CMP.Models.ViewModels.Link(){
+    NavigateUrl = "/CustomDashboard",
+    Text = "Manage Custom Dashboards"
+}})

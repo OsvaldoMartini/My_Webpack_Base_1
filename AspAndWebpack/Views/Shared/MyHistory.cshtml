@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+}
+
+@section browser_title
+{
+    @this.LocalResources("Title")
+}
+
+@section page_title
+{
+    <div class="page-header"><h1>@this.LocalResources("Title")</h1></div>
+}
+
+@section additional_scripts
+{
+    @Scripts.Render("~/bundles/myhistory")
+}
+
+@Html.Action("Populate", "MyHistory")

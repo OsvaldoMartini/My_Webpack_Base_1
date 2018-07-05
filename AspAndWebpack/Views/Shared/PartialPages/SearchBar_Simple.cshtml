@@ -1,0 +1,18 @@
+﻿@model dynamic
+<div class="search-bar">
+    <div class="grid-1 grid-lg-5-12 grid-md-5-12 grid-md-offset-3 grid-sm-3-4 grid-sm-offset-2">
+        <div class="input-group input-group-lg searchbox">
+            @Html.TextBox("searchText", null, new { @class = "form-control", placeholder = "Search..." })
+            <div class="input-group-btn">
+                <button class="btn btn-primary btn-last btn-ihsm" type="submit">
+                    <i class="icon-search"></i><span class="sr-only">Search Help</span>
+                </button>
+            </div>
+            <div class="search-help">
+                <a class="btn btn-link helpButton">
+                    <i class="icon-help-circled hand grey2 searchHelp helpButton" data-toggle="modal" data-target="#helpIndicatorDialog" data-appkey="GEPS" data-groupid="SEARCHHELP" data-itemid="SEARCHHELP"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

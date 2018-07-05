@@ -1,0 +1,220 @@
+﻿@using IHS.Apps.CMP.Utilities;
+@using IHS.Apps.CMP.Models.Configuration;
+
+@model System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.History>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="grid-1">
+        <div class="well text-center large">@this.LocalResources("NoneFound")</div>
+    </div>
+}
+else
+{
+    <div class="grid-1 grid-sm-3-4 grid-md-4-5 grid-lg-5-6">
+
+        @{
+            DateTime now = DateTime.UtcNow;
+            DateTime todayStart = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0, 0);
+
+            DateTime startOfWeek = todayStart;
+            while (startOfWeek.DayOfWeek != DayOfWeek.Sunday)
+            {
+                startOfWeek = startOfWeek.AddDays(-1);
+            }
+
+            DateTime lastWeek = startOfWeek.AddDays(-7);
+            DateTime beforeLastWeek = startOfWeek.AddDays(-14);
+
+            System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.History> todays = new System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.History>();
+            System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.History> thisWeeks = new System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.History>();
+            System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.History> lastWeeks = new System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.History>();
+            System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.History> beforeLastWeeks = new System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.History>();
+            todays = Model.Where(m => m.DateViewed > todayStart);
+
+            if (todayStart != startOfWeek)
+            {
+                thisWeeks = Model.Where(m => m.DateViewed < todayStart && m.DateViewed > startOfWeek);
+            }
+            lastWeeks = Model.Where(m => m.DateViewed < startOfWeek && m.DateViewed > beforeLastWeek);
+            beforeLastWeeks = Model.Where(m => m.DateViewed < beforeLastWeek);
+
+            string openToday = string.Empty;
+            string openThisWeek = string.Empty;
+            string openLastWeek = string.Empty;
+            string openBeforeLastWeek = string.Empty;
+
+            if (todays.Count() > 0)
+            {
+                openToday = "in";
+            }
+            else if (thisWeeks.Count() > 0)
+            {
+                openThisWeek = "in";
+            }
+            else if (lastWeeks.Count() > 0)
+            {
+                openLastWeek = "in";
+            }
+            else if (beforeLastWeeks.Count() > 0)
+            {
+                openBeforeLastWeek = "in";
+            }
+        }
+
+        <div class="grid-1-1">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                @if (todays.Count() > 0)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingOne" role="tab">
+                            <h4 class="panel-title">
+                                <a aria-expanded="true" aria-controls="collapseOne" href="#collapseOne" data-toggle="collapse" data-parent="#accordion">
+                                    Today
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse @openToday" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    @foreach (IHS.Apps.CMP.Models.ViewModels.History history in todays)
+                                    {
+                                        @GetHistoryList(history)
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (thisWeeks.Count() > 0)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingTwo" role="tab">
+                            <h4 class="panel-title">
+                                <a class="collapsed" aria-expanded="false" aria-controls="collapseTwo" href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">
+                                    This Week
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse @openThisWeek" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    @foreach (IHS.Apps.CMP.Models.ViewModels.History history in thisWeeks)
+                                    {
+                                        @GetHistoryList(history)
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (lastWeeks.Count() > 0)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingThree" role="tab">
+                            <h4 class="panel-title">
+                                <a class="collapsed" aria-expanded="false" aria-controls="collapseThree" href="#collapseThree" data-toggle="collapse" data-parent="#accordion">
+                                    Last Week
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse @openLastWeek" id="collapseThree" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    @foreach (IHS.Apps.CMP.Models.ViewModels.History history in lastWeeks)
+                                    {
+                                        @GetHistoryList(history)
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (beforeLastWeeks.Count() > 0)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="headingFour" role="tab">
+                            <h4 class="panel-title">
+                                <a aria-expanded="true" aria-controls="collapseFour" href="#collapseFour" data-toggle="collapse" data-parent="#accordion">
+                                    Before Last Week
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="panel-collapse collapse @openBeforeLastWeek" id="collapseFour" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    @foreach (IHS.Apps.CMP.Models.ViewModels.History history in beforeLastWeeks)
+                                    {
+                                        @GetHistoryList(history)
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-1 grid-sm-1-4 grid-md-1-5 grid-lg-1-6">
+        <div class="u-padding-Bm">
+            <a href="Javascript:Delete('@Model[0].AppName');" class="btn btn-primary" role="button">Delete All History</a>
+        </div>
+        <div class="alert alert-info" role="alert">
+            <p><strong>@this.LocalResources("Info")</strong></p>
+            <p>@this.LocalResources("HistoryDescription")</p>
+        </div>
+    </div>
+            }
+
+@helper GetHistoryList(IHS.Apps.CMP.Models.ViewModels.History history)
+{
+
+if (history.Links.Count > 1)
+{
+        <dt>@history.DateViewed</dt>
+        <dd>
+            <div class="grid-1-5">
+                <p class="icon-collapse-arrow hand u-margin-Bn" data-toggle="collapse" href="@string.Format("#collapse{0}", history.Id)" aria-expanded="false">
+                    Compile of @history.Links.Count documents
+                    @{
+                        string mvcUrl = history.CategoryKey;
+                        mvc_mappingsMapping mvcMap = MvcMappingsHelper.Instance.FindMvcMappingForCMPCategoryObjectKey(history.CategoryKey);
+                        if (mvcMap != null)
+                        {
+                            mvcUrl = mvcMap.url_key;
+                        }
+
+                        mvcUrl = string.Format("/{0}/Compile/{1}", mvcUrl, history.Id);
+                    }
+                </p>
+            </div>
+            <div class="grid-1-5">
+                <a href="@mvcUrl" target="_blank">[Recompile]</a>
+            </div>
+            <div class="collapse" id="@string.Format("collapse{0}", history.Id)">
+                <ul>
+                    @foreach (IHS.Apps.CMP.Models.ViewModels.Link link in history.Links)
+                    {
+                        string sep = link.NavigateUrl.Contains("?") ? "&" : "?";
+                        string url = string.Format("{0}{1}from=history", link.NavigateUrl, sep);
+
+                        <li><a href="@url" target="_blank">@link.Text</a></li>
+                    }
+                </ul>
+            </div>
+        </dd>
+}
+else
+{
+        <dt>@history.DateViewed.ToString(System.Globalization.CultureInfo.CurrentUICulture)</dt>
+        <dd>
+            @{
+                string sep = history.Links[0].NavigateUrl.Contains("?") ? "&" : "?";
+                string url = string.Format("{0}{1}from=history", history.Links[0].NavigateUrl, sep);
+            }
+            <a href="@url" target="_blank">@history.Links[0].Text</a>
+        </dd>
+                }
+
+}

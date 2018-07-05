@@ -1,0 +1,173 @@
+﻿@using System.Text.RegularExpressions
+@model Dictionary<string, IHS.Apps.CMP.Models.ViewModels.AandD.InventoriesModel>
+
+
+    @{
+        string containerId = CmpHtmlHelpers.CreateUniqueId("dvInventories");
+        string tabsId = CmpHtmlHelpers.CreateUniqueId("dvInventoriesTab");
+
+        var j = 0;
+    }
+
+    <script>
+        var inventoriesWidget = inventoriesWidget || function (data) {
+            var self = this;
+            self.country = data.Country || "";
+            self.items = data.Items || [];
+            self.labels = data.Labels || {};
+            self.countIdx = ko.observable('INVENTORYINSERVICE');
+            self.segmentIdx = ko.observable('OPERATORFORCE');
+            self.groupIdx = ko.observable('FAMILYNAME');
+
+            self.items.forEach(function (i) {
+                Object.keys(i.Table).forEach(function (key) {
+                    var val = i.Table[key].split('|');
+                    if (val.length == 1) {
+                        if (val[0].indexOf('¶') < 0) {
+                            return;
+                        }
+                    }
+
+                    val.forEach(function (v, i) {
+
+                        var vv = v.trim().split('¶');
+                        if (vv.length == 2) {
+                            val[i] = vv;
+                        } else {
+                            val[i] = vv[0];
+                        }
+                    });
+
+                    i.Table[key] = val;
+                })
+            });
+
+            self.typeFilters = ko.computed(function () {
+                return Object.keys(self.items.reduce(function (output, item) {
+                    var data = item.Table;
+
+                    (Array.isArray(data['SUBTYPE']) ? data['SUBTYPE'] : [data['SUBTYPE']])
+                        .forEach(function (t) {
+                            output[t.trim()] = 1;
+                        });
+                    return output;
+                }, {}));
+            });
+            self.typeFilter = ko.observableArray([]);
+
+            self.search = ko.observable('');
+
+
+            self.data = ko.computed(function () {
+                var groupIdx = self.groupIdx();
+                var segmentIdx = self.segmentIdx;
+                var countIdx = self.countIdx();
+
+                return self.items.reduce(function (output, item) {
+                    var data = item.Table;
+                    var temp = output.filter(function (i) { return i.Title === data[groupIdx]; });
+                    if (!temp.length) {
+                        temp = {
+                            Title: data[groupIdx],
+                            Count: 0,
+                            Segmentation: [],
+                            Items: [],
+                            showTable: ko.observable(false)
+                        };
+                        output.push(temp);
+                    } else {
+                        temp = temp[0];
+                    }
+                    if (!temp.Items) debugger;
+                    temp.Items.push(item);
+                    temp.Count += (+data[countIdx]);
+
+                    var segment = temp.Segmentation.filter(function (s) { return s.Title == data[segmentIdx]; });
+                    if(!segment.length){
+                        segment = {
+                            Title: data[segmentIdx],
+                            Count: 0
+                        };
+                        temp.Segmentation.push(segment);
+                    }else{
+                        segment = segment[0];
+                    }
+
+                    segment.Count += (+data[countIdx]);
+
+                    return output
+                }, []).sort(function(a, b){ return b.Count - a.Count; });
+            });
+
+            self.doSearch = function (data) {
+                var value = data.Title.toLowerCase();
+                return self.search().toLowerCase().split(' ').filter(function (s) {
+                    return value.indexOf(s) >= 0;
+                }).length > 0
+                    && (!self.typeFilter().length || data.Items.filter(function (i) {
+                        var types = Array.isArray(i.Table['SUBTYPE'])? i.Table['SUBTYPE'] : [i.Table['SUBTYPE']];
+                        return types.filter(function(t) { return self.typeFilter().indexOf(t) >= 0}).length > 0;
+                    }).length > 0);
+            };
+
+            self.maxCount = ko.computed(function () {
+                return self.data().reduce(function (a, b) {
+                    if (!self.doSearch(b)) return a;
+                    return Math.max(a, b.Count);
+                }, 1)
+            });
+
+            self.formatData = function (data) {
+                if (data == null) return data;
+                if (!isNaN(data)) return data;
+                var dArr = [data];
+                if (data.indexOf('|') >= 0) {
+                    dArr = data.split('|');
+                }
+                if (dArr.length > 1) {
+                    return dArr.reduce(function (out, d) {
+                        return out + '<li>' + self.formatData(d) + '</li>';
+                    }, '<ul>')+'</ul>';
+                }
+                if (data.indexOf('¶') >= 0) {
+                    var parts = data.split('¶');
+                    return '<a href="/DefenceEquipment/Display/' + parts[0] + '" target="_blank">' + parts[1] + '</a>';
+                }
+
+                return data;
+            }
+
+            self.ExportInventory = function (type, exportType) {
+                return ko.computed(function () {
+                    var pos = Object.keys(window.Enum.RestDataVersion).length || 0;
+                    var apiVersion = Object.keys(window.Enum.RestDataVersion)[pos - 1] || "V1";
+                    var url = "/api/" + apiVersion + "/Inventories/Items/" + exportType + "?f=ENVIRONMENT(" + type + ")<and>OPERATORCOUNTRY(" + self.country + ")";
+                    var filters = self.typeFilter().length > 0 ? "<and>SUBTYPE(" + self.typeFilter().join("||") + ")" : "";
+                    return url + filters;
+                }, this);
+            }
+        };
+    </script>
+
+    <ul class="nav nav-tabs nav-tabs-line nav-tabs-center" data-bind="">
+        @foreach (var item in Model)
+        {
+            // Remove any non letters/numbers for the tab key, so that href can be recognised.
+            var key = Regex.Replace(item.Key, @"[^a-zA-z0-9]+", string.Empty);
+
+            <li class="@(j++==0?"active":"")"><a href="#@(tabsId + key)" data-toggle="tab">@item.Key</a></li>
+        }
+    </ul>
+
+    <div id="@containerId" class="tab-content">
+        @{ j = 0; }
+        @foreach (var inventoryItem in Model)
+        {
+            // Remove any non letters/numbers for the tab key, so that href can be recognised.
+            var key = Regex.Replace(inventoryItem.Key, @"[^a-zA-z0-9]+", string.Empty);
+
+            <div class="tab-pane fade @(j++==0?"active in":"")" id="@(tabsId + key)">
+                @Html.Partial("Widget/InventoriesWidgetTab", inventoryItem.Value)
+            </div>
+        }
+    </div>

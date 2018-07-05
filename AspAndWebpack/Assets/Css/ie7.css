@@ -1,0 +1,310 @@
+﻿/*  Stylesheet only served to IE7 */
+
+/* Grid system */
+.grid-1, .grid-sm-1, .grid-md-1, .grid-lg-1,
+.grid-1-1, .grid-sm-1-1, .grid-md-1-1, .grid-lg-1-1,
+.grid-1-2, .grid-sm-1-2, .grid-md-1-2, .grid-lg-1-2,
+.grid-1-3, .grid-sm-1-3, .grid-md-1-3, .grid-lg-1-3,
+.grid-2-3, .grid-sm-2-3, .grid-md-2-3, .grid-lg-2-3,
+.grid-1-4, .grid-sm-1-4, .grid-md-1-4, .grid-lg-1-4,
+.grid-3-4, .grid-sm-3-4, .grid-md-3-4, .grid-lg-3-4,
+.grid-1-5, .grid-sm-1-5, .grid-md-1-5, .grid-lg-1-5,
+.grid-2-5, .grid-sm-2-5, .grid-md-2-5, .grid-lg-2-5,
+.grid-3-5, .grid-sm-3-5, .grid-md-3-5, .grid-lg-3-5,
+.grid-4-5, .grid-sm-4-5, .grid-md-4-5, .grid-lg-4-5,
+.grid-5-5, .grid-sm-5-5, .grid-md-5-5, .grid-lg-5-5,
+.grid-1-6, .grid-sm-1-6, .grid-md-1-6, .grid-lg-1-6,
+.grid-5-6, .grid-sm-5-6, .grid-md-5-6, .grid-lg-5-6,
+.grid-1-8, .grid-sm-1-8, .grid-md-1-8, .grid-lg-1-8,
+.grid-3-8, .grid-sm-3-8, .grid-md-3-8, .grid-lg-3-8,
+.grid-5-8, .grid-sm-5-8, .grid-md-5-8, .grid-lg-5-8,
+.grid-7-8, .grid-sm-7-8, .grid-md-7-8, .grid-lg-7-8,
+.grid-1-12, .grid-sm-1-12, .grid-md-1-12, .grid-lg-1-12,
+.grid-5-12, .grid-sm-5-12, .grid-md-5-12, .grid-lg-5-12,
+.grid-7-12, .grid-sm-7-12, .grid-md-7-12, .grid-lg-7-12,
+.grid-11-12, .grid-sm-11-12, .grid-md-11-12, .grid-lg-11-12 {
+  display: inline-block;
+  *display: inline !important;
+  *float: left !important;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  padding: 0 15px 10px;
+  *padding: 0;
+  box-sizing: border-box;
+}
+.grid .grid {
+    margin: 0;
+}
+.grid > div {
+  *padding: 15px 0;
+}
+/* .grid > div > * {
+  *margin-left: 15px;
+  *margin-right: 15px;
+} */
+.grid-sm-1-12 {
+  width: 8.3333%;
+  *width: 8.3023%;
+}
+.grid-sm-1-8 {
+  width: 12.5000%;
+  *width: 12.4690%;
+}
+.grid-sm-1-6 {
+  width: 16.6667%;
+  *width: 16.6357%;
+}
+.grid-sm-1-5 {
+  width: 20%;
+  *width: 19.9690%;
+}
+.grid-sm-1-4 {
+  width: 25%;
+  *width: 24.9690%;
+}
+.grid-sm-1-3 {
+  width: 33.3333%;
+  *width: 33.3023%;
+}
+.grid-sm-3-8 {
+  width: 37.5000%;
+  *width: 37.4690%;
+}
+.grid-sm-2-5 {
+  width: 40%;
+  *width: 39.9690%;
+}
+.grid-sm-5-12 {
+  width: 41.6667%;
+  *width: 41.6357%;
+}
+.grid-sm-1-2 {
+  width: 50%;
+  *width: 49.9690%;
+}
+.grid-sm-7-12 {
+  width: 58.3333%;
+  *width: 58.3023%;
+}
+.grid-sm-3-5 {
+  width: 60%;
+  *width: 59.9690%;
+}
+.grid-sm-5-8 {
+  width: 62.5000%;
+  *width: 62.4690%;
+}
+.grid-sm-2-3 {
+  width: 66.6667%;
+  *width: 66.6357%;
+}
+.grid-sm-3-4 {
+  width: 75%;
+  *width: 74.9690%;
+}
+.grid-sm-4-5 {
+  width: 80%;
+  *width: 79.9690%;
+}
+.grid-sm-5-6 {
+  width: 83.3333%;
+  *width: 83.3023%;
+}
+.grid-sm-7-8 {
+  width: 87.5000%;
+  *width: 87.4690%;
+}
+.grid-sm-11-12 {
+  width: 91.6667%;
+  *width: 91.6357%;
+}
+.grid-md-1-12 {
+  width: 8.3333%;
+  *width: 8.3023%;
+}
+.grid-md-1-8 {
+  width: 12.5000%;
+  *width: 12.4690%;
+}
+.grid-md-1-6 {
+  width: 16.6667%;
+  *width: 16.6357%;
+}
+.grid-md-1-5 {
+  width: 20%;
+  *width: 19.9690%;
+}
+.grid-md-1-4 {
+  width: 25%;
+  *width: 24.9690%;
+}
+.grid-md-1-3 {
+  width: 33.3333%;
+  *width: 33.3023%;
+}
+.grid-md-3-8 {
+  width: 37.5000%;
+  *width: 37.4690%;
+}
+.grid-md-2-5 {
+  width: 40%;
+  *width: 39.9690%;
+}
+.grid-md-5-12 {
+  width: 41.6667%;
+  *width: 41.6357%;
+}
+.grid-md-1-2 {
+  width: 50%;
+  *width: 49.9690%;
+}
+.grid-md-7-12 {
+  width: 58.3333%;
+  *width: 58.3023%;
+}
+.grid-md-3-5 {
+  width: 60%;
+  *width: 59.9690%;
+}
+.grid-md-5-8 {
+  width: 62.5000%;
+  *width: 62.4690%;
+}
+.grid-md-2-3 {
+  width: 66.6667%;
+  *width: 66.6357%;
+}
+.grid-md-3-4 {
+  width: 75%;
+  *width: 74.9690%;
+}
+.grid-md-4-5 {
+  width: 80%;
+  *width: 79.9690%;
+}
+.grid-md-5-6 {
+  width: 83.3333%;
+  *width: 83.3023%;
+}
+.grid-md-7-8 {
+  width: 87.5000%;
+  *width: 87.4690%;
+}
+.grid-md-11-12 {
+  width: 91.6667%;
+  *width: 91.6357%;
+}
+.grid-lg-1-12 {
+  width: 8.3333%;
+  *width: 8.3023%;
+}
+.grid-lg-1-8 {
+  width: 12.5000%;
+  *width: 12.4690%;
+}
+.grid-lg-1-6 {
+  width: 16.6667%;
+  *width: 16.6357%;
+}
+.grid-lg-1-5 {
+  width: 20%;
+  *width: 19.9690%;
+}
+.grid-lg-1-4 {
+  width: 25%;
+  *width: 24.9690%;
+}
+.grid-lg-1-3 {
+  width: 33.3333%;
+  *width: 33.3023%;
+}
+.grid-lg-3-8 {
+  width: 37.5000%;
+  *width: 37.4690%;
+}
+.grid-lg-2-5 {
+  width: 40%;
+  *width: 39.9690%;
+}
+.grid-lg-5-12 {
+  width: 41.6667%;
+  *width: 41.6357%;
+}
+.grid-lg-1-2 {
+  width: 50%;
+  *width: 49.9690%;
+}
+.grid-lg-7-12 {
+  width: 58.3333%;
+  *width: 58.3023%;
+}
+.grid-lg-3-5 {
+  width: 60%;
+  *width: 59.9690%;
+}
+.grid-lg-5-8 {
+  width: 62.5000%;
+  *width: 62.4690%;
+}
+.grid-lg-2-3 {
+  width: 66.6667%;
+  *width: 66.6357%;
+}
+.grid-lg-3-4 {
+  width: 75%;
+  *width: 74.9690%;
+}
+.grid-lg-4-5 {
+  width: 80%;
+  *width: 79.9690%;
+}
+.grid-lg-5-6 {
+  width: 83.3333%;
+  *width: 83.3023%;
+}
+.grid-lg-7-8 {
+  width: 87.5000%;
+  *width: 87.4690%;
+}
+.grid-lg-11-12 {
+  width: 91.6667%;
+  *width: 91.6357%;
+}
+.grid-sm-1, .grid-md-1, .grid-lg-1,
+.grid-sm-1-1, .grid-md-1-1, .grid-lg-1-1,
+.grid-sm-5-5, .grid-md-5-5, .grid-lg-5-5 {
+  width: 100%;
+}
+
+/*Other IE7 fixes*/
+audio,canvas,video{display:inline;zoom:1}
+html{font-size:100%}
+img{width:auto;height:auto;-ms-interpolation-mode:bicubic}
+button,input{overflow:visible}
+.dl-horizontal{zoom:1}
+input[type="radio"],input[type="checkbox"]{margin-top:0}
+.help-block{display:inline;zoom:1}
+.form-horizontal .form-group{zoom:1}
+.dropdown-toggle{margin-bottom:-3px}
+.dropdown-menu .divider{width:100%;margin:-5px 0 5px}
+.list-group{margin-left:0}
+ul .list-group-item{list-style:none}
+.sr-only{clip:rect(0 0 0 0)}
+.clearfix{zoom:1}
+.list-inline > li{display:inline;zoom:1}
+a.btn.btn-default {color: #333;}
+.dropdown-menu {width: 200px;}
+.dropdown-menu > LI > A {white-space: normal;}
+.nav-tabs {height: 38px;}
+.nav-tabs.nav-tabs-small {height: 31px;}
+.nav-tabs.nav-tabs-small.nav-tabs-twolines {height: 62px;}
+.nav-justified > LI {width: auto !important;float: left;}
+.nav-tab-right.nav-tabs {margin-top: -30px;}
+.breadcrumb > LI {display: inline;margin-right: 10px;}
+.list-group-item {border-top-color: #ccc !important;margin: 0;}
+.dashboard-grid-3col-eq .card, .dashboard-grid-3col .card {width: 28%;}
+.modal {width:100%;}
+.modal-dialog {top: 100px;}

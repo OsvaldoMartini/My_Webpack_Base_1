@@ -1,0 +1,71 @@
+﻿@using IHS.Apps.CMP.Web
+@model System.Collections.ObjectModel.Collection<IHS.Apps.CMP.Models.ViewModels.Download>
+
+@if (Model.Count == 0)
+{
+    <div class="well text-center large">@this.LocalResources("NoneFound")</div>
+}
+else
+{
+<table id="myFilesTable" class="table">
+    <tbody>
+        @{
+            string currentCategory = string.Empty;
+        }
+        @foreach (IHS.Apps.CMP.Models.ViewModels.Download download in Model)
+        {
+            if (string.IsNullOrEmpty(currentCategory) || !currentCategory.Equals(download.CategoryKey))
+            {
+                currentCategory = download.CategoryKey;
+                <tr class="myFileCatRow light-grey-bg">
+                    <td colspan="2">
+                        <h4 class="u-margin-Tn u-margin-Bn">@download.CategoryName</h4>
+                    </td>
+                </tr>
+            }
+
+            <tr id="@download.Id" class="text-middle">
+                <td class="large">
+                    @{string iconClass = string.Empty;
+                    switch (download.FileType)
+                    {
+                        case "CSV":
+                            iconClass = "icon-file-csv xlarge";
+                            break;
+                        case "DOCX":
+                            iconClass = "icon-file-word xlarge";
+                            break;
+                        case "EXCEL":
+                            iconClass = "icon-file-excel xlarge";
+                            break;
+                        case "PDF":
+                            iconClass = "icon-file-pdf xlarge";
+                            break;
+                        case "TAB":
+                            iconClass = "icon-file-tab xlarge";
+                            break;
+                        case "XML":
+                            iconClass = "icon-file-xml xlarge";
+                            break;
+                        case "ZIP":
+                            iconClass = "icon-file-zip xlarge";
+                            break;
+                    }
+                    }
+                    <i class="@iconClass"></i> <a href="/@download.CategoryKey/Download/MyFilesDownload/@download.Id">@download.FileName</a>
+                </td>
+
+                <td class="text-right width-20 u-padding-Rm">
+                    <i class="icon-trash xlarge hand tipsyMe" title="@this.LocalResources("Delete")" onclick="DeleteMyFile('@download.Id');"></i>
+                    <dl class="dl-horizontal text-muted u-margin-Ts u-margin-Bn">
+                        <dt>@this.LocalResources("DaysRemaining")</dt>
+                        <dd>@download.DaysUntilDeletion</dd>
+                        <dt>@this.LocalResources("CreatedDate")</dt>
+                        <dd>@download.Date</dd>
+                    </dl>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

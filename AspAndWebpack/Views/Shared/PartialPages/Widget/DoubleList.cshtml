@@ -1,0 +1,28 @@
+﻿@model  List<Tuple<string, string>>
+
+@{
+    string containerId = string.Concat("dvDoc", Guid.NewGuid().ToString().Replace("-", string.Empty));
+}
+<div id="@containerId" style="width: 100%;">
+
+    <div class="grid">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            if (string.IsNullOrEmpty(@Model[i].Item1))
+            {
+                <div class="grid-1 ">
+                    <h3>@Model[i].Item2</h3>
+                </div>
+            }
+            else
+            {
+                <div class="grid-2-3 text-right u-border-right">
+                    <span class="blue1">@Model[i].Item1</span>
+                </div>
+                <div class="grid-1-3">
+                    @Model[i].Item2
+                </div>
+            }
+        }
+    </div>
+</div>

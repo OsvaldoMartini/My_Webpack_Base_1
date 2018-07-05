@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+}
+
+@section browser_title
+{
+    @this.LocalResources("Title")
+}
+
+@section page_title
+{
+    <div class="page-header"><h1>@this.LocalResources("Title")</h1></div>
+}
+
+@section additional_scripts
+{
+    @Scripts.Render("~/bundles/myfiles")
+}
+
+<div class="grid-1 grid-sm-3-4 grid-md-4-5 grid-lg-5-6">
+    @Html.Action("Populate", "MyFiles")
+</div>
+<div class="grid-1 grid-sm-1-4 grid-md-1-5 grid-lg-1-6">
+    <div class="alert alert-info" role="alert">
+        <p><strong>@this.LocalResources("Info")</strong></p>
+        <p>@this.LocalResources("Help1")</p>
+        <p>@this.LocalResources("Help2")</p>
+    </div>
+</div>

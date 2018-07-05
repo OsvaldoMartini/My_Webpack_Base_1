@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+@using IHS.Apps.CMP.Models.ViewModels.Facets
+
+@model List<IHS.Apps.CMP.Models.ViewModels.Facets.Facet>
+
+@{
+    string containerId = CmpHtmlHelpers.CreateUniqueId("dvFacets");
+}
+
+<div id="@containerId">
+    @foreach (Facet facet in Model)
+    {
+        string id = CmpHtmlHelpers.CreateUniqueId("chk");
+        <div>
+            <label for="@id">@facet.Text</label>
+            <input id="@id" type="checkbox" data-facet-category="@facet.Key" data-facet-type="@facet.ValueType.ToString().ToLower()" data-facet-value="@facet.Value" />
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var x = new FacetsPanelVM('@containerId');
+
+    });
+</script>

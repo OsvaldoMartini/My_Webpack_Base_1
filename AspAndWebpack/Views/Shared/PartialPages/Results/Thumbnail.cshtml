@@ -1,0 +1,35 @@
+﻿@using IHS.Apps.CMP.Models.ViewModels
+@model ResultsDataModel<IHS.Core.Catalog.Model.IItem>
+
+<div class="hover checkboxes grid results-thumbnail">
+
+    @foreach (var record in Model.ResultItems)
+    {
+        var thumbnail = record.Cells.Single(p => p.Key == "THUMBNAIL");
+        var title = record.Cells.Single(p => p.Key == "TITLE");
+        var teaser = record.Cells.Single(p => p.Key == "TEASER");
+
+        <div class="grid grid-1-1 grid-sm-1-2 grid-md-1-3 result-item" data-bind="css : { warning : selectedRecords.indexOf('@record.Data.ID') >
+            -1  }">
+
+            <div class="checkboxcell row_selector">
+                <input id="chkRow_@record.Data.ID" type="checkbox" data-bind="checked : selectedRecords, value : '@record.Data.ID'">
+                <label for="chkRow_@record.Data.ID"></label>
+            </div>
+
+            <div class="@thumbnail.CssClass">
+                @Html.Partial(thumbnail.PartialViewName, thumbnail)
+            </div>
+
+            <div class="@title.CssClass">
+                @Html.Partial(title.PartialViewName, title)
+            </div>
+
+            <div class="@teaser.CssClass">
+                @Html.Partial(teaser.PartialViewName, teaser)
+            </div>
+        </div>
+    }
+
+
+</div>

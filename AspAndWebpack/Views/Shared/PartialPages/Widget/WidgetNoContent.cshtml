@@ -1,0 +1,43 @@
+﻿@using IHS.Apps.CMP.Models.Enums
+@model IHS.Apps.CMP.Models.ViewModels.AandD.AlertMessageModel
+
+@{
+    string collapseId = CmpHtmlHelpers.CreateUniqueId("collapse");
+
+    string alertType = "alert-info";
+
+    switch (Model.AlertType)
+    {
+        case EnumAlertType.Info:
+            alertType = "alert-info";
+            break;
+        case EnumAlertType.Success:
+            alertType = "alert-success";
+            break;
+        case EnumAlertType.Danger:
+            alertType = "alert-danger";
+            break;
+        case EnumAlertType.Warning:
+            alertType = "alert-warning";
+            break;
+    }
+}
+
+<div class="alert @alertType text-center">
+    <br />
+    <p>@Model.Message</p>
+    <br />
+
+    @if (Model.DisplayContactDetails)
+    {
+        <p class="icon-collapse-arrow hand" data-toggle="collapse" href="#@collapseId" aria-expanded="false">
+            <strong>Contact Us</strong>
+        </p>
+        <div class="collapse" id=@collapseId>
+            <br />
+            @CmpHtmlHelpers.Content("ContactDetailsWidget")
+        </div>
+    }
+    <br />
+</div>
+

@@ -1,0 +1,296 @@
+﻿@using System.Collections.ObjectModel
+@using IHS.Apps.CMP.Models
+@using IHS.Apps.CMP.Models.Enums
+@model Dashboard
+
+@{
+
+    this.ViewBag.BodyClass = "dashboard";
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+
+    var allowSave = Model.GetSetting("allowSave", true);
+    var allowPrint = Model.GetSetting("allowPrint", true);
+    var hasSearchBar = Model.Settings.ContainsKey("searchBarProvider") && Model.Settings.ContainsKey("searchBarCategory") && Model.Settings.ContainsKey("searchBarAppName");
+    var isDynamicSubject = Model.GetSetting("isDynamicSubject", false);
+    var subHeaderView = Model.GetSetting("headerExtend", "");
+}
+
+@section browser_title
+{
+    @this.LocalResources(Model.Name)
+}
+
+@section page_title
+{
+    <div class="page-header @(hasSearchBar ? "with-search-bar" : "") with-data-bind">
+        <div class="@(hasSearchBar ? "search-bar" : "")">
+            <div class="dashboardHeader clearfix">
+                <span class="title">
+                    @if (Model.Type != EnumDashboardType.JanesHome)
+                    {
+                        <h1>@this.LocalResources(Model.Name)</h1>
+
+                        switch (Model.Type)
+                        {
+                            // TODO: why are we not just checking for existing content of IconCss??  Or a flag??
+                            case EnumDashboardType.Country:
+                            case EnumDashboardType.EnergyCountry:
+                                <span class="dashboard-icon">
+                                    <span class="flag-icon @Model.IconCss"></span>
+                                </span>
+                                break;
+                            case EnumDashboardType.Jdb:
+                                if (Model.IconCss != null)
+                                {
+                                    <span class="title">
+                                        <h1>: @Model.Subject</h1>
+                                    </span>
+                                    <span class="dashboard-icon">
+                                        <span class="flag-icon @Model.IconCss"></span>
+                                    </span>
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                </span>
+                @if (Model.MenuItems.Count > 0 && !hasSearchBar)
+                {
+                    <div class="relative">
+                        <div class="startHint leftpointer dash4" data-tutorial="4">
+                            <h3>Changing @this.LocalResources(Model.Type.ToStringSafe())</h3>
+                            <p>You can change @this.LocalResources(Model.Type.ToStringSafe()).ToLower() by typing in the @this.LocalResources(Model.Type.ToStringSafe()).ToLower() you are looking for here.</p>
+                        </div>
+                    </div>
+                    @Html.Partial("DashboardSubjectSelect")
+                }
+
+                <span class="btn-toolbar @(Model.MenuItems.Count == 0 ? "grid-1-4 " : "")pull-right text-right u-padding-Rn">
+                    <span class="btn-group">
+                        @if (User.IsInRole("Developer") || User.IsInRole("SuperUser"))
+                        {<button class="btn btn-link resetDashboard" data-bind="click: resetDashboard" title="Reset Dashboard back to original layout"><i class="icon-trash"></i>Reset</button>}
+                        @if (allowSave)
+                        {<button class="btn btn-link saveDashboard" data-bind="click: saveDashboard, tipsy : { gravity: 's', delayIn: 200, fade: true }" title="Save as Custom Dashboard"><i class="icon-savedashboard"></i>Save</button>}
+                        @if (allowPrint)
+                        {<a class="btn btn-link" href="javascript:window.print();"><i class="icon-print"></i>Print</a>}
+                        <button class="btn btn-link startTutorial" data-bind="click : startTutorial"><i class="icon-tutorial"></i>Tutorial</button>
+                    </span>
+                    <span class="column-links" data-bind="visible:  !isManaged">
+                        <a href="#" id="onecol" class="hidden-sm hidden-xs onecol @(@Model.Columns == 1 ? "active" : "")" data-bind="click: changeColumns.bind($data, 1)" aria-label="View as one column layout"> </a>
+                        <a href="#" id="twocol" class="hidden-sm hidden-xs twocol @(@Model.Columns == 2 ? "active" : "")" data-bind="click: changeColumns.bind($data, 2)" aria-label="View as two column layout"></a>
+                        <a href="#" id="threecol" class="hidden-md hidden-sm hidden-xs threecol @(@Model.Columns == 3 ? "active" : "")" data-bind="click: changeColumns.bind($data, 3)" aria-label="View as three column layout"></a>
+                    </span>
+                </span>
+
+                @if (!string.IsNullOrEmpty(subHeaderView))
+                {
+                    @Html.Partial(subHeaderView)
+                }
+
+                @if (hasSearchBar && Model.MenuItems.Count > 0 && !isDynamicSubject)
+                {
+                    @Html.Partial("DashboardSubBanner", Model)
+                }
+
+                @if (hasSearchBar && isDynamicSubject)
+                {
+                    @Html.Partial("DashboardSubBannerDynamic", Model)
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+}
+@section additional_css
+{
+    @Styles.Render("~/Content/dashboard")
+    <link href="~/Assets/Css/Dashboard-print.css" rel="stylesheet" media="print" />
+
+    @{
+        var cssResources = new Collection<string>();
+
+        foreach (var dashboardWidget in Model.DashboardWidgets)
+        {
+            if (dashboardWidget.Widget != null)
+            {
+                foreach (var resource in dashboardWidget.Widget.CssFiles)
+                {
+                    if (cssResources.Contains(resource))
+                    {
+                        continue;
+                    }
+                    <link href="@resource" rel="stylesheet" />
+                    cssResources.Add(resource);
+                }
+            }
+        }
+
+    }
+}
+
+@section additional_scripts
+{
+    @Scripts.Render("~/bundles/dashboard")
+
+    @{
+        var jsResources = new Collection<string>(); foreach (var dashboardWidget in Model.DashboardWidgets)
+        {
+            if (dashboardWidget.Widget != null)
+            {
+                foreach (var resource in dashboardWidget.Widget.JavaScriptFiles)
+                {
+                    if (jsResources.Contains(resource)) { continue; }
+                    <script src="@resource"></script>
+                    jsResources.Add(resource);
+                }
+            }
+        }
+    }
+
+    <script type="text/javascript">
+
+        $(function() {
+
+            var showAllWidgets = @Model.ShowUnauthorizedWidgets.ToString().ToLower();
+
+            if (@Model.IsSharedUser.ToString().ToLower() && showAllWidgets) {
+                showAllWidgets = Dashboard.doubleCheckShowUnauthorisedWidgets();
+            }
+
+            Dashboard.dashboardVM = new DashboardVM(
+            {
+                id: @(Model.Id),
+                name: '@(Model.Name)',
+                columns: @Model.Columns,
+                currentItem: '@Model.Subject',
+                dashboardType: '@Convert.ToInt32(Model.Type)',
+                showUnauthorizedWidgets : showAllWidgets,
+                categoryKey: '@Model.CategoryKey',
+                categoryMapping: '@Model.CategoryMapping',
+                isManaged: @Json.Encode(Model.IsManaged) ,
+                commandUrls: {
+                    updateWidgetsUrl: "@Url.RouteUrl("DashboardRoute", new { action = "UpdateWidgetPositions" })",
+                    updateLayoutUrl: "@Url.RouteUrl("DashboardRoute", new { action = "UpdateLayout" })",
+                    loadToolbox: "@Url.RouteUrl("DashboardRoute", new { action = "Toolbox" })",
+                    @{
+                        var routeName = Url.RequestContext.RouteData.DataTokens["RouteName"].ToStringSafe();
+                        var routeValues = Url.RequestContext.RouteData.Values;
+                        routeValues["id"] = "{0}";
+
+                        var baseRoute = HttpUtility.UrlDecode(Url.RouteUrl(routeName, routeValues));
+                    }
+                    baseUrl: "@baseRoute"
+                }
+            });
+
+            @if (isDynamicSubject)
+            {
+                @:dynamicDashboardSetup(Dashboard);
+            }
+            $('#container, .with-data-bind').each(function(){
+                if (ko.dataFor(this)) return;
+                ko.applyBindings(Dashboard.dashboardVM, this);
+            });
+
+        });
+    </script>
+
+    @Html.Partial("GoogleTagServices")
+
+    <script type="text/javascript">
+        keyActions['j + c'].action = '#dvLiveWidgetArea';
+    </script>
+}
+
+
+<div class="grid-1">
+
+    <div class="modal fade" id="dvWidgetDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid widgetcontainer closed" id="dvSortableArea">
+
+        @** Left hand tool box area*@
+        <div id="dvWidgetsToolbox" data-bind="visible: !isManaged" class="grid-1 grid-xs-1-4 grid-sm-1-5 grid-md-1-6 grid-lg-1-8 sortablecolumn ui-sortable" role="complementary">
+
+            <div id="dvWidgetsToolboxContent" data-bind="stopBindingChildren: true" data-widget-column="0">
+                Loading Toolbox...
+            </div>
+            <span id="spToolboxToggle" class="toggle on" data-bind="tipsy : { gravity: 'sw', delayIn: 200, fade: true }, click:toggleToolbox.bind($data, undefined, true)" data-toggle="tooltip" title="Collapse this list of unused items" data-placement="left"><i class="icon-left-open"></i></span>
+            <div class="startHint leftpointer dash1" data-tutorial="1">
+                <h3>Adding items to your dashboard</h3>
+                <p>The items in the left can be added to your dashboard by simply selecting the <i class="icon-plus"></i> symbol or clicking and dragging the item onto the dashboard in any position you want.</p>
+            </div>
+        </div>
+
+        @** Live widgets area*@
+        <div id="dvLiveWidgetArea" class="grid-1 grid-xs-3-4 grid-sm-4-5 grid-md-5-6 grid-lg-7-8">
+            <div class="grid">
+                <div id="dvSortableColumn1" class="grid-1 sortablecolumn ui-sortable" data-widget-column="1" data-bind="css : { 'grid-lg-1-3' : columns() == 3, 'grid-lg-1-2' : columns() == 2, 'grid-md-1 grid-lg-1' : columns() == 1, 'grid-md-1-2' : columns() == 3 || columns() == 2 }">
+                    <span data-bind="stopBindingChildren : true">
+                        @{
+                            var widgetsOrdered1 = Model.DashboardWidgets.Where(p => p.Column == 1 && p.Widget != null && !p.Hide).OrderBy(p => p.Order);
+                            foreach (DashboardWidget dashBoardWidget in widgetsOrdered1)
+                            {
+                                @Html.Partial("Widget/WidgetBase", dashBoardWidget)
+                            }
+                        }
+                    </span>
+                    <div class="startHint toppointer dash3" data-tutorial="3">
+                        <h3>Item options</h3>
+                        <p>Where you see these icons you can do the following:</p>
+                        <div class="hintIconBox"><i class="icon-menu"></i></div>
+                        <div class="hintIconExplain"><p>select this to see filter, export and print options</p></div>
+                        <div class="hintIconBox"><i class="icon-resize-full"></i></div>
+                        <div class="hintIconExplain"><p>select this to see an enlarged view</p></div>
+                        <div class="hintIconBox"><i class="icon-cancel"></i></div>
+                        <div class="hintIconExplain"><p>select this to remove item from your dashboard</p></div>
+                    </div>
+                    <div class="highlightHint dash3" data-tutorial="3">
+                        <div class="hintIconBox"><i class="icon-menu"></i></div>
+                        <div class="hintIconBox"><i class="icon-resize-full"></i></div>
+                        <div class="hintIconBox"><i class="icon-cancel"></i></div>
+                    </div>
+                    <div class="startHint toppointer dash2" data-tutorial="2">
+                        <h3>Repositioning items</h3>
+                        <p>You can reposition any of the items on the dashboard at any time by clicking and dragging the item at the top when this symbol <i class="icon-move"></i> will appear.</p>
+                    </div>
+                </div>
+                <div id="dvSortableColumn2" class="grid-1 sortablecolumn ui-sortable" data-widget-column="2" data-bind="stopBindingChildren: true, css : { 'grid-lg-1-3' : columns() == 3, 'grid-lg-1-2' : columns() == 2, 'grid-md-1 grid-lg-1' : columns() == 1, 'grid-md-1-2' : columns() == 3 || columns() == 2 }">
+                    @{
+                        var widgetsOrdered2 = Model.DashboardWidgets.Where(p => p.Column == 2 && p.Widget != null && !p.Hide).OrderBy(p => p.Order);
+                        foreach (DashboardWidget dashBoardWidget in widgetsOrdered2)
+                        {
+                            @Html.Partial("Widget/WidgetBase", dashBoardWidget)
+                        }
+                    }
+                </div>
+                <div id="dvSortableColumn3" class="grid-1 sortablecolumn ui-sortable" data-widget-column="3" data-bind="stopBindingChildren: true, css : { 'grid-lg-1-3' : columns() == 3, 'grid-lg-1-2' : columns() == 2, 'grid-md-1 grid-lg-1' : columns() == 1, 'grid-md-1-2' : columns() == 3 || columns() == 2 }">
+                    @{
+                        var widgetsOrdered3 = Model.DashboardWidgets.Where(p => p.Column == 3 && p.Widget != null && !p.Hide).OrderBy(p => p.Order);
+                        foreach (DashboardWidget dashBoardWidget in widgetsOrdered3)
+                        {
+                            @Html.Partial("Widget/WidgetBase", dashBoardWidget)
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

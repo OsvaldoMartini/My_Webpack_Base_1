@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutFullScreen.cshtml";
+}
+
+@section browser_title
+{
+    @this.LocalResources("Title")
+}
+
+@section page_title
+{
+    <div class="page-header"><h1>@this.LocalResources("Title")</h1></div>
+}
+
+@section additional_scripts
+{
+    @*@Scripts.Render("~/bundles/alertsandfeeds")*@
+    <script src="~/Assets/Javascript/Results/Search.js"></script>
+    <script src="~/Assets/Javascript/Results/CommandsVM.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            var search = new Search();
+            commandsVM = new CommandsVM(search, { urlPrefix: "/Janes/" })
+        });
+
+        function RSSSearch(searchId, userId) {
+            window.open('/Rss/Show/0?userId=' + userId + '&searchId=' + searchId, '', "width=700,height=800,location=1,menubar=1,toolbar=1,status=1,scrollbars=1,resizable=1,left=10,top=10");
+            return false;
+        }
+    </script>
+}
+
+<div class="grid-3-4">
+    @Html.Action("Populate", "AlertsAndFeeds")
+</div>
+<div class="grid-1-4">
+    <div class="alert alert-info" role="alert">
+        <p><strong>@this.LocalResources("RSSInfoTitle")</strong></p>
+        <p>@Html.Raw(this.LocalResources("RSSInfoBody"))</p>
+    </div>
+</div>
+

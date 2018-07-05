@@ -1,0 +1,81 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Footer
+
+<footer class="hidden-print position-fixed-x">
+    <div>
+        <div class="grid">
+            @if (Model.HasLinks)
+            {
+                <div class="grid-md-offset-2 grid-1-3 grid-sm-1-3 grid-md-1-4">
+                    <ul>
+                        @foreach (IHS.Apps.CMP.Models.ViewModels.Link link in Model.LinksPart1)
+                {
+                            <li>
+                                <a href="@link.NavigateUrl" class="noprint" target="@link.Target">@link.Text</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="grid-1-3 grid-sm-1-3 grid-md-1-4">
+                    <ul>
+                        @foreach (IHS.Apps.CMP.Models.ViewModels.Link link in Model.LinksPart2)
+                {
+                    if (link.Text == "Help")
+                    {
+                                <li><a href="@this.ViewBag.HelpUrl" target="_blank">@this.LocalResources("Help")</a></li>
+                            }
+                            else if (link.Text == "Feedback")
+                            {
+                                <li data-toggle="modal" data-target="#generalDialog"><a href="#" onclick="ShowFeedback(event, '@this.ViewBag.FeedbackKey','@this.ViewBag.FeedbackMetaData')">@this.LocalResources("Feedback")</a></li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@link.NavigateUrl" class="noprint" target="@link.Target">@link.Text</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="grid-1-3 grid-sm-1-3 grid-md-1-4">
+                    <ul>
+                        @foreach (IHS.Apps.CMP.Models.ViewModels.Link link in Model.LinksPart3)
+                {
+                            <li>
+                                <a href="@link.NavigateUrl" class="noprint" target="@link.Target">@link.Text</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <div class="grid-1 grid-md-5-6 legal">
+                <div class="social">
+                    @if (!string.IsNullOrEmpty(Model.FacebookLink))
+                    {
+                        <a href="@Model.FacebookLink"><i class="icon-facebook"></i><span class="sr-only">Follow us on Facebook</span></a>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.TwitterLink))
+                    {
+                        <a href="@Model.TwitterLink"><i class="icon-twitter"></i><span class="sr-only">Follow us on Twitter</span></a>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.LinkedInLink))
+                    {
+                        <a href="@Model.LinkedInLink"><i class="icon-linkedin"></i><span class="sr-only">Follow us on LinkedIn</span></a>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.YouTubeLink))
+                    {
+                        <a href="@Model.YouTubeLink"><i class="icon-youtube"></i><span class="sr-only">Follow us on YouTube</span></a>
+                    }
+                    <span class="separator"></span>
+                </div>
+                <div><a href="https://ihsmarkit.com/privacy-policy-cookie-policy.html">@this.LocalResources("PrivacyPolicy")</a> <span class="separator"></span> <a href="https://ihsmarkit.com/terms-of-use.html">@this.LocalResources("TermsOfUse")</a> <span class="separator"></span> <a href="mailto:customercare@ihsmarkit.com">@this.LocalResources("Customer Care")</a></div>
+                <div>@this.LocalResources("CopyrightStart") @DateTime.Now.Year.ToString(System.Globalization.CultureInfo.CurrentCulture) @this.LocalResources("CopyrightCompanyName") @this.LocalResources("CopyrightEnd")</div>
+            </div>
+
+            <div class="grid-1 grid-md-1-6 logo">
+                <img src="~/Assets/Images/ihsm-logo-white.svg" alt="IHS Markit" />
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="visible-print h6 footer-copyright">@this.LocalResources("CopyrightStart") @DateTime.Now.Year.ToString(System.Globalization.CultureInfo.CurrentCulture) @this.LocalResources("CopyrightCompanyName") @this.LocalResources("CopyrightEnd")</div>

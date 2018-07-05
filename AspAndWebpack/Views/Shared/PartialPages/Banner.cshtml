@@ -1,0 +1,140 @@
+﻿@model IHS.Apps.CMP.Models.ViewModels.Banner
+@using System.Text.RegularExpressions
+@using IHS.Apps.CMP.Web
+
+@if (!string.IsNullOrEmpty(Model.DevArea))
+{
+    <div id="devArea">
+        <div id="divDetails">@Html.Raw(Model.DevArea)</div>
+    </div>
+}
+
+    <div class="banner">
+        <a class="brand pull-left dropdown-toggle @((new Regex("[^a-zA-Z0-9-]")).Replace(Model.IhsDomainText, string.Empty))" href="/" aria-label="@Model.IhsDomainText  @Model.IhsDomainSubText">
+            @if (string.IsNullOrEmpty(Model.Logo))
+        {
+            <div class="ihs-logo"><img src="~/Assets/Images/ihsm-logo.svg" alt="" /></div>
+            <h1>
+                @Model.IhsDomainText
+            </h1>
+            <small>@Model.IhsDomainSubText</small>
+    }
+    else
+    {
+        <img src="/Assets/Images/@Model.Logo" alt="@Model.IhsDomainText @Model.IhsDomainSubText" />
+}
+        </a>
+
+        <div class="devText hidden-print" aria-hidden="true" role="none">
+            @CmpHtmlHelpers.BuildInfo()
+            @CmpHtmlHelpers.MachineName()
+        </div>
+        @if(this.ViewBag.HideSearchbar != true)
+        {
+            @Html.Action("LoadBannerSearchBar", "SearchBar")
+        }
+        
+        <div class="right-menu">
+            <button class="subNavButton action-button"><i class="icon-menu"></i><span class="sr-only">Open menu</span></button>
+            <ul class="action-buttons navbar-nav nav-bar" data-navbar-align="right" role="menubar" data-menu-open-on="click">
+                <li role="none" class="dropdown" id="helpMenu">
+                    <a href="@this.ViewBag.HelpUrl" target="_blank" class="action-button" aria-label="@this.LocalResources("Help")">
+                        <i class="icon-help-circled"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">
+                            <strong>HELP</strong>
+                        </li>
+                        <li><span class="separator"></span></li>
+                        <li>
+                            <a href="@this.ViewBag.HelpUrl" onclick="Analytics.event('Help', '@this.ViewBag.HelpId', '@this.Request.RawUrl')" target="_blank">
+                                View Help
+                            </a>
+                        </li>
+                        <li><span class="separator"></span></li>
+                        <li>
+                            <strong>Americas</strong>
+                            <p style="width: 250px;"> +1 (800) IHS-CARE (+1 800 447 2273)<br />Sunday 8:00pm to Friday 8:00pm</p>
+                            <strong>Outside the US/Canada</strong>
+                            <p>+1 (303) 858-6187</p>
+                            <strong>Europe, Middle East and Africa</strong>
+                            <p>+44 1344 328 300<br />Monday 12:00am to Saturday 12:00am (UTC)</p>
+                            <strong>Asia Pacific</strong>
+                            <p>+604 291 3600<br />Monday 12:00am to Saturday 12:00am (UTC)</p>
+                            <p><a href="CustomerCare@ihsmarkit.com">CustomerCare@ihsmarkit.com</a></p>
+                        </li>
+                    </ul>
+                </li>
+                @if (this.ViewBag.ShowUserSettings)
+            {
+                <li class="dropdown" id="settingMenu">
+                    <a href="#" class="dropdown-toggle action-button" aria-label="@this.LocalResources("Settings")">
+                        <i class="icon-cog"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">
+                            <strong>SETTINGS</strong>
+                        </li>
+                        <li><span class="separator"></span></li>
+                        @Html.Action("UserSettings", "MyProfile")
+                    </ul>
+                </li>
+        }
+                <li class="dropdown" id="feedbackMenu">
+                    <a href="#" class="dropdown-toggle action-button" data-toggle="dropdown" aria-label="@this.LocalResources("Feedback")">
+                        <i class="icon-comment"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">
+                            <strong>
+                                FEEDBACK
+                                @if (!string.IsNullOrEmpty(this.ViewBag.ContactUsText) && !string.IsNullOrEmpty(this.ViewBag.ContactUsUrl))
+                            {
+                                @: | CONTACT US
+                        }
+                            </strong>
+                        </li>
+                        <li><span class="separator"></span></li>
+                        <li data-toggle="modal" data-target="#generalDialog">
+                            <a href="#" onclick="ShowFeedback(event, '@this.ViewBag.FeedbackKey','@this.ViewBag.FeedbackMetaData')">
+                                Provide Feedback
+                            </a>
+                        </li>
+
+                        @if (!string.IsNullOrEmpty(this.ViewBag.ContactUsText) && !string.IsNullOrEmpty(this.ViewBag.ContactUsUrl))
+                    {
+                        <li><span class="separator"></span></li>
+                        <li>
+                            <a href="@this.ViewBag.ContactUsUrl">
+                                @this.ViewBag.ContactUsText
+                            </a>
+                        </li>
+                }
+                    </ul>
+                </li>
+                <li>
+                    @Html.Action("PopulateUserMenu", "Banner", new { isAspxPage = false })
+                </li>
+                @if (!string.IsNullOrEmpty(this.ViewBag.RenderHome))
+            {
+                <li class="logout" role="menuitem"><a href="@this.ViewBag.RenderHome" class="action-button"><i class="icon-home"></i><span class="hidden-xs">@this.LocalResources("GoHome")</span></a></li>
+        }
+                @if (this.ViewBag.ShowCloseButton)
+            {
+                <li class="logout" role="menuitem"><a href="#" class="action-button" onclick="window.close();"><i class="icon-cancel"></i><span class="hidden-xs">@this.LocalResources("CloseWindowText")</span></a></li>
+        }
+        else
+        {
+            if (Model.UseLogoutLink)
+            {
+                <li class="logout" role="menuitem"><a href="/Logout" class="action-button"><i class="icon-logout"></i><span class="hidden-xs">@this.LocalResources("LogoutText")</span></a></li>
+        }
+        else
+        {
+            <li class="logout" role="menuitem"><a href="#" class="action-button" onclick="window.close();"><i class="icon-cancel"></i><span class="hidden-xs">@this.LocalResources("CloseWindowText")</span></a></li>
+    }
+}
+            </ul>
+        </div>
+    </div>
+<div class="clearfix"></div>

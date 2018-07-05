@@ -1,0 +1,67 @@
+﻿@using IHS.Apps.CMP.Models.ViewModels
+@model ResultsDataModel<IHS.Core.Catalog.Model.IItem>
+
+@{
+    var visibleColumns = Model.ColumnDefinitions.Columns.Where(p => p.Visible == true).ToList();
+}
+
+@if (Model.IncludeHeader)
+{
+    <table class="table hover checkboxes results-grid">
+        <caption class="sr-only">Search results for the selected filters</caption>
+        <thead>
+            <tr>
+
+                @*Check box column*@
+                @if (Model.IncludeCheckboxes)
+                {
+                    <th></th>
+                }
+
+                @foreach (var column in visibleColumns)
+                {
+                    if (column.Displayed)
+                    {
+                        var width = string.IsNullOrEmpty(column.Width) ? "auto" :
+                            column.Width + (column.Width.EndsWith("%") ? string.Empty : "px");
+
+                        string friendlyColumnName = string.Empty;
+                        if (!string.IsNullOrEmpty(column.DisplayText))
+                        {
+                            friendlyColumnName = column.DisplayText;
+                        }
+
+                        var tooltip = column.Sortable ? "To order by " + friendlyColumnName.ToLower() + " select 'sort by' option above" : "";
+
+                        <th style="min-width: @width;width: @width;" data-colIdx="@(friendlyColumnName.ToLower().Replace(" ", string.Empty))" title="@tooltip">
+                            @(friendlyColumnName)
+                            @if (Model.ColumnSort.SortableColumns.Any(c => c.Column.key == column.Key))
+                        {
+                            var defaultDir = column.InitialSortOrder;
+                            var newSortDir = defaultDir;
+                            var curSortDir = ResultsSortModel.EnumSortDirection.None;
+                            if (Model.ColumnSort != null && Model.ColumnSort.SortedColumn != null && Model.ColumnSort.SortedColumn.Column.key == column.Key)
+                            {
+                                newSortDir = Model.ColumnSort.SortedColumn.SortDirection.ToString() == defaultDir ? column.InitialSortOrder == "Asc" ? "Dsc" : "Asc" : defaultDir;
+                                curSortDir = Model.ColumnSort.SortedColumn.SortDirection;
+                            }
+
+                            <button class="btn btn-link sortable" data-bind="click: $parent.sortVM.setSort.bind($parent.sortVM,  '@(column.Key)', '@(newSortDir)')" title="Sort @(friendlyColumnName) @(newSortDir == "Asc" ? column.SortAscendingText: column.SortDescendingText)">
+                                <i class="caret @(curSortDir == ResultsSortModel.EnumSortDirection.Asc?"active":string.Empty)"></i>
+                                <i class="caret flip-y @(curSortDir == ResultsSortModel.EnumSortDirection.Dsc?"active":string.Empty)"></i>
+                            </button>
+                            }
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Partial("Results/GridRows", Model)
+        </tbody>
+    </table>
+}
+else
+{
+    @Html.Partial("Results/GridRows", Model)
+}

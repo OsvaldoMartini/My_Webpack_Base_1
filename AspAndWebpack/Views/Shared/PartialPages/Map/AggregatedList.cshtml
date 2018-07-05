@@ -1,0 +1,18 @@
+﻿@model System.Collections.Generic.IEnumerable<IHS.Apps.CMP.Models.ViewModels.Map.AggregatedMarker>
+
+<div class="list-group list-group-sm">
+    @foreach (var marker in Model.OrderBy(p => p.Title))
+    {
+        string facetString = string.Empty;
+
+        string id = marker.Id;
+
+        foreach (var f in marker.Facets)
+        {
+            facetString += f.Key + ":" + f.Value + "¶";
+        }
+        @*<a href="javascript:void(0)" class="list-group-item" data-bind="click: function(){ $root.drilldown({ Id:'@CmpHtmlHelpers.UrlEncode(marker.Id)', Title:'@Html.Encode(marker.Title)', Type:'@marker.Type', '@marker.Level', MinX:@marker.MinX, MinY:@marker.MinY, MaxX:@marker.MaxX, MaxY:@marker.MaxY) }">
+            <span class="badge">@marker.Count</span> @marker.Title
+        </a>*@
+    }
+</div>
