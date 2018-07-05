@@ -2,33 +2,56 @@
 
 <head>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
+    <!-- Google JSAPI Chart -->
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </head>
-
-
-<input type="radio" name="range" value="0%" data-bind="checked:rangeSelect" checked/>
-<label>0%</label>
-<br/>
-<input type="radio" name="range" value="30%" data-bind="checked:rangeSelect" />
-<label>30%</label>
-<br/>
-<input type="radio" name="range" value="40%" data-bind="checked:rangeSelect" />
-<label>40%</label>
-<br/>
-<input type="radio" name="range" value="50%" data-bind="checked:rangeSelect" />
-<label>50%</label>
-<br/>
-<input type="radio" name="range" value="60%" data-bind="checked:rangeSelect" />
-<label>60%</label>
-<br/>
-<input type="radio" name="range" value="70%" data-bind="checked:rangeSelect" />
-<label>70%</label>
-<div id="chart_div" style="width: 900px; height: 500px;"></div>
-<input type="hidden" id="sample_data" data-bind="value:dataGetter" />
-
 <body>
+
+        <input type="radio" name="range" value="0%" data-bind="checked:rangeSelect" checked/>
+        <label>0%</label>
+        <br/>
+        <input type="radio" name="range" value="30%" data-bind="checked:rangeSelect" />
+        <label>30%</label>
+        <br/>
+        <input type="radio" name="range" value="40%" data-bind="checked:rangeSelect" />
+        <label>40%</label>
+        <br/>
+        <input type="radio" name="range" value="50%" data-bind="checked:rangeSelect" />
+        <label>50%</label>
+        <br/>
+        <input type="radio" name="range" value="60%" data-bind="checked:rangeSelect" />
+        <label>60%</label>
+        <br/>
+        <input type="radio" name="range" value="70%" data-bind="checked:rangeSelect" />
+        <label>70%</label>
+        
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+        
+        <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
+        
+        <!-- Hichart Sample with Export -->
+        <div id="container"></div>
+
+        <h3>Exported CSV:</h3>
+        <pre id="preview"></pre>
+
+
+
+    <!-- Knockout VM -->
     <script type='text/javascript' src='/JavaScript/knockout.js'></script>
-    <script type='text/javascript' src='/JavaScript/PageChartDirectVM.js'></script>
+    <script type='text/javascript' src='/JavaScript/PageGoogleChartVM.js'></script>
+    <!-- Hichart -->
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+    <!-- <script src="https://highcharts.github.io/export-csv/export-csv.js"></script> -->
+    <script type='text/javascript' src='/JavaScript/highcharts.js'></script>
+    <script type='text/javascript' src='/JavaScript/hichartexporting.js'></script>
+    <script type='text/javascript' src='/JavaScript/hichartexport-csv.js'></script>
+    
+    <!-- Hichart Builder -->
+    <script type='text/javascript' src='/JavaScript/PageHichartBuilder.js'></script>
+    
 </body>
 
 </html>
