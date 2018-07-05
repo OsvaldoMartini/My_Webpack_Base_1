@@ -3,7 +3,7 @@
  *
  * Author:   Torstein Honsi
  * Licence:  MIT
- * Version:  1.4.8
+ * Version:  1.4.7
  */
 /*global Highcharts, window, document, Blob */
 (function (factory) {
@@ -286,6 +286,7 @@
         } else if (downloadAttrSupported) {
             a = document.createElement('a');
             a.href = href;
+            a.target = '_blank';
             a.download = name + '.' + extension;
             chart.container.append(a); // #111
             a.click();
@@ -383,9 +384,6 @@
     }
     if (seriesTypes.mapbubble) {
         seriesTypes.mapbubble.prototype.exportKey = 'name';
-    }
-    if (seriesTypes.treemap) {
-        seriesTypes.treemap.prototype.exportKey = 'name';
     }
 
 });
