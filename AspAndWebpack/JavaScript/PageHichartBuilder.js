@@ -1,7 +1,7 @@
 var chart = new Highcharts.Chart({
 
     chart: {
-        renderTo: 'container'
+        renderTo: 'FirstChart'
     },
 
     title: {

@@ -34,12 +34,22 @@
         <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
         
         <!-- Hichart Sample with Export -->
-        <div id="container"></div>
+        <div id="FirstChart"></div>
 
         <h3>Exported CSV:</h3>
         <pre id="preview"></pre>
 
+        <div id="container" style="height:250px;width:350px;"></div> 
 
+        <div id="container1" style="height:36px;width:350px;"></div> 
+        <div id="container2" style="height:36px;width:350px;"></div>
+        <div id="container3" style="height:36px;width:350px;"></div>
+        <div id="container4" style="height:36px;width:350px;"></div>
+        <div id="container5" style="height:36px;width:350px;"></div>
+
+        <div id="containerBulletVersion" style="height:250px;width:300px;margin:1em;"></div> 
+
+        <div id="containerOtherBullet" style="height:250px;width:300px;margin:1em;"></div> 
 
     <!-- Knockout VM -->
     <script type='text/javascript' src='/JavaScript/knockout.js'></script>
@@ -52,10 +62,19 @@
     <script type='text/javascript' src='/JavaScript/highcharts.js'></script>
     <script type='text/javascript' src='/JavaScript/hichart-exporting.js'></script>
     <script type='text/javascript' src='/JavaScript/hichart-export-csv.js'></script> 
+    <script type='text/javascript' src='/JavaScript/highcharts-more.js'></script> 
     
     <!-- Hichart Builder -->
     <script type='text/javascript' src='/JavaScript/PageHichartBuilder.js'></script>
+    <script type='text/javascript' src='/JavaScript/HichartGauge.js'></script>
+    <script type='text/javascript' src='/JavaScript/MultipleBulletsOneChart.js'></script>
+    <script type='text/javascript' src='/JavaScript/BulletHichartVersion.js'></script>
+    <script type='text/javascript' src='/JavaScript/OtherBulletVersion.js'></script>
     
+
+    
+    <p><a target="_top" href="http://jsfiddle.net/jlbriggs/UGs2E/">Multiple bullet charts in one chart</a></p>
+
 </body>
 
 </html>
