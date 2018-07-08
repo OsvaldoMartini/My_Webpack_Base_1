@@ -1,0 +1,26 @@
+﻿@using AspAndWebpack.Utils
+
+@{
+    Layout = "~/Views/Test/_Layout_Template.cshtml";
+}
+<div>
+
+   
+
+    @if (!IsSectionDefined("TitleSection"))
+    {
+        @RenderSection("SectionDefinedInContent")
+        @RenderSection("SectionPrintedBy")
+    }
+
+
+    @this.RedefineSection("TitleSection", @<h1>Printed By SubLayout: Title Section</h1>)
+
+    @this.RedefineSection("TitleContent", @<h1>Printed By SubLayout: Title Content</h1>)
+
+
+
+    @RenderBody()
+    @Html.BuildTree()
+
+</div>

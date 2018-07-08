@@ -16,9 +16,10 @@ namespace AspAndWebpack
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new MyViewEngine());
+            ViewEngines.Engines.Add(new MultiLanguageViewEngine());
 
         }
     }

@@ -36,11 +36,6 @@
   },
   "author": "",
   "license": "ISC",
-  "-vs-binding": {
-    "BeforeBuild": [
-      "build:dev"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OsvaldoMartini/My_Webpack_Base_1.git"
@@ -48,5 +43,5 @@
   "bugs": {
     "url": "https://github.com/OsvaldoMartini/My_Webpack_Base_1/issues"
   },
-  "homepage": "https://github.com/OsvaldoMartini/My_Webpack_Base_1#readme"
+  "homepage": "https://github.com/OsvaldoMartini/My_Webpack_Base_1#readme"
 }

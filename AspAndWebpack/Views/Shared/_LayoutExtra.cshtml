@@ -2,25 +2,23 @@
     Layout = "~/Views/Shared/_Layout_Template.cshtml";
 }
 
-
 @section jstree_js {
-    <script type="text/javascript" src="path to script">
+    <div id="jsTreeContainer"></div>
+
+    <script type="text/javascript">
         $(function () {
-            // 6 create an instance when the DOM is ready
-            $('#jstree').jstree();
-            // 7 bind to events triggered on the tree
-            $('#jstree').on("changed.jstree", function (e, data) {
-                console.log(data.selected);
-            });
-            // 8 interact with the tree - either way is OK
-            $('button').on('click', function () {
-                $('#jstree').jstree(true).select_node('child_node_1');
-                $('#jstree').jstree('select_node', 'child_node_1');
-                $.jstree.reference('#jstree').select_node('child_node_1');
+            $('#jsTreeContainer').jstree({
+                'core': {
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3Data',
+                        'dataType': 'json'
+                    }
+                }
             });
         });
     </script>
 
-
-
 }
+
+@RenderBody()
+@Html.BuildTree()
