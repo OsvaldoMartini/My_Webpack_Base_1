@@ -146,6 +146,7 @@
   <ItemGroup>
     <Compile Include="App_Code\MultiLanguageViewEngine.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\Filters\LogActionFilter.cs" />
     <Compile Include="Controllers\jsTree3Controller.cs" />
     <Compile Include="Models\JsTree3Node.cs" />
     <Compile Include="Utils\GlobalHelper.cs" />

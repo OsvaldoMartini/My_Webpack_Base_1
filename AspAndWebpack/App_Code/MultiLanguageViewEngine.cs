@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace AspAndWebpack.App_Start
+namespace AspAndWebpack
 {
     public class MultiLanguageViewEngine : RazorViewEngine
     {
