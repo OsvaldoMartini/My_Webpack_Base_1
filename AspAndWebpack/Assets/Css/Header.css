@@ -1079,3 +1079,10 @@ a.mainNavButton {
 .page-header .btn-block {
     text-align: left;
 }
+
+
+.viewBy .pos_rigth {
+    position: relative;
+    right: 28px; 
+    bottom: -6px;
+}
