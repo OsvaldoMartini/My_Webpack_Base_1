@@ -1,0 +1,97 @@
+INDEXES
+"JDSF14" -> "FT_TOTAL_PROGRAM"
+JDSF14" -> "FUNCTIONALSEGMENT" )
+Category Assignment ( "JDSF14" -> "FT_TOTAL_PROGRAM" )
+Category Assignment ( "JDSF14" -> "CURRENCY_USD" )
+Category Assignment ( "JDSF14" -> "FUNCTIONALSEGMENT" )
+Category Assignment ( "JDSF14" -> "TIME_SERIES" )
+Category Assignment ( "JDSF14" -> "GROUP_OTHER_SERIES" )
+
+SEARCH.NAME "GetUpdatedDate"
+
+"JanesDSF14Provider"
+
+"Markets Forecast"
+
+indexerKey MARKET
+indexer Category Assignment ( "JDSF14" -> "MARKET" )
+{IHS.Core.Catalog.Model.Search.EqualsConstraint|Name=label=|separator= = |text=|RemoveButton=True|visibleBreadcrumb=True|displayCrumbLabel=True|Zone=False|ID=MARKET|EQUALS|AttrID=8e9d30f8-ec3f-436f-9f86-f5c39e3b7611|Military Aircraft}
+
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020
+
+Came from Search Box Facet
+  private readonly control_config controlConfig;
+
+cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military%20Aircraft)&pg=1&q=[ViewItemDescription%7CViewPlatformFamily%7CViewItemName%7CViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM%7CCURRENCY_USD%7CFUNCTIONALSEGMENT%7CTIME_SERIES%7CGROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020
+
+
+http://localhost:57592/MarketsForecast/guided?view=chart#view=chart|grid&f=MARKET(Military%20Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]%3Cand%3E[f-35]
+
+{http://localhost:57592/MarketsForecast/search/getResults?view=chart|grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]<and>[f-35]&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&_=1532765710924}
+
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020
+
+http://localhost:57592/MarketsForecast/guided?view=chart#view=chart|grid&pg=1&q=F-35||F-22&f=MARKET(Military%20Aircraft)
+
+http://localhost:57592/MarketsForecast/guided?view=chart#view=chart|grid&pg=1&q=F-35&f=MARKET(Military%20Aircraft)
+
+
+http://localhost:57592/MarketsForecast/guided?view=chart#view=chart|grid&f=MARKET(Military%20Aircraft)&pg=1&q=[FullText(F-35)]%3Cand%3E[FullText(F-22)]%3Cand%3E[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]
+http://localhost:57592/MarketsForecast/guided?view=chart#view=chart|grid&f=MARKET(Military Aircraft)&pg=1&q=[FullText(F-35)]<and>[FullText(F-22)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]
+
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&q=F-35||F-22&pg=1&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019727
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&q=F-35||F-22&pg=1&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019726
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&q=F-35||F-22&pg=1&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019725
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=F-35||F-22&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019732
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=F-35||F-22&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019733
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[FullText(F-35)]<and>[FullText(F-22)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019738
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[FullText(F-35)]<and>[FullText(F-22)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877019737
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675681
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=F-35||F-22&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675702
+constraints
+{IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint|Name=d31942c2-3761-4379-adac-4eb968981e52|ID=d31942c2-3761-4379-adac-4eb968981e52(F-35}
+{IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint|Name=af16f7cf-f7a6-46af-92cb-aa5a00d91785|ID=af16f7cf-f7a6-46af-92cb-aa5a00d91785(F-22}
+{IHS.Core.Catalog.Model.Search.EqualsConstraint|Name=label=|separator= = |text=|RemoveButton=True|visibleBreadcrumb=True|displayCrumbLabel=True|Zone=False|ID=MARKET|EQUALS|AttrID=061747a5-5145-4197-b498-845032fce0ed|Military Aircraft}
+
+http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[FullText(F-35)]<and>[FullText(F-22)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675708
+{IHS.Core.Catalog.Model.Search.IndexedSearchBehaviorConstraint}
+	{IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint|Name=|visibleBreadcrumb=false|originalQuery=F-35||ID=(F-35}
+{IHS.Core.Catalog.Model.Search.IndexedSearchBehaviorConstraint}
+	{IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint|Name=|visibleBreadcrumb=false|originalQuery=F-22||ID=(F-22}
+
+{VIEWSOURCESDATA:IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint|Name=|visibleBreadcrumb=false|originalQuery=F-35||ID=(TextSearchF-35}	
+
+"[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22<OR>F-35)]"
+
+{http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35<OR>F-22)]&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675747}
+{http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35<OR>F-22)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35||F-22)]&pg=1&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675751}
+
+{http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35||F-22)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762}
+
+  private ISearchConstraint ProcessAdvancedSearch(ISearch search, MatchCollection matches)
+        {
+{http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]<and>[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22<OR>F-35)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675734}		
+	
+"JDSF14"
+target_grid_config_chart_area_id  "JDSFChartConfigArea"
+
+
+Search name JDSFChartConfig
+
+
+contains(z.*,'"f-35"')}
+contains(z.VIEWPLATFORMFAMILY,'"F-35"')
+
+contains(z.VIEWPLATFORMFAMILY,'"F-35"') 
+
+WHERE 1=1 AND  (ViewEndUserPublicComments like '%f-35%' or ViewItemDescription like '%f-35%' or ViewItemName like '%f-35%' or ViewPgoPublicComments like '%f-35%' or ViewPlatformFamily like '%f-35%' or ViewSourcesData like '%f-35%' or ViewSupplierInfoPublicComments like '%f-35%' or ViewSupplierInfoPublicComments like '%f-35%' )  
+ 
+ 
+           var metaData = MetaData.CreateCrumbMetaData(string.Empty, separator, string.Empty, string.Empty, true, true, true, true, false);
+		   var metaData = MetaData.CreateCrumbMetaData(string.Empty, separator, string.Empty, string.Empty, true, true, true, true, false);
+		   
+		     var wildConstraint = new WildCardConstraint(indexer, val)
+
+ 
+ 
