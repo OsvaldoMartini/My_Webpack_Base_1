@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- help on settings in ConfigRules.txt -->
+<TSQLConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MetaData>
+    <AttributeMetaData MetaKey="visibleBreadcrumb" MetaValue="true" />
+    <SpecificAttributeMetaData ObjectKey="BY_FORCE" MetaKey="idxGroup" MetaValue="JdbViewBy" />
+    <SpecificAttributeMetaData ObjectKey="BY_ACTIVITY" MetaKey="idxGroup" MetaValue="JdbViewBy" />
+    <SpecificAttributeMetaData ObjectKey="BILLIONS" MetaKey="idxGroup" MetaValue="JdbUnitType" />
+    <SpecificAttributeMetaData ObjectKey="MILLIONS" MetaKey="idxGroup" MetaValue="JdbUnitType" />
+    <SpecificAttributeMetaData ObjectKey="FT_PRODUCTION_UNITS" MetaKey="idxGroup" MetaValue="JdbUnitType" />
+    <SpecificAttributeMetaData ObjectKey="INFLATE" MetaKey="idxGroup" MetaValue="Inflate" />
+    <SpecificAttributeMetaData ObjectKey="COMBINE" MetaKey="idxGroup" MetaValue="Combine" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_USD" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_GBP" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_EUR" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_AUD" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_CAD" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_YEN" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_ARS" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_LOCAL" MetaKey="idxGroup" MetaValue="Currency" />
+  </MetaData>
+  <Categories>
+
+    <TSQLCategory Name="JDB_ACTIVITY_ITEMS" Guid="6660B666-B873-4660-9D72-77D0E51A06E2" DomainName="JDB">
+      <JoinConditions>
+        FROM forces_budget_item fbi
+        INNER JOIN country cty on fbi.country_id = cty.id
+        INNER JOIN security_defence_forces forceType on fbi.forces_id = forcetype.id
+        INNER JOIN spending_type spendingType on fbi.type_id = spendingType.id
+      </JoinConditions>
+      <TSQLQueries>
+        <TSQLQuery Name="default" RunInPreFetch="true" SqlCommand="
+            WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            )
+
+                      (COUNT_HINT)(START_PAGING)SELECT sys_guid() AS ITEMID, (TABLE_COMBINE) AS COUNTRY, (SERIES_GROUPBY),
+                      sum(Yr1) as &#34;-5&#34;, sum(Yr2) as &#34;-4&#34;, sum(Yr3) as &#34;-3&#34;, sum(Yr4) as &#34;-2&#34;, sum(Yr5) as &#34;-1&#34;,
+                      sum(Yr6) as &#34;0&#34;,
+                      sum(Yr7) as &#34;1&#34;, sum(Yr8) as &#34;2&#34;, sum(Yr9) as &#34;3&#34;, sum(Yr10) as &#34;4&#34;,
+                      sum(Yr1+Yr2+Yr3+Yr4+Yr5+Yr6+Yr7+Yr8+Yr9+Yr10) as TOTAL
+                      FROM (END_COUNT_HINT)  (
+                SELECT
+                cty.name(LOCAL_CURRENCY_SELECT) as country,
+                spendingType.name as activity,
+                forcetype.name as force,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(-5) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr1,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(-4) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr2,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(-3) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr3,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(-2) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr4,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(-1) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr5,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(0) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr6,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(1) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr7,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(2) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr8,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(3) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr9,
+                ROUND(SUM( CASE WHEN fbi.year = get_offset_year(4) THEN (fbi.VALUE/(UNITS)) * (INFLATE) * ext.rate END),3) AS Yr10
+                (JOIN_CONDITIONS)
+                (INFLATE_JOIN)
+                (EXCHANGE_RATE_JOIN)
+                WHERE 1=1 and fbi.YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 48),'YYYY'))
+                GROUP BY cty.name,(LOCAL_CURRENCY_GROUPBY) spendingType.name, forcetype.name)
+                GROUP BY (TABLE_COMBINE_GROUPBY) (SERIES_GROUPBY) (ORDER_BY)ORDER BY (TABLE_COMBINE_GROUPBY) (SERIES_GROUPBY)(END_ORDER_BY) (END_PAGING) (DONT_ADD_ORDERBY)">
+        </TSQLQuery>
+
+        <TSQLQuery Name="GENERIC_TREE" SqlCommand="
+            SELECT  (OBSERVE_MAX_ITEMS)  distinct GENERIC_TREE_ATTRIBUTE
+              (JOIN_CONDITIONS)
+              WHERE 1=1
+            (ORDER_BY)order by  GENERIC_TREE_ATTRIBUTE(END_ORDER_BY)
+            (DONT_ADD_ORDERBY)
+                    ">
+        </TSQLQuery>
+
+        <TSQLQuery Name="JDBChart" RunInPreFetch="true" SqlCommand="
+            WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            ),
+
+            result_table AS (
+            SELECT
+            fbi.year AS YEAR,
+            (fbi.value/(UNITS)) * (INFLATE) * ext.rate AS VALUE,
+            cty.name(LOCAL_CURRENCY_SELECT) AS COUNTRY ,
+            forcetype.name AS FORCE,
+            spendingtype.name AS ACTIVITY,
+            forcetype.id as FORCE_ORD,
+            CASE WHEN fbi.type_id = 1 THEN 1
+            WHEN fbi.type_id = 2 THEN 2
+            WHEN fbi.type_id = 3 THEN 4
+            WHEN fbi.type_id = 4 THEN 3
+            WHEN fbi.type_id = 5 THEN 5
+            END AS ACTIVITY_ORD
+            (JOIN_CONDITIONS)
+            (INFLATE_JOIN)
+            (EXCHANGE_RATE_JOIN)
+            WHERE 1=1 and fbi.YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 72),'YYYY'))
+          )
+
+          SELECT sys_guid() AS ITEMID, (COMBINE) AS XKEY, (SERIES_GROUPBY) AS SERIESVAL, ROUND(SUM(VALUE),3) AS COUNT, (SERIES_ORDERBY)
+          FROM result_table
+          GROUP BY (SERIES_ORDERBY), (SERIES_GROUPBY), (COMBINE)
+          ORDER BY (SERIES_ORDERBY) DESC, (SERIES_GROUPBY), (COMBINE)
+          (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)">
+        </TSQLQuery>
+
+      <TSQLQuery Name="JDB_REGION" RunInPreFetch="true" SqlCommand="
+            WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            ),
+
+            result_table AS (
+            SELECT
+            cty.id as countryId,
+            fbi.year AS YEAR,
+            (fbi.value/(UNITS)) * (INFLATE) * ext.rate AS VALUE,
+            cty.name(LOCAL_CURRENCY_SELECT) AS COUNTRY ,
+            forcetype.name AS FORCE,
+            spendingtype.name AS ACTIVITY,
+            forcetype.id as FORCE_ORD,
+            CASE WHEN fbi.type_id = 1 THEN 1
+            WHEN fbi.type_id = 2 THEN 2
+            WHEN fbi.type_id = 3 THEN 4
+            WHEN fbi.type_id = 4 THEN 3
+            WHEN fbi.type_id = 5 THEN 5
+            END AS ACTIVITY_ORD
+            (JOIN_CONDITIONS)
+            INNER JOIN country_region countryRegion on countryRegion.country_id = cty.id
+            INNER JOIN region on countryRegion.region_id = region.id
+            (INFLATE_JOIN)
+            (EXCHANGE_RATE_JOIN)
+            WHERE 1=1 and fbi.YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 72),'YYYY'))
+          )
+
+           SELECT   (OBSERVE_MAX_ITEMS) COUNT(*), region.name (INDEXERS_SQL_NO_ALIASING)
+            from result_table resultTable
+            INNER JOIN country_region countryRegion on countryRegion.country_id = resultTable.countryId
+            INNER JOIN region on countryRegion.region_id = region.id
+            WHERE 1=1
+            group by  region.name
+            order by  COUNT(*) DESC , region.name">
+        </TSQLQuery>        
+
+        <TSQLQuery Name="JDBChartDefenceBudgets" RunInPreFetch="true" SqlCommand="
+            WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            ),
+
+            result_table AS (
+            SELECT
+            fbi.year AS YEAR,
+            (fbi.value/(UNITS)) * (INFLATE) * ext.rate AS VALUE,
+            cty.name(LOCAL_CURRENCY_SELECT) AS COUNTRY ,
+            forcetype.name AS FORCE,
+            spendingtype.name AS ACTIVITY,
+            forcetype.id as FORCE_ORD,
+            CASE WHEN fbi.type_id = 1 THEN 1
+            WHEN fbi.type_id = 2 THEN 2
+            WHEN fbi.type_id = 3 THEN 4
+            WHEN fbi.type_id = 4 THEN 3
+            WHEN fbi.type_id = 5 THEN 5
+            END AS ACTIVITY_ORD
+            (JOIN_CONDITIONS)
+            (INFLATE_JOIN)
+            (EXCHANGE_RATE_JOIN)
+            WHERE 1=1 and fbi.YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 72),'YYYY'))
+          )
+
+          SELECT sys_guid() AS ITEMID, (COMBINE) AS XKEY, (SERIES_GROUPBY) AS SERIESVAL, ROUND(SUM(VALUE),3) AS COUNT, (SERIES_ORDERBY)
+          FROM result_table
+          GROUP BY (SERIES_ORDERBY), (SERIES_GROUPBY), (COMBINE)
+          ORDER BY (SERIES_ORDERBY) DESC, (SERIES_GROUPBY), (COMBINE)
+          (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)">
+        </TSQLQuery>
+
+        <TSQLQuery Name="WorldwideBudgets" RunInPreFetch="true" SqlCommand="WITH result_table AS (
+          SELECT YEAR AS ITEMID,
+          YEAR,
+          CASE WHEN fbi.type_id = 1 THEN 'Procurement'
+          WHEN fbi.type_id = 2 THEN 'RDT ' || chr(38) || ' E'
+          WHEN fbi.type_id = 3 THEN 'O ' || chr(38) || ' M'
+          WHEN fbi.type_id = 4 THEN 'Military Personnel'
+          WHEN fbi.type_id = 5 THEN 'Other'
+          END AS SERIESVAL,
+          VALUE,
+          CASE WHEN fbi.type_id = 1 THEN 1
+          WHEN fbi.type_id = 2 THEN 2
+          WHEN fbi.type_id = 3 THEN 4
+          WHEN fbi.type_id = 4 THEN 3
+          WHEN fbi.type_id = 5 THEN 5
+          END AS ORD
+
+          (JOIN_CONDITIONS)
+          WHERE YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 48),'YYYY'))
+          )
+
+          SELECT ITEMID, YEAR, SERIESVAL, ROUND(SUM(VALUE/1000),3) AS COUNT, ORD
+          FROM result_table
+
+          GROUP BY ORD, SERIESVAL, YEAR, ITEMID
+          ORDER BY ORD DESC, SERIESVAL, YEAR
+
+          (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)">
+        </TSQLQuery>
+        <TSQLQuery Name="BudgetsInFull" RunInPreFetch="true" SqlCommand="
+          select DISTINCT cty.name as COUNTRY_NAME
+          (JOIN_CONDITIONS)
+          where (CONSTRAINT_IF_EXISTS::COUNTRY::cty.name::0=0::false)
+          order by cty.name
+          (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)">
+        </TSQLQuery>
+        
+
+        <TSQLQuery Name="JdbDataGrid" RunInPreFetch="true" SqlCommand="
+         WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            )
+            (COUNT_HINT) (START_PAGING)
+            SELECT 
+                Country, 
+                Force,
+                Activity,
+                Year,
+                Value
+                FROM (END_COUNT_HINT) (
+          SELECT
+                cty.name as Country,
+                forcetype.name as Force,
+                spendingType.name as Activity,
+                fbi.year as Year,
+                (fbi.value/(UNITS)) * (INFLATE) * ext.rate AS Value         
+          (JOIN_CONDITIONS)
+          (INFLATE_JOIN)
+          (EXCHANGE_RATE_JOIN)
+          WHERE 1=1  AND fbi.YEAR BETWEEN to_number(TO_CHAR(add_months(sysdate, -60),'YYYY')) AND to_number(TO_CHAR(add_months(sysdate, 72),'YYYY')) )
+          (ORDER_BY) ORDER BY Country (END_ORDER_BY) 
+          (END_PAGING) (DONT_ADD_ORDERBY) ">
+        </TSQLQuery>
+
+        <TSQLQuery Name="EconomicIndicators" RunInPreFetch="true" SqlCommand="
+         WITH  exchange_table AS (select 'A' as id, nvl(erate.converted_value,1) as rate, nvl(cur.hex_code, cur.code) as symbol
+                        FROM (
+                        SELECT converted_currency_id AS currency_id, max(year) AS maxYear
+                      FROM exchange_rate
+                        GROUP BY converted_currency_id
+                      )
+                        INNER JOIN exchange_rate eRate on eRate.converted_currency_id = currency_id and eRate.year = maxYear
+                        INNER JOIN currency cur on cur.id = currency_id
+                        WHERE cur.code = '(CURRENCY)'
+            ),
+            exchange_table_local AS (select converted_currency_id as id, converted_value as rate, nvl(cur.hex_code, cur.code) as symbol from exchange_rate er inner join (
+                      select max(converted_currency_id) as ccid1, max(year) as y1 from exchange_rate group by converted_currency_id
+                      ) er1 on er.converted_currency_id = er1.ccid1 and er.year = er1.y1
+                      INNER JOIN currency cur on cur.id = er.converted_currency_id
+            )
+
+        select item_id, country, indicator, &#34;-5&#34;, &#34;-4&#34;, &#34;-3&#34;, &#34;-2&#34;, &#34;-1&#34;, &#34;0&#34;, &#34;1&#34;, &#34;2&#34;, &#34;3&#34;, &#34;4&#34;  from (
+
+        select cty.name || '_' || ei.id as item_id,
+        cty.name(LOCAL_CURRENCY_SELECT) as country,
+        ei.name as indicator,
+
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(-5) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(-5) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;-5&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(-4) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(-4) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;-4&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(-3) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(-3) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;-3&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(-2) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(-2) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;-2&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(-1) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(-1) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;-1&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(0) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(0) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;0&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(1) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(1) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;1&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(2) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(2) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;2&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(3) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(3) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;3&#34;,
+        ROUND(SUM(CASE WHEN ei.name IN ('Inflation', 'Total Defence Budget GDP', 'GDP Growth') THEN CASE WHEN ed.year = get_offset_year(4) THEN Value END  ELSE CASE WHEN ed.year = get_offset_year(4) THEN (Value / (UNITS)) * ext.rate END END),3) as &#34;4&#34;
+
+        from economic_data ed
+        inner join country cty on ed.country_id = cty.id
+        inner join economic_indicator ei on ed.indicator_id = ei.id
+        (EXCHANGE_RATE_JOIN)
+        where (CONSTRAINT_IF_EXISTS::COUNTRY::cty.name::0=0::false)
+        group by cty.name,(LOCAL_CURRENCY_GROUPBY) ei.name, ei.unit, ei.id
+        )
+        order by country, indicator
+        (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)
+        ">
+        </TSQLQuery>
+        
+        <TSQLQuery Name="FlexiChart" SqlCommand="
+       --FlexiChart  countrydata
+       
+        -- qualifying data
+        select  [dbid] FilterRecordId into #docs
+        (JOIN_CONDITIONS)
+        GROUP BY [dbid]
+                
+        
+           declare @detailsX varchar(800), @detailsY varchar(800), @detailsG varchar(800), @detailsXCount int, @detailsGCount int;
+          
+          set @detailsX =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA_X::::abc::true)';
+          set @detailsY =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA_Y::::abc::true)';
+          set @detailsG =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA_G::::abc::true)';
+          set @detailsXCount =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA_XCOUNT::::abc::true)';
+          set @detailsGCount =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA_GCOUNT::::abc::true)';
+               
+          EXEC usp_FlexiChart_PEPS_CompanySeismic @detailsX, @detailsY, @detailsG, @detailsXCount, @detailsGCount;
+          
+                
+          --	 (DONT_ADD_ORDERBY)
+          --   (DONT_PAGE_DATA)
+          " >
+        </TSQLQuery>
+      </TSQLQueries>
+
+      <Entitlements>
+        <Entitlement AuthName="JDB">
+          <!--<Filters>
+            <EntitlementFilter Name="JanesCountry" ColumnName="cty.name" />
+          </Filters>-->
+        </Entitlement>
+      </Entitlements>
+
+      <Metadata>
+        <MetadataEntryOfStringString  Key="entitlementProductName" Value="JDB" />
+        <MetadataEntryOfStringString  Key="visibleBreadcrumb" Value="false" />
+      </Metadata>
+      <HintReplacements>
+        <HintReplacement Hint="(TOP_X)" DefaultReplacement="1=0">
+          <IndexerHintReplacement IndexerObjectKey="TOP_X" Sql="" />
+        </HintReplacement>
+        <HintReplacement Hint="(TABLE_COMBINE)" DefaultReplacement="COUNTRY">
+          <IndexerHintReplacement IndexerObjectKey="COMBINE" Sql="'Multiple'" />
+        </HintReplacement>
+        <HintReplacement Hint="(TABLE_COMBINE_GROUPBY)" DefaultReplacement="COUNTRY, ">
+          <IndexerHintReplacement IndexerObjectKey="COMBINE" Sql="" />
+        </HintReplacement>
+        <HintReplacement Hint="(COMBINE)" DefaultReplacement="YEAR || ' ' || COUNTRY">
+          <IndexerHintReplacement IndexerObjectKey="COMBINE" Sql="YEAR" />
+        </HintReplacement>
+        <HintReplacement Hint="(EXCHANGE_RATE_JOIN)" DefaultReplacement="inner join exchange_table ext on 'A' = ext.id">
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_LOCAL" Sql="inner join exchange_table_local ext on cty.currency_id = ext.id" />
+        </HintReplacement>
+
+        <HintReplacement Hint="(LOCAL_CURRENCY_SELECT)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_LOCAL" Sql=" || ' ' || ext.symbol" />
+        </HintReplacement>
+        <HintReplacement Hint="(LOCAL_CURRENCY_GROUPBY)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_LOCAL" Sql="ext.symbol," />
+        </HintReplacement>
+
+        <HintReplacement Hint="(CURRENCY)" DefaultReplacement="USD">
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_USD" Sql="USD" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_GBP" Sql="GBP" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_EUR" Sql="EUR" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_AUD" Sql="AUD" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_CAD" Sql="CAD" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_YEN" Sql="JPY" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_ARS" Sql="ARS" />
+        </HintReplacement>
+        <HintReplacement Hint="(SERIES_GROUPBY)" DefaultReplacement="ACTIVITY">
+          <IndexerHintReplacement IndexerObjectKey="BY_ACTIVITY" Sql="ACTIVITY" />
+          <IndexerHintReplacement IndexerObjectKey="BY_FORCE" Sql="FORCE" />
+        </HintReplacement>
+        <HintReplacement Hint="(SERIES_ORDERBY)" DefaultReplacement="ACTIVITY_ORD">
+          <IndexerHintReplacement IndexerObjectKey="BY_ACTIVITY" Sql="ACTIVITY_ORD" />
+          <IndexerHintReplacement IndexerObjectKey="BY_FORCE" Sql="FORCE_ORD" />
+        </HintReplacement>
+        <HintReplacement Hint="(UNITS)" DefaultReplacement="1">
+          <IndexerHintReplacement IndexerObjectKey="MILLIONS" Sql="1" />
+          <IndexerHintReplacement IndexerObjectKey="BILLIONS" Sql="1000" />
+        </HintReplacement>
+        <HintReplacement Hint="(INFLATE)" DefaultReplacement="1">
+          <IndexerHintReplacement IndexerObjectKey="INFLATE" Sql="NVL(deflator.ratio, 1)" />
+        </HintReplacement>
+        <HintReplacement Hint="(INFLATE_JOIN)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="INFLATE" Sql="LEFT JOIN deflator on deflator.country_id = fbi.country_id and deflator.year = fbi.year" />
+        </HintReplacement>
+      </HintReplacements>
+      <Parameters>
+        <AdapterParameter CodeName="ITEMID" SQLName="itemid" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="YEAR" SQLName="fbi.YEAR" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="COUNTRY" SQLName="cty.Name" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="NAME" SQLName="cty.Name" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="FIPS_CODE" SQLName="cty.FIPS_CODE" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="FORCE" SQLName="forceType.Name" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="ACTIVITY" SQLName="spendingType.Name" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="JDB_REGION" SQLName="region.name" DataType="STRING_TYPE" />
+      </Parameters>
+    </TSQLCategory>
+ 
+  </Categories>
+</TSQLConfig>
