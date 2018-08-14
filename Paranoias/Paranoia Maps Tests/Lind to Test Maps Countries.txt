@@ -1,0 +1,1 @@
+http://localhost:57592/Map#f=geoarea(Kazakhstan%3Cand%3ELibya)%3Cand%3Elatlongs(-7.14987,-187.98162||59.46466,146.70588)&pg=1&map=-19.143734,31.835637,3&ml=null,jtic_hm,bases,ew,sam,
