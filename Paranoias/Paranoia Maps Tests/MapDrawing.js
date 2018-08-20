@@ -412,22 +412,20 @@ function MapDrawing(map, layers) {
         });
     }
 
-
-
-
     function getDefinedAreas() {
         self.isLoadingAreas(true);
-        if (self.definedAreas().length) return;
-        $.get2('/MapArea/GetPredefined').done(function(result){
-            result.forEach(function (area) {
-                //console.log('area : '+ area.Id + '-' + area.Name });
-                self.definedAreas.push(new CustomArea(area.Id, area.Name, area.Feature, true));
+        if (self.definedAreas().length == 0) {
+            $.get2('/MapArea/GetPredefined').done(function (result) {
+                result.forEach(function (area) {
+                    self.definedAreas.push(new CustomArea(area.Id, area.Name, area.Feature, true));
+                });
+            }).always(function () {
+                self.isLoadingAreas(false);
             });
-        }).always(function() {
+        } else {
             self.isLoadingAreas(false);
-        });
+        }
     }
-
     function mergeShapes(graphic) {
         if (!graphic) return;
         if (Array.isArray(graphic)){
@@ -604,10 +602,11 @@ function MapDrawing(map, layers) {
     };
 
     self.search = function(area, areaToRemove){
-        if (area.areasValue() === areaToRemove){ areaToRemove = null; }
+        if ((area) && area.areasValue() === areaToRemove) { areaToRemove = null; }
+
         var areaRemoved = areaToRemove;
         if (areaToRemove && areaToRemove.areas) {
-            areaRemoved = areaToRemove.areas[0];
+            areaRemoved = areaToRemove.name;
         }
         var constraintsToRemove=null;
         if (areaRemoved && typeof areaRemoved === "string") {
@@ -616,13 +615,8 @@ function MapDrawing(map, layers) {
             constraintsToRemove.f[indexer] = areaRemoved;
         }
 
-        var areaName = area.name;
-        area = drawingLayer.graphics
-            .filter(function(g){return g.visible;})
-            .map(geography.encodePolygon)
-            .filter(function(g){return g != areaToRemove}).join(',');
         if(area){
-            _mapPageVM.facetsVM.applyFacet(indexer, areaName, true, undefined, true);
+            _mapPageVM.facetsVM.applyFacet(indexer, area.name, false, undefined, true);
         }else{
             _mapPageVM.facetsVM.getFacetValues(indexer).forEach(function(val){
                 _mapPageVM.facetsVM.removeFacetQuery(indexer, val);
@@ -698,8 +692,8 @@ function MapDrawing(map, layers) {
                         "<button class='btn btn-default' data-bind='click: deleteSavedArea, visible: viewingArea() && viewingArea().canDelete'>Delete saved area</button>"+
                     "</div>" +
                 "</div>"+
-            "</div>",//+
-            //"<div class='loading text dimmer' data-bind='visible:isLoadingAreas'></div>",
+            "</div>"+
+            "<div class='loading text dimmer' data-bind='visible:isLoadingAreas'></div>",
             modalOptions: {
                 backdrop: false
             },

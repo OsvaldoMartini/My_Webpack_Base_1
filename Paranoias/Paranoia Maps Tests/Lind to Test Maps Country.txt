@@ -1,0 +1,92 @@
+Search.js
+Search http:
+http://dcmpml.ihs.com:9077/v1/resources/DocumentQuery?rs:fstht=1&rs:nohts=2147483647&rs:exn=&rs:coll=Installations&rs:key=Installations&rs:exbst=false&rs:q=&rs:sort=
+http://dcmpml.ihs.com:9077/v1/resources/DocumentQuery?rs:fstht=1&rs:nohts=2147483647&rs:exn=&rs:coll=Installations&rs:key=Installations&rs:exbst=false&rs:q=&rs:sort=
+http://dcmpml.ihs.com:9077/v1/resources/DocumentQuery?rs:fstht=1&rs:nohts=0&rs:exn=true&rs:coll=AllJanes,Port,Installations&rs:key=AllJanes&rs:exbst=false&rs:q=&rs:sort=-relevancy,-mlMetaData/mlPostDate
+
+{StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Connection: Keep-Alive
+  Keep-Alive: timeout=5
+  Server: MarkLogic
+  Content-Length: 10114
+  Content-Type: application/xml; charset=UTF-8
+}}
+
+
+"f=geoarea(Libya)<and>latlongs(11.02614,-147.78320||65.30208,186.90430)&pg=1&map=20.000000,47.531119,3&ml=bases,ew,sam,"
+"f=geoarea(Libya)<and>latlongs(11.02614,-147.78320||65.30208,186.90430)&pg=1&map=19.560547,43.976024,3&ml=bases,ew,sam,"
+"categoryName=BASE_MAP&zoom=3&f=geoarea(Libya)<and>latlongs(11.02614,-147.78320||65.30208,186.90430)<and>TYPE(Air||Land||Sea)&pg=1&disableAggregation=true&highFidelity=true&type=Marker&tolerance=19567.87924099992"
+"categoryName=BASE_MAP&zoom=3&f=geoarea(Libya)<and>latlongs(-45.93682,-148.83789||67.34780,188.83789)<and>TYPE(Air||Land||Sea)&pg=1&disableAggregation=true&highFidelity=true&type=Marker&tolerance=19567.87924099992"
+"categoryName=EW_MAP&zoom=3&f=geoarea(Libya)<and>latlongs(-45.93682,-148.83789||67.34780,188.83789)&pg=1&disableAggregation=true&highFidelity=true&type=Marker&tolerance=19567.87924099992"
+"categoryName=SAM_MAP&zoom=3&f=geoarea(Libya)<and>latlongs(-45.93682,-148.83789||67.34780,188.83789)&pg=1&disableAggregation=true&highFidelity=true&type=Marker&tolerance=19567.87924099992"
+
+Libya
+http://localhost:57592/Map#f=geoarea(ovawDekix@nhnC{ykAdtbCk{U~l~AtwXbqlAs|d@tkqB|ob@nubAyuNpmJyhNbfk@~aDpbXltHdwYr{cAlvXdvEnmBfpUl~pD{q%60C|ofA_\lz{@emc@neTul[lTw|pBhgw@gmnAfnpCoi}Bjy|@mn}GzqjB_vjC}t}Cy~aJzmaWu~xo@si%60BiAU_jbE}lqw@xNoelDply@gudAs_o@_is@ohLyjxB~|\wzq@cex@ety@|~\wtHtlpDij_@xdgAm_FbomAzrJEix]laj@qf[ahKkab@|nIcaz@dkzDrjAdbdBfhWnja@%60_GfhkA~rh@vo}A|yeA%60q~Azah@rsZlci@p%60DzruBurp@jeu@xrS%60sxA|zwAlw[rdlBaxZtviAajdAnwvAyd^dsgAqaw@fnsEsxFr{{Bsi\%60kkAc|t@xyo@_}fC~gq@{iYlbpCu~b@xqm@waRpf}BqySxmh@urClz%60@j{W|dxAivDdbpAeebA|awCvlcBjqOb|e@}nU%60j}AbywDjxk@fyUf}Fd_k@~ol@rba@vziAig]vnhA~xK|}cAfq|@n}d@lybB)%3Cand%3Elatlongs(-45.69318,-148.83789||67.48205,188.83789)&pg=1&map=20.000000,20.073417,3
+http://localhost:57592/Map#f=latlongs(-45.69318,-148.83789||67.48205,188.83789)%3Cand%3Egeoarea(ovawDekix@nhnC{ykAdtbCk{U~l~AtwXbqlAs|d@tkqB|ob@nubAyuNpmJyhNbfk@~aDpbXltHdwYr{cAlvXdvEnmBfpUl~pD{q%60C|ofA_\lz{@emc@neTul[lTw|pBhgw@gmnAfnpCoi}Bjy|@mn}GzqjB_vjC}t}Cy~aJzmaWu~xo@si%60BiAU_jbE}lqw@xNoelDply@gudAs_o@_is@ohLyjxB~|\wzq@cex@ety@|~\wtHtlpDij_@xdgAm_FbomAzrJEix]laj@qf[ahKkab@|nIcaz@dkzDrjAdbdBfhWnja@%60_GfhkA~rh@vo}A|yeA%60q~Azah@rsZlci@p%60DzruBurp@jeu@xrS%60sxA|zwAlw[rdlBaxZtviAajdAnwvAyd^dsgAqaw@fnsEsxFr{{Bsi\%60kkAc|t@xyo@_}fC~gq@{iYlbpCu~b@xqm@waRpf}BqySxmh@urClz%60@j{W|dxAivDdbpAeebA|awCvlcBjqOb|e@}nU%60j}AbywDjxk@fyUf}Fd_k@~ol@rba@vziAig]vnhA~xK|}cAfq|@n}d@lybB)&pg=1&map=20.000000,20.073417,3
+Removed
+http://localhost:57592/Map#f=latlongs(-45.69318,-148.83789||67.48205,188.83789)&pg=1&map=20.000000,20.073417,3
+
+Saudita Arabia
+http://localhost:57592/Map#f=latlongs(-45.69318,-148.83789||67.48205,188.83789)%3Cand%3Egeoarea(_parDyxhtErraClq%60@zz[ctDr_tAjil@vjK}{HafTcrJbfM}jJ}vJ}ct@fxMyzg@bcHd}Iryj@kfr@dpaAmt^jxg@gei@txT%60o@~w%60BujvAfm_B_ro@vxPmph@bma@xkKxjf@ovw@zq|Aio|@bnz@omB%60eGd_UpwjAyvz@~~KlzEbgWcd\yeJmuUvo\on%60@g}J_sOjeLbxAl~eAijfBpzqBkr}@bn_@sj@~r^wbb@ebMpsVhxb@{u^rvkAudO{wGquHt%60j@~sT%60hWg{BhwPjdNsgLm|A|sCtaJ~wz@ai\ijJamI~pKx%60Illw@wgSrdS%60|Oxzg@u_PnrgCotfBfpZegk@q~FjdI~pDegi@biz@kzqAdog@gcUrv@eaX~r[}FdoTaqb@t_[rw@|ll@qnVljEmePrfXtaEpaUy_Uzwk@cg@~xRmb%60@hjv@asMpykAs~u@n~lAoxhB|pqA}vI}v^\%60ua@uob@bxU|yCru\}{a@ta_AaeJrKmqd@cpQve@odE_h%60@c|Z{aAjrDsdSsu\kfEcrUzeXkvVgnG~gBcfLohRfuPkg[cpGoyGoiYwzVvtTwlXcgXjni@{d|AemQyigBDeceD~oRsxb@rgO_vgCcoEo}}Bbb%60Aoyo@?qxb@{p_@ijv@cb%60Ac%60Yk~jCs|pBo{vAwhuDgp_@godIkii@kslFye_Eu}iQ_ihKke%60C}giCrrwAnqMhzMod{@ddrN_wfF%60l%60EiyXtAeaLp%60\~zChg\moX}zDwb[gvb@g}H%60mSlxUdaPxjF|zh@qnMvc%60@{{e@l{U|aHvsFux%60@xoGsu%60@xq_@yteAfsLecThuTr%60ScuBakv@bsn@m%60Hn|BjmXebXs%60hAr|]wf@zwS}bh@wqEvx^wvVsz_AigOk{IvjL{bRonD%60uRn~FmjMtjC{NdeQq}n@xyFblT{b%60@ax]pg]woN{fE|dN~lEowc@zpbAomHm%60EmtCp{N{lEkjR%60cDdsRkyNzvH{tZapJtuVrcMmjV%60%60Oxd%60@oiGgkAl{Y{aLekFpcAxiOepZpv@daAjoRy|MorH}xCjpZcjAknb@qmRrjJssOvhoA{_JkyEcyGvlQqpUepFhzLhzBgzJyoHh{L{aD}iP{i@ilW~hZexFqnHqnD%60z[idiAxtRb~CtsMu%60UaeEuvDvszCia|Ajpm@che@~twO}osJnvdOodr@fwwBoapBbcjEwxg@|_kFf_]%60}d@~o%60BvreKn%60bEmkbEzy_@xg%60Ad}_Azj]|dYpanClhtA%60k%60Adeo@rphAuq]huzE)&pg=1&map=20.000000,20.073417,3
+http://localhost:57592/Map#f=geoarea(_parDyxhtErraClq%60@zz[ctDr_tAjil@vjK}{HafTcrJbfM}jJ}vJ}ct@fxMyzg@bcHd}Iryj@kfr@dpaAmt^jxg@gei@txT%60o@~w%60BujvAfm_B_ro@vxPmph@bma@xkKxjf@ovw@zq|Aio|@bnz@omB%60eGd_UpwjAyvz@~~KlzEbgWcd\yeJmuUvo\on%60@g}J_sOjeLbxAl~eAijfBpzqBkr}@bn_@sj@~r^wbb@ebMpsVhxb@{u^rvkAudO{wGquHt%60j@~sT%60hWg{BhwPjdNsgLm|A|sCtaJ~wz@ai\ijJamI~pKx%60Illw@wgSrdS%60|Oxzg@u_PnrgCotfBfpZegk@q~FjdI~pDegi@biz@kzqAdog@gcUrv@eaX~r[}FdoTaqb@t_[rw@|ll@qnVljEmePrfXtaEpaUy_Uzwk@cg@~xRmb%60@hjv@asMpykAs~u@n~lAoxhB|pqA}vI}v^\%60ua@uob@bxU|yCru\}{a@ta_AaeJrKmqd@cpQve@odE_h%60@c|Z{aAjrDsdSsu\kfEcrUzeXkvVgnG~gBcfLohRfuPkg[cpGoyGoiYwzVvtTwlXcgXjni@{d|AemQyigBDeceD~oRsxb@rgO_vgCcoEo}}Bbb%60Aoyo@?qxb@{p_@ijv@cb%60Ac%60Yk~jCs|pBo{vAwhuDgp_@godIkii@kslFye_Eu}iQ_ihKke%60C}giCrrwAnqMhzMod{@ddrN_wfF%60l%60EiyXtAeaLp%60\~zChg\moX}zDwb[gvb@g}H%60mSlxUdaPxjF|zh@qnMvc%60@{{e@l{U|aHvsFux%60@xoGsu%60@xq_@yteAfsLecThuTr%60ScuBakv@bsn@m%60Hn|BjmXebXs%60hAr|]wf@zwS}bh@wqEvx^wvVsz_AigOk{IvjL{bRonD%60uRn~FmjMtjC{NdeQq}n@xyFblT{b%60@ax]pg]woN{fE|dN~lEowc@zpbAomHm%60EmtCp{N{lEkjR%60cDdsRkyNzvH{tZapJtuVrcMmjV%60%60Oxd%60@oiGgkAl{Y{aLekFpcAxiOepZpv@daAjoRy|MorH}xCjpZcjAknb@qmRrjJssOvhoA{_JkyEcyGvlQqpUepFhzLhzBgzJyoHh{L{aD}iP{i@ilW~hZexFqnHqnD%60z[idiAxtRb~CtsMu%60UaeEuvDvszCia|Ajpm@che@~twO}osJnvdOodr@fwwBoapBbcjEwxg@|_kFf_]%60}d@~o%60BvreKn%60bEmkbEzy_@xg%60Ad}_Azj]|dYpanClhtA%60k%60Adeo@rphAuq]huzE)%3Cand%3Elatlongs(-45.69318,-148.83789||67.48205,188.83789)&pg=1&map=20.000000,20.073417,3
+Removed
+http://localhost:57592/Map#f=latlongs(-45.69318,-148.83789||67.48205,188.83789)&pg=1&map=20.000000,20.073417,3
+
+http://localhost:57592/Map#f=latlongs(-45.69318,-148.83789||67.48205,188.83789)%3Cand%3Egeoarea(ovawDekix@nhnC{ykAdtbCk{U~l~AtwXbqlAs|d@tkqB|ob@nubAyuNpmJyhNbfk@~aDpbXltHdwYr{cAlvXdvEnmBfpUl~pD{q%60C|ofA_\lz{@emc@neTul[lTw|pBhgw@gmnAfnpCoi}Bjy|@mn}GzqjB_vjC}t}Cy~aJzmaWu~xo@si%60BiAU_jbE}lqw@xNoelDply@gudAs_o@_is@ohLyjxB~|\wzq@cex@ety@|~\wtHtlpDij_@xdgAm_FbomAzrJEix]laj@qf[ahKkab@|nIcaz@dkzDrjAdbdBfhWnja@%60_GfhkA~rh@vo}A|yeA%60q~Azah@rsZlci@p%60DzruBurp@jeu@xrS%60sxA|zwAlw[rdlBaxZtviAajdAnwvAyd^dsgAqaw@fnsEsxFr{{Bsi\%60kkAc|t@xyo@_}fC~gq@{iYlbpCu~b@xqm@waRpf}BqySxmh@urClz%60@j{W|dxAivDdbpAeebA|awCvlcBjqOb|e@}nU%60j}AbywDjxk@fyUf}Fd_k@~ol@rba@vziAig]vnhA~xK|}cAfq|@n}d@lybB,_parDyxhtErraClq%60@zz[ctDr_tAjil@vjK}{HafTcrJbfM}jJ}vJ}ct@fxMyzg@bcHd}Iryj@kfr@dpaAmt^jxg@gei@txT%60o@~w%60BujvAfm_B_ro@vxPmph@bma@xkKxjf@ovw@zq|Aio|@bnz@omB%60eGd_UpwjAyvz@~~KlzEbgWcd\yeJmuUvo\on%60@g}J_sOjeLbxAl~eAijfBpzqBkr}@bn_@sj@~r^wbb@ebMpsVhxb@{u^rvkAudO{wGquHt%60j@~sT%60hWg{BhwPjdNsgLm|A|sCtaJ~wz@ai\ijJamI~pKx%60Illw@wgSrdS%60|Oxzg@u_PnrgCotfBfpZegk@q~FjdI~pDegi@biz@kzqAdog@gcUrv@eaX~r[}FdoTaqb@t_[rw@|ll@qnVljEmePrfXtaEpaUy_Uzwk@cg@~xRmb%60@hjv@asMpykAs~u@n~lAoxhB|pqA}vI}v^\%60ua@uob@bxU|yCru\}{a@ta_AaeJrKmqd@cpQve@odE_h%60@c|Z{aAjrDsdSsu\kfEcrUzeXkvVgnG~gBcfLohRfuPkg[cpGoyGoiYwzVvtTwlXcgXjni@{d|AemQyigBDeceD~oRsxb@rgO_vgCcoEo}}Bbb%60Aoyo@?qxb@{p_@ijv@cb%60Ac%60Yk~jCs|pBo{vAwhuDgp_@godIkii@kslFye_Eu}iQ_ihKke%60C}giCrrwAnqMhzMod{@ddrN_wfF%60l%60EiyXtAeaLp%60\~zChg\moX}zDwb[gvb@g}H%60mSlxUdaPxjF|zh@qnMvc%60@{{e@l{U|aHvsFux%60@xoGsu%60@xq_@yteAfsLecThuTr%60ScuBakv@bsn@m%60Hn|BjmXebXs%60hAr|]wf@zwS}bh@wqEvx^wvVsz_AigOk{IvjL{bRonD%60uRn~FmjMtjC{NdeQq}n@xyFblT{b%60@ax]pg]woN{fE|dN~lEowc@zpbAomHm%60EmtCp{N{lEkjR%60cDdsRkyNzvH{tZapJtuVrcMmjV%60%60Oxd%60@oiGgkAl{Y{aLekFpcAxiOepZpv@daAjoRy|MorH}xCjpZcjAknb@qmRrjJssOvhoA{_JkyEcyGvlQqpUepFhzLhzBgzJyoHh{L{aD}iP{i@ilW~hZexFqnHqnD%60z[idiAxtRb~CtsMu%60UaeEuvDvszCia|Ajpm@che@~twO}osJnvdOodr@fwwBoapBbcjEwxg@|_kFf_]%60}d@~o%60BvreKn%60bEmkbEzy_@xg%60Ad}_Azj]|dYpanClhtA%60k%60Adeo@rphAuq]huzE)&pg=1&map=20.000000,20.073417,3
+
+Libya and Saudita Arabia
+http://localhost:57592/Map#f=geoarea(_%60edFuyjpK~u{@puk@oa@x_nAjzX%60tgAttc@ghGhxv@dva@zbe@wtBtif@btd@zbUtqcAjsXz|C}nFrwNly%60@tnhD%60}a@ycXfiLd%60]fte@aVlm_@nldAhrGtoUm}Lbk\~r\xz%60@kr_@drF}_Ztjf@q\d_|A{kc@l}h@thClbRbn{@dsOdzD%60lRvhb@itIrtvAjs\pjUzrp@nrh@s|c@ss@bnn@rul@bsh@bmiBcuc@%60dCoxv@nwiArefAvqtDyhy@%60pjCnrCzuTm}dDdbmAm_X~rZ~bEln}DxqtDtv|Am|uHy%60TkcwEljTyhiB_xRoeIkvOkis@lwDwqxB}d|@}zgFizVw~VqoRxe[qpcAqzYkw[lhPomgAugUihFwhc@i~k@yq\oxRsek@cO}%60O~~Q_dEt|Awng@itVah~AujNg~B~i@ro[mwXfsLjx@qy[glXqas@egd@itc@bbWmsgA_yFqeH{}@|s]w}Ly{Zxhh@y|h@hwCmcWeb_Au_pAcvfBfzP{%60f@yyh@y%60UlpKspS}{]en[%60uHgxNmfOs}Em}tAapd@}i{@o_d@pn]ahg@x{DuWdtYwhe@pu[ucUgqGzfRaesB{rEgejAcpPs~e@}ly@khQsm%60@zd_@egcCgxaCijRf_ZywXqeUekXhhF}fJdhVwvQodIqcm@r~%60@abNdtb@sow@ekiAam[wuJhoMqk%60@{oSRiv\_hlAykQeuGmqRaanA}gM}hgFbbPg~s@e%60a@{f|@p_Ii_Uuvb@~bOezQ{zGcyGwio@tcKadZinXvcOmgMpkaA~cA~nj@nnNjyFzhTtehAk~@|z%60@stf@grVmmC|i{Abdl@rh~A%60~g@xrZ|hFbdbAtlz@~f~A|t@vq_@{~lAn%60o@{_eDww^iRjs%60A_z_Ak%60Vk|l@|ijA%60}Mdty@%60ex@dkb@~%60d@%60c%60Apxl@oqXbj_@fnXkiP~tr@|mIbaQs_Dzlv@%60ih@tk_@t{]m_OvgXhgd@{zn@bheA~lKkmDmaHh~QdaO|t@_cFp}[lsKtiB|%60v@bxzBo|\|xk@mdZrkJshHxam@hnO%60on@exe@%60jz@l{Kxd|B}nl@|djB,_parDyxhtErraClq%60@zz[ctDr_tAjil@vjK}{HafTcrJbfM}jJ}vJ}ct@fxMyzg@bcHd}Iryj@kfr@dpaAmt^jxg@gei@txT%60o@~w%60BujvAfm_B_ro@vxPmph@bma@xkKxjf@ovw@zq|Aio|@bnz@omB%60eGd_UpwjAyvz@~~KlzEbgWcd\yeJmuUvo\on%60@g}J_sOjeLbxAl~eAijfBpzqBkr}@bn_@sj@~r^wbb@ebMpsVhxb@{u^rvkAudO{wGquHt%60j@~sT%60hWg{BhwPjdNsgLm|A|sCtaJ~wz@ai\ijJamI~pKx%60Illw@wgSrdS%60|Oxzg@u_PnrgCotfBfpZegk@q~FjdI~pDegi@biz@kzqAdog@gcUrv@eaX~r[}FdoTaqb@t_[rw@|ll@qnVljEmePrfXtaEpaUy_Uzwk@cg@~xRmb%60@hjv@asMpykAs~u@n~lAoxhB|pqA}vI}v^\%60ua@uob@bxU|yCru\}{a@ta_AaeJrKmqd@cpQve@odE_h%60@c|Z{aAjrDsdSsu\kfEcrUzeXkvVgnG~gBcfLohRfuPkg[cpGoyGoiYwzVvtTwlXcgXjni@{d|AemQyigBDeceD~oRsxb@rgO_vgCcoEo}}Bbb%60Aoyo@?qxb@{p_@ijv@cb%60Ac%60Yk~jCs|pBo{vAwhuDgp_@godIkii@kslFye_Eu}iQ_ihKke%60C}giCrrwAnqMhzMod{@ddrN_wfF%60l%60EiyXtAeaLp%60\~zChg\moX}zDwb[gvb@g}H%60mSlxUdaPxjF|zh@qnMvc%60@{{e@l{U|aHvsFux%60@xoGsu%60@xq_@yteAfsLecThuTr%60ScuBakv@bsn@m%60Hn|BjmXebXs%60hAr|]wf@zwS}bh@wqEvx^wvVsz_AigOk{IvjL{bRonD%60uRn~FmjMtjC{NdeQq}n@xyFblT{b%60@ax]pg]woN{fE|dN~lEowc@zpbAomHm%60EmtCp{N{lEkjR%60cDdsRkyNzvH{tZapJtuVrcMmjV%60%60Oxd%60@oiGgkAl{Y{aLekFpcAxiOepZpv@daAjoRy|MorH}xCjpZcjAknb@qmRrjJssOvhoA{_JkyEcyGvlQqpUepFhzLhzBgzJyoHh{L{aD}iP{i@ilW~hZexFqnHqnD%60z[idiAxtRb~CtsMu%60UaeEuvDvszCia|Ajpm@che@~twO}osJnvdOodr@fwwBoapBbcjEwxg@|_kFf_]%60}d@~o%60BvreKn%60bEmkbEzy_@xg%60Ad}_Azj]|dYpanClhtA%60k%60Adeo@rphAuq]huzE)%3Cand%3Elatlongs(-6.34047,-42.44629||54.70999,126.39160)&pg=1&map=41.972656,28.398112,4&ml=bases,ew,sam,nuclear,
+http://localhost:57592/Map#f=geoarea(_parDyxhtErraClq%60@zz[ctDr_tAjil@vjK}{HafTcrJbfM}jJ}vJ}ct@fxMyzg@bcHd}Iryj@kfr@dpaAmt^jxg@gei@txT%60o@~w%60BujvAfm_B_ro@vxPmph@bma@xkKxjf@ovw@zq|Aio|@bnz@omB%60eGd_UpwjAyvz@~~KlzEbgWcd\yeJmuUvo\on%60@g}J_sOjeLbxAl~eAijfBpzqBkr}@bn_@sj@~r^wbb@ebMpsVhxb@{u^rvkAudO{wGquHt%60j@~sT%60hWg{BhwPjdNsgLm|A|sCtaJ~wz@ai\ijJamI~pKx%60Illw@wgSrdS%60|Oxzg@u_PnrgCotfBfpZegk@q~FjdI~pDegi@biz@kzqAdog@gcUrv@eaX~r[}FdoTaqb@t_[rw@|ll@qnVljEmePrfXtaEpaUy_Uzwk@cg@~xRmb%60@hjv@asMpykAs~u@n~lAoxhB|pqA}vI}v^\%60ua@uob@bxU|yCru\}{a@ta_AaeJrKmqd@cpQve@odE_h%60@c|Z{aAjrDsdSsu\kfEcrUzeXkvVgnG~gBcfLohRfuPkg[cpGoyGoiYwzVvtTwlXcgXjni@{d|AemQyigBDeceD~oRsxb@rgO_vgCcoEo}}Bbb%60Aoyo@?qxb@{p_@ijv@cb%60Ac%60Yk~jCs|pBo{vAwhuDgp_@godIkii@kslFye_Eu}iQ_ihKke%60C}giCrrwAnqMhzMod{@ddrN_wfF%60l%60EiyXtAeaLp%60\~zChg\moX}zDwb[gvb@g}H%60mSlxUdaPxjF|zh@qnMvc%60@{{e@l{U|aHvsFux%60@xoGsu%60@xq_@yteAfsLecThuTr%60ScuBakv@bsn@m%60Hn|BjmXebXs%60hAr|]wf@zwS}bh@wqEvx^wvVsz_AigOk{IvjL{bRonD%60uRn~FmjMtjC{NdeQq}n@xyFblT{b%60@ax]pg]woN{fE|dN~lEowc@zpbAomHm%60EmtCp{N{lEkjR%60cDdsRkyNzvH{tZapJtuVrcMmjV%60%60Oxd%60@oiGgkAl{Y{aLekFpcAxiOepZpv@daAjoRy|MorH}xCjpZcjAknb@qmRrjJssOvhoA{_JkyEcyGvlQqpUepFhzLhzBgzJyoHh{L{aD}iP{i@ilW~hZexFqnHqnD%60z[idiAxtRb~CtsMu%60UaeEuvDvszCia|Ajpm@che@~twO}osJnvdOodr@fwwBoapBbcjEwxg@|_kFf_]%60}d@~o%60BvreKn%60bEmkbEzy_@xg%60Ad}_Azj]|dYpanClhtA%60k%60Adeo@rphAuq]huzE,ovawDekix@nhnC{ykAdtbCk{U~l~AtwXbqlAs|d@tkqB|ob@nubAyuNpmJyhNbfk@~aDpbXltHdwYr{cAlvXdvEnmBfpUl~pD{q%60C|ofA_\lz{@emc@neTul[lTw|pBhgw@gmnAfnpCoi}Bjy|@mn}GzqjB_vjC}t}Cy~aJzmaWu~xo@si%60BiAU_jbE}lqw@xNoelDply@gudAs_o@_is@ohLyjxB~|\wzq@cex@ety@|~\wtHtlpDij_@xdgAm_FbomAzrJEix]laj@qf[ahKkab@|nIcaz@dkzDrjAdbdBfhWnja@%60_GfhkA~rh@vo}A|yeA%60q~Azah@rsZlci@p%60DzruBurp@jeu@xrS%60sxA|zwAlw[rdlBaxZtviAajdAnwvAyd^dsgAqaw@fnsEsxFr{{Bsi\%60kkAc|t@xyo@_}fC~gq@{iYlbpCu~b@xqm@waRpf}BqySxmh@urClz%60@j{W|dxAivDdbpAeebA|awCvlcBjqOb|e@}nU%60j}AbywDjxk@fyUf}Fd_k@~ol@rba@vziAig]vnhA~xK|}cAfq|@n}d@lybB)%3Cand%3Elatlongs(-45.69318,-148.83789||67.48205,188.83789)&pg=1&map=20.000000,20.073417,3
+
+http://localhost:57592/Map#f=geoarea(Kazakhstan%3Cand%3ELibya)%3Cand%3Elatlongs(-7.14987,-187.98162||59.46466,146.70588)&pg=1&map=-19.143734,31.835637,3&ml=null,jtic_hm,bases,ew,sam,
+
+
+C:\Workspace\CMP\Main\Source\Web\UI\JavaScriptTests\Assets\_EXAMPLE.html
+
+C:\Workspace\CMP\Main\Source\Web\UI\JavaScriptTests\Assets\Javascript\Results\FacetsVMTests.html
+
+
+C:\Workspace\CMP\Main\Source\Web\UI\JavaScriptTests\Assets\Javascript\MapDrawingTests.html
+
+f=geoarea(Albania)<and>latlongs(-63.42253,-148.83789||52.11794,188.83789)&pg=1&map=20.000000,-10.642313,3
+
+
+FacetTypeAheadVM.js
+
+
+C:\Workspace\CMP\Main\Source\Web\UI\Assets\Javascript\Results\Facets\FacetTypeAheadVM.js
+
+
+
+<!-- ko if: $data.selectedItems  -->
+
+
+setViewingArea
+
+
+ <div class="grid-1-5">
+        <div>
+            <h4>Selected </h4>
+            <div data-bind="scrollbar:{}" style="height: 500px;">
+                <ul class="u-padding-Ln list-unstyled ">
+                    <!-- ko foreach: $data.facetsVM.facetPanels() -->
+                    <!-- ko foreach: facets() -->
+                    <!-- ko foreach: children() -->
+                    <!-- ko if: $data.selectedItems  -->
+                    <!-- ko foreach: selectedItems() -->
+                    <li class="u-padding-Bxxs">
+                        <button class="btn btn-link u-padding-An" data-bind="click: $parent.removeItem">
+                            <i class="icon-cancel"></i>
+                        </button>
+                        <span data-bind="html:$data"></span>
+                        <span class="u-font-85 grey2 " data-bind="text:$parents[1].displayText"></span>
+                    </li>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                    <!-- /ko -->
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </ul>
+            </div>
+        </div>

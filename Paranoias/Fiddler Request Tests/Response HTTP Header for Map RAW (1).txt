@@ -1,0 +1,857 @@
+HTTP/1.1 200 OK
+Content-type: application/xml; charset=UTF-8
+Server: MarkLogic
+Content-Length: 32775
+Connection: Keep-Alive
+Keep-Alive: timeout=5
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SEGMENTS>
+  <SEGMENT COLLECTION="Installations">
+    <RESULTPAGE>
+      <QUERYTRANSFORMS>
+	<QUERYTRANSFORM NAME="FastQT_DidYouMean" MESSAGEID="14" MESSAGE="Spellcheck suggestion for string node" CUSTOM="" QUERY="" ACTION="Suggested new query" INSTANCE="didyoumean"/>
+      </QUERYTRANSFORMS>
+      <NAVIGATION ENTRIES="109">
+	<NAVENTRY NAME="postdate" DISPLAYNAME="Post Date" DISPLAYTYPE="" DOCCOUNT="27" TYPE="date" ENTITLEMENTS="" MIN="2018-06-22" MAX="2018-07-30"/>
+	<NAVENTRY NAME="region" DISPLAYNAME="Region" DISPLAYTYPE="" DOCCOUNT="26" TYPE="string" ENTITLEMENTS="" MIN="China and Northeast Asia" MAX="Western Europe">
+	  <NAVS COUNT="8" CUTOFF="20000">
+	    <NAV V="Western Europe" NO="8"/>
+	    <NAV V="China and Northeast Asia" NO="4"/>
+	    <NAV V="South Asia" NO="4"/>
+	    <NAV V="Russia and the CIS" NO="3"/>
+	    <NAV V="Oceania" NO="2"/>
+	    <NAV V="Southeast Asia" NO="2"/>
+	    <NAV V="The Gulf States" NO="2"/>
+	    <NAV V="North America" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="country" DISPLAYNAME="Country" DISPLAYTYPE="" DOCCOUNT="26" TYPE="string" ENTITLEMENTS="" MIN="Afghanistan" MAX="United States">
+	  <NAVS COUNT="10" CUTOFF="20000">
+	    <NAV V="United Kingdom" NO="8"/>
+	    <NAV V="Afghanistan" NO="4"/>
+	    <NAV V="Ukraine" NO="3"/>
+	    <NAV V="Japan" NO="2"/>
+	    <NAV V="New Zealand" NO="2"/>
+	    <NAV V="South Korea" NO="2"/>
+	    <NAV V="Thailand" NO="2"/>
+	    <NAV V="Bahrain" NO="1"/>
+	    <NAV V="United Arab Emirates" NO="1"/>
+	    <NAV V="United States" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="countryiso" DISPLAYNAME="Country ISO" DISPLAYTYPE="" DOCCOUNT="26" TYPE="string" ENTITLEMENTS="" MIN="AE" MAX="US">
+	  <NAVS COUNT="10" CUTOFF="20000">
+	    <NAV V="GB" NO="8"/>
+	    <NAV V="AF" NO="4"/>
+	    <NAV V="UA" NO="3"/>
+	    <NAV V="JP" NO="2"/>
+	    <NAV V="KR" NO="2"/>
+	    <NAV V="NZ" NO="2"/>
+	    <NAV V="TH" NO="2"/>
+	    <NAV V="AE" NO="1"/>
+	    <NAV V="BH" NO="1"/>
+	    <NAV V="US" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="type" DISPLAYNAME="Type" DISPLAYTYPE="fixedtree" DOCCOUNT="27" TYPE="string" ENTITLEMENTS="" MIN="Air" MAX="Land">
+	  <NAVS COUNT="2" CUTOFF="20000">
+	    <NAV V="Air" NO="23"/>
+	    <NAV V="Land" NO="4"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="operatorcountry" DISPLAYNAME="Operator Country" DISPLAYTYPE="" DOCCOUNT="3" TYPE="string" ENTITLEMENTS="" MIN="Afghanistan" MAX="Afghanistan">
+	  <NAVS COUNT="1" CUTOFF="20000">
+	    <NAV V="Afghanistan" NO="3"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="subtype" DISPLAYNAME="Sub Type" DISPLAYTYPE="" DOCCOUNT="27" TYPE="string" ENTITLEMENTS="" MIN="Air strip" MAX="Heliport">
+	  <NAVS COUNT="4" CUTOFF="20000">
+	    <NAV V="Air strip" NO="21"/>
+	    <NAV V="Airport" NO="21"/>
+	    <NAV V="Base" NO="6"/>
+	    <NAV V="Heliport" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="orbatparent" DISPLAYNAME="Unit Name" DISPLAYTYPE="" DOCCOUNT="1" TYPE="string" ENTITLEMENTS="JMSA,MILCAPS,JORBINV" MIN="Afghan Air Force" MAX="Afghan Air Force¶Kabul Air Wing¶1 Wing">
+	  <NAVS COUNT="3" CUTOFF="20000">
+	    <NAV V="Afghan Air Force" NO="1"/>
+	    <NAV V="Afghan Air Force¶Kabul Air Wing" NO="1"/>
+	    <NAV V="Afghan Air Force¶Kabul Air Wing¶1 Wing" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="numberofrunways" DISPLAYNAME="Number of Runways" DISPLAYTYPE="" DOCCOUNT="1" TYPE="int" ENTITLEMENTS="" MIN="1" MAX="1">
+	  <NAVS COUNT="1" CUTOFF="20000">
+	    <NAV V="1" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="runwaysurface" DISPLAYNAME="Runway Surface" DISPLAYTYPE="" DOCCOUNT="19" TYPE="string" ENTITLEMENTS="" MIN="Asphalt" MAX="Unpaved">
+	  <NAVS COUNT="5" CUTOFF="20000">
+	    <NAV V="Asphalt" NO="11"/>
+	    <NAV V="Asphalt, concrete" NO="6"/>
+	    <NAV V="Unpaved" NO="2"/>
+	    <NAV V="Concrete" NO="1"/>
+	    <NAV V="Paved" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="runwaypcn" DISPLAYNAME="Runway PCN" DISPLAYTYPE="" DOCCOUNT="12" TYPE="string" ENTITLEMENTS="" MIN="114/F/D/W/U" MAX="85/R/C/W/T">
+	  <NAVS COUNT="8" CUTOFF="20000">
+	    <NAV V="114/F/D/W/U" NO="2"/>
+	    <NAV V="26/F/B/W/T" NO="2"/>
+	    <NAV V="64/F/W/T" NO="2"/>
+	    <NAV V="85/R/C/W/T" NO="2"/>
+	    <NAV V="5/R/C/U" NO="1"/>
+	    <NAV V="52/F/B/W/T" NO="1"/>
+	    <NAV V="52/F/X/T" NO="1"/>
+	    <NAV V="80/F/B/W/T" NO="1"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="operatorservicetype" DISPLAYNAME="Operator Service Type" DISPLAYTYPE="" DOCCOUNT="3" TYPE="string" ENTITLEMENTS="" MIN="Air Force" MAX="Air Force">
+	  <NAVS COUNT="1" CUTOFF="20000">
+	    <NAV V="Air Force" NO="3"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="installationstatus" DISPLAYNAME="Installation Status" DISPLAYTYPE="" DOCCOUNT="27" TYPE="string" ENTITLEMENTS="" MIN="Active" MAX="Active">
+	  <NAVS COUNT="1" CUTOFF="20000">
+	    <NAV V="Active" NO="27"/>
+	  </NAVS>
+	</NAVENTRY>
+	<NAVENTRY NAME="installationtype" DISPLAYNAME="Installation Type" DISPLAYTYPE="" DOCCOUNT="27" TYPE="string" ENTITLEMENTS="" MIN="Base" MAX="Civil">
+	  <NAVS COUNT="2" CUTOFF="20000">
+	    <NAV V="Base" NO="27"/>
+	    <NAV V="Civil" NO="22"/>
+	  </NAVS>
+	</NAVENTRY>
+      </NAVIGATION>
+      <PARAMS>
+	<map:map xmlns:map="http://marklogic.com/xdmp/map" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	  <map:entry key="q">
+	    <map:value xsi:type="xs:string"/>
+	  </map:entry>
+	  <map:entry key="nohts">
+	    <map:value xsi:type="xs:string">0</map:value>
+	  </map:entry>
+	  <map:entry key="exn">
+	    <map:value xsi:type="xs:string"/>
+	  </map:entry>
+	  <map:entry key="fstht">
+	    <map:value xsi:type="xs:string">1</map:value>
+	  </map:entry>
+	  <map:entry key="tok">
+	    <map:value xsi:type="xs:string">standardtokens</map:value>
+	  </map:entry>
+	  <map:entry key="exbst">
+	    <map:value xsi:type="xs:string">false</map:value>
+	  </map:entry>
+	  <map:entry key="rv">
+	    <map:value xsi:type="xs:string">GeoMap</map:value>
+	  </map:entry>
+	  <map:entry key="coll">
+	    <map:value xsi:type="xs:string">Installations</map:value>
+	  </map:entry>
+	  <map:entry key="key">
+	    <map:value xsi:type="xs:string">Installations</map:value>
+	  </map:entry>
+	  <map:entry key="sort">
+	    <map:value xsi:type="xs:string"/>
+	  </map:entry>
+	  <map:entry key="rp">
+	    <map:value xsi:type="xs:string">profileA</map:value>
+	  </map:entry>
+	</map:map>
+      </PARAMS>
+      <DATALOAD>
+	<cts:matching-query xmlns:cts="http://marklogic.com/cts">
+	  <cts:and-query>
+	    <cts:or-query>
+	      <cts:element-pair-geospatial-query>
+		<cts:element>mlPoint</cts:element>
+		<cts:latitude>mlLat</cts:latitude>
+		<cts:longitude>mlLon</cts:longitude>
+		<cts:region xsi:type="cts:box" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">[-81.64422,-180,79.72193,-49.84283]</cts:region>
+		<cts:option>coordinate-system=wgs84</cts:option>
+	      </cts:element-pair-geospatial-query>
+	      <cts:element-pair-geospatial-query>
+		<cts:element>mlPoint</cts:element>
+		<cts:latitude>mlLat</cts:latitude>
+		<cts:longitude>mlLon</cts:longitude>
+		<cts:region xsi:type="cts:box" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">[-81.64422,-49.84283,79.72193,180]</cts:region>
+		<cts:option>coordinate-system=wgs84</cts:option>
+	      </cts:element-pair-geospatial-query>
+	    </cts:or-query>
+	    <cts:path-range-query operator="=" weight="0">
+	      <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='installationtype']/node</cts:path-expression>
+	      <cts:value>Base</cts:value>
+	    </cts:path-range-query>
+	    <cts:and-query>
+	      <cts:path-range-query operator="=" weight="0">
+		<cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		<cts:value>JMSA</cts:value>
+		<cts:value>JMLB</cts:value>
+		<cts:value>SECURITYCOUNTRYRISK</cts:value>
+		<cts:value>SECURITYMILCAP</cts:value>
+		<cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+	      </cts:path-range-query>
+	      <cts:path-range-query operator="=" weight="0">
+		<cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='userindicator']/node</cts:path-expression>
+		<cts:value>Military</cts:value>
+	      </cts:path-range-query>
+	    </cts:and-query>
+	    <cts:or-query>
+	      <cts:path-range-query operator="=" weight="0">
+		<cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		<cts:value>GEPS Reports</cts:value>
+		<cts:value>GEPS License Activity</cts:value>
+		<cts:value>GEPS Farm In</cts:value>
+		<cts:value>International Oil Letter</cts:value>
+		<cts:value>Daily Alert</cts:value>
+		<cts:value>Drilling Wire</cts:value>
+		<cts:value>Energy News On Demand</cts:value>
+		<cts:value>Political Risk Analysis</cts:value>
+		<cts:value>PEPS</cts:value>
+		<cts:value>Summary Analysis</cts:value>
+		<cts:value>Detailed Analysis</cts:value>
+		<cts:value>Laws and Contracts</cts:value>
+		<cts:value>Environmental Terms</cts:value>
+		<cts:value>Company Rankings</cts:value>
+		<cts:value>Country Rankings</cts:value>
+		<cts:value>Fiscal Overview</cts:value>
+		<cts:value>Fiscal Rankings</cts:value>
+		<cts:value>Fiscal Interactive</cts:value>
+		<cts:value>Ratings and Rankings</cts:value>
+		<cts:value>Company Data</cts:value>
+		<cts:value>Regional Data</cts:value>
+		<cts:value>Country Data</cts:value>
+		<cts:value>Transactions Analysis</cts:value>
+		<cts:value>Awards Analysis</cts:value>
+		<cts:value>OFFSETDRILLINGDATA</cts:value>
+		<cts:value>ODD and Benchmark</cts:value>
+		<cts:value>LICENSEPERMITS</cts:value>
+		<cts:value>RIGACTIVITY</cts:value>
+		<cts:value>energy.us.drilingdata</cts:value>
+		<cts:value>energy.us.rigdata</cts:value>
+		<cts:value>energy.us.field.idd.reduced</cts:value>
+		<cts:value>energy.us.well.idd.reduced</cts:value>
+		<cts:value>energy.us.activity.idd.reduced</cts:value>
+		<cts:value>Janes Suite</cts:value>
+		<cts:value>OnlineSeminar</cts:value>
+		<cts:value>DEFENCEINDUSTRY</cts:value>
+		<cts:value>DEFENCEAIRSPACE</cts:value>
+		<cts:value>DEFENCELAND</cts:value>
+		<cts:value>DEFENCENEWS</cts:value>
+		<cts:value>DEFENCESEA</cts:value>
+		<cts:value>DEFAIRPLAT</cts:value>
+		<cts:value>DEFLANDPLAT</cts:value>
+		<cts:value>DEFPLAT</cts:value>
+		<cts:value>DEFWEAP</cts:value>
+		<cts:value>DEFC4I</cts:value>
+		<cts:value>DEFEOD</cts:value>
+		<cts:value>JCBRN</cts:value>
+		<cts:value>JCBW</cts:value>
+		<cts:value>JDET</cts:value>
+		<cts:value>JDIM</cts:value>
+		<cts:value>JDIMPLUS</cts:value>
+		<cts:value>JMSA</cts:value>
+		<cts:value>SECURITYCOUNTRYRISK</cts:value>
+		<cts:value>SECURITYMILCAP</cts:value>
+		<cts:value>SECURITYNEWS</cts:value>
+		<cts:value>JDB_</cts:value>
+		<cts:value>JDSB</cts:value>
+		<cts:value>JDBDA</cts:value>
+		<cts:value>JSIM</cts:value>
+		<cts:value>OFFAD</cts:value>
+		<cts:value>JC4IL</cts:value>
+		<cts:value>JC4IM</cts:value>
+		<cts:value>SPECS_SEA</cts:value>
+		<cts:value>SPECS_LAND</cts:value>
+		<cts:value>SPECS_AIR</cts:value>
+		<cts:value>IWR</cts:value>
+		<cts:value>DIPR</cts:value>
+		<cts:value>JAE_</cts:value>
+		<cts:value>JATC</cts:value>
+		<cts:value>JACM</cts:value>
+		<cts:value>JAU_</cts:value>
+		<cts:value>JALW</cts:value>
+		<cts:value>JAR</cts:value>
+		<cts:value>CLA</cts:value>
+		<cts:value>EUR</cts:value>
+		<cts:value>FEA</cts:value>
+		<cts:value>MEA</cts:value>
+		<cts:value>USC</cts:value>
+		<cts:value>JAES</cts:value>
+		<cts:value>JAWA</cts:value>
+		<cts:value>JAH_</cts:value>
+		<cts:value>JASF</cts:value>
+		<cts:value>JAAU</cts:value>
+		<cts:value>JAV_</cts:value>
+		<cts:value>JC4I</cts:value>
+		<cts:value>JCFMON</cts:value>
+		<cts:value>JDIN</cts:value>
+		<cts:value>JDW</cts:value>
+		<cts:value>JEMA</cts:value>
+		<cts:value>JEOS</cts:value>
+		<cts:value>JEOD</cts:value>
+		<cts:value>JFS_</cts:value>
+		<cts:value>JHMS</cts:value>
+		<cts:value>JHMT</cts:value>
+		<cts:value>JIQ</cts:value>
+		<cts:value>JIW_</cts:value>
+		<cts:value>JIWK</cts:value>
+		<cts:value>ABC</cts:value>
+		<cts:value>IDD</cts:value>
+		<cts:value>IDR</cts:value>
+		<cts:value>JIAA</cts:value>
+		<cts:value>JLAD</cts:value>
+		<cts:value>JMP</cts:value>
+		<cts:value>JMP_</cts:value>
+		<cts:value>JMS</cts:value>
+		<cts:value>JMC_</cts:value>
+		<cts:value>JMVL</cts:value>
+		<cts:value>JMMC</cts:value>
+		<cts:value>JMR</cts:value>
+		<cts:value>JNC_</cts:value>
+		<cts:value>JNWS</cts:value>
+		<cts:value>JNI</cts:value>
+		<cts:value>JPSE</cts:value>
+		<cts:value>JREW</cts:value>
+		<cts:value>CAF</cts:value>
+		<cts:value>CAC</cts:value>
+		<cts:value>CEUR</cts:value>
+		<cts:value>CMS</cts:value>
+		<cts:value>CNA</cts:value>
+		<cts:value>EMED</cts:value>
+		<cts:value>NAFR</cts:value>
+		<cts:value>NAM</cts:value>
+		<cts:value>OCEA</cts:value>
+		<cts:value>SAM</cts:value>
+		<cts:value>SAS</cts:value>
+		<cts:value>SEA</cts:value>
+		<cts:value>SAFR</cts:value>
+		<cts:value>BALK</cts:value>
+		<cts:value>GULF</cts:value>
+		<cts:value>WAFR</cts:value>
+		<cts:value>WEUR</cts:value>
+		<cts:value>JSTS</cts:value>
+		<cts:value>JSD_</cts:value>
+		<cts:value>JSWS</cts:value>
+		<cts:value>JTSM</cts:value>
+		<cts:value>TWR</cts:value>
+		<cts:value>JTF</cts:value>
+		<cts:value>JUWS</cts:value>
+		<cts:value>JUAV</cts:value>
+		<cts:value>JUAV</cts:value>
+		<cts:value>JUGV</cts:value>
+		<cts:value>JUMV</cts:value>
+		<cts:value>JUMV</cts:value>
+		<cts:value>JUTS</cts:value>
+		<cts:value>JWA</cts:value>
+		<cts:value>JWAF</cts:value>
+		<cts:value>JWAR</cts:value>
+		<cts:value>JWDI</cts:value>
+		<cts:value>JWIT</cts:value>
+		<cts:value>JWNA</cts:value>
+		<cts:value>JWR_</cts:value>
+		<cts:value>JFA_</cts:value>
+		<cts:value>JNW_</cts:value>
+		<cts:value>JAFV</cts:value>
+		<cts:value>JAAD</cts:value>
+		<cts:value>JAWC</cts:value>
+		<cts:value>JLSU</cts:value>
+		<cts:value>JLWU</cts:value>
+		<cts:value>JMEG</cts:value>
+		<cts:value>JECE</cts:value>
+		<cts:value>JCBH</cts:value>
+		<cts:value>JCDG</cts:value>
+		<cts:value>JCT</cts:value>
+		<cts:value>JFSH</cts:value>
+		<cts:value>JMPE</cts:value>
+		<cts:value>JMPI</cts:value>
+		<cts:value>JMPP</cts:value>
+		<cts:value>JMPR</cts:value>
+		<cts:value>JUWR</cts:value>
+		<cts:value>SREP011</cts:value>
+		<cts:value>SREP035</cts:value>
+		<cts:value>SREP052</cts:value>
+		<cts:value>SREP061</cts:value>
+		<cts:value>SREP062</cts:value>
+		<cts:value>SREP063</cts:value>
+		<cts:value>SREP065</cts:value>
+		<cts:value>SREP066</cts:value>
+		<cts:value>SREP067</cts:value>
+		<cts:value>SREP068</cts:value>
+		<cts:value>SREP069</cts:value>
+		<cts:value>SREP070</cts:value>
+		<cts:value>SREP072</cts:value>
+		<cts:value>SREP073</cts:value>
+		<cts:value>SREP075</cts:value>
+		<cts:value>SREP077</cts:value>
+		<cts:value>SREP078</cts:value>
+		<cts:value>SREP079</cts:value>
+		<cts:value>SREP081</cts:value>
+		<cts:value>SREP082</cts:value>
+		<cts:value>SREP083</cts:value>
+		<cts:value>SREP084</cts:value>
+		<cts:value>SREP085</cts:value>
+		<cts:value>SREP086</cts:value>
+		<cts:value>SREP087</cts:value>
+		<cts:value>SREP088</cts:value>
+		<cts:value>SREP089</cts:value>
+		<cts:value>SREP090</cts:value>
+		<cts:value>SREP091</cts:value>
+		<cts:value>SREP093</cts:value>
+		<cts:value>SREP094</cts:value>
+		<cts:value>SREP095</cts:value>
+		<cts:value>SREP096</cts:value>
+		<cts:value>SREP097</cts:value>
+		<cts:value>JIBR</cts:value>
+		<cts:value>JTIR</cts:value>
+		<cts:value>JDIR</cts:value>
+		<cts:value>SOCMINT</cts:value>
+		<cts:value>CONFMON</cts:value>
+		<cts:value>JIEV</cts:value>
+		<cts:value>JUKMODESTONIA</cts:value>
+		<cts:value>JMLB</cts:value>
+		<cts:value>JNUCL</cts:value>
+		<cts:value>JAIRDEF</cts:value>
+		<cts:value>JCRP</cts:value>
+		<cts:value>JLOCKHEED</cts:value>
+		<cts:value>JBOEING</cts:value>
+		<cts:value>JTEREV</cts:value>
+		<cts:value>JINTEV</cts:value>
+		<cts:value>JGEO</cts:value>
+		<cts:value>JSATIMG</cts:value>
+		<cts:value>JTIC</cts:value>
+		<cts:value>CB_GE</cts:value>
+		<cts:value>CB_ID</cts:value>
+		<cts:value>CB_IL</cts:value>
+		<cts:value>INTEL_SERIES</cts:value>
+		<cts:value>JORBINV</cts:value>
+		<cts:value>JPRC</cts:value>
+		<cts:value>JPRD</cts:value>
+		<cts:value>JTHREAT</cts:value>
+		<cts:value>MARPORT</cts:value>
+		<cts:value>JSADA</cts:value>
+		<cts:value>JIMDA</cts:value>
+		<cts:value>JDTDA</cts:value>
+		<cts:value>JTICDA</cts:value>
+		<cts:value>defplatda</cts:value>
+		<cts:value>deflandplatda</cts:value>
+		<cts:value>defairplatda</cts:value>
+		<cts:value>defweapda</cts:value>
+		<cts:value>defencelandda</cts:value>
+		<cts:value>defenceairspaceda</cts:value>
+		<cts:value>defenceseada</cts:value>
+		<cts:value>securitymilcapda</cts:value>
+		<cts:value>securitycountryriskda</cts:value>
+		<cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+	      </cts:path-range-query>
+	      <cts:and-query>
+		<cts:path-range-query operator="=" weight="0">
+		  <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		  <cts:value>Air and Missile Defense</cts:value>
+		  <cts:value>Anti-Submarine Warfare (ASW)</cts:value>
+		  <cts:value>C3</cts:value>
+		  <cts:value>C4ISR</cts:value>
+		  <cts:value>Command and Control (C2)</cts:value>
+		  <cts:value>Commercial Aircraft</cts:value>
+		  <cts:value>Cyber Operations</cts:value>
+		  <cts:value>Electro-Mechanical</cts:value>
+		  <cts:value>Electronic Warfare (EW)</cts:value>
+		  <cts:value>Electro-Optical Infrared (E/OIR)</cts:value>
+		  <cts:value>General Homeland Security (HLS)</cts:value>
+		  <cts:value>General Services</cts:value>
+		  <cts:value>Homeland Security (HLS)</cts:value>
+		  <cts:value>Intelligence Surveillance and Reconnaissance (ISR)</cts:value>
+		  <cts:value>Intelligence</cts:value>
+		  <cts:value>Launchers</cts:value>
+		  <cts:value>Military Aircraft w/o GFE Engines</cts:value>
+		  <cts:value>Military Aircraft</cts:value>
+		  <cts:value>Military Communication</cts:value>
+		  <cts:value>Military Ground Vehicle</cts:value>
+		  <cts:value>Military Ship</cts:value>
+		  <cts:value>Missile</cts:value>
+		  <cts:value>Precision Guided Weapon (PGW)</cts:value>
+		  <cts:value>Radar</cts:value>
+		  <cts:value>Services</cts:value>
+		  <cts:value>Simulation and Training</cts:value>
+		  <cts:value>Simulation</cts:value>
+		  <cts:value>Sonar</cts:value>
+		  <cts:value>Spacecraft</cts:value>
+		  <cts:value>Unmanned Aerial Vehicle (UAV)</cts:value>
+		  <cts:value>Unmanned Ground Vehicle (UGV)</cts:value>
+		  <cts:value>Unmanned Sea Vehicle (USV)</cts:value>
+		  <cts:value>Unmanned Systems</cts:value>
+		  <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		</cts:path-range-query>
+		<cts:path-range-query operator="=" weight="0">
+		  <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		  <cts:value>jmf</cts:value>
+		  <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		</cts:path-range-query>
+	      </cts:and-query>
+	    </cts:or-query>
+	  </cts:and-query>
+	</cts:matching-query>
+      </DATALOAD>
+      <QUERY>
+	<cts:boost-query xmlns:cts="http://marklogic.com/cts">
+	  <cts:matching-query>
+	    <cts:and-query>
+	      <cts:or-query>
+		<cts:element-pair-geospatial-query>
+		  <cts:element>mlPoint</cts:element>
+		  <cts:latitude>mlLat</cts:latitude>
+		  <cts:longitude>mlLon</cts:longitude>
+		  <cts:region xsi:type="cts:box" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">[-81.64422,-180,79.72193,-49.84283]</cts:region>
+		  <cts:option>coordinate-system=wgs84</cts:option>
+		</cts:element-pair-geospatial-query>
+		<cts:element-pair-geospatial-query>
+		  <cts:element>mlPoint</cts:element>
+		  <cts:latitude>mlLat</cts:latitude>
+		  <cts:longitude>mlLon</cts:longitude>
+		  <cts:region xsi:type="cts:box" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">[-81.64422,-49.84283,79.72193,180]</cts:region>
+		  <cts:option>coordinate-system=wgs84</cts:option>
+		</cts:element-pair-geospatial-query>
+	      </cts:or-query>
+	      <cts:path-range-query operator="=" weight="0">
+		<cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='installationtype']/node</cts:path-expression>
+		<cts:value>Base</cts:value>
+	      </cts:path-range-query>
+	      <cts:and-query>
+		<cts:path-range-query operator="=" weight="0">
+		  <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		  <cts:value>JMSA</cts:value>
+		  <cts:value>JMLB</cts:value>
+		  <cts:value>SECURITYCOUNTRYRISK</cts:value>
+		  <cts:value>SECURITYMILCAP</cts:value>
+		  <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		</cts:path-range-query>
+		<cts:path-range-query operator="=" weight="0">
+		  <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='userindicator']/node</cts:path-expression>
+		  <cts:value>Military</cts:value>
+		</cts:path-range-query>
+	      </cts:and-query>
+	      <cts:or-query>
+		<cts:path-range-query operator="=" weight="0">
+		  <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		  <cts:value>GEPS Reports</cts:value>
+		  <cts:value>GEPS License Activity</cts:value>
+		  <cts:value>GEPS Farm In</cts:value>
+		  <cts:value>International Oil Letter</cts:value>
+		  <cts:value>Daily Alert</cts:value>
+		  <cts:value>Drilling Wire</cts:value>
+		  <cts:value>Energy News On Demand</cts:value>
+		  <cts:value>Political Risk Analysis</cts:value>
+		  <cts:value>PEPS</cts:value>
+		  <cts:value>Summary Analysis</cts:value>
+		  <cts:value>Detailed Analysis</cts:value>
+		  <cts:value>Laws and Contracts</cts:value>
+		  <cts:value>Environmental Terms</cts:value>
+		  <cts:value>Company Rankings</cts:value>
+		  <cts:value>Country Rankings</cts:value>
+		  <cts:value>Fiscal Overview</cts:value>
+		  <cts:value>Fiscal Rankings</cts:value>
+		  <cts:value>Fiscal Interactive</cts:value>
+		  <cts:value>Ratings and Rankings</cts:value>
+		  <cts:value>Company Data</cts:value>
+		  <cts:value>Regional Data</cts:value>
+		  <cts:value>Country Data</cts:value>
+		  <cts:value>Transactions Analysis</cts:value>
+		  <cts:value>Awards Analysis</cts:value>
+		  <cts:value>OFFSETDRILLINGDATA</cts:value>
+		  <cts:value>ODD and Benchmark</cts:value>
+		  <cts:value>LICENSEPERMITS</cts:value>
+		  <cts:value>RIGACTIVITY</cts:value>
+		  <cts:value>energy.us.drilingdata</cts:value>
+		  <cts:value>energy.us.rigdata</cts:value>
+		  <cts:value>energy.us.field.idd.reduced</cts:value>
+		  <cts:value>energy.us.well.idd.reduced</cts:value>
+		  <cts:value>energy.us.activity.idd.reduced</cts:value>
+		  <cts:value>Janes Suite</cts:value>
+		  <cts:value>OnlineSeminar</cts:value>
+		  <cts:value>DEFENCEINDUSTRY</cts:value>
+		  <cts:value>DEFENCEAIRSPACE</cts:value>
+		  <cts:value>DEFENCELAND</cts:value>
+		  <cts:value>DEFENCENEWS</cts:value>
+		  <cts:value>DEFENCESEA</cts:value>
+		  <cts:value>DEFAIRPLAT</cts:value>
+		  <cts:value>DEFLANDPLAT</cts:value>
+		  <cts:value>DEFPLAT</cts:value>
+		  <cts:value>DEFWEAP</cts:value>
+		  <cts:value>DEFC4I</cts:value>
+		  <cts:value>DEFEOD</cts:value>
+		  <cts:value>JCBRN</cts:value>
+		  <cts:value>JCBW</cts:value>
+		  <cts:value>JDET</cts:value>
+		  <cts:value>JDIM</cts:value>
+		  <cts:value>JDIMPLUS</cts:value>
+		  <cts:value>JMSA</cts:value>
+		  <cts:value>SECURITYCOUNTRYRISK</cts:value>
+		  <cts:value>SECURITYMILCAP</cts:value>
+		  <cts:value>SECURITYNEWS</cts:value>
+		  <cts:value>JDB_</cts:value>
+		  <cts:value>JDSB</cts:value>
+		  <cts:value>JDBDA</cts:value>
+		  <cts:value>JSIM</cts:value>
+		  <cts:value>OFFAD</cts:value>
+		  <cts:value>JC4IL</cts:value>
+		  <cts:value>JC4IM</cts:value>
+		  <cts:value>SPECS_SEA</cts:value>
+		  <cts:value>SPECS_LAND</cts:value>
+		  <cts:value>SPECS_AIR</cts:value>
+		  <cts:value>IWR</cts:value>
+		  <cts:value>DIPR</cts:value>
+		  <cts:value>JAE_</cts:value>
+		  <cts:value>JATC</cts:value>
+		  <cts:value>JACM</cts:value>
+		  <cts:value>JAU_</cts:value>
+		  <cts:value>JALW</cts:value>
+		  <cts:value>JAR</cts:value>
+		  <cts:value>CLA</cts:value>
+		  <cts:value>EUR</cts:value>
+		  <cts:value>FEA</cts:value>
+		  <cts:value>MEA</cts:value>
+		  <cts:value>USC</cts:value>
+		  <cts:value>JAES</cts:value>
+		  <cts:value>JAWA</cts:value>
+		  <cts:value>JAH_</cts:value>
+		  <cts:value>JASF</cts:value>
+		  <cts:value>JAAU</cts:value>
+		  <cts:value>JAV_</cts:value>
+		  <cts:value>JC4I</cts:value>
+		  <cts:value>JCFMON</cts:value>
+		  <cts:value>JDIN</cts:value>
+		  <cts:value>JDW</cts:value>
+		  <cts:value>JEMA</cts:value>
+		  <cts:value>JEOS</cts:value>
+		  <cts:value>JEOD</cts:value>
+		  <cts:value>JFS_</cts:value>
+		  <cts:value>JHMS</cts:value>
+		  <cts:value>JHMT</cts:value>
+		  <cts:value>JIQ</cts:value>
+		  <cts:value>JIW_</cts:value>
+		  <cts:value>JIWK</cts:value>
+		  <cts:value>ABC</cts:value>
+		  <cts:value>IDD</cts:value>
+		  <cts:value>IDR</cts:value>
+		  <cts:value>JIAA</cts:value>
+		  <cts:value>JLAD</cts:value>
+		  <cts:value>JMP</cts:value>
+		  <cts:value>JMP_</cts:value>
+		  <cts:value>JMS</cts:value>
+		  <cts:value>JMC_</cts:value>
+		  <cts:value>JMVL</cts:value>
+		  <cts:value>JMMC</cts:value>
+		  <cts:value>JMR</cts:value>
+		  <cts:value>JNC_</cts:value>
+		  <cts:value>JNWS</cts:value>
+		  <cts:value>JNI</cts:value>
+		  <cts:value>JPSE</cts:value>
+		  <cts:value>JREW</cts:value>
+		  <cts:value>CAF</cts:value>
+		  <cts:value>CAC</cts:value>
+		  <cts:value>CEUR</cts:value>
+		  <cts:value>CMS</cts:value>
+		  <cts:value>CNA</cts:value>
+		  <cts:value>EMED</cts:value>
+		  <cts:value>NAFR</cts:value>
+		  <cts:value>NAM</cts:value>
+		  <cts:value>OCEA</cts:value>
+		  <cts:value>SAM</cts:value>
+		  <cts:value>SAS</cts:value>
+		  <cts:value>SEA</cts:value>
+		  <cts:value>SAFR</cts:value>
+		  <cts:value>BALK</cts:value>
+		  <cts:value>GULF</cts:value>
+		  <cts:value>WAFR</cts:value>
+		  <cts:value>WEUR</cts:value>
+		  <cts:value>JSTS</cts:value>
+		  <cts:value>JSD_</cts:value>
+		  <cts:value>JSWS</cts:value>
+		  <cts:value>JTSM</cts:value>
+		  <cts:value>TWR</cts:value>
+		  <cts:value>JTF</cts:value>
+		  <cts:value>JUWS</cts:value>
+		  <cts:value>JUAV</cts:value>
+		  <cts:value>JUAV</cts:value>
+		  <cts:value>JUGV</cts:value>
+		  <cts:value>JUMV</cts:value>
+		  <cts:value>JUMV</cts:value>
+		  <cts:value>JUTS</cts:value>
+		  <cts:value>JWA</cts:value>
+		  <cts:value>JWAF</cts:value>
+		  <cts:value>JWAR</cts:value>
+		  <cts:value>JWDI</cts:value>
+		  <cts:value>JWIT</cts:value>
+		  <cts:value>JWNA</cts:value>
+		  <cts:value>JWR_</cts:value>
+		  <cts:value>JFA_</cts:value>
+		  <cts:value>JNW_</cts:value>
+		  <cts:value>JAFV</cts:value>
+		  <cts:value>JAAD</cts:value>
+		  <cts:value>JAWC</cts:value>
+		  <cts:value>JLSU</cts:value>
+		  <cts:value>JLWU</cts:value>
+		  <cts:value>JMEG</cts:value>
+		  <cts:value>JECE</cts:value>
+		  <cts:value>JCBH</cts:value>
+		  <cts:value>JCDG</cts:value>
+		  <cts:value>JCT</cts:value>
+		  <cts:value>JFSH</cts:value>
+		  <cts:value>JMPE</cts:value>
+		  <cts:value>JMPI</cts:value>
+		  <cts:value>JMPP</cts:value>
+		  <cts:value>JMPR</cts:value>
+		  <cts:value>JUWR</cts:value>
+		  <cts:value>SREP011</cts:value>
+		  <cts:value>SREP035</cts:value>
+		  <cts:value>SREP052</cts:value>
+		  <cts:value>SREP061</cts:value>
+		  <cts:value>SREP062</cts:value>
+		  <cts:value>SREP063</cts:value>
+		  <cts:value>SREP065</cts:value>
+		  <cts:value>SREP066</cts:value>
+		  <cts:value>SREP067</cts:value>
+		  <cts:value>SREP068</cts:value>
+		  <cts:value>SREP069</cts:value>
+		  <cts:value>SREP070</cts:value>
+		  <cts:value>SREP072</cts:value>
+		  <cts:value>SREP073</cts:value>
+		  <cts:value>SREP075</cts:value>
+		  <cts:value>SREP077</cts:value>
+		  <cts:value>SREP078</cts:value>
+		  <cts:value>SREP079</cts:value>
+		  <cts:value>SREP081</cts:value>
+		  <cts:value>SREP082</cts:value>
+		  <cts:value>SREP083</cts:value>
+		  <cts:value>SREP084</cts:value>
+		  <cts:value>SREP085</cts:value>
+		  <cts:value>SREP086</cts:value>
+		  <cts:value>SREP087</cts:value>
+		  <cts:value>SREP088</cts:value>
+		  <cts:value>SREP089</cts:value>
+		  <cts:value>SREP090</cts:value>
+		  <cts:value>SREP091</cts:value>
+		  <cts:value>SREP093</cts:value>
+		  <cts:value>SREP094</cts:value>
+		  <cts:value>SREP095</cts:value>
+		  <cts:value>SREP096</cts:value>
+		  <cts:value>SREP097</cts:value>
+		  <cts:value>JIBR</cts:value>
+		  <cts:value>JTIR</cts:value>
+		  <cts:value>JDIR</cts:value>
+		  <cts:value>SOCMINT</cts:value>
+		  <cts:value>CONFMON</cts:value>
+		  <cts:value>JIEV</cts:value>
+		  <cts:value>JUKMODESTONIA</cts:value>
+		  <cts:value>JMLB</cts:value>
+		  <cts:value>JNUCL</cts:value>
+		  <cts:value>JAIRDEF</cts:value>
+		  <cts:value>JCRP</cts:value>
+		  <cts:value>JLOCKHEED</cts:value>
+		  <cts:value>JBOEING</cts:value>
+		  <cts:value>JTEREV</cts:value>
+		  <cts:value>JINTEV</cts:value>
+		  <cts:value>JGEO</cts:value>
+		  <cts:value>JSATIMG</cts:value>
+		  <cts:value>JTIC</cts:value>
+		  <cts:value>CB_GE</cts:value>
+		  <cts:value>CB_ID</cts:value>
+		  <cts:value>CB_IL</cts:value>
+		  <cts:value>INTEL_SERIES</cts:value>
+		  <cts:value>JORBINV</cts:value>
+		  <cts:value>JPRC</cts:value>
+		  <cts:value>JPRD</cts:value>
+		  <cts:value>JTHREAT</cts:value>
+		  <cts:value>MARPORT</cts:value>
+		  <cts:value>JSADA</cts:value>
+		  <cts:value>JIMDA</cts:value>
+		  <cts:value>JDTDA</cts:value>
+		  <cts:value>JTICDA</cts:value>
+		  <cts:value>defplatda</cts:value>
+		  <cts:value>deflandplatda</cts:value>
+		  <cts:value>defairplatda</cts:value>
+		  <cts:value>defweapda</cts:value>
+		  <cts:value>defencelandda</cts:value>
+		  <cts:value>defenceairspaceda</cts:value>
+		  <cts:value>defenceseada</cts:value>
+		  <cts:value>securitymilcapda</cts:value>
+		  <cts:value>securitycountryriskda</cts:value>
+		  <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		</cts:path-range-query>
+		<cts:and-query>
+		  <cts:path-range-query operator="=" weight="0">
+		    <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		    <cts:value>Air and Missile Defense</cts:value>
+		    <cts:value>Anti-Submarine Warfare (ASW)</cts:value>
+		    <cts:value>C3</cts:value>
+		    <cts:value>C4ISR</cts:value>
+		    <cts:value>Command and Control (C2)</cts:value>
+		    <cts:value>Commercial Aircraft</cts:value>
+		    <cts:value>Cyber Operations</cts:value>
+		    <cts:value>Electro-Mechanical</cts:value>
+		    <cts:value>Electronic Warfare (EW)</cts:value>
+		    <cts:value>Electro-Optical Infrared (E/OIR)</cts:value>
+		    <cts:value>General Homeland Security (HLS)</cts:value>
+		    <cts:value>General Services</cts:value>
+		    <cts:value>Homeland Security (HLS)</cts:value>
+		    <cts:value>Intelligence Surveillance and Reconnaissance (ISR)</cts:value>
+		    <cts:value>Intelligence</cts:value>
+		    <cts:value>Launchers</cts:value>
+		    <cts:value>Military Aircraft w/o GFE Engines</cts:value>
+		    <cts:value>Military Aircraft</cts:value>
+		    <cts:value>Military Communication</cts:value>
+		    <cts:value>Military Ground Vehicle</cts:value>
+		    <cts:value>Military Ship</cts:value>
+		    <cts:value>Missile</cts:value>
+		    <cts:value>Precision Guided Weapon (PGW)</cts:value>
+		    <cts:value>Radar</cts:value>
+		    <cts:value>Services</cts:value>
+		    <cts:value>Simulation and Training</cts:value>
+		    <cts:value>Simulation</cts:value>
+		    <cts:value>Sonar</cts:value>
+		    <cts:value>Spacecraft</cts:value>
+		    <cts:value>Unmanned Aerial Vehicle (UAV)</cts:value>
+		    <cts:value>Unmanned Ground Vehicle (UGV)</cts:value>
+		    <cts:value>Unmanned Sea Vehicle (USV)</cts:value>
+		    <cts:value>Unmanned Systems</cts:value>
+		    <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		  </cts:path-range-query>
+		  <cts:path-range-query operator="=" weight="0">
+		    <cts:path-expression>/mlEnvelope/mlNavs/mlNav[@name='entitlements']/node</cts:path-expression>
+		    <cts:value>jmf</cts:value>
+		    <cts:option>collation=http://marklogic.com/collation/en/S1</cts:option>
+		  </cts:path-range-query>
+		</cts:and-query>
+	      </cts:or-query>
+	    </cts:and-query>
+	  </cts:matching-query>
+	  <cts:boosting-query>
+	    <cts:or-query>
+	      <cts:field-word-query weight="5">
+		<cts:field>textproximity</cts:field>
+		<cts:option>distance-weight=1.3</cts:option>
+		<cts:option>case-insensitive</cts:option>
+		<cts:option>diacritic-insensitive</cts:option>
+	      </cts:field-word-query>
+	      <cts:field-value-query weight="2000">
+		<cts:field>textboost</cts:field>
+		<cts:text xml:lang="en"/>
+		<cts:option>case-insensitive</cts:option>
+		<cts:option>diacritic-insensitive</cts:option>
+	      </cts:field-value-query>
+	      <cts:element-range-query operator="&lt;=" weight="2.5">
+		<cts:element>mlPostDate</cts:element>
+		<cts:value xsi:type="xs:date" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2018-08-30-06:00</cts:value>
+		<cts:option>score-function=reciprocal</cts:option>
+		<cts:option>slope-factor=2.67</cts:option>
+	      </cts:element-range-query>
+	    </cts:or-query>
+	  </cts:boosting-query>
+	</cts:boost-query>
+      </QUERY>
+      <RESULTSET FIRSTHIT="1" LASTHIT="0" HITS="0" TOTALHITS="27"/>
+    </RESULTPAGE>
+  </SEGMENT>
+  <TIME>PT0.351074S</TIME>
+</SEGMENTS>
