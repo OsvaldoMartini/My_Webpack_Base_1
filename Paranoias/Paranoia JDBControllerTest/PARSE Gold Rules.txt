@@ -95,11 +95,12 @@ WHERE 1=1 AND  (ViewEndUserPublicComments like '%f-35%' or ViewItemDescription l
 
  
 Search Bug Need to be fixed the parse and Creation of constrainsts
-http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F35B)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-37)]&pg=1
-http://localhost:7296/MarketsForecast/guided?view=chart#view=grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1
+http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
+
+http://localhost:7296/MarketsForecast/guided?view=chart#view=grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
 
 ViewChart False
-viewChart=false::http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F35B)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-37)]&pg=1
+viewChart=false::http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
 
 -		constraint	Count = 4	IHS.Core.Catalog.Model.Search.ISearchConstraint {IHS.Core.Catalog.Model.Search.OrNestedConstraint}
 All are {IHS.Core.Catalog.Model.Search.IndexedSearchBehaviorConstraint}
