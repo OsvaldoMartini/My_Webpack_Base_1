@@ -17,6 +17,7 @@
 namespace IHS.Core.Catalog.Model.Search
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
@@ -39,6 +40,11 @@ namespace IHS.Core.Catalog.Model.Search
         /// Geometry, Polygon, representation of the area constraint.
         /// </summary>
         private Geometry geography;
+
+        /// <summary>
+        /// get Coordinates of the map.
+        /// </summary>
+        private List<GeoCoordinate> coordinates;
 
         /// <summary>
         /// Builds an Geo Area constraint.
@@ -112,67 +118,84 @@ namespace IHS.Core.Catalog.Model.Search
         /// <returns>List of <see cref="GeoCoordinate"/> representing the points of the polygon.</returns>
         public IEnumerable<GeoCoordinate> GetCoordinates()
         {
-            List<GeoCoordinate> coordinates = new List<GeoCoordinate>();
+            this.coordinates = new List<GeoCoordinate>();
             if (!(this.geography is Polygon))
             {
-                GeometryCollection geometryCollection = (GeometryCollection)this.geography;
-                int geometriesCount = (int)geometryCollection.geometries.Count();
-                for (int g = 0; g < geometriesCount; g++)
+                if (this.geography is Multipolygon)
                 {
-                    var geoObject = geometryCollection.geometries.ElementAt(g);
-                    switch (geoObject.type)
+                    Multipolygon multipolygonCollection = (Multipolygon)this.geography;
+                    foreach (var itemCoord in multipolygonCollection.coordinates)
                     {
-                        case "point":
-                            Geometry geoEsriPoint = (EsriPoint)geoObject;
-                            var points = (EsriPoint)geoEsriPoint;
-                            coordinates.Add(new GeoCoordinate(points.y, points.x));
-                            continue;
-                        case "polyline":
-                            Polyline geoPolyline = (Polyline)geoObject;
-                            if (geoPolyline != null)
+                        for (var i = 0; i < itemCoord.Count(); i++)
+                        {
+                            for (var c = 0; c < itemCoord.ElementAt(i).Count(); c++)
                             {
-                                if (geoPolyline.paths != null || geoPolyline.paths.Count() > 0)
+                                coordinates.Add(new GeoCoordinate(itemCoord.ElementAt(i).ElementAt(c).ElementAt(1), itemCoord.ElementAt(i).ElementAt(c).ElementAt(0)));
+                            }
+                        }
+                    }
+
+                    return this.coordinates;
+
+                }
+
+                if (this.geography is GeometryCollection)
+                {
+                    GeometryCollection geometryCollection = (GeometryCollection)this.geography;
+                    int geometriesCount = (int)geometryCollection.geometries.Count();
+                    for (int g = 0; g < geometriesCount; g++)
+                    {
+                        var geoObject = geometryCollection.geometries.ElementAt(g);
+                        switch (geoObject.type)
+                        {
+                            case "point":
+                                Geometry geoEsriPoint = (EsriPoint)geoObject;
+                                var points = (EsriPoint)geoEsriPoint;
+                                coordinates.Add(new GeoCoordinate(points.y, points.x));
+                                continue;
+                            case "polyline":
+                                Polyline geoPolyline = (Polyline)geoObject;
+                                if (geoPolyline != null)
                                 {
-                                    var pathsCount = geoPolyline.paths.Count();
-                                    foreach (var itemPath in geoPolyline.paths)
+                                    if (geoPolyline.paths != null || geoPolyline.paths.Count() > 0)
                                     {
-                                        var itemCount = itemPath.Count();
-                                        //List<IEnumerable<IEnumerable<double>>> path = geoPolyline.paths;
-                                        for (int p = 0; p < itemCount; p++)
+                                        var pathsCount = geoPolyline.paths.Count();
+                                        foreach (var itemPath in geoPolyline.paths)
                                         {
-                                            var pathElement = itemPath.ElementAt(p);
-                                            coordinates.Add(new GeoCoordinate(pathElement.ElementAt(1), pathElement.ElementAt(0)));
+                                            var itemCount = itemPath.Count();
+                                            //List<IEnumerable<IEnumerable<double>>> path = geoPolyline.paths;
+                                            for (int p = 0; p < itemCount; p++)
+                                            {
+                                                var pathElement = itemPath.ElementAt(p);
+                                                this.coordinates.Add(new GeoCoordinate(pathElement.ElementAt(1), pathElement.ElementAt(0)));
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            continue;
-                        case "polygon":
-                            Polygon geometryPolygon = (Polygon)geoObject;
-                            if (geometryPolygon != null)
-                            {
-                                var geometryRing = geometryPolygon.rings.First();
-
-                                if (geometryRing != null || geometryRing.Count() > 0)
+                                continue;
+                            case "polygon":
+                                Polygon geometryPolygon = (Polygon)geoObject;
+                                if (geometryPolygon != null)
                                 {
-                                    int geometryPointCount = (int)geometryRing.Count();
-                                    for (int p = 0; p < geometryPointCount; p++)
+                                    var geometryRing = geometryPolygon.rings.First();
+
+                                    if (geometryRing != null || geometryRing.Count() > 0)
                                     {
-                                        var geometryPoint = geometryRing.ElementAt(p);
-                                        coordinates.Add(new GeoCoordinate(geometryPoint.ElementAt(1), geometryPoint.ElementAt(0)));
+                                        int geometryPointCount = (int)geometryRing.Count();
+                                        for (int p = 0; p < geometryPointCount; p++)
+                                        {
+                                            var geometryPoint = geometryRing.ElementAt(p);
+                                            this.coordinates.Add(new GeoCoordinate(geometryPoint.ElementAt(1), geometryPoint.ElementAt(0)));
+                                        }
                                     }
                                 }
-                            }
-                            continue;
-                        default:
-                            continue;
+                                continue;
+                            default:
+                                continue;
+                        }
                     }
-
-                    return coordinates;
                 }
-
-
-                return coordinates;
+                return this.coordinates;
             }
 
             Polygon polygon = (Polygon)this.geography;
@@ -180,17 +203,17 @@ namespace IHS.Core.Catalog.Model.Search
 
             if (ring == null || ring.Count() == 0)
             {
-                return coordinates;
+                return this.coordinates;
             }
 
             int pointCount = (int)ring.Count();
             for (int i = 0; i < pointCount; i++)
             {
                 var point = ring.ElementAt(i);
-                coordinates.Add(new GeoCoordinate(point.ElementAt(1), point.ElementAt(0)));
+                this.coordinates.Add(new GeoCoordinate(point.ElementAt(1), point.ElementAt(0)));
             }
 
-            return coordinates;
+            return this.coordinates;
         }
 
         /// <summary>
@@ -291,5 +314,21 @@ namespace IHS.Core.Catalog.Model.Search
         {
             return false;
         }
+
+        /// <summary>
+        /// Has Anycoordinates.
+        /// </summary>
+        /// <returns>
+        /// A valid states if have any coordinates.
+        /// </returns>
+        public bool HasAnyCoordinates()
+        {
+            foreach(var coord in this.coordinates)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }

@@ -183,7 +183,13 @@ namespace IHS.Apps.CMP.DataProviders
         /// Holds the pattern to match when looking for join conditions hint.
         /// </summary>
         private const string JoinConditionsPattern = "(JOIN_CONDITIONS)";
-                
+
+        /// <summary>
+        /// Holds the pattern to match when looking for the where clause placement hint.
+        /// </summary>
+        /// <remarks>NB: This replacement will NOT apply entitlements.</remarks>
+        protected const string TextSearchAllColumns = "(TEXTSEARCHALLCOLUMNS)";
+
         #endregion Constants
 
         #region Fields
@@ -2532,8 +2538,9 @@ namespace IHS.Apps.CMP.DataProviders
         /// <param name="sql">The SQL statement being generated.</param>
         /// <param name="constraintsSQL">The generated constraints statement.</param>
         /// <param name="replacementPattern">The pattern to be replaced.</param>
+        /// <param name="IgnoreNestedOperation">To Ignore the NestedOperation.</param>
         /// <returns>The SQL statement with the constraints integrated.</returns>
-        private static string UpdateSqlConstraintClauses(string sql, string constraintsSQL, string replacementPattern)
+        private static string UpdateSqlConstraintClauses(string sql, string constraintsSQL, string replacementPattern, bool IgnoreNestedOperation)
         {
             if (constraintsSQL == null)
             {
@@ -2544,11 +2551,11 @@ namespace IHS.Apps.CMP.DataProviders
                 CultureInfo.InvariantCulture,
                 " {0} {1}{2} ",
                 replacementPattern,
-                string.IsNullOrEmpty(constraintsSQL) ? string.Empty : "AND ",
+                string.IsNullOrEmpty(constraintsSQL) ? string.Empty : !IgnoreNestedOperation? "AND ":string.Empty,
                 constraintsSQL);
             return Regex.Replace(sql, replacementPattern, replacement, RegexOptions.IgnoreCase);
         }
-
+               
         /// <summary>
         /// If (CONSTRAINT_IF_EXISTS::A::B::C::D) exists in SQL, will replace the WHOLE constraint
         /// part with the value of A if it exists as a search constraint, else write out B to
@@ -3023,7 +3030,7 @@ namespace IHS.Apps.CMP.DataProviders
                                                                 var srtLike = dr["JDSF14*LIKE_VW_SEARCH"].ToString();
                                                                 if (!string.IsNullOrEmpty(srtLike))
                                                                 {
-                                                                    queryResult.AppendFormat(moreThenOnce + " \r\n (" + srtLike + " ) \r\n ", Environment.NewLine);
+                                                                    queryResult.AppendFormat(moreThenOnce + " \r\n " + srtLike + "  \r\n ", Environment.NewLine);
                                                                     moreThenOnce = " AND ";
                                                                 }
                                                             }
@@ -3070,8 +3077,8 @@ namespace IHS.Apps.CMP.DataProviders
                 {
                     sql = sql.Substring(0, start) + newSql + sql.Substring(end + 2);
                     //sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.WherePattern);
-                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.WherePatternWithoutAuths);
-                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.ConstraintsOnlyNoAuths);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.WherePatternWithoutAuths, false);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
 
                 }
                 else
@@ -3760,6 +3767,7 @@ namespace IHS.Apps.CMP.DataProviders
         /// A SQL query statement which has had entitlements and constraints added into it.
         /// </returns>
         /// <remarks>NOTE: SQL is appended later in the stack as well for paging.</remarks>
+        [SuppressMessage("Microsoft.Performance", "CA1809:AvoidExcessiveLocals")]
         [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "GetSQL", Justification = "This is the method name.")]
         [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "IHS.Apps.CMP.Common.Log.Debug(System.String)", Justification = "This is a debug message.")]
         private string GetSql(ICategory category, string queryKey, ISearch search, AaaAuthorisation authorisations, bool isCountQuery)
@@ -3987,27 +3995,31 @@ namespace IHS.Apps.CMP.DataProviders
                 sql = UpdateSqlConstraintIfExistsHints(sql, search, false, parser.IsOracle);
                 sql = UpdateSqlForEachUsedHints(sql, search, false);
                 sql = this.UpdateSearchSignatureHints(sql, search, authorisations);
-                parser.ParseConstraints(sqlExtra, search.Constraints);
+                parser.ParseConstraints(ref sqlExtra, search.Constraints);
 
-                if (sqlExtra.ToString().Contains("contains("))
+                if (sqlExtra.ToString().Contains("(TEXTSEARCHALLCOLUMNS)"))
                 {
                     TSQLCategory tsqlCat = this.GetCategoryConfig(category.Name);
 
                     MetadataEntry<string, string> meta = config.Query.Metadata.FirstOrDefault(m => m.Key.Equals("AllCollumnsToSearch"));
                     if (meta != null && !string.IsNullOrEmpty(meta.Value))
                     {
-                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, $"|(TEXTSEARCHALLCOLUMNS::LIKE_VW_SEARCH::{meta.Value})|", AbstractSqlProvider.WherePattern);
+                        var sqlTemp = sqlExtra.ToString();
+                        sqlTemp = AbstractSqlProvider.UpdateSqlConstraintClauses(sqlTemp, $"|(TEXTSEARCHALLCOLUMNS::LIKE_VW_SEARCH::{meta.Value})|", AbstractSqlProvider.TextSearchAllColumns, true);
+                        sqlTemp = AbstractSqlProvider.RemoveHint(sqlTemp, AbstractSqlProvider.TextSearchAllColumns);
+                        
                         //I have created the same type of the main SelectedIndexers to be compared inside of "UpdateSqlTextSearchAllColumns"
                         Search searchClone = (Search)search.Clone();
                         searchClone.SelectedIndexers.Add(search.SearchSource.Indexers.FirstOrDefault(ix => ix.ObjectKey.StartsWith("LIKE_VW_SEARCH", true, CultureInfo.InvariantCulture)));
-                        sql = UpdateSqlTextSearchAllColumns(sql, category, tsqlCat, searchClone, false);
-
+                        sqlTemp = UpdateSqlTextSearchAllColumns(sqlTemp, category, tsqlCat, searchClone, false);
+                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlTemp, AbstractSqlProvider.WherePattern, false);
                     }
-                }else
+                }
+                else
                 {
-                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePattern);
-                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePatternWithoutAuths);
-                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.ConstraintsOnlyNoAuths);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePattern, false);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePatternWithoutAuths, false);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
                 }
 
                 //Note we have to remove this as its nonsense and is not a "WHERE" clause.

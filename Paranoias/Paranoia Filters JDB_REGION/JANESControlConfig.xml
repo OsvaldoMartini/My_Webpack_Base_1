@@ -227,21 +227,21 @@
               <entitlement_restriction name="JDPMS" />
             </restrictions>
           </fixed_link>
-          <fixed_link key="DEFENCE_BUDGETS" navigation_type="category" title="Defence Budgets" target_category_key="JDB_ACTIVITY_ITEMS" target_domain_key="JANESFASTDOMAIN" url="/CustomPages/Janes/Jdb/JdbHome.aspx?Category=JDB_ACTIVITY_ITEMS" remove_constraints="true">
+          <!--<fixed_link key="DEFENCE_BUDGETS" navigation_type="category" title="Defence Budgets" target_category_key="JDB_ACTIVITY_ITEMS" target_domain_key="JANESFASTDOMAIN" url="/CustomPages/Janes/Jdb/JdbHome.aspx?Category=JDB_ACTIVITY_ITEMS" remove_constraints="true">
+            <restrictions warning_message_resource_key="DefaultRestrictionWarning">
+              <entitlement_restriction name="JDB" />
+            </restrictions>
+          </fixed_link>-->
+          <fixed_link key="DEFENCE_BUDGETS" navigation_type="fixed" title="Defence Budgets" url="/DefenceBudgets/home">
             <restrictions warning_message_resource_key="DefaultRestrictionWarning">
               <entitlement_restriction name="JDB" />
             </restrictions>
           </fixed_link>
-          <fixed_link key="DEFENCE_BUDGETS" navigation_type="fixed" title="Defence Budgets BETA" url="/DefenceBudgets/home">
+          <!--<fixed_link key="DEFENCE_BUDGETS" navigation_type="fixed" title="Defence Budgets Chart BETA" url="/DefenceBudgets/Guided?view=chart">
             <restrictions warning_message_resource_key="DefaultRestrictionWarning">
               <entitlement_restriction name="JDB" />
             </restrictions>
-          </fixed_link>
-          <fixed_link key="DEFENCE_BUDGETS" navigation_type="fixed" title="Defence Budgets Chart BETA" url="/DefenceBudgets/Guided?view=chart">
-            <restrictions warning_message_resource_key="DefaultRestrictionWarning">
-              <entitlement_restriction name="JDB" />
-            </restrictions>
-          </fixed_link>
+          </fixed_link>-->
           <fixed_link key="DEFENCE_SECTOR_BUDGETS" navigation_type="category" title="Defence Sector Budgets" target_category_key="JDSB" target_domain_key="JDSBDOMAIN" url="/CustomPages/Janes/JDSB/JDSBHome.aspx?Category=JDSB"  remove_constraints="true">
             <restrictions warning_message_resource_key="DefaultRestrictionWarning">
               <entitlement_restriction name="JDSB" />
@@ -670,12 +670,11 @@
     <category_reference category_key="JTICOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="LEGACYJTICOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="MILITARYBASESOFFLINE" data_provider_key="JanesDocument" title_resource_key="" user_subscribed="false" />
-    <category_reference category_key="MILITARYBASESSPLITOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="COUNTRYRISKOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="INTELLIGENCE_EVENTSOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
-    <category_reference category_key="NUCLEARSITESOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
-    <category_reference category_key="SAMSITESOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
-    <category_reference category_key="EWOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
+    <category_reference category_key="NUCLEARSITESOFFLINE" data_provider_key="JanesDocument" title_resource_key="" user_subscribed="false" />
+    <category_reference category_key="SAMSITESOFFLINE" data_provider_key="JanesDocument" title_resource_key="" user_subscribed="false" />
+    <category_reference category_key="EWOFFLINE" data_provider_key="JanesDocument" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="NEWS_MAPOFFLINE" data_provider_key="JanesOfflineSQLProvider" title_resource_key="" user_subscribed="false" />
     <category_reference category_key="MILITARYBASESPLUSORBATSOFFLINE" data_provider_key="JanesDocument" title_resource_key="" user_subscribed="false" />
 
@@ -1215,16 +1214,16 @@
         <type_ahead  number_of_top_filters_to_show="6"  key="COUNTRY"></type_ahead>
       </panel>
 
+      <panel title_resource_key="Region"  show_exclude="true" always_expanded="true" auto_open="true">
+        <type_ahead  number_of_top_filters_to_show="6"  key="JDB_REGION"></type_ahead>
+      </panel>
+
       <panel title_resource_key="Activity"  show_exclude="true" always_expanded="true" auto_open="true">
         <type_ahead  number_of_top_filters_to_show="6"  key="ACTIVITY"></type_ahead>
       </panel>
 
       <panel title_resource_key="Force"  show_exclude="true" always_expanded="true" auto_open="true">
         <type_ahead  number_of_top_filters_to_show="6"  key="FORCE"></type_ahead>
-      </panel>
-
-      <panel title_resource_key="Region"  show_exclude="true" always_expanded="true" auto_open="true">
-        <type_ahead  number_of_top_filters_to_show="6"  key="JDB_REGION"></type_ahead>
       </panel>
 
       <search_panel  id="Normal" ShowSelectionStrategyDropdown="false" DefaultSelectionStrategy="and" AutoApply="true">

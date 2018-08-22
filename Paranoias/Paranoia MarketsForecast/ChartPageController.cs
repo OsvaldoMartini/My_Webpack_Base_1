@@ -152,7 +152,7 @@ namespace IHS.Apps.CMP.Web.Controllers
         /// <param name="currency">                         The currency to use if required. </param>
         /// <param name="userId">                           The user Id to use if required. </param>
         /// <returns> A chart object. </returns>
-        public static Chart GetChart(
+        internal static Chart GetChart(
             AbstractDataProvider provider, 
             ICmpRequestContext cmpRequest,
             AaaAuthorisation authorisation,
@@ -370,7 +370,7 @@ namespace IHS.Apps.CMP.Web.Controllers
         /// <summary> Parse the url query to see if a chart area id has been passed in. </summary>
         /// <param name="decodedQuery"> The query string. </param>
         /// <returns> The Chart Area ID if found, else empty string. </returns>
-        public static string ParseQueryForChartAreaId(string decodedQuery)
+        internal static string ParseQueryForChartAreaId(string decodedQuery)
         {
             var queryKeyValue = decodedQuery.Replace("?", string.Empty).Split('&');
             var removeString = "cid=";

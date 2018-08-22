@@ -200,12 +200,12 @@ namespace IHS.Apps.CMP.Utilities.URLParsers
         {
             var queryStructs = (from Match element in matches select new QueryStruct(element)).ToList();
             queryStructs.Reverse();
-            NestedConstraint wrappingConstraint = QueryStringParser.GetWrappingConstraint("or");
+            //Root of the NestedConstraint
+            NestedConstraint wrappingConstraint = QueryStringParser.GetWrappingConstraint("and");
             ISearchConstraint constraint = null;
             foreach (var item in queryStructs)
             {
                 this.CreateConstraintsFromQuery(search, item, ref wrappingConstraint, true);
-
             }
 
             if (wrappingConstraint == null)
@@ -226,6 +226,9 @@ namespace IHS.Apps.CMP.Utilities.URLParsers
         /// <returns>The search constraint.</returns>
         private void CreateConstraintsFromQuery(ISearch search, QueryStruct item, ref NestedConstraint wrappingConstraint, bool createSimpleFacet)
         {
+            if (item == null || item.Filter == null)
+                return;
+                
             if (createSimpleFacet)
             {
                 this.AddSimpleFacet(item.Filter, item.Value, item.Operator == NOT);
@@ -233,18 +236,48 @@ namespace IHS.Apps.CMP.Utilities.URLParsers
 
             if (item.Filters != null && item.Filters.Length > 1)
             {
-                NestedConstraint orWrapped = QueryStringParser.GetWrappingConstraint("or");
+                var tempWrappConstraint = GetWrappingConstraint("or");
+                
+                QueryStruct subItem = item.Clone();
+
                 foreach (var subFilter in item.Filters)
                 {
-                    QueryStruct subItem = item.Clone();
                     subItem.Filters = new string[0];
                     subItem.Filter = subFilter;
-                    this.CreateConstraintsFromQuery(search, subItem, ref orWrapped, false);
-                    wrappingConstraint =(NestedConstraint)orWrapped.Clone();
+                    subItem.Operator = "";
+
+                    //To Create Well Organized
+                    this.CreateConstraintsFromQuery(search, subItem, ref tempWrappConstraint, false);
                 }
+                this.AddOrInsertConstraint(ref wrappingConstraint, tempWrappConstraint);
+
+                return;
             }
 
-            ISearchConstraint constraint = this.GetConstraintViaQueryParser(search, item);
+            ISearchConstraint constraint = null;
+            item.Operator = item.Filter.Equals("FullText") ? "and" : "";
+            if (item.Filter.Equals("FullText"))
+            {
+                if (item.Operator.Equals(NOT))
+                {
+                    constraint = new NotConstraint(constraint);
+                    this.AddOrInsertConstraint(ref wrappingConstraint, constraint);
+                }
+                //To Keep any AndNestedConstraint in Separated Brackets/Parentheses
+                var tempConstraint = GetWrappingConstraint(item.Operator);
+                tempConstraint.Add(this.GetConstraintViaQueryParser(search, item.Value));
+
+                this.AddOrInsertConstraint(ref wrappingConstraint, tempConstraint);
+
+                //Not it Does "GetWrappingConstraint"
+                item.Operator = "";
+            }
+            else
+            {
+                //It Creates OrNestedConstraint for use to search any value on the filters
+                constraint = this.GetConstraintViaQueryParser(search, item);
+            }
+
             bool justCreated = false;
 
             if (wrappingConstraint == null && !string.IsNullOrEmpty(item.Operator))
@@ -253,12 +286,30 @@ namespace IHS.Apps.CMP.Utilities.URLParsers
                 wrappingConstraint = QueryStringParser.GetWrappingConstraint(item.Operator);
             }
 
-            if (item.Operator == NOT)
+            if (item.Operator.Equals(NOT))
             {
                 constraint = new NotConstraint(constraint);
             }
 
-            if (wrappingConstraint != null)
+            this.AddOrInsertConstraint(ref wrappingConstraint, constraint);
+
+            if (!justCreated && !string.IsNullOrEmpty(item.Operator))
+            {
+                var tempConstraint = GetWrappingConstraint(item.Operator);
+                tempConstraint.Add(wrappingConstraint);
+                wrappingConstraint = tempConstraint;
+            }
+
+        }
+
+        /// <summary>
+        /// Add or Insert into the Object list.
+        /// </summary>
+        /// <param name="wrappingConstraint">NestedConstraint Object</param>
+        /// <param name="constraint">Constraint value</param>
+        private void AddOrInsertConstraint(ref NestedConstraint wrappingConstraint, ISearchConstraint constraint)
+        {
+            if (wrappingConstraint != null && constraint != null)
             {
                 if (wrappingConstraint.Any())
                 {
@@ -269,14 +320,9 @@ namespace IHS.Apps.CMP.Utilities.URLParsers
                     wrappingConstraint.Add(constraint);
                 }
             }
-
-            if (!justCreated && !string.IsNullOrEmpty(item.Operator))
-            {
-                var tempConstraint = GetWrappingConstraint(item.Operator);
-                tempConstraint.Add(wrappingConstraint);
-                wrappingConstraint = tempConstraint;
-            }
         }
+
+
 
         /// <summary>
         /// Create Simple Facet and add it to the list.

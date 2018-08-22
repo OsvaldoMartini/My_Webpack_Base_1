@@ -56,9 +56,7 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
     using IHS.Apps.CMP.Models.Configuration;
     using IHS.Apps.CMP.Utilities.Config;
     using System.Web.SessionState;
-    using IHS.Apps.CMP.Models.ViewModels;
-    using IHS.Apps.CMP.Utilities.URLParsers;
-
+   
     //using IHS.Apps.CMP.Models.ViewModels;
     //using IHS.Apps.CMP.Utilities.URLParsers;
 
@@ -445,113 +443,113 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
 
             var mapping = MvcMappingsHelper.Instance.FindMvcMappingByUrlKey("JDSF14");
 
-            GetChart();
+            //GetChart();
         }
 
 
-        public void GetChart()
-        {
-            var genId = string.Concat("dvChart", Guid.NewGuid().ToString().Replace("-", string.Empty));
-            ChartPageModel model = new ChartPageModel();
-            var config = UIUtils.CreateParserConfigObject(this.mockCmpRequestContext.Object);
-            var parserManager = new URLToSearchParser(config);
-            string target_grid_config_chart_area_id = string.Empty;
-            var cat_chart = string.Empty;
-            string name = LanguageUtils.GetGlobalResourceString(!string.IsNullOrEmpty(this.mockCmpRequestContext.Object.CurrentCategoryReference.title_resource_key) ? this.mockCmpRequestContext.Object.CurrentCategoryReference.title_resource_key : this.mockCmpRequestContext.Object.CurrentCategoryReference.category_key);
-            var url = this.mockHttpRequestBase.Object.Url;
-            var category = mockCmpRequestContext.Object.CurrentCategory;
-            target_grid_config_chart_area_id = ChartPageController.ParseQueryForChartAreaId(url.Query);
-            var search = new Search(new CategorySource(category));
-            //search.Name = "JDBChart";
-            search.Name = "JDSFChartConfigArea";
-            if (url != null)
-            {
-                parserManager.Parse(url.Query, search);
-                target_grid_config_chart_area_id = ChartPageController.ParseQueryForChartAreaId(url.Query);
-            }
+        //public void GetChart()
+        //{
+        //    var genId = string.Concat("dvChart", Guid.NewGuid().ToString().Replace("-", string.Empty));
+        //    ChartPageModel model = new ChartPageModel();
+        //    var config = UIUtils.CreateParserConfigObject(this.mockCmpRequestContext.Object);
+        //    var parserManager = new URLToSearchParser(config);
+        //    string target_grid_config_chart_area_id = string.Empty;
+        //    var cat_chart = string.Empty;
+        //    string name = LanguageUtils.GetGlobalResourceString(!string.IsNullOrEmpty(this.mockCmpRequestContext.Object.CurrentCategoryReference.title_resource_key) ? this.mockCmpRequestContext.Object.CurrentCategoryReference.title_resource_key : this.mockCmpRequestContext.Object.CurrentCategoryReference.category_key);
+        //    var url = this.mockHttpRequestBase.Object.Url;
+        //    var category = mockCmpRequestContext.Object.CurrentCategory;
+        //    target_grid_config_chart_area_id = ChartPageController.ParseQueryForChartAreaId(url.Query);
+        //    var search = new Search(new CategorySource(category));
+        //    //search.Name = "JDBChart";
+        //    search.Name = "JDSFChartConfigArea";
+        //    if (url != null)
+        //    {
+        //        parserManager.Parse(url.Query, search);
+        //        target_grid_config_chart_area_id = ChartPageController.ParseQueryForChartAreaId(url.Query);
+        //    }
 
-            model.ChartModel = new ChartModel();
-            model.ChartModel.ChartId = "Chart" + DateTime.Now.Ticks;
+        //    model.ChartModel = new ChartModel();
+        //    model.ChartModel.ChartId = "Chart" + DateTime.Now.Ticks;
 
-            if (string.IsNullOrWhiteSpace(target_grid_config_chart_area_id) == false)
-            {
-                var currencyRequested = this.mockHttpRequestBase.Object.Url.AbsoluteUri.Substring(this.mockHttpRequestBase.Object.Url.AbsoluteUri.IndexOf("CURRENCY_") + 9, 3);
-                var chartData = ChartPageController.GetChart(
-                    this.mockCmpRequestContext.Object.CurrentProvider,
-                    this.mockCmpRequestContext.Object,
-                    this.mockCpmSession.Object.Authorization,
-                    "div_" + model.ChartModel.ChartId,
-                    search,
-                    target_grid_config_chart_area_id,
-                    currencyRequested,
-                    this.GetCorrectUser());
+        //    if (string.IsNullOrWhiteSpace(target_grid_config_chart_area_id) == false)
+        //    {
+        //        var currencyRequested = this.mockHttpRequestBase.Object.Url.AbsoluteUri.Substring(this.mockHttpRequestBase.Object.Url.AbsoluteUri.IndexOf("CURRENCY_") + 9, 3);
+        //        var chartData = ChartPageController.GetChart(
+        //            this.mockCmpRequestContext.Object.CurrentProvider,
+        //            this.mockCmpRequestContext.Object,
+        //            this.mockCpmSession.Object.Authorization,
+        //            "div_" + model.ChartModel.ChartId,
+        //            search,
+        //            target_grid_config_chart_area_id,
+        //            currencyRequested,
+        //            this.GetCorrectUser());
 
-                // adjust the Y axis for units
-                if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "FT_PRODUCTION_UNITS"))
-                {
-                    chartData.yAxis[0].title = new Apps.CMP.Models.Chart.Title() { text = "Units" };
-                    chartData.yAxis[0].labels = new Apps.CMP.Models.Chart.Labels() { format = "{value:,.0f}", align = "left" };
-                }
+        //        // adjust the Y axis for units
+        //        if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "FT_PRODUCTION_UNITS"))
+        //        {
+        //            chartData.yAxis[0].title = new Apps.CMP.Models.Chart.Title() { text = "Units" };
+        //            chartData.yAxis[0].labels = new Apps.CMP.Models.Chart.Labels() { format = "{value:,.0f}", align = "left" };
+        //        }
 
-                chartData.credits.enabled = true;
-                if (chartData.credits.enabled)
-                {
-                    string creditTextPre = string.Empty;
-                    if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "INFLATE"))
-                    {
-                        creditTextPre = "Current ";
-                    }
-                    else
-                    {
-                        creditTextPre = "Constant ";
-                    }
+        //        chartData.credits.enabled = true;
+        //        if (chartData.credits.enabled)
+        //        {
+        //            string creditTextPre = string.Empty;
+        //            if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "INFLATE"))
+        //            {
+        //                creditTextPre = "Current ";
+        //            }
+        //            else
+        //            {
+        //                creditTextPre = "Constant ";
+        //            }
 
-                    if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "BY_FORCE"))
-                    {
-                        chartData.title.text = "Defence Budget by Force";
-                    }
-                    else
-                    if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "BY_ACTIVITY"))
-                    {
-                        chartData.title.text = "Defence Budget by Activity";
-                    }
+        //            if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "BY_FORCE"))
+        //            {
+        //                chartData.title.text = "Defence Budget by Force";
+        //            }
+        //            else
+        //            if (search.SelectedIndexers.Any(idx => idx.ObjectKey == "BY_ACTIVITY"))
+        //            {
+        //                chartData.title.text = "Defence Budget by Activity";
+        //            }
 
-                    if (!url.ToString().Contains("COUNTRY"))
-                    {
-                        chartData.title.text = "Worldwide " + chartData.title.text;
-                    }
+        //            if (!url.ToString().Contains("COUNTRY"))
+        //            {
+        //                chartData.title.text = "Worldwide " + chartData.title.text;
+        //            }
 
-                    chartData.credits.text = creditTextPre + chartData.credits.text;
-                }
+        //            chartData.credits.text = creditTextPre + chartData.credits.text;
+        //        }
 
-                chartData.lang.noData = "Select some filters from the left.";
+        //        chartData.lang.noData = "Select some filters from the left.";
 
-                // create a tooltip object & ensure it's disabled
-                // by default HiChart enables tooltip popups on charts
-                if (chartData.tooltip == null)
-                {
-                    chartData.tooltip = new Apps.CMP.Models.Chart.Tooltip();
-                    chartData.tooltip.enabled = false;
-                }
+        //        // create a tooltip object & ensure it's disabled
+        //        // by default HiChart enables tooltip popups on charts
+        //        if (chartData.tooltip == null)
+        //        {
+        //            chartData.tooltip = new Apps.CMP.Models.Chart.Tooltip();
+        //            chartData.tooltip.enabled = false;
+        //        }
 
-                model.ChartModel.Data = string.Empty;
-                if (chartData != null)
-                {
+        //        model.ChartModel.Data = string.Empty;
+        //        if (chartData != null)
+        //        {
 
-                    chartData.series = chartData.series.OrderBy(x => x.order).ThenBy(x => x.order).ToList();
+        //            chartData.series = chartData.series.OrderBy(x => x.order).ThenBy(x => x.order).ToList();
 
-                    model.ChartModel.Data = chartData.PrepareJSON();
-                }
+        //            model.ChartModel.Data = chartData.PrepareJSON();
+        //        }
 
-                model.ChartModel.ContainerId = "div_" + model.ChartModel.ChartId;
-            }
+        //        model.ChartModel.ContainerId = "div_" + model.ChartModel.ChartId;
+        //    }
 
-            model.Name = name;
-            model.SubTitle = LanguageUtils.GetGlobalResourceString(!string.IsNullOrEmpty(this.mockCmpRequestContext.Object.CurrentCategoryReference.subtitle_resource_key) ? this.mockCmpRequestContext.Object.CurrentCategoryReference.subtitle_resource_key : string.Empty);
-            model.Breadcrumb = UIUtils.GetPageBreadcrumb(this.mockCmpRequestContext.Object);
+        //    model.Name = name;
+        //    model.SubTitle = LanguageUtils.GetGlobalResourceString(!string.IsNullOrEmpty(this.mockCmpRequestContext.Object.CurrentCategoryReference.subtitle_resource_key) ? this.mockCmpRequestContext.Object.CurrentCategoryReference.subtitle_resource_key : string.Empty);
+        //    model.Breadcrumb = UIUtils.GetPageBreadcrumb(this.mockCmpRequestContext.Object);
 
-            // return Json(model, JsonRequestBehavior.AllowGet);
-        }
+        //    // return Json(model, JsonRequestBehavior.AllowGet);
+        //}
 
         /// <summary>
         /// Assigns a supplied <see cref="IHS.Apps.CMP.DataProviders.Model.ProviderAttribute"/> to a
