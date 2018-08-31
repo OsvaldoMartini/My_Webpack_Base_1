@@ -2554,7 +2554,7 @@ namespace IHS.Apps.CMP.DataProviders
                 constraintsSQL);
             return Regex.Replace(sql, replacementPattern, replacement, RegexOptions.IgnoreCase);
         }
-
+               
         /// <summary>
         /// If (CONSTRAINT_IF_EXISTS::A::B::C::D) exists in SQL, will replace the WHOLE constraint
         /// part with the value of A if it exists as a search constraint, else write out B to

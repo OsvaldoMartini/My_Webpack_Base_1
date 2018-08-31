@@ -2538,6 +2538,7 @@ namespace IHS.Apps.CMP.DataProviders
         /// <param name="sql">The SQL statement being generated.</param>
         /// <param name="constraintsSQL">The generated constraints statement.</param>
         /// <param name="replacementPattern">The pattern to be replaced.</param>
+        /// <param name="IgnoreNestedOperation">To Ignore the NestedOperation.</param>
         /// <returns>The SQL statement with the constraints integrated.</returns>
         private static string UpdateSqlConstraintClauses(string sql, string constraintsSQL, string replacementPattern, bool IgnoreNestedOperation)
         {
@@ -2554,7 +2555,7 @@ namespace IHS.Apps.CMP.DataProviders
                 constraintsSQL);
             return Regex.Replace(sql, replacementPattern, replacement, RegexOptions.IgnoreCase);
         }
-
+               
         /// <summary>
         /// If (CONSTRAINT_IF_EXISTS::A::B::C::D) exists in SQL, will replace the WHOLE constraint
         /// part with the value of A if it exists as a search constraint, else write out B to
@@ -3075,6 +3076,10 @@ namespace IHS.Apps.CMP.DataProviders
                 if (!string.IsNullOrEmpty(newSql))
                 {
                     sql = sql.Substring(0, start) + newSql + sql.Substring(end + 2);
+                    //sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.WherePattern);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.WherePatternWithoutAuths, false);
+                    sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, newSql, AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
+
                 }
                 else
                 {
@@ -3990,7 +3995,7 @@ namespace IHS.Apps.CMP.DataProviders
                 sql = UpdateSqlConstraintIfExistsHints(sql, search, false, parser.IsOracle);
                 sql = UpdateSqlForEachUsedHints(sql, search, false);
                 sql = this.UpdateSearchSignatureHints(sql, search, authorisations);
-                parser.ParseConstraints(sqlExtra, search.Constraints);
+                parser.ParseConstraints(ref sqlExtra, search.Constraints);
 
                 if (sqlExtra.ToString().Contains("(TEXTSEARCHALLCOLUMNS)"))
                 {
@@ -4008,9 +4013,6 @@ namespace IHS.Apps.CMP.DataProviders
                         searchClone.SelectedIndexers.Add(search.SearchSource.Indexers.FirstOrDefault(ix => ix.ObjectKey.StartsWith("LIKE_VW_SEARCH", true, CultureInfo.InvariantCulture)));
                         sqlTemp = UpdateSqlTextSearchAllColumns(sqlTemp, category, tsqlCat, searchClone, false);
                         sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlTemp, AbstractSqlProvider.WherePattern, false);
-                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlTemp, AbstractSqlProvider.WherePatternWithoutAuths, false);
-                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlTemp, AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
-
                     }
                 }
                 else

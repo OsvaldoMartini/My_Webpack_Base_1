@@ -1,0 +1,6 @@
+xcopy /Y "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JMF BuG Search Stoped\ConstraintsToSqlParser.cs" "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\Helpers\ConstraintsToSqlParser.cs"
+xcopy /Y "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JMF BuG Search Stoped\JDSF14.xml" "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\TSQLProviderObjects\config\JDSF14.xml"
+xcopy /Y "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JMF BuG Search Stoped\JTICONLINE.xml" "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\TSQLProviderObjects\config\JTICONLINE.xml" 
+xcopy /Y "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JMF BuG Search Stoped\AbstractSqlProvider.cs" "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\AbstractSqlProvider.cs"
+xcopy /Y "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JMF BuG Search Stoped\QueryStringParserTest.cs" "C:\Workspace\CMP\Main-04.07\Source\UnitTest\Utilities\Parsers\QueryStringParserTest.cs"
+ 

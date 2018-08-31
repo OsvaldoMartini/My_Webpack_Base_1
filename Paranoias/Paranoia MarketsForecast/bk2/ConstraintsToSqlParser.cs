@@ -146,7 +146,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
         /// The lowest number of items to return found in the
         /// <see cref="IHS.Core.Catalog.Model.Search.NestedConstraint"/> objects.
         /// </returns>
-        public int ParseConstraints(StringBuilder queryString, NestedConstraint constraints)
+        public void ParseConstraints(ref StringBuilder queryString, NestedConstraint constraints)
         {
             int maxItems = int.MaxValue;
             string queryOperator = string.Empty;
@@ -171,7 +171,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
             {
                 queryOperator = " and ";
             }
-            
+                        
             // process each constraint
             foreach (ISearchConstraint constraint in constraints)
             {
@@ -182,7 +182,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                     AddQueryOperator(queryString, queryOperator);
 
                     // parse the nested constraint
-                    this.ParseNestedConstraint(maxItems, queryString, nestedConstraint);
+                    this.ParseNestedConstraint(maxItems, ref queryString, nestedConstraint);
                     continue;
                 }
 
@@ -257,7 +257,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                     if (!this.UseFreetextCommand || (this.UseFreetextCommand && searchBehaviorConstraint.SearchTextValue.ToString().ToUpperInvariant() != "AND"))
                     {
                         AddQueryOperator(queryString, queryOperator);
-                        maxItems = ConstraintsToSqlParser.ParseSearchBehaviorConstraint(queryString, searchBehaviorConstraint, this.GetFulltextAlias(), this.UseFreetextCommand);
+                        this.ParseSearchBehaviorConstraint(ref queryString, searchBehaviorConstraint, this.GetFulltextAlias(), this.UseFreetextCommand);
                     }
 
                     continue;
@@ -286,7 +286,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                 if (indexedSearchConstraint != null)
                 {
                     AddQueryOperator(queryString, queryOperator);
-                    this.ParseIndexSearchConstraint(queryString, indexedSearchConstraint, this.GetFulltextAlias());
+                    this.ParseIndexSearchConstraint(ref queryString, indexedSearchConstraint, this.GetFulltextAlias());
                     continue;
                 }
 
@@ -308,8 +308,6 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                     continue;
                 }
             }
-
-            return maxItems;
         }
 
         /// <summary>
@@ -519,6 +517,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                     {
                         localQueryString.Append(containsKeyword);
                     }
+
                 }
             }
 
@@ -526,12 +525,12 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
         }
 
         /// <summary>
-        /// Processes a <see cref="IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint"/> to
+        /// Processes a <see cref="SearchBehaviorConstraint"/> to
         /// generate a SQL query string.
         /// </summary>
         /// <param name="queryString">The SQL query string begin generated.</param>
         /// <param name="searchBehaviorConstraint">
-        /// The <see cref="IHS.Core.Catalog.Model.Search.SearchBehaviorConstraint"/> to process.
+        /// The <see cref="SearchBehaviorConstraint"/> to process.
         /// </param>
         /// <param name="fulltextAlias">The alias to use when referring to the full text search.</param>
         /// <param name="useFreetextCommand">A bool to indicate whether to use the default "contains" full text search or the "freetext" command.</param>
@@ -539,9 +538,9 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
         /// The maximum number of items to return as a result of executing the query being generated.
         /// </returns>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
-        private static int ParseSearchBehaviorConstraint(StringBuilder queryString, SearchBehaviorConstraint searchBehaviorConstraint, string fulltextAlias, bool useFreetextCommand)
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
+        private void ParseSearchBehaviorConstraint(ref StringBuilder queryString, SearchBehaviorConstraint searchBehaviorConstraint, string fulltextAlias, bool useFreetextCommand)
         {
-            int maxItems = int.MaxValue;
             string searchText = searchBehaviorConstraint.SearchTextValue.ToStringSafe(string.Empty);
             IEnumerable<string> columnNames = null;
 
@@ -565,13 +564,6 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
 
             // add the excludes ("and not"s) (if there are any) into the SQL search
             queryString.Append(excludeWords);
-
-            if (searchBehaviorConstraint.EnableMaxTextSearchHits)
-            {
-                maxItems = searchBehaviorConstraint.MaxTextSearchHits;
-            }
-
-            return maxItems;
         }
 
         /// <summary>
@@ -910,12 +902,12 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
         /// The new maximum number of items to return as a result of executing the query being generated.
         /// </returns>
         /// <remarks>NOTE: This method is recursive back into ParseConstraints.</remarks>
-        private int ParseNestedConstraint(int maxItems, StringBuilder queryString, NestedConstraint nestedConstraint)
+        private void ParseNestedConstraint(int maxItems, ref StringBuilder queryString, NestedConstraint nestedConstraint)
         {
             // NOTE: recursive constraint parsing!
             StringBuilder nestedQuery = new StringBuilder();
-            int nestedMaxItems = this.ParseConstraints(nestedQuery, nestedConstraint);
-
+            this.ParseConstraints(ref nestedQuery, nestedConstraint);
+            
             // add the SQL into the query string
             if (nestedQuery.Length > 0)
             {
@@ -923,14 +915,6 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                 queryString.Append(nestedQuery);
                 queryString.Append(")");
             }
-
-            // check the max items & make sure we're returning the smaller number
-            if (maxItems < nestedMaxItems)
-            {
-                nestedMaxItems = maxItems;
-            }
-
-            return nestedMaxItems;
         }
 
         /// <summary>
@@ -1228,7 +1212,7 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
         /// The <see cref="IHS.Core.Catalog.Model.Search.IndexedSearchBehaviorConstraint"/> to process.
         /// </param>
         /// <param name="fulltextAlias">The alias to use when referring to the full text search.</param>
-        private void ParseIndexSearchConstraint(StringBuilder queryString, IndexedSearchBehaviorConstraint indexedSearchConstraint, string fulltextAlias)
+        private void ParseIndexSearchConstraint(ref StringBuilder queryString, IndexedSearchBehaviorConstraint indexedSearchConstraint, string fulltextAlias)
         {
             SearchBehaviorConstraint searchConstraint = indexedSearchConstraint.Constraint as SearchBehaviorConstraint;
             if (searchConstraint == null)

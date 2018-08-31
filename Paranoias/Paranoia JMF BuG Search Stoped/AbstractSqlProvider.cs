@@ -3326,6 +3326,7 @@ namespace IHS.Apps.CMP.DataProviders
             sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.DontAddOrderByPattern);
             sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.MaxPagingOrderByPattern);
             sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.PagedDataIntoResultsTablePattern);
+            sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.TextSearchAllColumns);
 
             Log.DebugFormat("({0}), FetchCount for SQL: {1}", this.Name, sql);
 
@@ -4012,6 +4013,14 @@ namespace IHS.Apps.CMP.DataProviders
                         sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlTemp, AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
 
                     }
+                    else
+                    {   //In case of the MetaData is not Defined
+                        Log.Debug("The (TEXTSEARCHALLCOLUMNS) was defined But the \"Metadata\" it wasn't\r\n");
+                        Log.Debug("\"AllCollumnsToSearch\" must be Defined!");
+                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePattern, false);
+                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.WherePatternWithoutAuths, false);
+                        sql = AbstractSqlProvider.UpdateSqlConstraintClauses(sql, sqlExtra.ToString(), AbstractSqlProvider.ConstraintsOnlyNoAuths, false);
+                    }
                 }
                 else
                 {
@@ -4022,6 +4031,7 @@ namespace IHS.Apps.CMP.DataProviders
 
                 //Note we have to remove this as its nonsense and is not a "WHERE" clause.
                 sql = AbstractSqlProvider.RemoveConstraintsOnlyNoAuthsClause(sql);
+                sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.TextSearchAllColumns);
             }
 
             if (!string.IsNullOrEmpty(config.Category.PreQueryStatement))
@@ -4099,6 +4109,7 @@ namespace IHS.Apps.CMP.DataProviders
             sql = UpdateSQLStringToEnsureZeroRowsAreReturned(sql, AbstractSqlProvider.WherePattern);
             sql = UpdateSQLStringToEnsureZeroRowsAreReturned(sql, AbstractSqlProvider.WherePatternWithoutAuths);
             sql = UpdateSQLStringToEnsureZeroRowsAreReturned(sql, AbstractSqlProvider.ConstraintsOnlyNoAuths);
+            sql = AbstractSqlProvider.RemoveHint(sql, AbstractSqlProvider.TextSearchAllColumns);
 
             string indexerPrefix = GetDefaultIndexerPrefix(category);
 

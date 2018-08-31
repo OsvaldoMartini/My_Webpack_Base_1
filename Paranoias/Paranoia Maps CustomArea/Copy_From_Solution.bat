@@ -1,0 +1,5 @@
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DatabaseAccess\DataFacade\MapLayerCacheFacade.cs"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\Utilities\URLParsers\FacetParser.cs"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\Web\UI\Assets\Javascript\Maps\MapDrawing.js" 
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\Web\UI\Assets\Javascript\Maps\MapPageVM.js"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\Web\UI\Assets\Javascript\Results\FacetsVM.js"

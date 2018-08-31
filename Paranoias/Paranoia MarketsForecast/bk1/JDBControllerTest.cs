@@ -56,7 +56,7 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
     using IHS.Apps.CMP.Models.Configuration;
     using IHS.Apps.CMP.Utilities.Config;
     using System.Web.SessionState;
-
+   
     //using IHS.Apps.CMP.Models.ViewModels;
     //using IHS.Apps.CMP.Utilities.URLParsers;
 
@@ -288,17 +288,6 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
             mockHttpRequestBase.SetupGet(x => x.ApplicationPath).Returns("/");
             mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/DefenceBudgets/GetChart?cid=JDBWorldWideChart&view=chart&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|ITEMID|XKEY|SERIESVAL|COUNT|FORCE_ORD|ACTIVITY_ORD|BY_FORCE|COMBINE&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_BY_FORCE**RemoveCombine**UseDeflated**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532528138003", UriKind.Absolute));
             //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/DefenceBudgets/GetChart?cid=JDBWorldWideChart&view=chart&#view=chart|grid&f=MARKET_ATTR1(Air)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/guided?view=chart#f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]", UriKind.Absolute));
-
-            //Witch Specific columns
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
-
-            //All columns
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=F-35&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=F-35||F-22&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
-            //Multipe Words and Unique TextSearch
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762}", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35||F-22)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762}", UriKind.Absolute));
 
             //mockHttpRequestBase.SetupGet(x => x.ServerVariables).Returns(new System.Collections.Specialized.NameValueCollection());
             //ITEMID|XKEY|SERIESVAL|COUNTFORCE_ORD
@@ -431,10 +420,7 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
 
             this.mockHttpRequestBase = new Mock<HttpRequestBase>(MockBehavior.Strict);
             mockHttpRequestBase.SetupGet(x => x.ApplicationPath).Returns("/");
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/DefenceBudgets/GetChart?cid=JDBWorldWideChart&view=chart&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|ITEMID|XKEY|SERIESVAL|COUNT|FORCE_ORD|ACTIVITY_ORD|BY_FORCE|COMBINE&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_BY_FORCE**RemoveCombine**UseDeflated**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532528138003", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/DefenceBudgets/GetChart?cid=JDBWorldWideChart&view=chart&#view=chart|grid&f=MARKET_ATTR1(Air)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/guided?view=chart#f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]", UriKind.Absolute));
-
+            
             //Witch Specific columns
             //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
 
@@ -442,8 +428,11 @@ namespace IHS.Apps.CMP.Test.Web.Controllers.AandD
             //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=F-35&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
             //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart&grid&f=MARKET(Military Aircraft)&pg=1&q=F-35||F-22&SD=dontSearch&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532706381020", UriKind.Absolute));
             //Multipe Words and Unique TextSearch
-            mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762}", UriKind.Absolute));
-            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35||F-22)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762}", UriKind.Absolute));
+            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762", UriKind.Absolute));
+            //mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:57592/MarketsForecast/GetChart?cid=JDSFChartConfigArea&view=chart|grid&q=[ViewSupplierInfoPublicComments|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-35||F-22)]&pg=1&f=MARKET(Military Aircraft)&UnIxr=FT_TOTAL_PROGRAM|CURRENCY_USD|FUNCTIONALSEGMENT|TIME_SERIES|GROUP_OTHER_SERIES&CHART_METADATA(X_eq_TIMELINE**Y_eq_FT_TOTAL_PROGRAM**GROUPBY_eq_FUNCTIONALSEGMENT**Currency_USD**XCount=12**GCount=12**CHARTTYPE_eq_Column)&_=1532877675762", UriKind.Absolute));
+            
+            mockHttpRequestBase.SetupGet(x => x.Url).Returns(new Uri("http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F35B)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-37)]&pg=1}", UriKind.Absolute));
+
 
             //mockHttpRequestBase.SetupGet(x => x.ServerVariables).Returns(new System.Collections.Specialized.NameValueCollection());
             //ITEMID|XKEY|SERIESVAL|COUNTFORCE_ORD

@@ -6,7 +6,7 @@ namespace IHS.Core.Catalog.Model.Search {
     /// <summary>
     /// Represents a constraint on catalog searches.
     /// </summary>
-    public interface ISearchConstraint : INotifyPropertyChanged, ICloneable, IEquatable<ISearchConstraint> {
+    public interface ISearchConstraint : ICloneable, IEquatable<ISearchConstraint> {
         /// <summary>
         /// The constraint identifier.   
         /// This can be used to remove / get a handle to the constraint based on an application 

@@ -1,0 +1,5 @@
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\Helpers\ConstraintsToSqlParser.cs"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\TSQLProviderObjects\config\JDSF14.xml"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\TSQLProviderObjects\config\JTICONLINE.xml" 
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\SharedProjects\DataProviders\AbstractSqlProvider.cs"
+xcopy /Y "C:\Workspace\CMP\Main-04.07\Source\UnitTest\Utilities\Parsers\QueryStringParserTest.cs"

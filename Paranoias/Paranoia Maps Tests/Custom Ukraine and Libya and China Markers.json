@@ -1,0 +1,93 @@
+{
+  "Data": {
+    "LayerName": "Bases",
+    "Cluster": false,
+    "ClusterStyle": 1,
+    "Markers": [],
+    "IsSelected": false,
+    "Styles": [],
+    "Type": 2
+  },
+  "MetaData": {
+    "SearchTime": null,
+    "RenderTime": null,
+    "QueryParseTime": null,
+    "ResultsOnPage": 0,
+    "ResultsTotal": 0,
+    "DisplayOnPage": 0,
+    "ResultsBeginIndex": 0,
+    "ResultsEndIndex": 0,
+    "AvailableFacets": [],
+    "AppliedFacets": [
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "latlongs",
+        "Value": "12.31525%2c-141.10352",
+        "Text": "12.31525,-141.10352",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "latlongs",
+        "Value": "51.35596%2c125.02930",
+        "Text": "51.35596,125.02930",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "geoarea",
+        "Value": "Libya",
+        "Text": "Custom Area",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "geoarea",
+        "Value": "China",
+        "Text": "Custom Area",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "customarea",
+        "Value": "Uk1",
+        "Text": "Uk1",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      }
+    ],
+    "PageIndex": 1,
+    "PageTotal": 1,
+    "PaginationStyle": null,
+    "SortDetails": null,
+    "AuditTime": null,
+    "HiddenFacets": [
+      "COUNTRYISO",
+      "LATLONGS",
+      "INSTALLATIONTYPE",
+      "TYPE",
+      "INTELCENTRETOPICSTAXONOMY"
+    ],
+    "MetaDataCreationTime": null,
+    "WholeTime": null
+  }
+}

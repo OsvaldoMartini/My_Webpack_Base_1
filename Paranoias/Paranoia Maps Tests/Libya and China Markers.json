@@ -1,0 +1,2892 @@
+{
+  "Data": {
+    "LayerName": "Bases",
+    "Cluster": false,
+    "ClusterStyle": 1,
+    "Markers": [
+      {
+        "Title": "SHIDAO BAY-1",
+        "Id": "Installation_97710",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.898883,
+        "Longitude": 122.491619,
+        "Count": 1
+      },
+      {
+        "Title": "Guanyuan nuclear complex (Plant 821)",
+        "Id": "Installation_97674",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.496255,
+        "Longitude": 105.591907,
+        "Count": 1
+      },
+      {
+        "Title": "Shaanxi Uranium Enrichment Plant",
+        "Id": "Installation_97708",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 33.261433,
+        "Longitude": 107.429906,
+        "Count": 1
+      },
+      {
+        "Title": "TAISHAN-2",
+        "Id": "Installation_97712",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.909919,
+        "Longitude": 112.982756,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-3",
+        "Id": "Installation_97680",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-1",
+        "Id": "Installation_97678",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-5",
+        "Id": "Installation_97682",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Jiuquan nuclear complex (Plant 404)",
+        "Id": "Installation_97684",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.229635,
+        "Longitude": 97.363124,
+        "Count": 1
+      },
+      {
+        "Title": "Baimadong",
+        "Id": "Installation_97651",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.088445,
+        "Longitude": 104.895979,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou",
+        "Id": "Installation_97686",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "Candu Fuel Plant",
+        "Id": "Installation_97653",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.592991,
+        "Longitude": 109.7953,
+        "Count": 1
+      },
+      {
+        "Title": "Yibin Nuclear Fuel Element Plant",
+        "Id": "Installation_97724",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 28.728333,
+        "Longitude": 104.545,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou 2",
+        "Id": "Installation_97688",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "Centralized Wet Storage Facility (CWSF)",
+        "Id": "Installation_97655",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "Al Hashan",
+        "Id": "Installation_98136",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.866885,
+        "Longitude": 13.238935,
+        "Count": 1
+      },
+      {
+        "Title": "Neutron Generating Complex",
+        "Id": "Installation_98140",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-1",
+        "Id": "Installation_97694",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "CHANGJIANG-2",
+        "Id": "Installation_97657",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 19.462086,
+        "Longitude": 108.897417,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-1",
+        "Id": "Installation_97661",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "Hot Cells",
+        "Id": "Installation_98138",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "Sawani",
+        "Id": "Installation_98142",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 29.160167,
+        "Longitude": 21.297368,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-3",
+        "Id": "Installation_97696",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-3",
+        "Id": "Installation_97663",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "The Materials Science Unit",
+        "Id": "Installation_98144",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "Qinglong",
+        "Id": "Installation_97698",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.400224,
+        "Longitude": 118.91336,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-3",
+        "Id": "Installation_97701",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "FANGJIASHAN-2",
+        "Id": "Installation_97665",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.440875,
+        "Longitude": 120.941658,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-1",
+        "Id": "Installation_97667",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-5",
+        "Id": "Installation_97671",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN-1",
+        "Id": "Installation_97705",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.441181,
+        "Longitude": 120.950544,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-3",
+        "Id": "Installation_97669",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "Fuzhou",
+        "Id": "Installation_97673",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.904072,
+        "Longitude": 116.420747,
+        "Count": 1
+      },
+      {
+        "Title": "TAISHAN-1",
+        "Id": "Installation_97711",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.909919,
+        "Longitude": 112.982756,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-4",
+        "Id": "Installation_97681",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-2",
+        "Id": "Installation_97679",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-6",
+        "Id": "Installation_97683",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Lantian",
+        "Id": "Installation_97685",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 34.113927,
+        "Longitude": 109.393004,
+        "Count": 1
+      },
+      {
+        "Title": "Benxi",
+        "Id": "Installation_97652",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 41.111823,
+        "Longitude": 123.75681,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou (RPP)",
+        "Id": "Installation_97687",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "CEFR",
+        "Id": "Installation_97654",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.740297,
+        "Longitude": 116.030875,
+        "Count": 1
+      },
+      {
+        "Title": "Al Fallah",
+        "Id": "Installation_98135",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.88609,
+        "Longitude": 13.190939,
+        "Count": 1
+      },
+      {
+        "Title": "Yining",
+        "Id": "Installation_97725",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 44.033795,
+        "Longitude": 81.596699,
+        "Count": 1
+      },
+      {
+        "Title": "Lop Nor",
+        "Id": "Installation_97693",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 41.698618,
+        "Longitude": 88.3783,
+        "Count": 1
+      },
+      {
+        "Title": "CHANGJIANG-1",
+        "Id": "Installation_97656",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 19.462086,
+        "Longitude": 108.897417,
+        "Count": 1
+      },
+      {
+        "Title": "Al Karamia",
+        "Id": "Installation_98137",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.88609,
+        "Longitude": 13.190939,
+        "Count": 1
+      },
+      {
+        "Title": "Sabha Storage Facility",
+        "Id": "Installation_98141",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.067842,
+        "Longitude": 14.572008,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-2",
+        "Id": "Installation_97695",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-2",
+        "Id": "Installation_97662",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "Janzour",
+        "Id": "Installation_98139",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.808347,
+        "Longitude": 12.994431,
+        "Count": 1
+      },
+      {
+        "Title": "Tajura Desalination Plant",
+        "Id": "Installation_98143",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.831702,
+        "Longitude": 13.389427,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-4",
+        "Id": "Installation_97697",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-2",
+        "Id": "Installation_97700",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "FANGJIASHAN-1",
+        "Id": "Installation_97664",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.440875,
+        "Longitude": 120.941658,
+        "Count": 1
+      },
+      {
+        "Title": "TM-4",
+        "Id": "Installation_98145",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-1",
+        "Id": "Installation_97699",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-4",
+        "Id": "Installation_97702",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "Fuling nuclear complex (Plant 816)",
+        "Id": "Installation_97666",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 29.556808,
+        "Longitude": 107.506822,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-4",
+        "Id": "Installation_97670",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-2",
+        "Id": "Installation_97668",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-6",
+        "Id": "Installation_97672",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "Centralized Wet Storage Facility (CWSF)",
+        "Id": "Installation_94257",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-1",
+        "Id": "Installation_94296",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "CHANGJIANG-2",
+        "Id": "Installation_94259",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 19.462086,
+        "Longitude": 108.897417,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-1",
+        "Id": "Installation_94263",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-3",
+        "Id": "Installation_94298",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-1",
+        "Id": "Installation_94301",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-3",
+        "Id": "Installation_94265",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-3",
+        "Id": "Installation_94303",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "FANGJIASHAN-2",
+        "Id": "Installation_94267",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.440875,
+        "Longitude": 120.941658,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-3",
+        "Id": "Installation_94271",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-1",
+        "Id": "Installation_94269",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-5",
+        "Id": "Installation_94273",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "Al Fallah",
+        "Id": "Installation_94737",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.88609,
+        "Longitude": 13.190939,
+        "Count": 1
+      },
+      {
+        "Title": "Janzour",
+        "Id": "Installation_94741",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.808347,
+        "Longitude": 12.994431,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN-1",
+        "Id": "Installation_94307",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.441181,
+        "Longitude": 120.950544,
+        "Count": 1
+      },
+      {
+        "Title": "Fuzhou",
+        "Id": "Installation_94275",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.904072,
+        "Longitude": 116.420747,
+        "Count": 1
+      },
+      {
+        "Title": "Al Karamia",
+        "Id": "Installation_94739",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.88609,
+        "Longitude": 13.190939,
+        "Count": 1
+      },
+      {
+        "Title": "Sabha Storage Facility",
+        "Id": "Installation_94743",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.067842,
+        "Longitude": 14.572008,
+        "Count": 1
+      },
+      {
+        "Title": "TAISHAN-1",
+        "Id": "Installation_94313",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.909919,
+        "Longitude": 112.982756,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-2",
+        "Id": "Installation_94281",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Tajura Desalination Plant",
+        "Id": "Installation_94745",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.831702,
+        "Longitude": 13.389427,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-4",
+        "Id": "Installation_94283",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "TM-4",
+        "Id": "Installation_94747",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-6",
+        "Id": "Installation_94285",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Lantian",
+        "Id": "Installation_94287",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 34.113927,
+        "Longitude": 109.393004,
+        "Count": 1
+      },
+      {
+        "Title": "Benxi",
+        "Id": "Installation_94254",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 41.111823,
+        "Longitude": 123.75681,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou (RPP)",
+        "Id": "Installation_94289",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "CEFR",
+        "Id": "Installation_94256",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.740297,
+        "Longitude": 116.030875,
+        "Count": 1
+      },
+      {
+        "Title": "Yining",
+        "Id": "Installation_94327",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 44.033795,
+        "Longitude": 81.596699,
+        "Count": 1
+      },
+      {
+        "Title": "Lop Nor",
+        "Id": "Installation_94295",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 41.698618,
+        "Longitude": 88.3783,
+        "Count": 1
+      },
+      {
+        "Title": "CHANGJIANG-1",
+        "Id": "Installation_94258",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 19.462086,
+        "Longitude": 108.897417,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-2",
+        "Id": "Installation_94297",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "Qinglong",
+        "Id": "Installation_94300",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.400224,
+        "Longitude": 118.91336,
+        "Count": 1
+      },
+      {
+        "Title": "FANGCHENGGANG-2",
+        "Id": "Installation_94264",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.666664,
+        "Longitude": 108.564153,
+        "Count": 1
+      },
+      {
+        "Title": "NINGDE-4",
+        "Id": "Installation_94299",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 27.045742,
+        "Longitude": 120.285514,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-2",
+        "Id": "Installation_94302",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "FANGJIASHAN-1",
+        "Id": "Installation_94266",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.440875,
+        "Longitude": 120.941658,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-2",
+        "Id": "Installation_94270",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "QINSHAN 2-4",
+        "Id": "Installation_94304",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 30.420667,
+        "Longitude": 120.941503,
+        "Count": 1
+      },
+      {
+        "Title": "Fuling nuclear complex (Plant 816)",
+        "Id": "Installation_94268",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 29.556808,
+        "Longitude": 107.506822,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-4",
+        "Id": "Installation_94272",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "Hot Cells",
+        "Id": "Installation_94740",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "Shaanxi Uranium Enrichment Plant",
+        "Id": "Installation_94310",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 33.261433,
+        "Longitude": 107.429906,
+        "Count": 1
+      },
+      {
+        "Title": "FUQING-6",
+        "Id": "Installation_94274",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.445056,
+        "Longitude": 119.446264,
+        "Count": 1
+      },
+      {
+        "Title": "Al Hashan",
+        "Id": "Installation_94738",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.866885,
+        "Longitude": 13.238935,
+        "Count": 1
+      },
+      {
+        "Title": "Neutron Generating Complex",
+        "Id": "Installation_94742",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "SHIDAO BAY-1",
+        "Id": "Installation_94312",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.898883,
+        "Longitude": 122.491619,
+        "Count": 1
+      },
+      {
+        "Title": "Guanyuan nuclear complex (Plant 821)",
+        "Id": "Installation_94276",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.496255,
+        "Longitude": 105.591907,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-1",
+        "Id": "Installation_94280",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Sawani",
+        "Id": "Installation_94744",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 29.160167,
+        "Longitude": 21.297368,
+        "Count": 1
+      },
+      {
+        "Title": "TAISHAN-2",
+        "Id": "Installation_94314",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 21.909919,
+        "Longitude": 112.982756,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-3",
+        "Id": "Installation_94282",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "The Materials Science Unit",
+        "Id": "Installation_94746",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 32.838517,
+        "Longitude": 13.45227,
+        "Count": 1
+      },
+      {
+        "Title": "HONGYANHE-5",
+        "Id": "Installation_94284",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 39.802192,
+        "Longitude": 121.475711,
+        "Count": 1
+      },
+      {
+        "Title": "Jiuquan nuclear complex (Plant 404)",
+        "Id": "Installation_94286",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.229635,
+        "Longitude": 97.363124,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou 2",
+        "Id": "Installation_94290",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "Baimadong",
+        "Id": "Installation_94253",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 25.088445,
+        "Longitude": 104.895979,
+        "Count": 1
+      },
+      {
+        "Title": "Lanzhou",
+        "Id": "Installation_94288",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 36.152692,
+        "Longitude": 103.520962,
+        "Count": 1
+      },
+      {
+        "Title": "Candu Fuel Plant",
+        "Id": "Installation_94255",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 40.592991,
+        "Longitude": 109.7953,
+        "Count": 1
+      },
+      {
+        "Title": "Yibin Nuclear Fuel Element Plant",
+        "Id": "Installation_94326",
+        "Type": "Nuclear Facility",
+        "TypeId": 11,
+        "Level": 0,
+        "Colour": "#a1abb2",
+        "Latitude": 28.728333,
+        "Longitude": 104.545,
+        "Count": 1
+      }
+    ],
+    "IsSelected": false,
+    "Styles": [],
+    "Type": 2
+  },
+  "MetaData": {
+    "SearchTime": null,
+    "RenderTime": null,
+    "QueryParseTime": null,
+    "ResultsOnPage": 0,
+    "ResultsTotal": 120,
+    "DisplayOnPage": 0,
+    "ResultsBeginIndex": 0,
+    "ResultsEndIndex": 0,
+    "AvailableFacets": [
+      {
+        "Id": "5b565bf5-75d6-4555-9aa3-dcefea412ee0",
+        "Title": "default",
+        "Padlocked": false,
+        "Panels": [
+          {
+            "Name": "Post Date",
+            "FacetKey": "POSTDATE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 4,
+                "MinValue": null,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": null,
+                "FacetType": 2,
+                "ClientID": "94354363-f24d-4267-811a-641cf98e0a05",
+                "Key": "POSTDATE",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "date",
+            "ShowAll": false
+          },
+          {
+            "Name": "Region",
+            "FacetKey": "REGION",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "REGION",
+                    "Value": "China+and+Northeast+Asia",
+                    "Text": "China and Northeast Asia",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 98
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "REGION",
+                    "Value": "Northern+Africa",
+                    "Text": "Northern Africa",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 22
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Country",
+            "FacetKey": "COUNTRY",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "COUNTRY",
+                    "Value": "China",
+                    "Text": "China",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 98
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "COUNTRY",
+                    "Value": "Libya",
+                    "Text": "Libya",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 22
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Country ISO",
+            "FacetKey": "COUNTRYISO",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "COUNTRYISO",
+                    "Value": "CN",
+                    "Text": "CN",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 98
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "COUNTRYISO",
+                    "Value": "LY",
+                    "Text": "LY",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 22
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Type",
+            "FacetKey": "TYPE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "TYPE",
+                    "Value": "Nuclear+Facility",
+                    "Text": "Nuclear Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 120
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Sub Type",
+            "FacetKey": "SUBTYPE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "SUBTYPE",
+                    "Value": "Nuclear+Facility",
+                    "Text": "Nuclear Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 120
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Installation Status",
+            "FacetKey": "INSTALLATIONSTATUS",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "INSTALLATIONSTATUS",
+                    "Value": "Active",
+                    "Text": "Active",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 64
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "INSTALLATIONSTATUS",
+                    "Value": "Forthcoming",
+                    "Text": "Forthcoming",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 30
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "INSTALLATIONSTATUS",
+                    "Value": "Inactive",
+                    "Text": "Inactive",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 26
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Location Level",
+            "FacetKey": "LOCATIONLEVEL",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "LOCATIONLEVEL",
+                    "Value": "Site",
+                    "Text": "Site",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 50
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "LOCATIONLEVEL",
+                    "Value": "Town",
+                    "Text": "Town",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 6
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "LOCATIONLEVEL",
+                    "Value": "City",
+                    "Text": "City",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "LOCATIONLEVEL",
+                    "Value": "City+suburb",
+                    "Text": "City suburb",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Facility Type",
+            "FacetKey": "FACILITYTYPE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": true,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "PWR",
+                    "Text": "PWR",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 30
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Uranium+Mining+and+Milling",
+                    "Text": "Uranium Mining and Milling",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 6
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Reactor+-+Dedicated+Plutonium+Production",
+                    "Text": "Reactor - Dedicated Plutonium Production",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 3
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Centrifuge+Development",
+                    "Text": "Centrifuge Development",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Enrichment",
+                    "Text": "Enrichment",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Fuel+Fabrication",
+                    "Text": "Fuel Fabrication",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Reprocessing",
+                    "Text": "Reprocessing",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Centrifuge+Equipment+Storage+Site+(1980s)",
+                    "Text": "Centrifuge Equipment Storage Site (1980s)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Centrifuge+Production",
+                    "Text": "Centrifuge Production",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Conversion",
+                    "Text": "Conversion",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Desalination+Plant",
+                    "Text": "Desalination Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "FBR",
+                    "Text": "FBR",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "HTGR",
+                    "Text": "HTGR",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Nuclear+Test+Site",
+                    "Text": "Nuclear Test Site",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Radiochemistry+Laboratory",
+                    "Text": "Radiochemistry Laboratory",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Reactor+%e2%80%93+application+uncertain",
+                    "Text": "Reactor – application uncertain",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Spent+Fuel+Storage",
+                    "Text": "Spent Fuel Storage",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Storage+Facility",
+                    "Text": "Storage Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "FACILITYTYPE",
+                    "Value": "Yellowcake+storage",
+                    "Text": "Yellowcake storage",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Parent Area Name",
+            "FacetKey": "PARENTAREANAME",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": true,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Fuqing+Nuclear+Power+Plant",
+                    "Text": "Fuqing Nuclear Power Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 6
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Hongyanhe+Nuclear+Power+Plant",
+                    "Text": "Hongyanhe Nuclear Power Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 6
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Ningde+Nuclear+Power+Plant",
+                    "Text": "Ningde Nuclear Power Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 4
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Qinshan+2",
+                    "Text": "Qinshan 2",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 4
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+L+%2f+Tajoura+Nuclear+Research+Center",
+                    "Text": "Site L / Tajoura Nuclear Research Center",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 4
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Fangchenggang+(CGN)",
+                    "Text": "Fangchenggang (CGN)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 3
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Lanzhou+Uranium+Enrichment+Plant",
+                    "Text": "Lanzhou Uranium Enrichment Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 3
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Changjiang+Nuclear+Power+Plant",
+                    "Text": "Changjiang Nuclear Power Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Qinshan+1+Exp+(Fangjiashan)",
+                    "Text": "Qinshan 1 Exp (Fangjiashan)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Taishan+Yaogu",
+                    "Text": "Taishan Yaogu",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 2
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Baimadong+uranium+mine",
+                    "Text": "Baimadong uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Benxi+uranium+mine",
+                    "Text": "Benxi uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Candu+Fuel+Plant",
+                    "Text": "Candu Fuel Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Centralized+Wet+Storage+Facility+(CWSF)",
+                    "Text": "Centralized Wet Storage Facility (CWSF)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "China+Experimental+Fast+Reactor+%2f+China+Institute+of+Atomic+Energy",
+                    "Text": "China Experimental Fast Reactor / China Institute of Atomic Energy",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Fuling+nuclear+complex+(Plant+816)",
+                    "Text": "Fuling nuclear complex (Plant 816)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Fuzhou+uranium+mine",
+                    "Text": "Fuzhou uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Guanyuan+nuclear+complex+(Plant+821)",
+                    "Text": "Guanyuan nuclear complex (Plant 821)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Jiuquan+nuclear+complex+(Plant+404)",
+                    "Text": "Jiuquan nuclear complex (Plant 404)",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Lantian+uranium+mine",
+                    "Text": "Lantian uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Lop+Nor+Nuclear+Test+Site",
+                    "Text": "Lop Nor Nuclear Test Site",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Qinglong+uranium+mine",
+                    "Text": "Qinglong uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Qinshan+1",
+                    "Text": "Qinshan 1",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Shaanxi+Uranium+Enrichment+Plant",
+                    "Text": "Shaanxi Uranium Enrichment Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Shidao+Bay+Nuclear+Power+Plant",
+                    "Text": "Shidao Bay Nuclear Power Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+A+%2f+Al+Hashan+%2f+L-1+Centrifuge+site",
+                    "Text": "Site A / Al Hashan / L-1 Centrifuge site",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+B+%2f+Al+Fallah",
+                    "Text": "Site B / Al Fallah",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+E+%2f+Janzour+centrifuge+site+%2f+Machine+Shop+1001",
+                    "Text": "Site E / Janzour centrifuge site / Machine Shop 1001",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+F+%2f+Sabha+Storage+Facility",
+                    "Text": "Site F / Sabha Storage Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+G+%2f+Sawani",
+                    "Text": "Site G / Sawani",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+H+%2f+Al+Karamia+Uranium+Conversion+Facility",
+                    "Text": "Site H / Al Karamia Uranium Conversion Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Site+I+%2f+Tajura+Desalination+Plant",
+                    "Text": "Site I / Tajura Desalination Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Yibin+Nuclear+Fuel+Element+Plant",
+                    "Text": "Yibin Nuclear Fuel Element Plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "PARENTAREANAME",
+                    "Value": "Yining+uranium+mine",
+                    "Text": "Yining uranium mine",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Start Of Operation",
+            "FacetKey": "STARTOFOPERATION",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 1,
+                "MinValue": 0,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": "10",
+                "FacetType": 7,
+                "ClientID": "29bea079-62cd-440f-9b75-d3be999a9998",
+                "Key": "STARTOFOPERATION",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "gYear",
+            "ShowAll": false
+          },
+          {
+            "Name": "End Of Operation",
+            "FacetKey": "ENDOFOPERATION",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 1,
+                "MinValue": 0,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": "10",
+                "FacetType": 7,
+                "ClientID": "e6390699-3854-4e8f-bbfb-62028f299a68",
+                "Key": "ENDOFOPERATION",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "gYear",
+            "ShowAll": false
+          },
+          {
+            "Name": "IAEA Safeguards",
+            "FacetKey": "IAEASAFEGUARDS",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEASAFEGUARDS",
+                    "Value": "Yes",
+                    "Text": "Yes",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 42
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEASAFEGUARDS",
+                    "Value": "No",
+                    "Text": "No",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 5
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Scale",
+            "FacetKey": "SCALE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "SCALE",
+                    "Value": "Commercial",
+                    "Text": "Commercial",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 47
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "SCALE",
+                    "Value": "Research+and+development",
+                    "Text": "Research and development",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 9
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "SCALE",
+                    "Value": "Pilot+plant",
+                    "Text": "Pilot plant",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "IAEA Reference Number",
+            "FacetKey": "IAEAREFERENCENUMBER",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "182+-+CONV",
+                    "Text": "182 - CONV",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "369+-+UFAB",
+                    "Text": "369 - UFAB",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "499+-+MILL",
+                    "Text": "499 - MILL",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "502+-+MILL",
+                    "Text": "502 - MILL",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "590+-+ENRI",
+                    "Text": "590 - ENRI",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "627+-+SFSF",
+                    "Text": "627 - SFSF",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "662+-+SFRR",
+                    "Text": "662 - SFRR",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "710+-+MILL",
+                    "Text": "710 - MILL",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "711+-+MILL",
+                    "Text": "711 - MILL",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "712+-+ENRI",
+                    "Text": "712 - ENRI",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "731+-+UFAB",
+                    "Text": "731 - UFAB",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  },
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "IAEAREFERENCENUMBER",
+                    "Value": "937+-+MILL",
+                    "Text": "937 - MILL",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 1
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          },
+          {
+            "Name": "Design Capacity (mw)",
+            "FacetKey": "DESIGNCAPACITY_MW",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 2,
+                "MinValue": null,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": null,
+                "FacetType": 1,
+                "ClientID": "0facb7bd-5744-471e-bacf-ad31778b89a0",
+                "Key": "DESIGNCAPACITY_MW",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "double",
+            "ShowAll": false
+          },
+          {
+            "Name": "Design Capacity (mtswu/year)",
+            "FacetKey": "DESIGNCAPACITY_MTSWU_YEAR",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 2,
+                "MinValue": null,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": null,
+                "FacetType": 1,
+                "ClientID": "9967a02b-f5f2-4fd1-9e9d-252191fb9303",
+                "Key": "DESIGNCAPACITY_MTSWU_YEAR",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "double",
+            "ShowAll": false
+          },
+          {
+            "Name": "Reference Power (mw)",
+            "FacetKey": "REFERENCEPOWER_MW",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": false,
+            "Items": [
+              {
+                "RangeStartTitle": "From",
+                "RangeEndTitle": "To",
+                "ValidationType": 2,
+                "MinValue": null,
+                "MaxValue": null,
+                "DisableMonthChange": false,
+                "DisableYearChange": false,
+                "YearRange": null,
+                "TypeDisplayText": null,
+                "Title": null,
+                "RangeMinLimit": null,
+                "RangeMaxLimit": null,
+                "FacetType": 1,
+                "ClientID": "ff4ecc01-7be8-48e1-9679-be0467e1124f",
+                "Key": "REFERENCEPOWER_MW",
+                "AvailableOptions": {},
+                "QuickPicks": []
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "double",
+            "ShowAll": false
+          },
+          {
+            "Name": "Installation Type",
+            "FacetKey": "INSTALLATIONTYPE",
+            "ShowExcludeOption": false,
+            "ShowFilterBox": false,
+            "AutoOpen": true,
+            "Items": [
+              {
+                "Facets": [
+                  {
+                    "SubAct": false,
+                    "Act": false,
+                    "Inverted": false,
+                    "Key": "INSTALLATIONTYPE",
+                    "Value": "Nuclear+Facility",
+                    "Text": "Nuclear Facility",
+                    "FacetType": 4,
+                    "Children": [],
+                    "Count": 120
+                  }
+                ],
+                "FacetType": 0,
+                "ClientID": "00000000-0000-0000-0000-000000000000",
+                "Key": null,
+                "SingleSelect": false,
+                "IsClearEnabled": false
+              }
+            ],
+            "HelpAppName": null,
+            "HelpGroupId": "NUCLEAR_MAP",
+            "HelpItemId": null,
+            "IsCustomFilters": false,
+            "Hidden": false,
+            "DataType": "string",
+            "ShowAll": false
+          }
+        ]
+      }
+    ],
+    "AppliedFacets": [
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "latlongs",
+        "Value": "12.31525%2c-141.10352",
+        "Text": "12.31525,-141.10352",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "latlongs",
+        "Value": "51.35596%2c125.02930",
+        "Text": "51.35596,125.02930",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "geoarea",
+        "Value": "Libya",
+        "Text": "Custom Area",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      },
+      {
+        "SubAct": false,
+        "Act": true,
+        "Inverted": false,
+        "Key": "geoarea",
+        "Value": "China",
+        "Text": "Custom Area",
+        "FacetType": 4,
+        "Children": [],
+        "Count": 0
+      }
+    ],
+    "PageIndex": 0,
+    "PageTotal": 4,
+    "PaginationStyle": null,
+    "SortDetails": null,
+    "AuditTime": null,
+    "HiddenFacets": [
+      "COUNTRYISO",
+      "LATLONGS",
+      "INSTALLATIONTYPE",
+      "TYPE",
+      "INTELCENTRETOPICSTAXONOMY"
+    ],
+    "MetaDataCreationTime": null,
+    "WholeTime": null
+  }
+}

@@ -254,7 +254,8 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                 SearchBehaviorConstraint searchBehaviorConstraint = constraint as SearchBehaviorConstraint;
                 if (searchBehaviorConstraint != null)
                 {
-                    if (!this.UseFreetextCommand || (this.UseFreetextCommand && searchBehaviorConstraint.SearchTextValue.ToString().ToUpperInvariant() != "AND"))
+                    if (!this.UseFreetextCommand ||
+                        (this.UseFreetextCommand && searchBehaviorConstraint.SearchTextValue.ToString().ToUpperInvariant() != "AND"))
                     {
                         AddQueryOperator(queryString, queryOperator);
                         maxItems = ConstraintsToSqlParser.ParseSearchBehaviorConstraint(queryString, searchBehaviorConstraint, this.GetFulltextAlias(), this.UseFreetextCommand);
@@ -441,22 +442,15 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                 }
                 else
                 {
-                    string containsKeyword = useFreetextCommand ? "freetext" : "(TEXTSEARCHALLCOLUMNS)";
-                    if (containsKeyword.Equals("freetext"))
-                    {
-                        localQueryString.Append(" " + containsKeyword + "(" + fulltextAlias + ",'");
+                    string containsKeyword = useFreetextCommand ? "freetext" : "contains";
+                    localQueryString.Append(" " + containsKeyword + "(" + fulltextAlias + ",'");
 
-                        // now join exclude words & phrases back up together, escape quoted phrases
-                        localQueryString.Append(string.Join(" AND ", (from p in excludeWordsAndPhrases
-                                                                      let word = string.Format(CultureInfo.InvariantCulture, "\"{0}\"", Regex.Replace(p.Trim("\"".ToCharArray()), "([\"'])", "$1$1"))
-                                                                      select word).ToArray()));
+                    // now join exclude words & phrases back up together, escape quoted phrases
+                    localQueryString.Append(string.Join(" AND ", (from p in excludeWordsAndPhrases
+                                                                  let word = string.Format(CultureInfo.InvariantCulture, "\"{0}\"", Regex.Replace(p.Trim("\"".ToCharArray()), "([\"'])", "$1$1"))
+                                                                  select word).ToArray()));
 
-                        localQueryString.Append("'))");
-                    }
-                    else
-                    {
-                        localQueryString.Append(containsKeyword);
-                    }
+                    localQueryString.Append("'))");
                 }
             }
 
@@ -503,22 +497,15 @@ namespace IHS.Apps.CMP.DataProviders.Helpers
                 }
                 else
                 {
-                    string containsKeyword = useFreetextCommand ? "freetext" : "(TEXTSEARCHALLCOLUMNS)";
-                    if (containsKeyword.Equals("freetext"))
-                    {
-                        localQueryString.Append(" " + containsKeyword + "(" + fulltextAlias + ",'");
+                    string containsKeyword = useFreetextCommand ? "freetext" : "contains";
+                    localQueryString.Append(" " + containsKeyword + "(" + fulltextAlias + ",'");
 
-                        // now join include words & phrases back up together, escape quoted phrases
-                        localQueryString.Append(string.Join(" AND ", (from p in wordsAndPhrases
-                                                                      let word = string.Format(CultureInfo.InvariantCulture, "\"{0}\"", Regex.Replace(p.Trim("\"".ToCharArray()), "([\"'])", "$1$1"))
-                                                                      select word).ToArray()));
+                    // now join include words & phrases back up together, escape quoted phrases
+                    localQueryString.Append(string.Join(" AND ", (from p in wordsAndPhrases
+                                                                  let word = string.Format(CultureInfo.InvariantCulture, "\"{0}\"", Regex.Replace(p.Trim("\"".ToCharArray()), "([\"'])", "$1$1"))
+                                                                  select word).ToArray()));
 
-                        localQueryString.Append("')");
-                    }
-                    else
-                    {
-                        localQueryString.Append(containsKeyword);
-                    }
+                    localQueryString.Append("')");
                 }
             }
 

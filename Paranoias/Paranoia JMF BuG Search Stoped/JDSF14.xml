@@ -1,0 +1,2857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- help on settings in ConfigRules.txt -->
+
+<TSQLConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MetaData>
+    <AttributeMetaData MetaKey="visibleBreadcrumb" MetaValue="true" />
+    <AttributeMetaData MetaKey="nestedAttributeValues" MetaValue="false" />
+    <SpecificAttributeMetaData ObjectKey="FT_PRODUCTION" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_SLS" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_PRODUCTION_UNITS" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_TOTAL_PROGRAM_NO_SLS" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_R_AND_D_AND_PRODUCTION" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_TOTAL_PROGRAM" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_R_AND_D" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_SERVICES" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_GRANTS" MetaKey="idxGroup" MetaValue="ForecastType" />
+    <SpecificAttributeMetaData ObjectKey="FT_TOTAL_PROGRAM_NO_SERVICES" MetaKey="idxGroup" MetaValue="ForecastType" />
+    
+    <SpecificAttributeMetaData ObjectKey="MARKET" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="FMS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="MARKET_TECHNOLOGY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PARENT_MARKET" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="BUS_SEGMENT" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="STD_SUPPLIER" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="FUNCTIONALSEGMENT" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="BUYER_AGENCY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="STD_COUNTRY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="STD_REGION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PLATFORMFAMILYNAME" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PLATFORMTYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="USERORGGEN" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="ITEMLIFECYCLEDESC" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="ITEMPATH" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="FORCESTRUCTURE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PROGRAMFAMILY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="SUBSYSTEM_SUPPLIER" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="SUBSYSTEM_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="GOVERNMENT_PRIME" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="MANNED_UNMANNED" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PLATFORMTYPEDETAIL" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="PRODUCTIONTYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CTY_FINAL_ASSEMBLY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_AIRCRAFT_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_APPLICATION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_DISPLACEMENT__US_TONS_METRIC_TONS_000" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_DISPLAY_SYSTEM" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_ENDURANCE_DAYS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_ENVIRONMENT" MetaKey="idxGroup" MetaValue="MarketSegment" />
+
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SIMULATION_DOMAIN" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_DIST_TRG_CAPABILITY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_FREQUENCY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_FUEL_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_HLS_ACTIVITY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_HLS_MISSION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_HORSEPOWER" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_INTEL_ACTIVITY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_INTEL_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_LAUNCHER" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_LENGTH__FEET_METERS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_LOCOMOTION_MEANS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_LPI" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MAX_WEIGHT_LBS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MISSILE_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MODE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MODIFICATION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MOTION_CUEING" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_MOUNTING" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_OPERATING_ENVIRONMENT" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_ORBIT_PATH" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_OTHER_SENSORY_INPUTS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_PGW_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_PROPULSION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_RADAR_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_RADIO_FREQUENCY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_ROTORCRAFT_CLASS" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SEEKER_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SENSOR" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SENSOR_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SERVICE_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SIMULATION_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_SYSTEM_DESCRIPTION" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_TRANSMITTER_TYPE" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOM_UTILITY" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <!-- catchAll for custom attributes-->
+    <SpecificAttributeMetaData ObjectKey="CUSTOMUSERSEGMENTATTR*" MetaKey="idxGroup" MetaValue="MarketSegment" />
+    <SpecificAttributeMetaData ObjectKey="CUSTOMUSERSEGMENTATTR*" MetaKey="treatasUnassigned" MetaValue="true" />
+
+    <SpecificAttributeMetaData ObjectKey="APPLY_PGO" MetaKey="idxGroup" MetaValue="Pgo" />
+    <SpecificAttributeMetaData ObjectKey="APPLY_COMM_ACFT_DSCT" MetaKey="idxGroup" MetaValue="APPLY_COMM_ACFT_DSCT" />
+    <SpecificAttributeMetaData ObjectKey="INFLATE" MetaKey="idxGroup" MetaValue="Inflate" />
+    <SpecificAttributeMetaData ObjectKey="SHOW_CAGR" MetaKey="idxGroup" MetaValue="CAGR" />
+
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_USD" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_GBP" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_EUR" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_AUSD" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="CURRENCY_RND" MetaKey="idxGroup" MetaValue="Currency" />
+    <SpecificAttributeMetaData ObjectKey="TIME_SERIES" MetaKey="idxGroup" MetaValue="TimeSeries" />
+    <SpecificAttributeMetaData ObjectKey="GROUP_OTHER_SERIES" MetaKey="idxGroup" MetaValue="GroupOtherSeries" />
+
+    <SpecificAttributeMetaData ObjectKey="RECORDID" MetaKey="DisplayCrumbAsString" MetaValue="true" />
+  </MetaData>
+  <Categories>
+    <TSQLCategory Name="JDSF14" Guid="5B540131-64EB-4478-A8BB-ABBCC7D88BAB" DomainName="JDSF14DOMAIN">
+      <JoinConditions>
+
+        from CMP_JDSFSearchTable -- joinConditions
+
+        -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and (CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' OR '(LOGON_USER_ID)' in (SELECT userid from CMP_CustomSegment_User where segmentid = CMP_CustomSegmentSearch{0}.segmentid)))|
+
+        (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = recordid ::--NO FULL TEXT SEARCH::false)
+        
+        inner join  (select recordid as rId,  programTotal, endUserCountry, govtPrime from CMP_JDSFExportTable) programTotals on rid = recordid
+
+
+        WHERE 1=1 and market in (select market from cmp_std_markets where visible = 1)
+        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::false) //\\//\\
+      </JoinConditions>
+      <Metadata>
+        <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+      </Metadata>
+      <TSQLQueries>
+
+        <TSQLQuery Name="default" RunInPreFetch="true" SqlCommand="
+                             -- default query -- 
+                             (DONT_PAGE_DATA)
+                                    -- qualifying data
+                                    select  recordid into #docs
+                                    (JOIN_CONDITIONS)
+                                    GROUP BY  recordid
+                                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                ">
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="MARKET_TECHNOLOGY" SqlCommand="
+                                        SELECT distinct market as MARKET_TECHNOLOGY
+                                        from CMP_JDSFSearchTable
+                                             -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+                                      
+         
+                   (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = CMP_JDSFSearchTable.recordid ::--NO FULL TEXT SEARCH::false)
+                   
+                   inner join  (select recordid as rId,  programTotal, govtPrime from CMP_JDSFExportTable) programTotals on rid = CMP_JDSFSearchTable.recordid
+                                        WHERE 1=1 And 
+                                         market in (select market from cmp_std_markets where visible = 1)
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="MARKET" SqlCommand="
+                                        
+                    -- market
+                SELECT  (OBSERVE_MAX_ITEMS)   market as MARKET
+                                        from CMP_JDSFSearchTable
+                                             -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+                                      
+           
+                   (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = CMP_JDSFSearchTable.recordid ::--NO FULL TEXT SEARCH::false)
+                   
+                                       inner join  (select recordid as rId,  programTotal, govtPrime from CMP_JDSFExportTable) programTotals on rid = CMP_JDSFSearchTable.recordid
+                                         WHERE 1=1 And
+                                         market in (select market from cmp_std_markets where visible = 1)
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                    group by market
+                     order by market
+                    
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+        <TSQLQuery Name="DERIVECOREMARKETS" SqlCommand="
+                                        
+                   -- (SEARCH_SIGNATURE)
+                   -- Query used to dermine all the core markets in the current search.
+                   -- no paging
+                   
+                   select  recordid into #docs
+                                    (JOIN_CONDITIONS)
+                                    GROUP BY  recordid
+                  
+                   
+                      select e.market  
+                                            from e 
+                                            inner join std_markets m  on e.market = m.market 
+                      inner join #docs d on e.recordid = d.recordid
+                                            where m.marketVariantId = 1 
+                                            and m.market in (select market from cmp_std_markets where visible = 1)
+                                            group by e.market	
+                                            order by e.market 
+                                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                        -- (DONT_PAGE_DATA)(DONT_ADD_ORDERBY)
+                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) //\\//\\
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="MARKET__" SqlCommand="
+                                        
+              
+                    
+                    declare @t table (recordid bigint, market varchar(100), count1 bigint)
+                          insert into @t (recordid, market, count1)
+
+                    
+                   SELECT  recordid, market, count(*)
+                                        from CMP_JDSFSearchTable
+                                        inner join (select market m1 , entitlementMarketName e1 from cmp_std_markets where visible = 1) e   on CMP_JDSFSearchTable.entitlementMarketName = e.e1 and CMP_JDSFSearchTable.market = e.m1
+                                       inner join  (select recordid as rId,  programTotal from CMP_JDSFExportTable) programTotals on rid = recordid
+               
+                    (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = CMP_JDSFSearchTable.recordid ::--NO FULL TEXT SEARCH::false)
+                                        
+                                             -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+                                        WHERE 1=1 And 
+                                         market in (select market from cmp_std_markets where visible = 1)
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                    group by recordid, market
+                  
+                     select  (OBSERVE_MAX_ITEMS)  market, count(*)  
+                                from @t group by market  order by count(*) DESC
+                    
+                     
+                    
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+        <TSQLQuery Name="SUBSYSTEM_TYPE" SqlCommand="
+                   
+                                        SELECT  (OBSERVE_MAX_ITEMS)   SUBSYSTEM as SUBSYSTEM_TYPE
+                                        from CMP_JDSFSearchTable
+                                     inner join  (select recordid as rId,  programTotal, govtPrime from CMP_JDSFExportTable) programTotals on rid = CMP_JDSFSearchTable.recordid
+                                        inner join (select market m1 , entitlementMarketName e1 from cmp_std_markets where visible = 1) e   on CMP_JDSFSearchTable.entitlementMarketName = e.e1 and CMP_JDSFSearchTable.market = e.m1
+                                        INNER JOIN  FSubsystems a ON CMP_JDSFSearchTable.RecordId = a.RecordId
+                            INNER   jOIN std_SubsystemsTypeMap as d  on a.SubSystemTypeId = d.SubSystemTypeMapId
+                            INNER   JOIN std_SubsystemsType AS b ON b.SubSystemTypeId = d.SubSystemTypeId
+                
+                
+                   (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = CMP_JDSFSearchTable.recordid ::--NO FULL TEXT SEARCH::false)
+                   
+                   -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+                                        WHERE 1=1 And 
+                                         market in (select market from cmp_std_markets where visible = 1)
+                     GROUP BY SUBSYSTEM
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                     -- (DONT_PAGE_DATA)(DONT_ADD_ORDERBY)
+                                        ">
+          <Parameters>
+            <AdapterParameter  CodeName="RECORDID" SQLName="CMP_JDSFSearchTable.recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+        <TSQLQuery Name="SUBSYSTEM_SUPPLIER" SqlCommand="
+                   
+                                        SELECT  (OBSERVE_MAX_ITEMS)    c.ChartName as SUBSYSTEM_SUPPLIER
+                                        from CMP_JDSFSearchTable
+                                     inner join  (select recordid as rId,  programTotal , govtPrime from CMP_JDSFExportTable) programTotals on rid = CMP_JDSFSearchTable.recordid
+                   inner join (select market m1 , entitlementMarketName e1 from cmp_std_markets where visible = 1) e   on CMP_JDSFSearchTable.entitlementMarketName = e.e1 and CMP_JDSFSearchTable.market = e.m1
+                                     (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = CMP_JDSFSearchTable.recordid ::--NO FULL TEXT SEARCH::false)
+                                     
+                    INNER JOIN  FSubsystems a ON CMP_JDSFSearchTable.RecordId = a.RecordId
+                            INNER   jOIN std_SubsystemsTypeMap as d  on a.SubSystemTypeId = d.SubSystemTypeMapId
+                            INNER   JOIN std_SubsystemsType AS b ON b.SubSystemTypeId = d.SubSystemTypeId
+                            INNER   JOIN   std_Suppliers AS c ON c.SupplierId = a.supplierId 										
+             
+                 
+                   -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and CMP_JDSFSearchTable.recordid = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+                                        WHERE 1=1 And 
+                                         market in (select market from cmp_std_markets where visible = 1)
+                     GROUP BY  c.ChartName 
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) :::;
+                     -- (DONT_PAGE_DATA)(DONT_ADD_ORDERBY)
+                                        ">
+          <Parameters>
+            <AdapterParameter  CodeName="RECORDID" SQLName="CMP_JDSFSearchTable.recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+        <TSQLQuery Name="BLENDED_MARKET" SqlCommand="
+                   -- BLENDED_MARKET
+                    
+                   SELECT RECORDID  ,MARKET AS BLENDED_MARKET 
+                    INTO #t
+                    from cmp_jdsfSearchTable ss
+                    inner join  (select endUserCountry,  recordid as rId, ANNUMBER,  programTotal, govtPrime  from CMP_JDSFExportTable) programTotals on rid = ss.recordid
+                    (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = ss.recordid ::--NO FULL TEXT SEARCH::false)
+                    
+                    -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and ss.recordid = CMP_CustomSegmentSearch{0}.record_id )|
+                    --inner join (select std_markets from std_markets marketVariantId = 3) blendedMarkets on ss.market = blendedMarkets.market 
+                      inner join (select market blendedMarket from std_markets where marketVariantId = 3) blendedMarkets on ss.market = blendedMarkets.blendedMarket 
+                    WHERE 1=1 and market in (select market from cmp_std_markets where visible = 1)
+                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::false)
+                   group by  RECORDID, MARKET
+                    
+                    
+                   select    (OBSERVE_MAX_ITEMS)    BLENDED_MARKET, count(*) 
+                   from #t group by BLENDED_MARKET order by BLENDED_MARKET 
+
+                   
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) --  
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="GENERIC_TREE" SqlCommand="
+                   -- 
+                    
+                   SELECT RECORDID as FilterRecordId
+                    INTO #DOCS
+                    from cmp_jdsfSearchTable ss
+                    inner join  (select govtPrime, user_org_spec, endUserCountry,  recordid as rId, ANNUMBER,  programTotal from CMP_JDSFExportTable) programTotals on rid = ss.recordid
+              
+                   
+                   (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = ss.recordid ::--NO FULL TEXT SEARCH::false)
+                   
+                   -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and ss.recordid = CMP_CustomSegmentSearch{0}.record_id )|
+                    WHERE 1=1 and market in (select market from cmp_std_markets where visible = 1)
+                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::false)
+                    group by  RECORDID
+                   
+                    EXEC usp_CMP_ApplyMergedMarketRules
+                   
+                                        SELECT  (OBSERVE_MAX_ITEMS)   GENERIC_TREE_ATTRIBUTE, COUNT(*) 
+                                        from cmp_jdsfExportTable e
+                    inner join #DOCS d  on e.recordid = d.FilterRecordId
+                    WHERE GENERIC_TREE_ATTRIBUTE IS NOT NULL
+                                        group by  GENERIC_TREE_ATTRIBUTE
+                                        (ORDER_BY)order by  COUNT(*) DESC , GENERIC_TREE_ATTRIBUTE(END_ORDER_BY)
+                                        (DONT_ADD_ORDERBY)
+                    
+                   
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) -- GenTree 20160226
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="PARENT_MARKET" SqlCommand="
+                   -- PARENT_MARKET
+                    
+                   SELECT RECORDID
+                    INTO #t
+                    from cmp_jdsfSearchTable ss
+                    inner join  (select endUserCountry,  recordid as rId, ANNUMBER,  programTotal from CMP_JDSFExportTable) programTotals on rid = ss.recordid
+                  
+                 
+                   
+                   (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = ss.recordid ::--NO FULL TEXT SEARCH::false)
+                   
+                   -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and ss.recordid = CMP_CustomSegmentSearch{0}.record_id )|
+                    WHERE 1=1 and market in (select market from cmp_std_markets where visible = 1)
+                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::false)
+                    group by  RECORDID
+                   
+                   
+                                        SELECT  (OBSERVE_MAX_ITEMS)   PARENT_MARKET, COUNT(*)
+                    from (select PARENT_MARKET, recordid  from  cmp_jdsfSearchTable group by PARENT_MARKET, recordid) e
+                    inner join #t t  on e.recordid = t.recordid
+                    WHERE PARENT_MARKET IS NOT NULL
+                                        group by  PARENT_MARKET
+                                        (ORDER_BY)order by  PARENT_MARKET(END_ORDER_BY)
+                                        (DONT_ADD_ORDERBY)
+                    
+                   
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) -- PARENT_MARKET 20160226
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="GetUpdatedDate" RunInPreFetch="false" SqlCommand="
+                                        (DONT_PAGE_DATA)
+                                        SELECT recordid into #docs
+                                        (JOIN_CONDITIONS)
+                                        (DONT_ADD_ORDERBY)
+                                        select isnull( max(cmp_InsertUTC),max(LastUpdatedOn)) as UpdatedDate  
+                                        from cmp_jdsfExportTable c
+                                      inner join  (select recordid as rId,  programTotal from CMP_JDSFExportTable) programTotals on rid = c.recordid
+                                        inner join #docs d on c.recordid = d.recordid
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) 
+                                        -- ignoring year here (CONSTRAINT_IF_EXISTS::CHART_METADATA::ignore::me::true) 
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="IxrBuilderFromSearchTable" RunInPreFetch="true" SqlCommand="
+                             (DONT_PAGE_DATA)
+                             select * from CMP_JDSFSearchTable where 2=3
+                             (DONT_ADD_ORDERBY)
+
+                ">
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="GetAttributesForSearch" RunInPreFetch="true" SqlCommand="
+                                    (DONT_PAGE_DATA)
+
+                                    /**
+                                    return all the atttributes for the given search
+                                    these will go into the segment dropdown just above the chart
+                                    **/
+
+                                    select newid() guid, 'CUSTOM_' + replace(replace(replace(replace(upper(header),' ','_'),'(',''),')',''),'-','') + '::' + header AS ATTRIBUTENAME
+                                    INTO #ret
+                                    FROM Std_MarketLevelAttributeMapping mlam
+                                    join std_markets m on m.marketid = mlam.marketid
+                                    join std_attributes a on a.id = mlam.attributeid
+                                    where (CONSTRAINT_IF_EXISTS::MARKET::market::0=0::false) and mlam.active=1
+                                    group by a.header, mlam.levelid
+
+                                     ;  with parentMarketIds (marketId)
+                                    as
+                                    (
+                                    select parent.marketid from
+                                    std_markets child
+                                    inner join std_BlendeMarketMapping sbm on child.marketid = sbm.blendemarketid
+                                    inner join std_markets parent on sbm.marketid = parent.marketid
+                                    where (CONSTRAINT_IF_EXISTS::MARKET::child.market::0=0::true)
+                                    )
+
+                                    INSERT INTO #ret
+                                    select newid(), 'CUSTOM_' + replace(replace(replace(replace(upper(header),' ','_'),'(',''),')',''),'-','') + '::' + header AS ATTRIBUTENAME
+                                    FROM Std_MarketLevelAttributeMapping mlam
+                                    join std_markets m on m.marketid = mlam.marketid
+                                    join std_attributes a on a.id = mlam.attributeid
+                                    where
+                                    -- check not already inserted
+                                    'CUSTOM_' + replace(replace(replace(replace(upper(header),' ','_'),'(',''),')',''),'-','') + '::' + header NOT IN (SELECT ATTRIBUTENAME FROM #ret)
+                                    AND
+                                    m.marketid IN ( select marketid from parentMarketIds )
+                                     and mlam.active=1
+                                    group by a.header, mlam.levelid
+
+                                     select * from #ret
+                                     order by ATTRIBUTENAME
+
+                                    (DONT_ADD_ORDERBY)
+
+                ">
+        </TSQLQuery>
+
+
+        <!-- auto-complete query for itemName -->
+        <TSQLQuery Name="ITEMNAME" SqlCommand="
+
+                    -- qualifying data
+                    select  recordid into #docs
+                    (JOIN_CONDITIONS)
+                    GROUP BY  recordid
+                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+
+             create index ixDocsJDSF20392093021 on #docs(recordid);
+
+                SELECT (OBSERVE_MAX_ITEMS) ITEMNAME
+                from  cmp_jdsfExportTable
+                inner join #docs on cmp_jdsfExportTable.recordid = #docs.recordid
+                GROUP BY ITEMNAME
+
+                (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)   
+                ">
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="groupeddatatable" SqlCommand="
+
+                    SELECT recordid
+                into #docs
+                from CMP_JDSFSearchTable
+                        (CONSTRAINT_IF_EXISTS::FULLTEXT:: inner join  VW_cmp_jdsfExportTable z on z.ViewRecordId = recordid ::--NO FULL TEXT SEARCH::false)
+                        
+                WHERE 1=1 and market in (select market from cmp_std_markets where visible = 1)
+                group by recordid
+
+             create index ixDocsJDSF2039209302 on #docs(recordid);
+
+                SELECT COUNT(*), 
+                (INDEXERS_SQL)
+
+                from  cmp_jdsfExportTable
+                inner join #docs on cmp_jdsfExportTable.recordid = #docs.recordid
+
+                GROUP BY
+                (INDEXERS_GROUPBY_SQL)
+
+                (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)   
+                -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true) -- Name=groupeddatatable 
+                ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="GetTop10ProgramsForSearch" RunInPreFetch="false" SqlCommand="
+                                    (DONT_PAGE_DATA)
+
+                                     -- top ten query
+                                    DECLARE @ExchangeRate FLOAT
+                                    SET @ExchangeRate = ISNULL((SELECT top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                                     IF (ViewingProductionUnitsInChart)
+                                        SET @ExchangeRate = 1
+                                     
+                                    SELECT recordid as filterRecordId
+                                    into #docs
+                                    (JOIN_CONDITIONS)
+                                    group by recordid
+
+                    EXEC usp_CMP_ApplyMergedMarketRules;
+                    
+                                     SELECT C.RECORDID as ITEMID, ItemName,
+                                     
+                                     -- this is the list of columns
+                                    -- production units have no pgo, inflation, exchange rates or comm acft discount
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS10 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS10(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS10VALUE)],
+                                
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS9 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS9(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS9VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS8 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS8(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS8VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS7 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS7(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS7VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS6 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS6(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS6VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS5 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS5(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS5VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS4 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS4(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS4VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS3 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS3(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS3VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS2 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS2(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS2VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS1 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)MINUS1(Dfl?)  * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEARMINUS1VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)0 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)0(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR0VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)1 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)1(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR1VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)2 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)2(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR2VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)3 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)3(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR3VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)4 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)4(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR4VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)5 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)5(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR5VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)6 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)6(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR6VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)7 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)7(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR7VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)8 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)8(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR8VALUE)],
+                                    CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(SERIES_COUNT)9 ,0))
+                                    ELSE
+                                        CONVERT(decimal(29,10), ISNULL((SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)9(Dfl?) * (APPLY_COMM_ACFT_DSCT_VAL) ,0))
+                                    END  AS [(YEAR9VALUE)]
+                                     
+                                     
+                                into #topTen --20160226sig
+                                from  cmp_jdsfExportTable C with (nolock)
+                                INNER JOIN #DOCS D ON C.RECORDID = D.filterRecordId
+
+                -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and D.filterRecordId = CMP_CustomSegmentSearch{0}.record_id and CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' )|
+
+                                (SUBSYSTEM_JOIN)
+                                (DEFLATED_JOIN_1)
+
+                                if NOT ((TIME_SERIES))
+                                        SELECT TOP 10 ITEMID, #topTen.ItemName, datepart(yyyy,getdate()) AS SERIESVAL,  e.STD_SUPPLIER FROM #topTen
+                                    inner join e on #topTen.itemId = e.recordid
+                                    ORDER BY 3 desc
+                                else
+                                    begin
+                                    select itemid,   ItemName, round(@ExchangeRate * ForeCastValue,2) [count] , [Year]
+                                    into #results
+                                    from  #topTen C with (nolock)
+                                    unpivot (ForeCastValue for [Year] in ([(YEARMINUS10VALUE)],[(YEARMINUS9VALUE)],[(YEARMINUS8VALUE)],[(YEARMINUS7VALUE)],[(YEARMINUS6VALUE)],
+                                    [(YEARMINUS5VALUE)],[(YEARMINUS4VALUE)],[(YEARMINUS3VALUE)],[(YEARMINUS2VALUE)], [(YEARMINUS1VALUE)]
+                                    ,[(YEAR0VALUE)]	,[(YEAR1VALUE)]	,[(YEAR2VALUE)],	[(YEAR3VALUE)],	[(YEAR4VALUE)],	[(YEAR5VALUE)]	,[(YEAR6VALUE)],
+                                    [(YEAR7VALUE)],	[(YEAR8VALUE)]	,[(YEAR9VALUE)]))  up1;
+
+                  SELECT TOP 10 ITEMID, #results.ItemName, round(sum(count),2) AS SERIESVAL, e.STD_SUPPLIER 
+                  FROM #results
+                                     inner join cmp_jdsfExportTable e on #results.itemId = e.recordid
+                  (HIDE_IF_NOT_TIME_SERIES) where (CONSTRAINT_IF_EXISTS::YEAR::year::Year &gt;= **THISYEAR**::true)
+                  group by ITEMID, #results.ItemName,  e.std_supplier 
+                  ORDER BY 3 desc
+                  
+                                    end
+
+                                (DONT_ADD_ORDERBY)
+
+                ">
+          <Parameters>
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="JDSFProgramsQuery" RunInPreFetch="false" SqlCommand="
+
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                SELECT recordid FilterRecordId 
+                into #docs
+             (JOIN_CONDITIONS)
+                group by recordid
+
+        create index ixDocsJDSF2039209302 on #docs(FilterRecordId);
+
+        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+     (START_PAGING)(COUNT_HINT)SELECT
+        cmp_jdsfExportTable.recordid, 
+        cmp_jdsfExportTable.recordid itemid 
+        from(END_COUNT_HINT) cmp_jdsfExportTable
+        inner join #docs d on cmp_jdsfExportTable.recordid = d.FilterRecordId
+     
+    (END_PAGING)
+
+        --  -- if subsystem in constraints, will get the required pctages and factor these into results --
+        DECLARE @SubsystemPercentage TABLE( recordid BIGINT, pct decimal(9,2) );
+        -- IF (5=6)
+        (SUBSYSTEM_PCTAGE_TABLE_CREATION)
+        BEGIN
+                INSERT INTO @SubsystemPercentage (recordid, pct) 
+                SELECT a.RecordId, SUM (isnull(a.Percentage,100.00)/100.00)  
+                FROM #results  
+                INNER JOIN  FSubsystems a ON #results.RecordId = a.RecordId
+                LEFT OUTER jOIN std_SubsystemsTypeMap as d  on a.SubSystemTypeId = d.SubSystemTypeMapId
+                LEFT OUTER JOIN std_SubsystemsType AS b ON b.SubSystemTypeId = d.SubSystemTypeId 
+                LEFT OUTER JOIN   std_Suppliers AS c ON c.SupplierId = a.supplierId 
+                    WHERE c.isactivemarkets=1  
+                --AND c.ChartName='MBDA' 
+                (SUBSYSTEM_PCTAGE_CONSTRAINTS)
+                GROUP BY a.RecordId
+        END
+        
+        -- NOW WE HAVE #RESULTS SO WE CAN GO AND GET THE DATA
+        
+        SELECT d.* ,
+        itemname,
+        std_region,
+        std_country,
+        MARKET,
+        MARKET as PARENT_MARKET,
+        '' as SUBSYSTEM_SUPPLIER, -- can be empty strings as dealt with elsewhere
+        '' as SUBSYSTEM_TYPE, -- can be empty strings as dealt with elsewhere
+        ItemFamily,
+        ItemDesc,
+        HoverFamily,
+        CodeName,
+        ItemLifeCycleDesc,
+        platformFamilyName,
+    META_SYSTEM_TYPE,
+    META_SYSTEM_SUBTYPE,
+        platformType ,
+        PlatformTypeDetail,
+        platformSpecific,
+        ANNumber ,
+        ItemFixedSiteDetail,
+        itemPath,
+        forceStructure,
+        functionalSegment,
+        SubSystemData,
+        SourcesData,
+        StakeholderData,
+        Manned_Unmanned,
+        PROGRAMFAMILY,
+        Cty_Final_Assembly, -- primary supplier,
+        GovtPrime,
+        std_supplier,
+        LEGACY_SUPPLIER,
+        SupplierInfoPublicComments,
+        bus_segment,
+        BuyerOrgGen,
+        Buyer_Agency,
+        Buyer_Org_Spec,
+        EndUserPublicComments,
+        endUserCountry,
+        UserType,
+        userorgGen,
+        -- endUserOrgSpecific(HLS) appears to be empty in the data
+        User_Org_spec ,
+        ContractNo,
+        ContractType,
+        FYDP_PEDS,
+        FMS,
+        RD_project_No,
+        Procurement_Ref,
+        RD_PE_No,
+        unitPrice * @ExchangeRate AS unitPrice,
+        priceDate,
+        PricePublicComments,
+        InitialSpares,
+        OEM_Support_Rate, -- aka SLS SUPPORT LIFE IN ADES (Supplier Logistics Support Section)
+        InventorySpan, -- aka LEGACY DELIVERY SPAN IN ADES (Supplier Logistics Support Section)
+        OEM_PDR_Rate,  -- aka SLS RATE IN ADES (Supplier Logistics Support Section)
+        LegacyInventory,  -- aka LEGACY DELIVERY (Supplier Logistics Support Section)
+        UnitPublicComments,
+        P_Go_Far,
+        P_Go_Near,
+        PgoPublicComments,
+        ProductionType,
+        CreatedOn,
+        LastUpdatedOn,
+        workingArrangement,
+        GFERECORDID, 
+   Cast(programTotal(Dfl?)(Pgo?) as decimal(14,2))  * @ExchangeRate as programTotal,
+        --production
+     
+        ISNULL(productionMinus9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus9,
+        ISNULL(productionMinus8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus8,
+        
+        ISNULL(productionMinus7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus7,
+        ISNULL(productionMinus6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus6,
+        ISNULL(productionMinus5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus5,
+        ISNULL(productionMinus4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus4,
+        ISNULL(productionMinus3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus3,
+        ISNULL(productionMinus2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus2,
+        ISNULL(productionMinus1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProductionMinus1,
+        ISNULL((APPLY_PGO_NEAR) production0(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production0,
+        ISNULL((APPLY_PGO_NEAR) production1(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production1,
+        ISNULL((APPLY_PGO_NEAR) production2(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production2,
+        ISNULL((APPLY_PGO_NEAR) production3(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production3,
+        ISNULL((APPLY_PGO_NEAR) production4(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production4,
+        ISNULL((APPLY_PGO_FAR)  production5(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production5,
+        ISNULL((APPLY_PGO_FAR)  production6(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production6,
+        ISNULL((APPLY_PGO_FAR)  production7(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production7,
+        ISNULL((APPLY_PGO_FAR)  production8(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production8,
+        ISNULL((APPLY_PGO_FAR)  production9(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)    AS production9,
+
+     
+        ISNULL(slsMinus9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus9,
+        ISNULL(slsMinus8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus8,
+        
+        ISNULL(slsMinus7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus7,
+        ISNULL(slsMinus6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus6,
+        ISNULL(slsMinus5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus5,
+        ISNULL(slsMinus4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus4,
+        ISNULL(slsMinus3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus3,
+        ISNULL(slsMinus2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus2,
+        ISNULL(slsMinus1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)  * isnull( ssPCT.pct,1)   AS slsMinus1,
+        ISNULL((APPLY_PGO_NEAR) SLS0(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS0,
+        ISNULL((APPLY_PGO_NEAR) SLS1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS1,
+        ISNULL((APPLY_PGO_NEAR) SLS2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS2,
+        ISNULL((APPLY_PGO_NEAR) SLS3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS3,
+        ISNULL((APPLY_PGO_NEAR) SLS4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS4,
+        ISNULL((APPLY_PGO_FAR)  SLS5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS5,
+        ISNULL((APPLY_PGO_FAR)  SLS6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS6,
+        ISNULL((APPLY_PGO_FAR)  SLS7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS7,
+        ISNULL((APPLY_PGO_FAR)  SLS8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS8,
+        ISNULL((APPLY_PGO_FAR)  SLS9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS SLS9,
+
+         
+        ISNULL(ProgramMinus9(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus9,
+        ISNULL(ProgramMinus8(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus8,
+        
+        ISNULL(ProgramMinus7(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus7,
+        ISNULL(ProgramMinus6(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus6,
+        ISNULL(ProgramMinus5(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus5,
+        ISNULL(ProgramMinus4(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus4,
+        ISNULL(ProgramMinus3(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus3,
+        ISNULL(ProgramMinus2(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus2,
+        ISNULL(ProgramMinus1(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS ProgramMinus1,
+        ISNULL((APPLY_PGO_NEAR) Program0(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program0,
+        ISNULL((APPLY_PGO_NEAR) Program1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program1,
+        ISNULL((APPLY_PGO_NEAR) Program2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program2,
+        ISNULL((APPLY_PGO_NEAR) Program3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program3,
+        ISNULL((APPLY_PGO_NEAR) Program4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program4,
+        ISNULL((APPLY_PGO_FAR)  Program5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program5,
+        ISNULL((APPLY_PGO_FAR)  Program6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program6,
+        ISNULL((APPLY_PGO_FAR)  Program7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program7,
+        ISNULL((APPLY_PGO_FAR)  Program8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program8,
+        ISNULL((APPLY_PGO_FAR)  Program9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS Program9,
+
+     
+        ISNULL(unitsMinus9,0) AS unitsMinus9,
+        ISNULL(unitsMinus8,0) AS unitsMinus8,
+        
+        ISNULL(unitsMinus7,0) AS unitsMinus7,
+        ISNULL(unitsMinus6,0) AS unitsMinus6,
+        ISNULL(unitsMinus5,0) AS unitsMinus5,
+        ISNULL(unitsMinus4,0) AS unitsMinus4,
+        ISNULL(unitsMinus3,0) AS unitsMinus3,
+        ISNULL(unitsMinus2,0) AS unitsMinus2,
+        ISNULL(unitsMinus1,0) AS unitsMinus1,
+        ISNULL(Units0,0) AS Units0,
+        ISNULL(Units1,0) AS Units1,
+        ISNULL(Units2,0) AS Units2,
+        ISNULL(Units3,0) AS Units3,
+        ISNULL(Units4,0) AS Units4,
+        ISNULL(Units5,0) AS Units5,
+        ISNULL(Units6,0) AS Units6,
+        ISNULL(Units7,0) AS Units7,
+        ISNULL(Units8,0) AS Units8,
+        ISNULL(Units9,0) AS Units9,
+
+         
+        ISNULL(RDValueMinus9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus9,
+        ISNULL(RDValueMinus8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus8,
+        
+        ISNULL(RDValueMinus7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus7,
+        ISNULL(RDValueMinus6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus6,
+        ISNULL(RDValueMinus5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus5,
+        ISNULL(RDValueMinus4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus4,
+        ISNULL(RDValueMinus3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus3,
+        ISNULL(RDValueMinus2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus2,
+        ISNULL(RDValueMinus1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS RDValueMinus1,
+        ISNULL((APPLY_PGO_NEAR) RDValue0(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue0,
+        ISNULL((APPLY_PGO_NEAR) RDValue1(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue1,
+        ISNULL((APPLY_PGO_NEAR) RDValue2(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue2,
+        ISNULL((APPLY_PGO_NEAR) RDValue3(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue3,
+        ISNULL((APPLY_PGO_NEAR) RDValue4(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue4,
+        ISNULL((APPLY_PGO_FAR)  RDValue5(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue5,
+        ISNULL((APPLY_PGO_FAR)  RDValue6(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue6,
+        ISNULL((APPLY_PGO_FAR)  RDValue7(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue7,
+        ISNULL((APPLY_PGO_FAR)  RDValue8(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue8,
+        ISNULL((APPLY_PGO_FAR)  RDValue9(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)   AS RDValue9,
+
+         
+        ISNULL(ServicesValueMinus9(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus9,
+        ISNULL(ServicesValueMinus8(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus8,
+        
+        ISNULL(ServicesValueMinus7(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus7,
+        ISNULL(ServicesValueMinus6(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus6,
+        ISNULL(ServicesValueMinus5(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus5,
+        ISNULL(ServicesValueMinus4(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus4,
+        ISNULL(ServicesValueMinus3(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus3,
+        ISNULL(ServicesValueMinus2(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus2,
+        ISNULL(ServicesValueMinus1(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS ServicesValueMinus1,
+        ISNULL((APPLY_PGO_NEAR) ServicesValue0(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue0,
+        ISNULL((APPLY_PGO_NEAR) ServicesValue1(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue1,
+        ISNULL((APPLY_PGO_NEAR) ServicesValue2(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue2,
+        ISNULL((APPLY_PGO_NEAR) ServicesValue3(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue3,
+        ISNULL((APPLY_PGO_NEAR) ServicesValue4(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue4,
+        ISNULL((APPLY_PGO_FAR)  ServicesValue5(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue5,
+        ISNULL((APPLY_PGO_FAR)  ServicesValue6(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue6,
+        ISNULL((APPLY_PGO_FAR)  ServicesValue7(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue7,
+        ISNULL((APPLY_PGO_FAR)  ServicesValue8(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue8,
+        ISNULL((APPLY_PGO_FAR)  ServicesValue9(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)   AS ServicesValue9,
+
+         
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS7(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS7,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS6(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS6,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS5(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS5,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS4(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS4,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS3(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS3,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS2(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS2,
+        ISNULL(FT_R_AND_D_AND_PRODUCTIONMINUS1(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTIONMINUS1,
+        ISNULL((APPLY_PGO_NEAR) FT_R_AND_D_AND_PRODUCTION0(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION0,
+        ISNULL((APPLY_PGO_NEAR) FT_R_AND_D_AND_PRODUCTION1(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION1,
+        ISNULL((APPLY_PGO_NEAR) FT_R_AND_D_AND_PRODUCTION2(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION2,
+        ISNULL((APPLY_PGO_NEAR) FT_R_AND_D_AND_PRODUCTION3(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION3,
+        ISNULL((APPLY_PGO_NEAR) FT_R_AND_D_AND_PRODUCTION4(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION4,
+        ISNULL((APPLY_PGO_FAR)  FT_R_AND_D_AND_PRODUCTION5(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION5,
+        ISNULL((APPLY_PGO_FAR)  FT_R_AND_D_AND_PRODUCTION6(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION6,
+        ISNULL((APPLY_PGO_FAR)  FT_R_AND_D_AND_PRODUCTION7(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION7,
+        ISNULL((APPLY_PGO_FAR)  FT_R_AND_D_AND_PRODUCTION8(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION8,
+        ISNULL((APPLY_PGO_FAR)  FT_R_AND_D_AND_PRODUCTION9(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_R_AND_D_AND_PRODUCTION9,
+
+         
+        ISNULL(FT_GRANTSMINUS7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS7,
+        ISNULL(FT_GRANTSMINUS6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS6,
+        ISNULL(FT_GRANTSMINUS5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS5,
+        ISNULL(FT_GRANTSMINUS4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS4,
+        ISNULL(FT_GRANTSMINUS3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS3,
+        ISNULL(FT_GRANTSMINUS2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS2,
+        ISNULL(FT_GRANTSMINUS1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_GRANTSMINUS1,
+        ISNULL((APPLY_PGO_NEAR) FT_GRANTS0(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS0,
+        ISNULL((APPLY_PGO_NEAR) FT_GRANTS1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS1,
+        ISNULL((APPLY_PGO_NEAR) FT_GRANTS2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS2,
+        ISNULL((APPLY_PGO_NEAR) FT_GRANTS3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS3,
+        ISNULL((APPLY_PGO_NEAR) FT_GRANTS4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS4,
+        ISNULL((APPLY_PGO_FAR)  FT_GRANTS5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS5,
+        ISNULL((APPLY_PGO_FAR)  FT_GRANTS6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS6,
+        ISNULL((APPLY_PGO_FAR)  FT_GRANTS7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS7,
+        ISNULL((APPLY_PGO_FAR)  FT_GRANTS8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS8,
+        ISNULL((APPLY_PGO_FAR)  FT_GRANTS9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)    AS FT_GRANTS9,
+
+     
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS7(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS7,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS6(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS6,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS5(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS5,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS4(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS4,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS3(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS3,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS2(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS2,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SLSMINUS1(Dfl?),0) * @ExchangeRate   * (APPLY_COMM_ACFT_DSCT_VAL)* isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLSMINUS1,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SLS0(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS0,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SLS1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS1,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SLS2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS2,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SLS3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS3,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SLS4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS4,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SLS5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS5,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SLS6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS6,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SLS7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS7,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SLS8(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS8,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SLS9(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SLS9,
+
+     
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS7(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS7,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS6(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS6,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS5(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS5,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS4(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS4,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS3(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS3,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS2(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS2,
+        ISNULL(FT_TOTAL_PROGRAM_NO_SERVICESMINUS1(Dfl?),0) * @ExchangeRate  * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICESMINUS1,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SERVICES0(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES0,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SERVICES1(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES1,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SERVICES2(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES2,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SERVICES3(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES3,
+        ISNULL((APPLY_PGO_NEAR) FT_TOTAL_PROGRAM_NO_SERVICES4(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES4,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SERVICES5(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES5,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SERVICES6(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES6,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SERVICES7(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES7,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SERVICES8(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES8,
+        ISNULL((APPLY_PGO_FAR)  FT_TOTAL_PROGRAM_NO_SERVICES9(Dfl?),0) * @ExchangeRate * (APPLY_COMM_ACFT_DSCT_VAL) * isnull( ssPCT.pct,1)  AS FT_TOTAL_PROGRAM_NO_SERVICES9,
+        
+                                     -- custom stuff
+                                     CUSTOM_Aircraft_Type,
+CUSTOM_Application,
+CUSTOM_Displacement__US_Tons_Metric_Tons_000,
+CUSTOM_Display_System,
+CUSTOM_Endurance_Days,
+CUSTOM_Environment,
+CUSTOM_Frequency,
+CUSTOM_Fuel_Type,
+CUSTOM_HLS_Activity,
+CUSTOM_HLS_Mission,
+CUSTOM_Horsepower,
+CUSTOM_Intel_Activity,
+CUSTOM_Intel_Type,
+CUSTOM_Launcher,
+CUSTOM_Length__Feet_Meters,
+CUSTOM_Locomotion_Means,
+CUSTOM_LPI,
+CUSTOM_Max_Weight_lbs,
+CUSTOM_Missile_Type,
+CUSTOM_Mode,
+CUSTOM_Modification,
+CUSTOM_Motion_Cueing,
+CUSTOM_Mounting,
+CUSTOM_Operating_Environment,
+CUSTOM_Orbit_Path,
+CUSTOM_Other_Sensory_Inputs,
+CUSTOM_PGW_Type,
+CUSTOM_Propulsion,
+CUSTOM_Radar_Type,
+CUSTOM_Radio_Frequency,
+CUSTOM_Rotorcraft_Class,
+CUSTOM_Seeker_Type,
+CUSTOM_Sensor,
+CUSTOM_Sensor_Type,
+CUSTOM_Service_Type,
+CUSTOM_Simulation_Type,
+CUSTOM_SIMULATION_DOMAIN,
+CUSTOM_DIST_TRG_CAPABILITY,
+CUSTOM_System_Description,
+CUSTOM_Transmitter_Type,
+CUSTOM_Utility,
+
+                   fdoc1.APPN_Number, 
+                   fdoc1.BA_Number, 
+                   fdoc1.LI_Number
+
+-- GET THIS HERE AT THE LAST POSSIBLE TIME TO KEEP SUBQ's down
+, stuff((    SELECT ', ' + convert(varchar(100),market)                               
+                FROM CMP_JDSFSearchTable s2    
+                                                 
+                WHERE s2.recordid= d.recordid                                  
+                GROUP  BY market                               
+                ORDER BY market                                 
+                FOR XML PATH('')                              
+                ),1,1,'')  as MARKET_TECHNOLOGY
+                
+     -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: , isnull(CMP_CustomSegmentSearch{0}.value,'Unassigned') CUSTOMUSERSEGMENTATTR{0}  )|
+                                            
+                                     INTO #last
+                                             FROM #results d
+                                             left join @SubsystemPercentage ssPCT on d.recordid = ssPCT.recordid
+                                             inner join  cmp_jdsfExportTable on d.recordid = cmp_jdsfExportTable.recordid
+                        left join (select APPN_Number, ba_number, li_number, recordid from fdocumentation ) fdoc1 on d.recordid = fdoc1.recordid
+             -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and d.recordid = CMP_CustomSegmentSearch{0}.record_id )|
+
+                                            (DEFLATED_JOIN)
+
+                                        --   (PAGED_DATA_INTO_RESULTS_TABLE)
+
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                                     -- DONT_REMOVE_UNASSIGNEDIDX - hint to tell hintreplacement code not to remove unassigned ixrs
+                                     
+                                     SELECT itemid,  
+                                     (INDEXERS_SQL_NO_ALIASING)
+                                     FROM #last
+                   left join cmp_subsystems_flat on #last.recordid = cmp_subsystems_flat._recordid
+           
+                                     /**
+                                     
+                                        
+                                        
+                                     **/
+                    
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+
+        <TSQLQuery Name="Rest_GetItems" RunInPreFetch="false" SqlCommand="
+                   
+  --- Rest_GetItems  
+  -- this is intended for a simple template grid 
+  -- columns available 
+  
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                SELECT recordid FilterRecordId 
+                into #docs
+             (JOIN_CONDITIONS)
+                group by recordid
+
+        create index ixDocsJDSF2039209302 on #docs(FilterRecordId);
+
+        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+     (START_PAGING)(COUNT_HINT)SELECT
+        cmp_jdsfExportTable.recordid, 
+        cmp_jdsfExportTable.recordid itemid 
+        from(END_COUNT_HINT) cmp_jdsfExportTable
+        inner join #docs d on cmp_jdsfExportTable.recordid = d.FilterRecordId
+     
+    (END_PAGING)
+
+         
+        -- (PAGED_DATA_INTO_RESULTS_TABLE)
+        -- NOW WE HAVE #RESULTS SO WE CAN GO AND GET THE DATA
+        
+        SELECT d.* ,
+        itemname,
+        std_region,
+        std_country,
+    std_supplier,
+     Cast(programTotal(Dfl?)(Pgo?) as decimal(14,2)) * @ExchangeRate as programTotal,
+        MARKET,
+        MARKET as PARENT_MARKET,
+         GFERECORDID,
+     ITEMDESC,
+     MANNED_UNMANNED,
+     FORCESTRUCTURE,
+     FUNCTIONALSEGMENT,
+        ItemFamily,
+        HoverFamily,
+        CodeName,
+        ItemLifeCycleDesc,
+        platformFamilyName,
+        platformType ,
+        PlatformTypeDetail,
+        platformSpecific,
+        ANNumber ,
+        itemPath,
+        LastUpdatedOn 
+                                     
+                                             FROM #results d
+                                             inner join  cmp_jdsfExportTable on d.recordid = cmp_jdsfExportTable.recordid
+                                            (DEFLATED_JOIN)
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                                     -- DONT_REMOVE_UNASSIGNEDIDX - hint to tell hintreplacement code not to remove unassigned ixrs
+                                     
+                 
+                                 
+                    
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="$sys_WebServicesSearch$" RunInPreFetch="false" SqlCommand="
+--  $sys_WebServicesSearch$ for services call
+  
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                SELECT recordid FilterRecordId 
+                into #docs
+             (JOIN_CONDITIONS)
+                group by recordid
+
+        create index ixDocsJDSF2039209302 on #docs(FilterRecordId);
+
+        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+     (START_PAGING)(COUNT_HINT)SELECT
+        cmp_jdsfExportTable.recordid, 
+        cmp_jdsfExportTable.recordid itemid 
+        from(END_COUNT_HINT) cmp_jdsfExportTable
+        inner join #docs d on cmp_jdsfExportTable.recordid = d.FilterRecordId
+      left join [cmp_holding_subsystems_flat] f on d.FilterRecordId = f._recordid
+    (END_PAGING)
+
+         
+        
+        -- NOW WE HAVE #RESULTS SO WE CAN GO AND GET THE DATA
+        
+        SELECT d.* ,
+        itemname,
+        std_region,
+        std_country,
+    std_supplier,
+     Cast(programTotal(Dfl?)(Pgo?) as decimal(14,2)) * @ExchangeRate as programTotal,
+        MARKET,
+        MARKET as PARENT_MARKET,
+         GFERECORDID,
+     MANNED_UNMANNED,
+     FORCESTRUCTURE,
+     FUNCTIONALSEGMENT,
+        ItemFamily,
+        HoverFamily,
+        CodeName,
+        ItemLifeCycleDesc,
+        platformFamilyName,
+        platformType ,
+        PlatformTypeDetail,
+        platformSpecific,
+        ANNumber ,
+        itemPath,
+        LastUpdatedOn 
+                                     
+                                             FROM #results d
+                                             inner join  cmp_jdsfExportTable on d.recordid = cmp_jdsfExportTable.recordid
+
+                                            (DEFLATED_JOIN)
+ 
+
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                                     -- DONT_REMOVE_UNASSIGNEDIDX - hint to tell hintreplacement code not to remove unassigned ixrs
+                                     
+                             
+                                     
+                                     /**
+                                     
+                                        
+                                        
+                                     **/
+                    
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="$sys_WebServicesSearch$_COUNTQUERY" RunInPreFetch="false" SqlCommand="
+--  $sys_WebServicesSearch$_COUNTQUERY for services call
+  
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+       SELECT recordid FilterRecordId 
+                into #docs
+             (JOIN_CONDITIONS)
+                group by recordid
+
+        create index ixDocsJDSF2039209302 on #docs(FilterRecordId);
+
+        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+      SELECT COUNT(*) FROM #docs         
+                   
+                    
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+
+        <TSQLQuery Name="JDSFProgramsQueryLight" RunInPreFetch="false" SqlCommand="
+  --- based on the JDSFProgramsQuery but has lots of indexers removed as we are getting a fixed number of columns. 
+  -- this is intended for a simple template grid 
+  -- columns available 
+  
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                SELECT recordid FilterRecordId 
+                into #docs
+             (JOIN_CONDITIONS)
+                group by recordid
+
+        create index ixDocsJDSF2039209302 on #docs(FilterRecordId);
+
+        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+     (START_PAGING)(COUNT_HINT)SELECT
+        cmp_jdsfExportTable.recordid, 
+        cmp_jdsfExportTable.recordid itemid 
+        from(END_COUNT_HINT) cmp_jdsfExportTable
+        inner join #docs d on cmp_jdsfExportTable.recordid = d.FilterRecordId
+     
+    (END_PAGING)
+
+         
+        
+        -- NOW WE HAVE #RESULTS SO WE CAN GO AND GET THE DATA
+        
+        SELECT d.* ,
+        itemname,
+        std_region,
+        std_country,
+    std_supplier,
+     Cast(programTotal(Dfl?)(Pgo?) as decimal(14,2)) * @ExchangeRate as programTotal,
+        MARKET,
+        MARKET as PARENT_MARKET,
+         GFERECORDID,
+     MANNED_UNMANNED,
+     FORCESTRUCTURE,
+     FUNCTIONALSEGMENT,
+        ItemFamily,
+        HoverFamily,
+        CodeName,
+        ItemLifeCycleDesc,
+        platformFamilyName,
+        platformType ,
+        PlatformTypeDetail,
+        platformSpecific,
+        ANNumber ,
+        itemPath,
+        LastUpdatedOn 
+                                     INTO #last
+                                             FROM #results d
+                                             inner join  cmp_jdsfExportTable on d.recordid = cmp_jdsfExportTable.recordid
+
+                                            (DEFLATED_JOIN)
+
+                                        --   (PAGED_DATA_INTO_RESULTS_TABLE)
+
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                                     -- DONT_REMOVE_UNASSIGNEDIDX - hint to tell hintreplacement code not to remove unassigned ixrs
+                                     
+                                     SELECT itemid, 
+                                     (INDEXERS_SQL_NO_ALIASING)
+                                     FROM #last
+                                     
+                                     /**
+                                     
+                                        
+                                        
+                                     **/
+                    
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+
+
+
+        <TSQLQuery Name="INDEXERCREATION" RunInPreFetch="true" SqlCommand="
+
+        DECLARE @ExchangeRate FLOAT
+                            SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+
+                SELECT top 0 recordid
+                into #docs
+                from CMP_JDSFSearchTable
+                WHERE 1=1
+                group by recordid
+
+     (START_PAGING)(COUNT_HINT)SELECT *,
+     100.00 as PERCENTAGE,
+   100.00 as APPLIEDPROGRAMTOTAL,
+   100.00 as PROGRAMTOTAL,
+   
+   100000 as APPN_Number, 
+   100000 as BA_Number, 
+   space(100) as LI_Number,
+                   
+   100000 as DATACOUNT,
+     SPACE(1000) AS SUBSYSTEMDATA ,
+     SPACE(1000) AS SUBSYSTEMTYPE ,
+     SPACE(1000) AS SUBSYSTEM_SUPPLIER ,
+        SPACE(200) as MARKET_TECHNOLOGY,
+        SPACE(100) AS CustomUserSegment,-- this is the catchall when we are getting one
+        SPACE(100) AS CustomUserSegment1,
+        SPACE(100) AS CustomUserSegment2,
+        SPACE(100) AS CustomUserSegment3,
+        SPACE(100) AS CustomUserSegment4,
+        SPACE(100) AS CustomUserSegment5,
+
+        SPACE(100) as CustomUserSegmentName,
+        SPACE(100) as CustomUserSegmentDetailValue,
+        10          as ISNEWSEGMENT,
+        100000     as SEGMENTID,
+        SPACE(100) AS TARGET_ATTRIBUTE, -- used in cloning of attributes
+        10000000 AS GFERECORDID,
+    
+    SPACE(100) as ViewRecordId, 
+    SPACE(100) AS ViewItemName, 
+    SPACE(100) AS ViewItemDescription,
+    SPACE(100) AS ViewEndUserPublicComments,
+    SPACE(100) AS ViewPgoPublicComments, 
+    SPACE(100) AS ViewSourcesData, 
+    SPACE(100) AS ViewSupplierInfoPublicComments, 
+    SPACE(100) AS ViewPlatformFamily
+                   
+        from(END_COUNT_HINT) cmp_jdsfExportTable
+        inner join #docs d on cmp_jdsfExportTable.recordid = d.recordid
+
+    (END_PAGING)
+
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="d.recordID" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="JDSFProgramsQuery_COUNTQUERY" RunInPreFetch="false" SqlCommand="
+                        SELECT recordid as FilterRecordId
+                        into #docs
+           (JOIN_CONDITIONS)
+                        group by recordid
+
+                        EXEC usp_CMP_ApplyMergedMarketRules;
+                                     
+                        SELECT count(*) AS [COUNT] from #docs
+
+                -- (COUNT_HINT) (END_COUNT_HINT)
+                -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="JDSFProgramsSubSystemsQuery" RunInPreFetch="true" SqlCommand="
+
+                SELECT recordid
+                into #docs
+            (JOIN_CONDITIONS)
+                group by recordid
+
+                    create index ixDocsJDSF201239209302 on #docs(recordid);
+
+         (START_PAGING)(COUNT_HINT)SELECT
+            subSystemsSuppliers.chartName as STD_SUPPLIER  ,
+            std_SubsystemsType.SubSystem as SUBSYSTEMTYPE,
+            cmp_FSubSystems.fsubsystemId,
+            cmp_FSubSystems.fsubsystemId itemid,
+            cmp_jdsfExportTable.market as MARKET,
+      Cty_Final_Assembly ,
+      cmp_jdsfExportTable.ITEMNAME 
+
+            FROM(END_COUNT_HINT)  cmp_FSubSystems
+                inner join #docs d on cmp_FSubSystems.recordid = d.recordid
+                inner join fitems f on d.recordid = f.recordid
+                inner join cmp_jdsfExportTable on d.recordid = cmp_jdsfExportTable.recordid
+        LEFT  JOIN std_SubsystemsType  ON std_SubsystemsType.SubSystemTypeId = cmp_FSubSystems.SubSystemTypeId
+                    LEFT  JOIN std_Suppliers subSystemsSuppliers  ON cmp_FSubSystems.SupplierId = subSystemsSuppliers.supplierId
+
+                                     (END_PAGING)
+
+        SELECT
+             f.recordid, #results.Cty_Final_Assembly , cmp_jdsfExportTable.market, 
+            f.itemname, #results.SUBSYSTEMTYPE  , subSystemsSuppliers.ChartName AS  STD_SUPPLIER, cmp_FSubSystems.Percentage,
+    (cmp_FSubSystems.Percentage/100.00) * 	f.programTotal as AppliedProgramTotal,f.programTotal 
+                            FROM #results
+                    inner join cmp_FSubSystems  on #results.fsubsystemId = cmp_fsubsystems.fsubsystemId
+                     inner join fitems f on cmp_FSubSystems.recordid = f.recordid
+                    LEFT  jOIN std_SubsystemsTypeMap   d  on cmp_FSubSystems.SubSystemTypeId = d.SubSystemTypeMapId
+                    LEFT  JOIN std_SubsystemsType b  ON b.SubSystemTypeId = d.SubSystemTypeId
+                    LEFT  JOIN std_Suppliers subSystemsSuppliers  ON cmp_FSubSystems.SupplierId = subSystemsSuppliers.supplierId
+                inner join  cmp_jdsfExportTable on f.recordid = cmp_jdsfExportTable.recordid
+                where 2=2 
+        (SUBSYSTEM_PCTAGE_CONSTRAINTS_CHART)
+         --   (PAGED_DATA_INTO_RESULTS_TABLE) leave this in , its a hint for preProcessing page into #results
+
+                                     -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+                                     -- DONT_REMOVE_UNASSIGNEDIDX - hint to tell hintreplacement code not to remove unassigned ixrs
+                   
+          
+          /**
+          
+              
+               
+            **/
+                ">
+
+          <Parameters>
+            <AdapterParameter Ignore="true" CodeName="YEAR" SQLName="SY.YearValue" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="ITEMNAME" SQLName="cmp_jdsfExportTable.ITEMNAME" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="CTY_FINAL_ASSEMBLY" SQLName="cmp_jdsfExportTable.Cty_Final_Assembly" DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="STD_SUPPLIER" SQLName="subSystemsSuppliers.ChartName " DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="SUBSYSTEMTYPE" SQLName="std_SubsystemsType.SubSystem " DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="RECORDID" SQLName="d.RecordId " DataType="NUMERIC_TYPE" />
+            <AdapterParameter  CodeName="PERCENTAGE" SQLName="cmp_FSubSystems.Percentage" DataType="NUMERIC_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="FacetsSearch" RunInPreFetch="false" SqlCommand="
+      
+        --FacetsSearch  #1170
+       
+                                -- qualifying data
+                                select  recordid FilterRecordId into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                
+                EXEC usp_CMP_ApplyMergedMarketRules;
+                      
+                                IF @@rowcount>300
+                                create index ix_docs_0010129 on #docs(FilterRecordId)
+                        
+                   
+               declare @searchTerm varchar(30);
+               set @searchTerm =  '(CONSTRAINT_IF_EXISTS::SEARCHTERM::::abc::true)';
+               exec usp_cmp_QuickSearch2 @searchTerm
+  
+                                --	 (DONT_ADD_ORDERBY)
+               --    (DONT_PAGE_DATA)
+                
+                                        ">
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="FlexiChart" RunInPreFetch="false" SqlCommand="
+      
+        --FlexiChart  --
+       
+             
+                
+                -- YEAR TABLE
+                select 2010  [year] into #years
+                  delete from #years
+                  declare @counter int, @minus10 int;
+                  set @counter = 0;
+                  set @minus10 = (select datepart(yyyy, getdate()) - 10);
+
+                  while (@counter &lt; 20)
+                  begin
+                      insert #years select @minus10 + @counter;
+                      set @counter = @counter + 1;
+                  end
+                
+                SELECT * into #years2 frOM #years WHERE (CONSTRAINT_IF_EXISTS::YEAR::year::5=5 ::true)
+    
+                   
+              declare @searchSignature varchar(max);
+              declare @details varchar(255);
+                set @details =  '(CONSTRAINT_IF_EXISTS::CHART_METADATA::::abc::true)';
+                 
+                  -- if so, no filter applied to date
+                   IF(select count(*) from #years2) = 20
+                   begin 
+                       delete from #years2 where [year] &lt; datepart(yyyy, getdate());
+                   end
+                   else
+                   begin
+                       declare @yearsTOTAL int;
+                      select @yearsTotal = sum(year) from #years2
+                       set @details = @details + convert(varchar(10),@yearsTotal);
+                   end
+                  
+                set @searchSignature =  '(SEARCH_SIGNATURE)' + @details;
+               
+                declare @CachedhdrId int;
+                 exec usp_cmp_CheckSignatureCached @searchSignature , @CachedhdrId output
+                 IF ( @CachedhdrId) > 0
+                 BEGIN
+                     print 'we would use the cache when it exists'
+                       EXEC usp_cmp_GetCachedDataBySignature @searchSignature 
+                     return;
+                 END
+                   
+                   
+                                -- qualifying data
+                                select  recordid FilterRecordId into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                
+                      
+                                IF @@rowcount>300
+                                create index ix_docs_0010129 on #docs(FilterRecordId)
+                
+                   
+           
+               exec usp_cmp_GetChartData2 @details, @searchSignature
+  
+                                --	 (DONT_ADD_ORDERBY)
+               --    (DONT_PAGE_DATA)
+                
+                                        ">
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="JDSFChartConfig" RunInPreFetch="true" SqlCommand="
+--JDSFChartConfig
+                                DECLARE @ExchangeRate FLOAT
+                                SET @ExchangeRate = ISNULL((SELECT  top 1 isnull(ExchangeRate,1) FROM dbo.std_currency WHERE Code = '(CURRENCY)'),1)
+                                
+                                IF (ViewingProductionUnitsInChart)
+                                    SET @ExchangeRate = 1
+                                
+                  
+    
+                                (DONT_PAGE_DATA)
+                                -- qualifying data
+                                select  recordid FilterRecordId into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                
+                                IF @@rowcount>300
+                                create index ix_docs_0010129 on #docs(FilterRecordId)
+                                     
+                                 EXEC usp_CMP_ApplyMergedMarketRules;
+                                         
+                   
+                 -- make sure we log percentages if required  
+                 DECLARE @SubsystemPercentage TABLE( recordid BIGINT, pct decimal(9,2) );
+                -- IF (5=6)
+                    (SUBSYSTEM_PCTAGE_TABLE_CREATION_CHART)
+                    BEGIN
+                      -- strangely we only want to insert into this table if we are NOT in the subsystem supplier or type chart template
+                       IF NOT (SUBSYSTEM_TEMPLATE_CHECK)  --  
+                       BEGIN
+                                  INSERT INTO @SubsystemPercentage (recordid, pct) 
+                                  SELECT a.RecordId, SUM (isnull(a.Percentage,100.00)/100.00)  
+                                  FROM #docs  
+                                  INNER JOIN  FSubsystems a ON #docs.FilterRecordId = a.RecordId
+                                  LEFT OUTER jOIN std_SubsystemsTypeMap as d  on a.SubSystemTypeId = d.SubSystemTypeMapId
+                                  LEFT OUTER JOIN std_SubsystemsType AS b ON b.SubSystemTypeId = d.SubSystemTypeId 
+                                  LEFT OUTER JOIN   std_Suppliers AS c ON c.SupplierId = a.supplierId 
+                                      WHERE c.isactivemarkets=1  
+                                  --AND c.ChartName='MBDA' 
+                                  (SUBSYSTEM_PCTAGE_CONSTRAINTS_CHART)
+                                  GROUP BY a.RecordId
+                   END
+                    END
+                
+                                     
+                                select  (SERIES_GROUPBY) seriesval,
+                                -- this is the list of columns
+                                -- production units have no pgo, inflation, exchange rates or comm acft discount
+                              
+                   
+                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS10  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS10(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS10VALUE)],
+                
+                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS9  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS9(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS9VALUE)],
+                
+                   
+                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS8  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS8(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS8VALUE)],
+                   
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS7  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS7(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS7VALUE)],
+                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS6  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS6(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS6VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS5  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS5(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS5VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS4  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS4(Dfl?)   * isnull( ssPCT.pct,1)  * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS4VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS3  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS3(Dfl?)   * isnull( ssPCT.pct,1)  * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS3VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS2  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS2(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS2VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS1  ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)MINUS1(Dfl?)    * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEARMINUS1VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)0 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)0(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR0VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)1 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)1(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR1VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)2 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)2(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR2VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)3 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)3(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR3VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)4 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_NEAR) (SERIES_COUNT)4(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR4VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)5 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)5(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR5VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)6 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)6(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR6VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)7 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)7(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR7VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)8 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)8(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR8VALUE)],
+                                CASE WHEN (ViewingProductionUnitsInChart) THEN 
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(SERIES_COUNT)9 ),0))
+                                ELSE
+                                    CONVERT(decimal(29,10), ISNULL(SUM( (SubSys%)(APPLY_PGO_FAR)  (SERIES_COUNT)9(Dfl?)   * isnull( ssPCT.pct,1) * (APPLY_COMM_ACFT_DSCT_VAL)),0))
+                                END  AS [(YEAR9VALUE)],
+                count(*) records_count
+                                into #base
+                                from  cmp_jdsfExportTable C with (nolock)
+                                INNER JOIN #DOCS D ON C.RECORDID = D.FilterRecordId
+                  left join @SubsystemPercentage ssPCT on D.FilterRecordId = ssPCT.recordid
+                -- |(FOREACHUSED::CUSTOMUSERSEGMENTATTR:: left join  vw_custom_segment_search CMP_CustomSegmentSearch{0} on CMP_CustomSegmentSearch{0}.segmentid = {0} and D.FilterRecordId = CMP_CustomSegmentSearch{0}.record_id and (CMP_CustomSegmentSearch{0}.userid = '(LOGON_USER_ID)' OR '(LOGON_USER_ID)' in (SELECT userid from CMP_CustomSegment_User where segmentid = CMP_CustomSegmentSearch{0}.segmentid)) )|
+
+                                (SUBSYSTEM_JOIN_1)
+                                (DEFLATED_JOIN_1)
+                                WHERE 2=2
+                                 (SUBSYSTEM_WHERE_CLAUSE)
+                                group by (SERIES_GROUPBY)
+
+                                 -- make sure if there are null values in the seriesVal column, we want to set them to something or the chart will change shape
+                                update #base set seriesval = '[NotSet]' where seriesVal is null
+
+                                select newid() itemid,   seriesval, @ExchangeRate * ForeCastValue [count] , [Year]
+                                into #resultsBEFOREDATEFILTERING
+                                from  #base C with (nolock)
+                                unpivot (ForeCastValue for [Year] in ([(YEARMINUS9VALUE)],[(YEARMINUS10VALUE)],[(YEARMINUS8VALUE)],[(YEARMINUS7VALUE)],[(YEARMINUS6VALUE)],[(YEARMINUS5VALUE)],
+                                [(YEARMINUS4VALUE)],[(YEARMINUS3VALUE)],[(YEARMINUS2VALUE)], [(YEARMINUS1VALUE)]
+                                ,[(YEAR0VALUE)]	,[(YEAR1VALUE)]	,[(YEAR2VALUE)],	[(YEAR3VALUE)],	[(YEAR4VALUE)],	[(YEAR5VALUE)]	,[(YEAR6VALUE)],
+                                [(YEAR7VALUE)],	[(YEAR8VALUE)]	,[(YEAR9VALUE)]))  up1;
+
+                select   10000 records_count , *  into #results from #resultsBEFOREDATEFILTERING  
+                where (CONSTRAINT_IF_EXISTS::YEAR::year::Year &gt;= **THISYEAR** ::true)-- search codebase for **THISYEAR**
+  
+                update #results set records_count = b.records_count
+                FROM #results r 
+                inner join #base b on r.seriesval = b.seriesval
+          
+                                -- this holds the final data and can be grouped to get totalYears data
+                                declare @finalData table(itemid uniqueIdentifier, seriesval varchar(250),count decimal(29,10), year int, total decimal(29,10), records_count int)
+
+                                -- LIMIT TO 10 SERIES?
+                declare @SeriesMaxCount int;
+                set @SeriesMaxCount = 10
+                                            IF (OTHER_GROUPING_IF)
+                                            BEGIN
+                          set @SeriesMaxCount = 50
+                                            END
+                                            ELSE
+                                            BEGIN 
+                          set @SeriesMaxCount = 10
+                                      END
+                      
+                        select  row_number() over (order by
+                                                     case when seriesval = 'Stated opportunity' or seriesval = 'Derived opportunity' or seriesval = 'Unidentified R&amp;D' then
+                                                        999999999 --make large so that they are the first in the ordered table
+                                                        else
+                                                     sum(count)
+                                                     end desc) as rownum  ,
+                                                     case when seriesval = 'Stated opportunity' or seriesval = 'Derived opportunity' or seriesval = 'Unidentified R&amp;D' then
+                                                        -1 --make small so that they appear at the top of the chart
+                                                        else
+                                                     sum(count)
+                                                     end as [total], seriesval
+                                                     into #order from #results group by seriesval
+
+                                                                        -- + + + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + +
+                                                                        delete from #order where rownum > @SeriesMaxCount
+                                                                        -- + + + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + ++ + + +
+
+                          declare @c int set @c = 1;
+                          while @c &lt;= @SeriesMaxCount
+                          BEGIN
+                                                                        insert into @finalData(records_count, itemId, seriesVal, [count], [year], total)
+                                                              select r.*, o.[total] from #results r inner join #order o on r.seriesval = o.seriesval and o.rownum =  @c
+                                    set @c = @c + 1;
+                          END
+                            
+                   -- all others bit
+                                                insert into @finalData(itemId, seriesVal, [count], [year], total, records_count)
+                                                    select newid(), 'All Others' , sum(r.count), YEAR,  (select sum(r.count) from #results r
+                                                                                                                                                            left join #order o on r.seriesval = o.seriesval
+                                                                                                                                                            where o.seriesval is null ) as [total]
+                                                                              ,( select sum(records_count1) from (select max(records_count) records_count1, r.seriesVal from #results r
+                                                                                                                                                            left join #order o on r.seriesval = o.seriesval
+                                                                                                                                                            where o.seriesval is null group by r.seriesVal )cc)  as records_count
+
+                                                    from #results r
+                                                    left join #order o on r.seriesval = o.seriesval
+                                                    where o.seriesval is null
+                                                     group by year
+                                                   order by year  
+                          
+                                     if((SHOW_CAGR))
+                                     begin
+                                            -- switch to CAGR values
+                                            select * into #cagr from @finalData
+                                            delete @finalData
+
+                                            declare @currentId uniqueidentifier
+                                            declare @currentSeries varchar(1000)
+                                            declare @previousSeries varchar(1000)
+                                            declare @currentVal decimal(29,10)
+                                            declare @previousVal decimal(29,10)
+                                            declare @newVal decimal(29,10)
+                                            declare @records_count int
+                      declare @currentYear int
+                                            declare @currentTotal decimal(29,10)
+
+                                            select top 1 @currentId = itemid,
+                                                    @currentSeries = seriesval,
+                                                    @previousSeries = seriesval,
+                                                    @currentVal = [count],
+                                                    @currentYear = [year],
+                                                    @records_count = [records_count],
+                          @currentTotal = total
+                                                    from #cagr
+
+                                            while @currentId is not null
+                                            begin
+                                                    if(@currentSeries &lt;&gt; @previousSeries) -- series has changed must be the first year so cagr is zero
+                                                    begin
+                                                            set @previousSeries = @currentSeries
+                                                            -- initial year so must be zero
+                                                            set @newVal = 0
+                                                    end
+                                                    else
+                                                    begin
+                                                            -- do the calc - only ever one year and so just a percentage change
+                                                            if(@previousVal = 0)
+                                                                    set @newVal = 0
+                                                            else
+                                                                    set @newVal = ((@currentVal-@previousVal) / @previousVal) * 100;
+                                                    end
+
+                                                    --add teh calculated value back to the final data
+                                                    insert into @finalData values (@currentId,@currentSeries,@newVal,@currentYear,@currentTotal,@records_count)
+
+                                                    set @previousVal = @currentVal
+
+                                                    delete from #cagr where itemid=@currentId
+
+                                                    set @currentId = NULL
+
+                                                    -- try get another
+                                                    select top 1 @currentId = itemid,
+                                                    @currentSeries = seriesval,
+                                                    @currentVal = [count],
+                                                    @currentYear = [year],
+                                                    @currentTotal = total,
+                                                    @records_count  = records_count
+                          from #cagr
+                                            end
+
+                                     end
+
+                                     -- hide anything which is Unassigned.
+                                     delete from @finalData where seriesVal = 'Unassigned'
+                                     
+                   
+                                     if ( (TIME_SERIES))
+                                         select itemid, seriesval, count , year, total, records_count  from @finalData
+                                         where (CONSTRAINT_IF_EXISTS::YEAR::year::Year &gt;= **THISYEAR** ::false)-- search codebase for **THISYEAR**
+                                         and total &lt;&gt; 0
+                                     else
+                      IF (ViewingProductionUnitsInChart)
+                                          BEGIN 
+                       select newid() itemid, seriesval, convert(bigint,sum(count)) count, records_count  from @finalData
+                                           where (CONSTRAINT_IF_EXISTS::YEAR::year::Year &gt;= **THISYEAR**::false)
+                                           and [count] &lt;&gt; 0
+                                           group by seriesval, records_count 
+                      END
+                      ELSE
+                      BEGIN
+                        select newid() itemid, seriesval, sum(count) count, records_count  from @finalData
+                        where 
+                        --(CONSTRAINT_IF_EXISTS::YEAR::year::Year &gt;= **THISYEAR**::false) and
+                         [count] &lt;&gt; 0
+                                            group by seriesval, records_count 
+                      END
+
+                                     (DONT_ADD_ORDERBY)
+                                        ">
+          <Metadata>
+            <MetadataEntryOfStringString Value="VW_cmp_jdsfExportTable" Key="AllCollumnsToSearch" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="CloneAttributeIntoCustomSegment" RunInPreFetch="false" SqlCommand="
+
+                                            -- clone attribute into custom attribute
+                                declare @CUSTOMUSERSEGMENTNAME varchar(100);
+                                declare @TARGET_ATTRIBUTE varchar(100);
+                                declare @userid varchar(10);
+                                declare @isNewSegment int; set @isNewSegment = -1;
+                                declare @segmentID int, @DetailId int;
+                                declare @sql nvarchar(max)
+                                set @userId = '(LOGON_USER_ID)';
+
+                                ; SET @CUSTOMUSERSEGMENTNAME = '(CONSTRAINT_IF_EXISTS::CUSTOMUSERSEGMENTNAME::::::true)'
+                            ; SET @TARGET_ATTRIBUTE = '(CONSTRAINT_IF_EXISTS::TARGET_ATTRIBUTE::::::true)'
+
+                                     -- check for nulls and empty strings
+                                if ( isnull(ltrim(rtrim(@CUSTOMUSERSEGMENTNAME)),'') = '' OR isnull(ltrim(rtrim(@TARGET_ATTRIBUTE)),'') = '')
+                                begin
+                                        select newid() theGuid, 1 recordid ;
+                                        return;
+                                end
+
+                                 -- list of attr values to insert
+                                select top 0 recordid, space(1000) attrValue into #attrValues from cmp_jdsfExportTable
+
+                             (DONT_PAGE_DATA)
+                                -- qualifying data
+                                select  recordid into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                IF @@rowcount>300
+                                create index ix_docs_00102d129 on #docs(recordid)
+
+                    -- are we prefetching or doing a silly query? if so we are exiting now
+                    if not exists(select * from #docs)
+                    begin
+                            select newid() itemId,    -1 ISNEWSEGMENT, -1 segmentID ;
+                            return;
+                    end
+
+                    set @sql = 'insert into #attrValues(attrValue,recordid) SELECT  ' + @TARGET_ATTRIBUTE + ', recordid  from cmp_jdsfExportTable where recordid in (select recordid from #docs)';
+                                EXEC sp_executesql @sql
+
+                    --remove existing with same title if exists
+                    if exists(select * from CMP_Custom_UserSegment where title = @CUSTOMUSERSEGMENTNAME and userid = @userid)
+                    BEGIN
+                            declare @segIdToDelete int
+                            set @segIdToDelete = (select segmentid from CMP_Custom_UserSegment where title = @CUSTOMUSERSEGMENTNAME and userid = @userid)
+                            delete from CMP_CustomSegmentSearch where segmentid = @segIdToDelete;
+                            delete from CMP_Custom_UserSegment_Data where segmentid = @segIdToDelete;
+                            delete from CMP_Custom_UserSegment_detail where segmentid = @segIdToDelete;
+                            delete from CMP_Custom_UserSegment where segmentid = @segIdToDelete;
+                    END
+
+                    INSERT INTO CMP_Custom_UserSegment(userid,title,segmentSequence,description)
+                    SELECT @userid, @CUSTOMUSERSEGMENTNAME,1,'Cloned Attribute'
+                    SET @segmentID = scope_identity();
+                    INSERT INTO CMP_Custom_UserSegment_detail (segmentID,value)
+                    SELECT  @segmentID , attrValue FROM #attrValues where attrValue is not null group by attrValue;
+
+                    -- update the current segments for the given user
+                    UPDATE CMP_Custom_UserSegment set segmentsequence =  segmentsequence +1 where userid = @userid;
+                    UPDATE CMP_CustomSegmentSearch set segmentsequence =  segmentsequence +1 where userid = @userid;
+
+                    INSERT INTO CMP_CustomSegmentSearch(userid, segmentid, segment, record_id,value,valueid,segmentSequence)
+                    SELECT @userId, @segmentID, @CUSTOMUSERSEGMENTNAME, recordid, left(attrValue,255) ,d.detailid, 1 segmentsequence
+                    FROM #attrValues t inner join CMP_Custom_UserSegment_detail d
+                    on t.attrValue = d.value
+          where segmentid = @segmentID
+
+                    INSERT INTO CMP_Custom_UserSegment_Data (recordid,segmentid,detailid,seq)
+                    SELECT recordid,segmentID,	DetailId,0
+                    FROM #attrValues t inner join CMP_Custom_UserSegment_detail d
+                    on t.attrValue = d.value
+                    where segmentid = @segmentID
+
+                select newid() itemId,    1 ISNEWSEGMENT, @segmentID segmentID ;
+
+                                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+        </TSQLQuery>
+
+        <TSQLQuery Name="RemoveDetailIdFromSegment" RunInPreFetch="false" SqlCommand="
+                 
+                -- ** ** ** ** ** RemoveDetailIdFromSegment ** ** ** ** **
+
+                                declare @userid varchar(10);
+                                declare @segmentID int;
+                                declare @detailID int;
+                                set @userId = '(LOGON_USER_ID)';
+
+                                ; SET @detailID = '(CONSTRAINT_IF_EXISTS::CUSTOMUSERSEGMENTDETAILID::::::true)'
+                                ; SET @segmentID = '(CONSTRAINT_IF_EXISTS::SEGMENTID::::::true)'
+                if not exists(select * from  CMP_Custom_UserSegment where userid = @userid and segmentid = @segmentid)
+                return;
+                
+                                        -- check to see if we are looking at a shared segment
+                            IF (@segmentID is null)
+                            BEGIN
+                                 return;
+                            END
+                                
+                                /**  qualifying data
+                                -- select  recordid into #docs
+                                -- (JOIN_CONDITIONS)
+                                -- GROUP BY recordid
+                                -- IF @@rowcount>300
+                                -- create index ix_docs_00102d129 on #docs(recordid) 
+                -- **/
+                  declare @rc int
+                  
+                  DELETE FROM [CMP_Custom_UserSegment_Data] where segmentid = @segmentid 
+          and detailid = @detailID;
+          
+          DELETE FROM [CMP_Custom_UserSegment_Detail] where segmentid = @segmentid 
+          and detailid = @detailID;
+          
+           DELETE FROM CMP_CustomSegmentSearch where segmentid = @segmentid 
+          and valueid = @detailID;
+          
+             
+ -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+        </TSQLQuery>
+
+        <TSQLQuery Name="RemoveFromSegmentValue" RunInPreFetch="false" SqlCommand="
+                 
+                -- ** ** ** ** ** RemoveFromSegmentValue ** ** * //////////////////////////////////////////// llllllllllll
+
+             
+                                declare @userid varchar(10);
+                                declare @segmentID int;
+                                declare @detailID int;
+                                set @userId = '(LOGON_USER_ID)';
+                    ; SET @detailID = '(CONSTRAINT_IF_EXISTS::CUSTOMUSERSEGMENTDETAILID::::::true)'
+                                ; SET @segmentID = '(CONSTRAINT_IF_EXISTS::SEGMENTID::::::true)'
+                if not exists(select * from  CMP_Custom_UserSegment where userid = @userid and segmentid = @segmentid)
+                return;
+                if not exists(select * from  CMP_Custom_UserSegment_detail where detailid = @detailId and segmentid = @segmentid)
+                return;
+                
+                                        -- check to see if we are looking at a shared segment
+                            IF (@segmentID is null)
+                            BEGIN
+                                 return;
+                            END
+                                
+                                -- qualifying data
+                                select  recordid into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                IF @@rowcount>300
+                                create index ix_docs_00102d129 on #docs(recordid)
+
+              -- check prefetch
+              IF (select count(*) from #docs) = 0
+              return;
+              
+             
+                  declare @rc int
+                  
+                  DELETE FROM [CMP_Custom_UserSegment_Data] where segmentid = @segmentid  and detailId = @detailID
+          and recordid in (select recordid from #docs)
+               set @rc = @@rowcount
+             DELETE FROM  [dbo].[CMP_CustomSegmentSearch]  where segmentid = @segmentid      and record_id in (select recordid from #docs) and valueId = @detailId
+         
+                    EXEC  usp_CMP_jdsf_TidyOrphanRecords  @userid,	@segmentID
+          
+        select @rc recordsAffected
+             
+ -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="RemoveFromSegment" RunInPreFetch="false" SqlCommand="
+                 
+                -- ** ** ** ** ** RemoveFromSegment ** ** ** ** **
+
+                                declare @userid varchar(10);
+                                declare @segmentID int;
+                                set @userId = '(LOGON_USER_ID)';
+
+                                ; SET @segmentID = '(CONSTRAINT_IF_EXISTS::SEGMENTID::::::true)'
+                if not exists(select * from  CMP_Custom_UserSegment where userid = @userid and segmentid = @segmentid)
+                return;
+                
+                                        -- check to see if we are looking at a shared segment
+                            IF (@segmentID is null)
+                            BEGIN
+                                 return;
+                            END
+                                
+                                -- qualifying data
+                                select  recordid into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                IF @@rowcount>300
+                                create index ix_docs_00102d129 on #docs(recordid)
+
+                  declare @rc int
+                  
+                  DELETE FROM [CMP_Custom_UserSegment_Data] where segmentid = @segmentid 
+          and recordid in (select recordid from #docs)
+               set @rc = @@rowcount
+             DELETE FROM  [dbo].[CMP_CustomSegmentSearch]  where segmentid = @segmentid      and record_id in (select recordid from #docs)
+         
+                    EXEC  usp_CMP_jdsf_TidyOrphanRecords  @userid,	@segmentID
+          
+        select @rc recordsAffected
+             
+ -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+        </TSQLQuery>
+
+        <TSQLQuery Name="AddSegmentValue" RunInPreFetch="false" SqlCommand="
+              --AddSegmentValue
+                             
+                   -- check we are not prefetching, if so this gets changed to WHERE 1=0
+                    SELECT getdate() d into #test WHERE 1=1
+                    IF (select count(*) FROM #test) = 0
+                    RETURN;
+                   
+                   
+                                declare @segmentDetailValue varchar(100);
+                                declare @userid varchar(10);
+                                    declare @detailid int ;
+                  declare @segmentID int ;
+                                set @userId = '(LOGON_USER_ID)';
+                 
+                            ; SET @segmentDetailValue = '(CONSTRAINT_IF_EXISTS::CUSTOMUSERSEGMENTDETAILVALUE::::::true)'
+                            ; SET @segmentID = '(CONSTRAINT_IF_EXISTS::SEGMENTID::::::true)'
+                            ;set @segmentID = (select top 1 segmentid from CMP_Custom_UserSegment where userid = @userid and segmentid = @segmentID)
+
+                            -- check to see if we are looking at a shared segment
+                            IF (@segmentID is null)
+                            BEGIN
+                return;
+              --  //maybe allow shares to change?
+                                set @segmentID = (select top 1 c.segmentid from CMP_Custom_UserSegment c 
+                                inner join  CMP_CustomSegment_User share on c.segmentid = share.segmentid and c.userid != share.userid
+                                    where share.userid = @userid and c.segmentid  = @segmentID)
+                            END
+                
+                                 
+                            INSERT INTO CMP_Custom_UserSegment_detail (segmentID,value)
+                            SELECT @segmentID , @segmentDetailValue;
+                            SET @DetailId = scope_identity();
+                             
+
+                                -- each recordid in docs gets inserted into user custom segment table
+                            
+
+                select  @DetailId  itemId;   
+
+                                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+
+
+
+        </TSQLQuery>
+
+        <TSQLQuery Name="CUSTOM_DATASHEET" RunInPreFetch="false" SqlCommand="
+                    (DONT_PAGE_DATA)
+                                -- qualifying data
+                                select  recordid FilterRecordId into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                
+               EXEC usp_Cmp_CustomDataSheet ;--    (DONT_PAGE_DATA) --    (DONT_ADD_ORDERBY)
+              -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+              ">
+          <Parameters>
+            <AdapterParameter  CodeName="PROGRAM_TOTAL" SQLName=" programTotal " DataType="NUMERIC_TYPE" />
+            <AdapterParameter  CodeName="SERIES" SQLName=" SERIES " DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="REPORT_NAME" SQLName=" REPORT_NAME " DataType="STRING_TYPE" />
+          </Parameters>
+          <Metadata>
+            <MetadataEntryOfStringString Key="ObserveEntitlementFilterMetadata" Value="Full" />
+          </Metadata>
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="CUSTOM_REPORT" RunInPreFetch="false" SqlCommand="
+                 
+                   DECLARE @getData int;
+                   set @getData = 0;
+                   IF (SELECT 2 WHERE 1=1) = 2
+                   set @getData = 1;
+                   
+                    EXEC usp_Cmp_CustomReport '(CONSTRAINT_IF_EXISTS::REPORT_NAME::::::true)' , @getData;                        
+                    --    (DONT_PAGE_DATA) --    (DONT_ADD_ORDERBY)
+                    ">
+
+          <Parameters>
+            <AdapterParameter  CodeName="PROGRAM_TOTAL" SQLName=" programTotal " DataType="NUMERIC_TYPE" />
+            <AdapterParameter  CodeName="SERIES" SQLName=" SERIES " DataType="STRING_TYPE" />
+            <AdapterParameter  CodeName="REPORT_NAME" SQLName=" REPORT_NAME " DataType="STRING_TYPE" />
+          </Parameters>
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="AddSearchToSegment" RunInPreFetch="false" SqlCommand="
+
+                                declare @segmentName varchar(100);
+                                declare @segmentDetailValue varchar(100);
+                                declare @userid varchar(10);
+                                declare @isNewSegment int; set @isNewSegment = -1;
+                                declare @segmentID int, @DetailId int;
+                                set @userId = '(LOGON_USER_ID)';
+
+                                ; SET @segmentName = '(CONSTRAINT_IF_EXISTS::CustomUserSegmentName::::::true)'
+                            ; SET @segmentDetailValue = '(CONSTRAINT_IF_EXISTS::CUSTOMUSERSEGMENTDETAILVALUE::::::true)'
+                                        ;set @segmentID = (select top 1 segmentid from CMP_Custom_UserSegment where userid = @userid and title = @segmentName)
+
+                                        -- check to see if we are looking at a shared segment
+                            IF (@segmentID is null)
+                            BEGIN
+                                set @segmentID = (select top 1 c.segmentid from CMP_Custom_UserSegment c 
+                                inner join  CMP_CustomSegment_User share on c.segmentid = share.segmentid and c.userid != share.userid
+                                where share.userid = @userid and title = @segmentName)
+                            END
+                
+                                     -- check for nulls and empty strings
+                                if ( isnull(ltrim(rtrim(@segmentName)),'') = '' OR isnull(ltrim(rtrim(@segmentDetailValue)),'') = '')
+                                begin
+                                        select newid() theGuid, 1 recordid ;
+                                        return;
+                                end
+
+                                
+                                -- qualifying data
+                                select  recordid into #docs
+                                (JOIN_CONDITIONS)
+                                GROUP BY recordid
+                                IF @@rowcount>300
+                                create index ix_docs_00102d129 on #docs(recordid)
+
+                    -- are we prefetching or doing a silly query? if so we are exiting now
+                    if not exists(select * from #docs)
+                    begin
+                            select newid() itemId,    -1 ISNEWSEGMENT, -1 segmentID, -1 DATACOUNT ;
+                            return;
+                    end
+
+                             --1 remove existing data?
+                                if (@segmentID is not null)
+                                BEGIN
+                    set @isNewSegment = @segmentID * 1000;
+                                         set @DetailId	 = (select top 1 detailid from CMP_Custom_UserSegment_detail where segmentid = @segmentID and value = @segmentDetailValue )
+
+                                            -- is it a new detail id?
+
+                                            if (@DetailId is not null)
+                                            BEGIN
+                                                    print 'existing detailid'
+                                                    -- remove exisint data which matches
+                                                    exec usp_CMP_jdsf_remove_custom_segment_data @userid ,	@segmentid ,	@detailid
+
+                                            END
+                                            ELSE
+                                            BEGIN
+                                                    -- Existing Segment, NEW detail value add new detail lookup
+                                                    exec usp_CMP_jdsf_remove_custom_segment_data @userid ,	@segmentid ,	@detailid
+                                                    INSERT INTO CMP_Custom_UserSegment_detail (segmentID	,value)
+                                                    SELECT @segmentID , @segmentDetailValue;
+                                                    SET @DetailId = scope_identity();
+
+                                            END
+                      
+                   EXEC  usp_CMP_jdsf_insert_custom_segment_data @userid,	@segmentID ,	@segmentName ,	@DetailId,	@segmentDetailValue ,	1
+                                EXEC  usp_CMP_jdsf_TidyOrphanRecords  @userid,	@segmentID
+              
+                                END
+                                ELSE
+                                BEGIN
+                        set @isNewSegment = 1
+                                            -- update the current segmentsequence number for this user
+                        -- so the new segment becomes the top segment as they prob will use it now
+                        UPDATE CMP_Custom_UserSegment set segmentsequence =  segmentsequence +1 where userid = @userid;
+                        UPDATE CMP_CustomSegmentSearch set segmentsequence =  segmentsequence +1 where userid = @userid;
+
+                        -- add the new segment
+                                                INSERT INTO CMP_Custom_UserSegment(userid,title,segmentSequence,description)
+                                                SELECT @userid, @segmentName,1,''
+                                                SET @segmentID = scope_identity();
+                                                INSERT INTO CMP_Custom_UserSegment_detail (segmentID,value)
+                                                SELECT @segmentID , @segmentDetailValue;
+                                                SET @DetailId = scope_identity();
+                                END
+
+                                -- each recordid in docs gets inserted into user custom segment table
+                            
+        
+         declare @dataCount bigint 
+         set @dataCount = (select count(*) from CMP_Custom_UserSegment_Data where segmentid = @segmentid)
+                select newid() itemId,    @isNewSegment ISNEWSEGMENT, @segmentID segmentID , @dataCount DATACOUNT;
+
+                                    -- ignoring year here (CONSTRAINT_IF_EXISTS::YEAR::ignore::me::true)
+--    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+                                        ">
+        </TSQLQuery>
+
+
+        <TSQLQuery Name="GetMarketsInSegment" RunInPreFetch="false" SqlCommand="
+                            
+                   --GetMarketsInSegment
+              
+                            declare @segmentID int, @userId int;
+                                set @userId = '(LOGON_USER_ID)';
+
+                                ; SET @segmentID = '(CONSTRAINT_IF_EXISTS::SEGMENTID::::::true)'
+                 
+                            --  (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)     
+
+                            
+
+   if exists(select * from CMP_Custom_UserSegment where userid = @userid and segmentid = @segmentid)
+            BEGIN
+                select distinct market Data
+                from cmp_jdsfExportTable where recordid in 
+                (select [recordid] from  [dbo].[CMP_Custom_UserSegment_Data] where segmentid = @segmentid)
+                union 
+                select   convert(varchar(10), [lastprocessedUtc] , 120) from CMP_Custom_UserSegment where segmentid = @segmentid;
+     
+            END
+ 
+
+                                        ">
+        </TSQLQuery>
+
+
+
+
+
+
+        <TSQLQuery Name="GetCustomUserSegmentDataForUser" RunInPreFetch="false" SqlCommand="
+                            
+                            -- Only allow 5 custom segments on the ui at one time
+                            -- if the user wants other segments available they need to go to the mgmt page and change which '5' they have visible.
+                            
+                            --  (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)     
+
+                            declare @userid varchar(10);
+                            set @userId = '(LOGON_USER_ID)';
+
+                            select  c.segmentid, title AS CustomUserSegmentName                                                                                                              
+                                from ades..cmp_custom_usersegment c where userid = @userId and is_archived = 0  and isnull(isDropdown, 0) = 1                                                                                 
+                                    union                                                                                                                                        
+                                select c.segmentid, title AS CustomUserSegmentName   
+                                from ades..cmp_custom_usersegment c
+                                LEFT JOIN CMP_CustomSegment_User share on c.segmentid = share.segmentid and c.userid &lt;&gt; share.userid
+                                where share.userid = @userId and c.is_archived = 0 and isnull(visible_in_ui, 0) = 1
+                                order by title desc
+
+                                     --    (DONT_PAGE_DATA)  
+--    (DONT_ADD_ORDERBY)
+
+                                        ">
+        </TSQLQuery>
+
+
+
+        <TSQLQuery Name="GetCustomUserSegmentDetailDataForUserById" RunInPreFetch="true" SqlCommand="
+
+                            --  (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)   -- xyz   
+
+                            declare @userid varchar(10);
+                            set @userId = '(LOGON_USER_ID)';
+
+                            SELECT title AS CustomUserSegmentName,  value AS CustomUserSegmentDetailValue, c.SEGMENTID
+                            FROM CMP_Custom_UserSegment c
+                            INNER JOIN CMP_Custom_UserSegment_detail d ON c.segmentid = d.segmentid
+                             LEFT JOIN CMP_CustomSegment_User share on c.segmentid = share.segmentid and c.userid &lt;&gt; share.userid
+                             WHERE 1=1 
+                            AND isnull(is_archived,0) = 0 
+                             AND 
+                            (
+                                 c.userid = @userId  
+                                OR 
+                                share.userid = @userId 
+                            )  
+                GROUP BY title,  value,  c.SEGMENTID, c.segmentSequence
+                            ORDER BY    title
+
+                                 
+                                        ">
+          <Parameters>
+            <AdapterParameter CodeName="CUSTOMUSERSEGMENTDETAILVALUE" SQLName=" c.title " DataType="STRING_TYPE" />
+            <AdapterParameter CodeName="CUSTOMUSERSEGMENTDETAILID" SQLName =" c.segmentid " DataType="NUMERIC_TYPE" />
+          </Parameters>
+        </TSQLQuery>
+
+        <TSQLQuery Name="GetCustomUserSegmentDetailDataForUser" RunInPreFetch="true" SqlCommand="
+
+                            --  (DONT_ADD_ORDERBY)(DONT_PAGE_DATA)   -- xyz   
+
+                            declare @userid varchar(10);
+                            set @userId = '(LOGON_USER_ID)';
+
+                            SELECT title AS CustomUserSegmentName,  value AS CustomUserSegmentDetailValue, c.SEGMENTID
+                            FROM CMP_Custom_UserSegment c
+                            INNER JOIN CMP_Custom_UserSegment_detail d ON c.segmentid = d.segmentid
+                             LEFT JOIN CMP_CustomSegment_User share on c.segmentid = share.segmentid and c.userid &lt;&gt; share.userid
+                             WHERE 1=1 
+                            AND isnull(is_archived,0) = 0 
+                            AND 
+                            (
+                                (c.userid = @userId and isnull(isDropdown,0) = 1)
+                                OR 
+                                (share.userid = @userId and isnull(visible_in_ui,0)=1) 
+                            )  
+                GROUP BY title,  value,  c.SEGMENTID, c.segmentSequence
+                            ORDER BY    title
+
+                                 
+                                        ">
+          <Parameters>
+            <AdapterParameter CodeName="CUSTOMUSERSEGMENTDETAILVALUE" SQLName=" c.title " DataType="STRING_TYPE" />
+            <AdapterParameter CodeName="CUSTOMUSERSEGMENTDETAILID" SQLName =" c.segmentid " DataType="NUMERIC_TYPE" />
+          </Parameters>
+        </TSQLQuery>
+      </TSQLQueries>
+
+      <Entitlements>
+        <Entitlement AuthName="JDSF14">
+          <Filters>
+            <EntitlementFilter Name="Market" ColumnName="EntitlementMarketName" />
+          </Filters>
+        </Entitlement>
+      </Entitlements>
+
+      <Metadata>
+        <MetadataEntryOfStringString Key="entitlementProductName" Value="JDSF14" />
+        <MetadataEntryOfStringString Value="IHS Jane's"  Key="resourceKey" />
+        <MetadataEntryOfStringString Value="false" Key="visibleBreadcrumb" />
+        <MetadataEntryOfStringString Value="true" Key="keepExistingSearchWhenAddingIdsForExport" />
+        <MetadataEntryOfStringString Value="z.*" Key="FullTextSearchAlias" />
+        <MetadataEntryOfStringString Key="defaultSort" Value="RecordId" />
+      </Metadata>
+      <HintReplacements>
+        <HintReplacement Hint="(LOGON_USER_ID)">
+          <UserIdHintReplacement  Sql="1" />
+        </HintReplacement>
+        <HintReplacement Hint="(CURRENCY)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_USD" Sql="USD" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_GBP" Sql="GBP" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_EUR" Sql="EUR" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_AUSD" Sql="AUSD" />
+          <IndexerHintReplacement IndexerObjectKey="CURRENCY_RND" Sql="RND" />
+        </HintReplacement>
+        <HintReplacement Hint="(SubSys%)" DefaultReplacement="">
+          <!-- subsystem percentage -->
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" Sql=" (percentage/100.0) * " />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE" Sql=" (percentage/100.0) *  " />
+        </HintReplacement>
+        <HintReplacement Hint="(ViewingProductionUnitsInChart)" DefaultReplacement=" 1 = 0 ">
+          <IndexerHintReplacement IndexerObjectKey="FT_PRODUCTION_UNITS" Sql=" 1=1 " ></IndexerHintReplacement>
+        </HintReplacement>
+        <HintReplacement Hint="(SERIES_COUNT)" DefaultReplacement="Program">
+          <IndexerHintReplacement IndexerObjectKey="FT_PRODUCTION" Sql="Production" />
+          <IndexerHintReplacement IndexerObjectKey="FT_SLS" Sql="SLS" />
+          <IndexerHintReplacement IndexerObjectKey="FT_PRODUCTION_UNITS" Sql="Units" />
+          <IndexerHintReplacement IndexerObjectKey="FT_TOTAL_PROGRAM_NO_SLS" Sql="FT_TOTAL_PROGRAM_NO_SLS" />
+          <IndexerHintReplacement IndexerObjectKey="FT_R_AND_D_AND_PRODUCTION" Sql="FT_R_AND_D_AND_PRODUCTION" />
+          <IndexerHintReplacement IndexerObjectKey="FT_TOTAL_PROGRAM" Sql="Program" />
+          <IndexerHintReplacement IndexerObjectKey="FT_R_AND_D" Sql="RDValue" />
+          <IndexerHintReplacement IndexerObjectKey="FT_SERVICES" Sql="ServicesValue" />
+          <IndexerHintReplacement IndexerObjectKey="FT_GRANTS" Sql="FT_GRANTS" />
+          <IndexerHintReplacement IndexerObjectKey="FT_TOTAL_PROGRAM_NO_SERVICES" Sql="FT_TOTAL_PROGRAM_NO_SERVICES" />
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_JOIN)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIERXX" Sql="join cmp_FSubSystems FSS on FSS.RecordId = D.RecordId join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPEXX" Sql=" join cmp_FSubSystems FSS on FSS.RecordId = D.RecordId LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId " />
+
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" Sql="join cmp_FSubSystems FSS on FSS.RecordId = D.recordid 
+                                                                    LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId 
+                                                                    left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId 
+                                                                    LEFT join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE" Sql="join cmp_FSubSystems FSS on FSS.RecordId = D.recordid 
+                                                                    LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId 
+                                                                    left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId 
+                                                                    LEFT join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_TEMPLATE_CHECK)" DefaultReplacement=" 1=0 ">
+          <!--   we need to delete some data if we are in the subsystem supplier or type template so we use the 1=1 pattern to enter some code   -->
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" Sql=" 1=1 " />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE" Sql=" 1=1 " />
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_JOIN_1)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIERXXX" Sql="join cmp_FSubSystems FSS on FSS.RecordId = D.FilterRecordId join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPEXXX" Sql=" join cmp_FSubSystems FSS on FSS.RecordId = D.FilterRecordId LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId " />
+
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" Sql=" join cmp_FSubSystems FSS on FSS.RecordId = D.FilterRecordId 
+                                                                    LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId 
+                                                                    left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId 
+                                                                    LEFT join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE" Sql=" join cmp_FSubSystems FSS on FSS.RecordId = D.FilterRecordId 
+                                                                    LEFT jOIN	std_SubsystemsTypeMap as sstm  on fss.SubSystemTypeId = sstm.SubSystemTypeMapId 
+                                                                    left join std_SubsystemsType STDST on STDST.SubSystemTypeId = sstm.SubSystemTypeId 
+                                                                    LEFT join std_Suppliers STDS on STDS.SupplierID = FSS.SupplierID" />
+
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_PCTAGE_TABLE_CREATION)" DefaultReplacement="IF (1=9)">
+          <IndexerHintConstraintReplacement  IndexerObjectKey="RECORDID">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql="  IF(1=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION.SUBSYSTEM_TYPE  present in constraints"   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" IF(1=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION.SUBSYSTEM_SUPPLIER  present in constraints"   />
+            <IndexerHintReplacement  IndexerObjectKey="RECORDID"   Sql=" IF(11=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION.SUBSYSTEM_SUPPLIER or SUBSYSTEM_TYPE  **NOT** present in constraints"   />
+          </IndexerHintConstraintReplacement>
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_PCTAGE_TABLE_CREATION_CHART)" DefaultReplacement="IF (1=97)">
+          <IndexerHintConstraintReplacement  IndexerObjectKey="*">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql="  IF(1=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION_CHART.SUBSYSTEM_TYPE  present in constraints"   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" IF(1=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION_CHART.SUBSYSTEM_SUPPLIER  present in constraints"   />
+            <IndexerHintReplacement  IndexerObjectKey="RECORDID"   Sql=" IF(11=1)  --SUBSYSTEM_PCTAGE_TABLE_CREATION_CHART.SUBSYSTEM_SUPPLIER or SUBSYSTEM_TYPE  **NOT** present in constraints"   />
+          </IndexerHintConstraintReplacement>
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_PCTAGE_CONSTRAINTS)" DefaultReplacement="-- #pXSwop392">
+          <IndexerHintConstraintReplacement  IndexerObjectKey="RECORDID">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND b.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND c.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+          <IndexerHintConstraintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND b.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND c.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+        </HintReplacement>
+        <HintReplacement Hint="(SUBSYSTEM_PCTAGE_CONSTRAINTS_CHART)" DefaultReplacement="-- #pweop3ss9">
+          <IndexerHintConstraintReplacement  IndexerObjectKey="*">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND b.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND c.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+          <IndexerHintConstraintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND b.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND c.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+        </HintReplacement>
+
+        <HintReplacement Hint="(SUBSYSTEM_WHERE_CLAUSE)" DefaultReplacement=" -- NOT SUBSYSTEM SO NOTHING TO DO">
+          <!--<IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" UseMatchingSearchConstraintAsSql="true" Sql=" AND (CONSTRAINTTOOBSERVE) IN ('[CONSTRAINT_VALUES]') " ConstraintsToObserve="SUBSYSTEM_SUPPLIER,SUBSYSTEM_TYPE" />
+                    <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE"  UseMatchingSearchConstraintAsSql="true" Sql=" AND   (SERIES_GROUPBY) IN ('[CONSTRAINT_VALUES]')"  ConstraintsToObserve="SUBSYSTEM_SUPPLIER,SUBSYSTEM_TYPE" />-->
+
+          <IndexerHintConstraintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND STDST.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND STDS.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+          <IndexerHintConstraintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE">
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_TYPE"   Sql=" AND STDST.SubSystem IN ('[CONSTRAINT_VALUES]') "   />
+            <IndexerHintReplacement  IndexerObjectKey="SUBSYSTEM_SUPPLIER"   Sql=" AND STDS.chartname IN ('[CONSTRAINT_VALUES]') "   />
+          </IndexerHintConstraintReplacement>
+        </HintReplacement>
+
+        <HintReplacement Hint="(DEFLATED_JOIN)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="INFLATE" Sql="INNER JOIN cmp_jdsfExportTable_Deflated deflated on d.recordid = deflated.recordid" />
+        </HintReplacement>
+        <HintReplacement Hint="(DEFLATED_JOIN_1)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="INFLATE" Sql="INNER JOIN cmp_jdsfExportTable_Deflated deflated on D.FilterRecordId = deflated.recordid" />
+        </HintReplacement>
+        <HintReplacement Hint="(Dfl?)" DefaultReplacement="">
+          <!-- if we are asking for deflated table then append _deflated to column name to get the new column not the inflated value -->
+          <IndexerHintReplacement IndexerObjectKey="INFLATE" Sql="_Deflated" />
+        </HintReplacement>
+        <HintReplacement Hint="(Pgo?)" DefaultReplacement="">
+          <!-- NOTE THE PRESENCE OF APPLY_PGO MEANS REMOVE PGO FROM THE ALREADY PGO'D VALUE :)  -->
+          <!-- if we are asking for pgo removed i.e. if pgo indexer   then append "_pgoOff" to column name to get the new column not the programTotal value which has pgo applied already-->
+          <IndexerHintReplacement IndexerObjectKey="APPLY_PGO" Sql="_PGoOff" />
+        </HintReplacement>
+        <HintReplacement Hint="(APPLY_PGO_NEAR)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="APPLY_PGO" Sql="COALESCE(100.0 / NULLIF(P_GO_NEAR,0), 0) * " />
+        </HintReplacement>
+        <HintReplacement Hint="(APPLY_PGO_FAR)" DefaultReplacement="">
+          <IndexerHintReplacement IndexerObjectKey="APPLY_PGO" Sql=" COALESCE(100.0 / NULLIF(P_GO_FAR,0), 0) * " />
+        </HintReplacement>
+        <!--<HintReplacement Hint="(APPLY_COMM_ACFT_DSCT_VAL)" DefaultReplacement=" case market when 'Commercial Acft' then isnull(CommAcftDiscRate,1.00) else 1.00 end "> dont need this, while the attributeid in fitems needs to check market for correct value, we will only insert valid values-->
+        <HintReplacement Hint="(APPLY_COMM_ACFT_DSCT_VAL)" DefaultReplacement="  1.00   ">
+          <IndexerHintReplacement IndexerObjectKey="APPLY_COMM_ACFT_DSCT" Sql="  isnull(CommAcftDiscRate,1.00)  " />
+        </HintReplacement>
+        <HintReplacement Hint="(OTHER_GROUPING_IF)" DefaultReplacement="1 = 1">
+          <IndexerHintReplacement IndexerObjectKey="GROUP_OTHER_SERIES" Sql="1 = 0" />
+        </HintReplacement>
+        <HintReplacement Hint="(SHOW_CAGR)" DefaultReplacement=" 1=0 ">
+          <IndexerHintReplacement IndexerObjectKey="SHOW_CAGR" Sql=" 1=1" />
+        </HintReplacement>
+        <HintReplacement Hint="(TIME_SERIES)" DefaultReplacement=" 1=0 ">
+          <IndexerHintReplacement IndexerObjectKey="TIME_SERIES" Sql=" 1=1" />
+        </HintReplacement>
+        <HintReplacement Hint="(LIKE_VW_SEARCH)" DefaultReplacement=" -- " DataType="STRING_TYPE">
+          <IndexerHintReplacement IndexerObjectKey="LIKE_VW_SEARCH" Sql="select items AS LIKE_VW_SEARCH from [dbo].[fn_Columns_Search_Builder]({0},{1},{2})" DataType="STRING_TYPE" />
+        </HintReplacement>
+        <HintReplacement Hint="(HIDE_IF_NOT_TIME_SERIES)" DefaultReplacement=" -- ">
+          <IndexerHintReplacement IndexerObjectKey="TIME_SERIES" Sql=" " />
+        </HintReplacement>
+
+        <HintReplacement Hint="(YEAR0VALUE)">
+          <YearHintReplacement YearValue="0" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR1VALUE)">
+          <YearHintReplacement YearValue="1" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR2VALUE)">
+          <YearHintReplacement YearValue="2" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR3VALUE)">
+          <YearHintReplacement YearValue="3" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR4VALUE)">
+          <YearHintReplacement YearValue="4" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR5VALUE)">
+          <YearHintReplacement YearValue="5" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR6VALUE)">
+          <YearHintReplacement YearValue="6" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR7VALUE)">
+          <YearHintReplacement YearValue="7" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR8VALUE)">
+          <YearHintReplacement YearValue="8" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEAR9VALUE)">
+          <YearHintReplacement YearValue="9" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS1VALUE)">
+          <YearHintReplacement YearValue="-1" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS2VALUE)">
+          <YearHintReplacement YearValue="-2" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS3VALUE)">
+          <YearHintReplacement YearValue="-3" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS4VALUE)">
+          <YearHintReplacement YearValue="-4" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS5VALUE)">
+          <YearHintReplacement YearValue="-5" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS6VALUE)">
+          <YearHintReplacement YearValue="-6" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS7VALUE)">
+          <YearHintReplacement YearValue="-7" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS8VALUE)">
+          <YearHintReplacement YearValue="-8" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS9VALUE)">
+          <YearHintReplacement YearValue="-9" />
+        </HintReplacement>
+        <HintReplacement Hint="(YEARMINUS10VALUE)">
+          <YearHintReplacement YearValue="-10" />
+        </HintReplacement>
+
+        <HintReplacement Hint="(SERIES_GROUPBY)" DefaultReplacement="FunctionalSegment">
+          <IndexerHintReplacement IndexerObjectKey="FUNCTIONALSEGMENT" Sql="FunctionalSegment" />
+          <IndexerHintReplacement IndexerObjectKey="FORCESTRUCTURE" Sql="ForceStructure" />
+          <IndexerHintReplacement IndexerObjectKey="PLATFORMTYPE" Sql="PlatformType" />
+          <IndexerHintReplacement IndexerObjectKey="PLANNING_PHASE" Sql="Planning_phase" />
+          <IndexerHintReplacement IndexerObjectKey="EXECUTION_PHASE" Sql="EXECUTION_PHASE" />
+
+          <IndexerHintReplacement IndexerObjectKey="META_SYSTEM_TYPE" Sql="META_SYSTEM_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="META_SYSTEM_SUBTYPE" Sql="META_SYSTEM_SUBTYPE" />
+
+          <IndexerHintReplacement IndexerObjectKey="STD_COUNTRY" Sql="std_Country" />
+          <IndexerHintReplacement IndexerObjectKey="STD_SUPPLIER" Sql="std_supplier" />
+          <IndexerHintReplacement IndexerObjectKey="ITEMLIFECYCLEDESC" Sql="ItemLifeCycleDesc" />
+          <IndexerHintReplacement IndexerObjectKey="USERORGGEN" Sql="UserOrgGen" />
+          <IndexerHintReplacement IndexerObjectKey="GOVERNMENT_PRIME" Sql="Govtprime" />
+          <IndexerHintReplacement IndexerObjectKey="PLATFORMFAMILYNAME" Sql="PlatformFamilyName" />
+          <IndexerHintReplacement IndexerObjectKey="MANNED_UNMANNED" Sql="Manned_Unmanned" />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_SUPPLIER" Sql="STDS.ChartName" />
+          <IndexerHintReplacement IndexerObjectKey="SUBSYSTEM_TYPE" Sql="STDST.SubSystem" />
+          <IndexerHintReplacement IndexerObjectKey="PLATFORMTYPEDETAIL" Sql="PlatformTypeDetail" />
+          <IndexerHintReplacement IndexerObjectKey="PRODUCTIONTYPE" Sql="ProductionType" />
+          <IndexerHintReplacement IndexerObjectKey="CTY_FINAL_ASSEMBLY" Sql="CTY_FINAL_ASSEMBLY" />
+          <IndexerHintReplacement IndexerObjectKey="FMS" Sql="FMS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_AIRCRAFT_TYPE" Sql="CUSTOM_AIRCRAFT_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="MARKET_ATTR1" Sql="MARKET_ATTR1" />
+
+          <IndexerHintReplacement IndexerObjectKey="SYSTEM_LENS_PARENT" Sql="SYSTEM_LENS_PARENT" />
+          <IndexerHintReplacement IndexerObjectKey="SYSTEM_LENS_CHILD" Sql="SYSTEM_LENS_CHILD" />
+          <IndexerHintReplacement IndexerObjectKey="SYSTEM_LENS_VALUE" Sql="SYSTEM_LENS_VALUE" />
+
+
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SIMULATION_DOMAIN" Sql="CUSTOM_SIMULATION_DOMAIN" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_DIST_TRG_CAPABILITY" Sql="CUSTOM_DIST_TRG_CAPABILITY" />
+
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_APPLICATION" Sql="CUSTOM_APPLICATION" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_DISPLACEMENT__US_TONS_METRIC_TONS_000" Sql="CUSTOM_DISPLACEMENT__US_TONS_METRIC_TONS_000" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_DISPLAY_SYSTEM" Sql="CUSTOM_DISPLAY_SYSTEM" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_ENDURANCE_DAYS" Sql="CUSTOM_ENDURANCE_DAYS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_ENVIRONMENT" Sql="CUSTOM_ENVIRONMENT" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_FREQUENCY" Sql="CUSTOM_FREQUENCY" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_FUEL_TYPE" Sql="CUSTOM_FUEL_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_HLS_ACTIVITY" Sql="CUSTOM_HLS_ACTIVITY" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_HLS_MISSION" Sql="CUSTOM_HLS_MISSION" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_HORSEPOWER" Sql="CUSTOM_HORSEPOWER" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_INTEL_ACTIVITY" Sql="CUSTOM_INTEL_ACTIVITY" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_INTEL_TYPE" Sql="CUSTOM_INTEL_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_LENGTH__FEET_METERS" Sql="CUSTOM_LENGTH__FEET_METERS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_LOCOMOTION_MEANS" Sql="CUSTOM_LOCOMOTION_MEANS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_LPI" Sql="CUSTOM_LPI" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MAX_WEIGHT_LBS" Sql="CUSTOM_MAX_WEIGHT_LBS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MISSILE_TYPE" Sql="CUSTOM_MISSILE_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MODE" Sql="CUSTOM_MODE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MODIFICATION" Sql="CUSTOM_MODIFICATION" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MOTION_CUEING" Sql="CUSTOM_MOTION_CUEING" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_MOUNTING" Sql="CUSTOM_MOUNTING" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_OPERATING_ENVIRONMENT" Sql="CUSTOM_OPERATING_ENVIRONMENT" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_ORBIT_PATH" Sql="CUSTOM_ORBIT_PATH" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_OTHER_SENSORY_INPUTS" Sql="CUSTOM_OTHER_SENSORY_INPUTS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_PGW_TYPE" Sql="CUSTOM_PGW_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_PROPULSION" Sql="CUSTOM_PROPULSION" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_RADAR_TYPE" Sql="CUSTOM_RADAR_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_RADIO_FREQUENCY" Sql="CUSTOM_RADIO_FREQUENCY" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_ROTORCRAFT_CLASS" Sql="CUSTOM_ROTORCRAFT_CLASS" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SEEKER_TYPE" Sql="CUSTOM_SEEKER_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SENSOR_TYPE" Sql="CUSTOM_SENSOR_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SERVICE_TYPE" Sql="CUSTOM_SERVICE_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SIMULATION_TYPE" Sql="CUSTOM_SIMULATION_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_SYSTEM_DESCRIPTION" Sql="CUSTOM_SYSTEM_DESCRIPTION" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_TRANSMITTER_TYPE" Sql="CUSTOM_TRANSMITTER_TYPE" />
+          <IndexerHintReplacement IndexerObjectKey="CUSTOM_UTILITY" Sql="CUSTOM_UTILITY" />
+          <IndexerHintReplacement IndexerObjectKey="MARKET" Sql="market" />
+          <IndexerHintReplacement IndexerObjectKey="PARENT_MARKET" Sql=" market " />
+          <IndexerHintReplacement IndexerObjectKey="STD_REGION" Sql="std_Region" />
+          <IndexerHintReplacement IndexerObjectKey="ITEMPATH" Sql="ItemPath" />
+          <IndexerHintReplacement IndexerObjectKey="XYZDONTUSE" BeginsWith="CUSTOMUSERSEGMENTATTR" Sql=" isnull(CMP_CustomSegmentSearch{0}.value,'Unassigned') " />
+        </HintReplacement>
+      </HintReplacements>
+      <Parameters>
+        <AdapterParameter CodeName="ITEMID" SQLName="CMP_JDSFSearchTable.recordid" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="MARKET_TECHNOLOGY" SQLName=" MARKET "  DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="PROGRAM_TOTAL" SQLName=" programTotal " DataType="NUMERIC_TYPE" />
+        <AdapterParameter  CodeName="BLENDED_MARKET" SQLName=" market " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="SERIES" SQLName=" SERIES " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="META_SYSTEM_TYPE" SQLName=" META_SYSTEM_TYPE " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="META_SYSTEM_SUBTYPE" SQLName=" META_SYSTEM_SUBTYPE " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="EXECUTION_PHASE" SQLName=" EXECUTION_PHASE " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="SEARCHTERM" SQLName=" SEARCHTERM " DataType="STRING_TYPE" />
+        <AdapterParameter  CodeName="PLANNING_PHASE" SQLName=" Planning_phase " DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CHART_METADATA" SQLName="CHART_METADATA"  DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="doesthisneedtobeastring?" BeginsWith="CUSTOMUSERSEGMENTATTR" SQLName=" isnull(CMP_CustomSegmentSearch{0}.value,'Unassigned') "  DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CUSTOMUSERSEGMENT1" SQLName="isnull(cus1.value,'Unassigned')"  DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CUSTOMUSERSEGMENT2" SQLName="isnull(cus2.value,'Unassigned')" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CUSTOMUSERSEGMENT3" SQLName="isnull(cus3.value,'Unassigned')" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CUSTOMUSERSEGMENT4" SQLName="isnull(cus4.value,'Unassigned')" DataType="STRING_TYPE" />
+        <AdapterParameter CodeName="CUSTOMUSERSEGMENT5" SQLName="isnull(cus5.value,'Unassigned')" DataType="STRING_TYPE" />
+       
+        <AdapterParameter CodeName="SYSTEM_LENS_PARENT" SQLName="SYSTEM_LENS_TABLE.PARENT" />
+        <AdapterParameter CodeName="SYSTEM_LENS_CHILD" SQLName="SYSTEM_LENS_TABLE.CHILD" />
+        <AdapterParameter CodeName="SYSTEM_LENS_VALUE" SQLName="SYSTEM_LENS_TABLE.VALUE" />
+
+        <AdapterParameter CodeName="MARKET_LENS_PARENT" SQLName="MARKET_LENS_TABLE.PARENT" />
+        <AdapterParameter CodeName="MARKET_LENS_CHILD" SQLName="MARKET_LENS_TABLE.CHILD" />
+        <AdapterParameter CodeName="MARKET_LENS_VALUE" SQLName="MARKET_LENS_TABLE.VALUE" />
+
+
+      </Parameters>
+    </TSQLCategory>
+  </Categories>
+</TSQLConfig>
