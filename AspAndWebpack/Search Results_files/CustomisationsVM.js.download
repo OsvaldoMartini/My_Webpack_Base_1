@@ -1,0 +1,793 @@
+var customisationsVM = function (parent) {
+    var self = this;
+    self.parent = parent;
+    self.search = parent.search;
+    self.customisations = ko.observableArray();
+    self.current = ko.observable(new customisationVM(self));
+    self.creatingNew = ko.computed(function () {
+        return !self.current().Id();
+    });
+    self.loadingCustomSegments = ko.observable(false);
+    self.applyingSearchToExistingCustomisation = ko.observable(false);
+    // update exisitng box observables
+    self.selectedCustomisation = ko.observable();
+    self.selectCustomisationValues = ko.observableArray([]);
+    self.selectedCustomisationDetailValue = ko.observable();
+    self.newSegmentValue = ko.observable();
+
+    //
+    self.viewingMyCustomisations = ko.observable(false);
+    self.CreateNewCustomisation = function () {
+        //self.creatingNew(true);
+        self.current(new customisationVM(self));
+    }
+    self.updateSegmentDetail = function (segmentDetail) {
+        if (!self.loadingCustomSegments()) {
+            var _data = JSON.stringify({
+                "detailId": segmentDetail.id(),
+                "segmentid": segmentDetail.parent.Id(),
+                "value": segmentDetail.title()
+            })
+            if (segmentDetail.title() == "") {
+                segmentDetail.parent.detailValues.remove(segmentDetail);
+            }
+            $.ajax({
+                type: "POST",
+                data: _data,
+                url: "ManageSegmentDetails",
+                contentType: "application/json; charset=utf-8",
+                success: function (msg) {
+                    //alert(msg)
+                    if (segmentDetail.parent.ShowInUserInterface()) {
+                        self._updateFacets();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ShowError("An error occurred. " + errorThrown);
+                }
+            });
+        }
+    }
+    self.selectedCustomisation.subscribe(function (cust) {
+        if (cust !== undefined) {
+            // get the value for this.
+            var d = self.getCustomisationValues();
+        }
+    });
+    self.selectedCustomisationDetailValue.subscribe(function () {
+        self.newSegmentValue("");
+    });
+    self.creatingNew.subscribe(function (createNew) {
+        if (!createNew) return;
+        self.current().isEditTitle(true);
+    });
+    self.updateExistingSegment = function () {
+        if (self.selectedCustomisation() == undefined || (self.selectedCustomisationDetailValue() == undefined && !self.newSegmentValue()))
+            return;
+        var message = "We are updating your customisation now. Every record in the current search will be associated with the title and the value provided.";
+        var qm = ShowInfo(message, 25000, qm);
+        var options = {
+            segment_title: self.selectedCustomisation().Title(),
+            segment_value: self.newSegmentValue() ? self.newSegmentValue() : self.selectedCustomisationDetailValue(),
+            callback: function (msg) {
+                qm.hide();
+                ShowInfo("Your segment has been updated", 3000);
+                // self.getMyCustomisations(function() {
+                //     self.loadingCustomSegments(false);
+                // });
+                self.search.updateResults(self.search.updateRequestSender.pageLoad);
+            }
+        }
+        self.AddSegmentNameAndValue(options);
+    }
+    self.getCustomisationValues = function () {
+        ; $.ajax({
+            type: "GET",
+            url: "GetCustomSegmentDetailRecords?segmentId=" + self.selectedCustomisation().Id(),
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                if (msg.segments.length > 0) {
+                    self.selectCustomisationValues(msg.segments[0].values);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    }
+    self.getMyCustomisations = function (successCallback) {
+        self.loadingCustomSegments(true);
+        $.ajax({
+            type: "GET",
+            url: "GetMyCustomSegments",
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                if (msg.length > 0) {
+                    self.customisations.removeAll();
+                }
+                var i = 0;
+                _.each(msg, function (seg) {
+                    if (i < 30) {
+                        var newCustomisation = new customisationVM(self);
+                        if (seg.Details && seg.Details.length > 0) {
+                            var count = 0;
+                            _.each(seg.Details, function (detail) {
+                                if (count < 50) {
+                                    var newDetail = new CustomisationDetailVM(newCustomisation);
+                                    newDetail.title(detail.Value);
+                                    newDetail.id(detail.SegmentId);
+                                    newDetail.recordCount(detail.RecordCount);
+                                    newCustomisation.detailValues.push(newDetail);
+                                }
+                                count++;
+                            });
+                            newCustomisation.currentDetailValue(newCustomisation.detailValues()[0]);
+                        }
+                        newCustomisation.CreateDateTime(new Date(parseFloat(seg.CreateDateTime.replace("/Date(", "").replace(")/", ""))).toDateString());
+                        newCustomisation.LastEditedDateTime(new Date(parseFloat(seg.LastEditedDateTime.replace("/Date(", "").replace(")/", ""))).toDateString());
+                        newCustomisation.Description(seg.Description);
+                        newCustomisation.Title(seg.Title);
+                        newCustomisation.ShowInUserInterface(seg.ShowInUserInterface);
+                        newCustomisation.Id(seg.Id);
+                        newCustomisation.canShare(seg.CanShare);
+                        newCustomisation.canEdit(seg.CanEdit);
+
+                        self.customisations.push(newCustomisation);
+                    }
+                });
+
+                if (self.customisations().length) {
+                    self.current(self.customisations()[0]);
+                } else {
+                    self.CreateNewCustomisation();
+                }
+                if (_.isFunction(successCallback)) {
+                    successCallback();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+                self.loadingCustomSegments(false);
+            }
+        });
+    }
+    self.ViewMyCustomisations = function () {
+        var message = "View Customisations";
+        CMP.Utils.ActivityLog.log('MarketsForecast', 4, 1, message); //4 = event.click, 1 info.
+        self.viewingMyCustomisations(true);
+        self.getMyCustomisations(function () {
+            self.loadingCustomSegments(false);
+        });
+    };
+    self.ApplySearchToExistingCustomisation = function () {
+        self.applyingSearchToExistingCustomisation(true);
+        if (self.customisations().length == 0) {
+            self.getMyCustomisations(function () {
+                self.loadingCustomSegments(false);
+            });
+        }
+    };
+    self.RemoveCustomSegment = function (customSegmentToRemove) {
+        if (!customSegmentToRemove.Id()) return;
+        customSegmentToRemove.isRemoving(true);
+        var _data = JSON.stringify({
+            "segmentid": customSegmentToRemove.Id()
+        });
+        $.ajax({
+            type: "POST",
+            data: _data,
+            url: "DeleteSegment",
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                var index = self.customisations.indexOf(customSegmentToRemove);
+                self.customisations.remove(customSegmentToRemove);
+                if (self.customisations().length > 0) {
+                    if (self.customisations().length > index) {
+                        index = 0;
+                    }
+                    self.current(self.customisations()[index]);
+                } else {
+                    self.CreateNewCustomisation();
+                }
+                self.updateFacets();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    };
+    /**
+     * Save intial details to a custom segment show the user their segment details. Saves the recently created segment.
+     * @returns {} 
+     */
+    self.saveCurrent = function () {
+        var message = "We are saving your customisation now.";
+        var qm = ShowInfo(message, 25000, qm);
+        var options = {
+            segment_title: self.current().Title(),
+            segment_value: self.current().firstValue(),
+            adding_new: true,
+            callback: function () {
+                qm.fadeOut();
+                ShowInfo("Your segment has been created", 3000);
+                self.getMyCustomisations(function () {
+                    self.loadingCustomSegments(false);
+                    var detailValues = self.current().detailValues();
+                    if (detailValues.length == 1) {
+                        self.current().isValueOpen(true);
+                        self.current().addingNewValue(false);
+                        self.current().detailValues()[0].isEditing(!self.current().detailValues()[0].title());
+                        self.current().currentDetailValue(self.current().detailValues()[0]);
+                    }
+                });
+                ;
+            }
+        }
+        self.AddSegmentNameAndValue(options);
+    };
+    //returns a string of selected recordids, else returns ''
+    self.records = function () {
+        var sel = self.parent.resultsVM.commandsVM.getSelectedRecords();
+        return sel.length > 0 ? _.reduce(self.parent.resultsVM.commandsVM.getSelectedRecords(), function (a, b) {
+            return a.concat(b + "||")
+        }, "RECORDID(").slice(0, -2).concat(")") : "";
+    };
+    self.AddSegmentNameAndValue = function (options) {
+        var segment_title = encodeURIComponent(options.segment_title);
+        var segment_value = encodeURIComponent(options.segment_value);
+        var _url = "AddSegmentNameAndValue?";
+        if (options.adding_new) {
+            _url = "AddSegmentNameAndValue?f=CUSTOMUSERSEGMENTNAME(" + segment_title + ")<and>CUSTOMUSERSEGMENTDETAILVALUE(" + segment_value + ")";
+        } else {
+            _url = "AddSegmentNameAndValue?" + self.search.calculateQueryString();
+            // add the click details to refine on
+            var selectedGridRecords = self.records();
+            if (selectedGridRecords != '') {
+                _url = "AddSegmentNameAndValue?f=" + selectedGridRecords + "<and>CUSTOMUSERSEGMENTNAME(" + segment_title + ")<and>CUSTOMUSERSEGMENTDETAILVALUE(" + segment_value + ")";
+            } else {
+                if (!!~_url.indexOf("f=")) {
+                    _url = _url.replace("f=", "f=" + self.records() + "CUSTOMUSERSEGMENTNAME(" + segment_title + ")<and>CUSTOMUSERSEGMENTDETAILVALUE(" + segment_value + ")<and>");
+                } else {
+                    ShowError("Please ensure you make some choices from the filters on the left hand side of the page first.", 10000);
+                    return;
+                }
+            }
+        }
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "applicatiocn/json; charset=utf-8",
+            success: function (msg) {
+                if (_.isFunction(options.callback)) {
+                    options.callback(msg);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    };
+    self.updateFacets = _.debounce(function () {
+        self._updateFacets();
+    }, 2000);
+    self._updateFacets = function () {
+        self.parent.chartWillIgnoreCallbacksCount++;
+        self.search.updateResults(self.search.updateRequestSender.pageLoad);
+    };
+    self.CustomisationChanged = function (changedCustomisation) {
+        //Empty the cache is the user changes a segment. need to get fresh list of custom segments.
+        sessionStorage.clear();
+        //save data to server if valid
+        if (!self.loadingCustomSegments()) {
+            var _data = JSON.stringify({
+                "segmentid": changedCustomisation.Id(),
+                "title": changedCustomisation.Title(),
+                "description": changedCustomisation.Description(),
+                "isVisible": changedCustomisation.ShowInUserInterface()
+            })
+            $.ajax({
+                type: "POST",
+                data: _data,
+                url: "ManageSegment",
+                contentType: "application/json; charset=utf-8",
+                success: function (msg) {
+                    //alert(msg);
+                    if (changedCustomisation.ShowInUserInterface()) {
+                        self._updateFacets();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ShowError("An error occurred. " + errorThrown);
+                }
+            });
+        }
+    };
+    self.ScenarioName = ko.observable();
+    self.CreatingScenario = ko.observable(false);
+    self.CreateScenario = function () {
+        self.CreatingScenario(true);
+    };
+    self.ApplyScenario = function () {
+        if (self.ScenarioName == null || self.ScenarioName == '') {
+            return;
+        }
+        var _data = JSON.stringify({
+            "attributeKey": $('#ddlClonedAttributeSource').val(),
+            "segmentName": self.ScenarioName()
+        });
+        var qm = ShowInfo("We are creating your scenario now.", 25000);
+        $.ajax({
+            type: "POST",
+            data: _data,
+            url: "CreateScenario",
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //empty == ok
+                qm.hide();
+                ShowInfo("We have created your scenario.");
+                self.viewingMyCustomisations(true);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                qm.hide();
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    };
+
+    $(".tipsy").remove();
+
+    $('#customisationsContainer').removeClass("hidden");
+    //testing hack
+
+    // .on("focusout : blur", function() {        $(this).removeClass("selectedModal");    });
+    self.customisations.subscribe(function () {
+        self.updateCustomSegmentsList();
+        if (!self.customisations().length) {
+            self.CreateNewCustomisation();
+        }
+    });
+    self.updateCustomSegmentsList = function () {
+        self.parent.CustomSegments.removeAll();
+        self.customisations().forEach(function (e, i, a) {
+            if (!e.ShowInUserInterface()) return;
+            self.parent.CustomSegments.push({ key: "CUSTOMUSERSEGMENTATTR" + e.Id, text: e.Title });
+        });   
+    };
+    self.fixBreadcrumbs = function () {
+        var breadcrumbs = self.parent.resultsVM.facetsVM.breadcrumbs().reduce(function (breadcrumbs, f) {
+            if (f.indexer.substr(0, 21) === "CUSTOMUSERSEGMENTATTR" && f.value == "Unassigned") {
+                breadcrumbs.push(f);
+            }
+            return breadcrumbs;
+        }, []);
+
+        if (!breadcrumbs.length) return;
+
+        function fix() {
+            self.customisations().forEach(function (customisation) {
+                customisation.fixBreadcrumb(breadcrumbs);
+            });
+        }
+
+        if (!self.customisations().length) {
+            self.getMyCustomisations(fix);
+            return;
+        }
+        fix();
+    };
+    self.search.registerFinishedCallback( self.fixBreadcrumbs.bind(self) );
+};
+var CustomisationDetailVM = function(parent) {
+    var self = this;
+    self.parent = parent;
+    self.CustomisationsVM = parent.parent;
+    self.title = ko.observable();
+    self.id = ko.observable();
+    self.recordCount = ko.observable();
+    self.absoluteRecordCount = ko.computed(function() {
+        return self.recordCount() === undefined ? 0 : parseInt(self.recordCount());
+    });
+
+    self.isEditing = ko.observable(false);
+    self.isRemoving = ko.observable(false);
+
+    $(".tipsy").remove();
+
+    self.removeSearchFromSegmentValue = function() {
+        var message = "We are updating your customisation now. Every record in the current search will be removed from the customisation.";
+        var _url = "RemoveFromSegmentValue?" + self.parent.search.calculateQueryString();
+        var selectedGridRecords = self.parent.parent.records();
+        if (selectedGridRecords != '') {
+            _url = "RemoveFromSegmentValue?f=" + selectedGridRecords + "<and>SEGMENTID(" + self.parent.Id() + ")<and>CUSTOMUSERSEGMENTDETAILID(" + self.id() + ")";
+        } else {
+            if (!!~_url.indexOf("f=")) {
+                _url = _url.replace("f=", "f=SEGMENTID(" + self.parent.Id() + ")<and>CUSTOMUSERSEGMENTDETAILID(" + self.id() + ")<and>");
+            } else {
+                ShowError("Please ensure you make some choices from the filters on the left hand side of the page first.", 10000);
+                return;
+            }
+        }
+        var qm = ShowInfo(message, 25000, qm);
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                try {
+                    var recordsAffected = JSON.parse(msg.Data).ITEMID;
+                    self.recordCount(self.recordCount() - recordsAffected);
+                }
+                catch (err) {
+                    ;
+                }
+                
+                qm.hide();
+                ShowInfo("Removed", 3000);
+                self.parent.parent.search.updateResults(self.parent.parent.search.updateRequestSender.pageLoad);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    }
+    self.removeFromSegment = function() {
+        var _url = "RemoveValueFromSegment?f=SEGMENTID(" + self.parent.Id() + ")<and>CUSTOMUSERSEGMENTDETAILID(" + self.id() + ")";
+        self.isRemoving(true);
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function(msg) {
+                self.parent.detailValues.remove(self);
+
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            },
+            complete: function () {
+                self.isRemoving(false);
+            }
+        });
+    }
+    self.title.subscribe(function(title) {
+        if (self.id() != undefined && title) {
+            console.log(self.id(), " changed");
+            self.CustomisationsVM.updateSegmentDetail(self);
+            return;
+        }
+        if (self.isEditing()) {
+            self.parent.NewValue(title);
+            self.parent.AddSegmentValue();
+        }
+    });
+    self.ShowSegmentSingleDetail = function () {
+        var f = "CUSTOMUSERSEGMENTATTR" + self.parent.Id() + "(" + self.title() + ")";
+        self.parent.parent.parent.resultsVM.search.setQueryValue('f', f);
+        self.parent.parent.parent.resultsVM.facetsVM.applyFacets();
+    };
+    self.isEditing.subscribe(function (editing) {
+        if (!editing) {
+            return;
+        }
+        window.setTimeout(function () {
+            $('#edit_' + (self.id()||'undefined')).focus();
+        });
+    });
+}
+var customisationVM = function (parent) {
+    var self = this;
+    self.parent = parent;
+    self.search = parent.search;
+    self.Id = ko.observable();
+    self.Title = ko.observable();
+    self.Description = ko.observable();
+    self.firstValue = ko.observable();
+    self.detailValues = ko.observableArray();
+    self.addingNewValue = ko.observable();
+    self.NewValue = ko.observable();
+    self.ShowInUserInterface = ko.observable();
+    self.ShowCustomisationDetails = ko.observable(false);
+    self.LastEditedDateTime = ko.observable();
+    self.CreateDateTime = ko.observable();
+
+    self.PendingDelete = ko.observable(false);
+    self.isRemoving = ko.observable(false);
+    self.isEditTitle = ko.observable(false);
+    self.isEditDesc = ko.observable(false);
+    self.isValueOpen = ko.observable(false);
+    self.currentDetailValue = ko.observable();
+    self.canShare = ko.observable(true);
+    self.canEdit = ko.observable(true);
+
+    $(".tipsy").remove();
+
+    self.updateExistingSegment = function () {
+        var message = "We are updating your customisation now. Every record in the current search will be associated with the title and the value provided.";
+        var qm = ShowInfo(message, 25000, qm);
+        var options = {
+            segment_title: self.Title(),
+            segment_value: this.title(),
+            callback: function (msg) {
+                qm.hide();
+                ShowInfo("Your segment has been updated", 3000);
+                //self.parent.getMyCustomisations(function() {
+                //     self.parent.loadingCustomSegments(false);
+                // });
+                self.parent.search.updateResults(self.search.updateRequestSender.pageLoad);
+                self.updateCounts();
+            }
+        }
+        self.parent.AddSegmentNameAndValue(options);
+    }
+
+    // Go to the server and update the detail counts for this segment
+    self.updateCounts = function() {
+        var _url = "GetCustomSegment?segmentid=" + self.Id();
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //self.detailValues(msg.Details);
+                _.each(msg.Details, function(detail) {
+                    var found = _.find(self.detailValues(),
+                        function(f) {
+                           return  detail.Value === f.title();
+                        });
+                    if (found) {
+                        found.recordCount(detail.RecordCount);
+                    }
+                });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    }
+
+    self.RemoveSearchFromCustomisation = function () {
+        var message = "We are updating your customisation now. Every record in the current search will be removed from the customisation.";
+        var _url = "RemoveFromSegment?" + self.search.calculateQueryString();
+        var selectedGridRecords = self.parent.records();
+        if (selectedGridRecords != '') {
+            _url = "RemoveFromSegment?f=" + selectedGridRecords + "<and>SEGMENTID(" + self.selectedCustomisation().Id() + ")";
+        } else {
+            if (!!~_url.indexOf("f=")) {
+                _url = _url.replace("f=", "f=SEGMENTID(" + self.Id() + ")<and>");
+            } else {
+                ShowError("Please ensure you make some choices from the filters on the left hand side of the page first.", 10000);
+                return;
+            }
+        }
+        var qm = ShowInfo(message, 25000, qm);
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                qm.hide();
+                var jsonObject = CMP.ConvertStringResultToJSONObject(msg.Data);
+                ShowInfo("The customisation has been updated." + (jsonObject[0].RECORDSAFFECTED == "1" ? " record removed" : jsonObject[0].RECORDSAFFECTED + " records were removed."));
+                //redraw data
+                self.parent.search.updateResults(self.search.updateRequestSender.pageLoad);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    }
+    self.Title.subscribe(function () {
+        if (self.Id() != undefined)
+            self.parent.CustomisationChanged(self);
+    });
+    self.AddSegmentValue = function () {
+        if (self.NewValue() == null || self.NewValue() == "") {
+            return;
+        }
+        _url = "AddSegmentValue?f=SEGMENTID(" + self.Id() + ")<and>CUSTOMUSERSEGMENTDETAILVALUE(" + encodeURIComponent(self.NewValue()) + ")";
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                if (self.detailValues()[0].id() == undefined) {
+                    self.detailValues.shift();
+                }
+
+                var newDetail = new CustomisationDetailVM(self);
+                newDetail.title(self.NewValue());
+                var objs = CMP.ConvertStringResultToJSONObject(msg);
+                newDetail.id(objs[0].ITEMID);
+                self.detailValues.unshift(newDetail);
+                self.NewValue("");
+                self.addingNewValue(false);
+                self.currentDetailValue(newDetail);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    };
+    self.ShowSegment = function () {
+        var f = "CUSTOMUSERSEGMENTATTR" + self.Id() + "!!(Unassigned)";
+        self.parent.parent.resultsVM.search.setQueryValue('f', f);
+        self.parent.parent.resultsVM.facetsVM.applyFacets();
+
+        //$('#filter > div:nth-child(2) > div > div > div.appliedFilters.panel.panel-default.relative.u-padding-Vn.u-padding-Hs > div > p > span.text-muted.u-font-85').text("");
+        //if (self.parent.parent.resultsVM.facetsVM.breadcrumbs().length)
+        //    self.parent.parent.resultsVM.facetsVM.breadcrumbs()[0].displayText(self.Title());
+        //
+        //
+        //
+        //_.delay(function () {
+        //    // Hack the crumb until a better way replaces this. Change it from an "Unassigned (excluded)" which is computationally logical but confusing
+        //    $('#filter > div:nth-child(2) > div > div > div.appliedFilters.panel.panel-default.relative.u-padding-Vn.u-padding-Hs > div > p > span.text-muted.u-font-85').text("");
+        //    self.parent.parent.resultsVM.facetsVM.breadcrumbs()[0].displayText(self.Title());
+        //},
+        //    2000);
+
+    };
+    
+    self.fixBreadcrumb = function (breadcrumbs) {
+        if (!breadcrumbs) {
+            self.parent.fixBreadcrumbs();
+            return;
+        }
+
+        var breadcrumb = _.findWhere(breadcrumbs, { indexer: "CUSTOMUSERSEGMENTATTR" + self.Id() })
+        if (!breadcrumb) return;
+        if (breadcrumb.displayText() != "Unassigned") return;
+        if (breadcrumb.excluded) {
+            breadcrumb.displayText(self.Title());
+            breadcrumb.displayExcluded(false);
+        }
+    };
+    self.ViewUnassigned = function (showMessages) {
+        var qm = showMessages ? ShowInfo("Loading unasigned records...", 15000) : null;
+        var _url = "GetViewUnassigned?segmentid=" + self.Id();
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //build up a url 
+                var f = _.reduce(msg.Markets, function (a, b) {
+                    return a.concat(b + "||")
+                }, "").slice(0, -2) || '';
+                if (f) {
+                    f = "MARKET(" + f + ")<and>";
+                }
+                f += "CREATEDON(" + msg.lastprocessedDate + "::)";// "%3a%3a)";
+                f += "<and>CUSTOMUSERSEGMENTATTR" + msg.segmentId + "(Unassigned)"
+                self.parent.parent.resultsVM.search.setQueryValue('f', f);
+                self.parent.parent.resultsVM.facetsVM.applyFacets();
+                if (showMessages) {
+                    qm.hide();
+                    ShowInfo("Completed", 3000);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (showMessages) { qm.hide(); }
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    }
+    self.ExcludeUnassigned = function () {
+        var qm = ShowInfo("We are updating your customisation now", 15000);
+        var _url = "ExcludeUnassigned?segmentid=" + self.Id();
+        $.ajax({
+            type: "GET",
+            url: _url,
+            contentType: "application/json; charset=utf-8",
+            success: function (msg) {
+                //empty == ok
+                qm.hide();
+                ShowInfo("Completed", 3000);
+                self.parent.viewingMyCustomisations(true);
+                self.ViewUnassigned();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                qm.hide();
+                ShowError("An error occurred. " + errorThrown);
+            }
+        });
+    };
+
+    self.Share = function (c, e) {
+        var target = $(e.currentTarget);
+        target.addClass('relative').append('<div class="loading sm"></div>');
+        var shareDialog = $('#ShareDialog');
+        if (shareDialog.length) {
+            self.InitShare(target);
+            return;
+        }
+        shareDialog = $('<div id="ShareDialog"></div>').appendTo('body');
+        shareDialog.load("/Share/Populate", function () {
+            InitShare();
+            self.InitShare(target);
+        });
+    };
+    self.InitShare = function (target) {
+        SetupShareDialog('JDSF14', 'JanesDSF14Provider', self.Id(),'CustomSegment','JANES', self.Title());
+        var modal = $('#shareModal');
+        var custModal = $('.customisation:visible');
+        modal.on('show.bs.modal', function () {
+            target.removeClass('relative').find('.loading').remove();
+            custModal.css("z-index", "1000");
+        })
+        .on('hidden.bs.modal', function () {
+            custModal.css("z-index", "");
+        });
+        modal.modal();
+    };
+    self.ShowInUserInterface.subscribe(function () {
+        if (self.Id() != undefined) {
+            var a1 = _.filter(self.parent.customisations(), function (cust) {
+                return cust.ShowInUserInterface() == true;
+            });
+            if (a1.length > 5) {
+                ShowError("You may only have five segments on the user interface at once, please uncheck some first", 6000);
+                self.ShowInUserInterface(false);
+                return;
+            }
+            self.parent.CustomisationChanged(self);
+            self.parent.updateFacets();
+        }
+    });
+    
+    self.ShowInUserInterface.subscribe(function () {
+        self.parent.updateCustomSegmentsList();
+    });
+    self.Description.subscribe(function () {
+        if (self.Id() != undefined)
+            self.parent.CustomisationChanged(self);
+    });
+    self.TogglePendingDelete = function () {
+        self.PendingDelete(!self.PendingDelete());
+    };
+
+    self.isValueOpen.subscribe(function (open) {
+        if (open) return;
+        if (self.addingNewValue())
+            self.addingNewValue(false);
+    });
+
+    self.addingNewValue.subscribe(function (adding) {
+        if (adding) {
+            self.isValueOpen(true);
+            self.detailValues.unshift(new CustomisationDetailVM(self));
+            self.currentDetailValue(self.detailValues()[0]);
+            self.currentDetailValue().isEditing(true);
+            return;
+        }
+        if (!self.detailValues()[0].id()) {
+            self.detailValues.shift();
+            self.currentDetailValue(self.detailValues()[0]);
+        }
+    });
+
+    self.isEditTitle.subscribe(function (edit) {
+        if (!edit) return;
+        window.setTimeout(function () {
+            $('.customisationBody h4 input').first().focus();
+        });
+    });
+
+    self.isEditDesc.subscribe(function (edit) {
+        if (!edit) return;
+        window.setTimeout(function () {
+            $('.customisationBody textarea').first().focus();
+        });
+    });
+
+    self.detailValues.subscribe(function (values) {
+        if (!values.length) {
+            self.addingNewValue(true);
+            return;
+        }
+
+        if (values.indexOf(self.currentDetailValue()) < 0) {
+            self.currentDetailValue(values[0]);
+        }
+    });
+};

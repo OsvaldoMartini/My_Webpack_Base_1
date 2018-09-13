@@ -99,6 +99,9 @@ http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullT
 
 http://localhost:7296/MarketsForecast/guided?view=chart#view=grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
 
+
+http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F-35)]<and>[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
+
 ViewChart False
 viewChart=false::http://localhost:7296/MarketsForecast/guided?view=chart#view=chart|grid&q=[FullText(F-35)]%3Cand%3E[ViewItemDescription|ViewPlatformFamily|ViewItemName|ViewSourcesData(F-22)]&pg=1
 
