@@ -1,25 +1,92 @@
 function drawChart() {
     var sample_data = document.getElementById('sample_data').value;
     var data2 = eval("["+sample_data+"]");
-    var data = new google.visualization.arrayToDataTable(data2);
+   
+   
+    // var data = google.visualization.arrayToDataTable([
+    //     ['Year', 'Sales', 'Expenses'],
+    //     ['2013',  1000,      400],
+    //     ['2014',  1170,      460],
+    //     ['2015',  660,       1120],
+    //     ['2016',  1030,      540]
+    //   ]);
 
-    var options = {
-        hAxis: {title: 'Age',  minValue: 0,maxValue:105},
-        vAxis: {title:'Savings', minValue: 0,maxValue:2500000},
-        width: 960, height: 300,
-        colors: ['#4a82bd'],
-        legend:'none'
+    //   var options = {
+    //     title: 'Company Performance',
+    //     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+    //     vAxis: {minValue: 0}
+    //   };
 
-    };
+    //var data = new google.visualization.arrayToDataTable(data2);
+   
+    // var options = {
+    //     hAxis: {title: 'Age',  minValue: 0,maxValue:105},
+    //     vAxis: {title:'Savings', minValue: 0,maxValue:2500000},
+    //     width: 960, height: 300,
+    //     colors: ['#4a82bd'],
+    //     legend:'none'
+    // };
 
-    var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+
+    // var data = google.visualization.arrayToDataTable([
+    //     ["Element", "Density", { role: "style" } ],
+    //     ["Copper", 8.94, "#b87333"],
+    //     ["Silver", 10.49, "silver"],
+    //     ["Gold", 19.30, "gold"],
+    //     ["Platinum", 21.45, "color: #e5e4e2"]
+    //   ]);
+
+    //   var view = new google.visualization.DataView(data);
+    //   view.setColumns([0, 1,
+    //                    { calc: "stringify",
+    //                      sourceColumn: 1,
+    //                      type: "string",
+    //                      role: "annotation" },
+    //                    2]);
+
+    //   var options = {
+    //     title: "Density of Precious Metals, in g/cm^3",
+    //     width: 600,
+    //     height: 400,
+    //     bar: {groupWidth: "95%"},
+    //     legend: { position: "none" },
+    //   };
+
+
+      var data = google.visualization.arrayToDataTable([
+        ['City', '2010 Population', '2000 Population'],
+        ['New York City, NY', 8175000, 8008000],
+        ['Los Angeles, CA', 3792000, 3694000],
+        ['Chicago, IL', 2695000, 2896000],
+        ['Houston, TX', 2099000, 1953000],
+        ['Philadelphia, PA', 1526000, 1517000]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Population of Largest U.S. Cities'
+        },
+        hAxis: {
+          title: 'Total Population',
+          minValue: 0,
+        },
+        vAxis: {
+          title: 'City'
+        },
+        bars: 'vertical'
+      };
+
+    //var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+    var chart = new google.charts.Bar(document.getElementById('chart_div'));
     chart.draw(data, options);
 
 }
 
 
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
+//google.load("visualization", "1", {packages:["corechart"]});
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawChart);
+
 
 function buffer(){
     setTimeout(function () {drawChart();}, 100);

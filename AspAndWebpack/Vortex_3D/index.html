@@ -4,6 +4,7 @@
 <head>
         <script src="./content/lib/jquery.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="../GoogleChart/loader.js"></script>
 </head>
 
 <body>
@@ -18,12 +19,8 @@
         <label><input type="radio" name="range" value="metals" data-bind="checked:rangeSelect"/>Trahs metal music</label>
         <label><input type="radio" name="range" value="hats" data-bind="checked:rangeSelect"/>To hats</label>
     </fieldset>
-       
         <div id="chart_div" style="width: 900px; height: 500px;"></div>
-        
         <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
-
-
         <table>
                 <thead>
                     <tr>
