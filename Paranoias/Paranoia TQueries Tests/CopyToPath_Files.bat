@@ -1,7 +1,0 @@
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\AbstractSqlProvider.cs" "C:\Workspace\CMP\Main\Source\SharedProjects\DataProviders\AbstractSqlProvider.cs" 
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\GridUtil.cs" "C:\Workspace\CMP\Main\Source\SharedProjects\Utilities\Config\GridUtil.cs"
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\JDBControllerTest.cs" "C:\Workspace\CMP\Main\Source\UnitTest\Web\Controllers\AandD\JDBControllerTest.cs"
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\App.Config" "C:\Workspace\CMP\Main\Source\UnitTest\App.Config"
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\ControlConfig.cs" "C:\Workspace\CMP\Main\Source\Web\Models\Configuration\ControlConfig.cs"
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\Chart.cs" "C:\Workspace\CMP\Main\Source\Web\Models\Chart.cs"
-xcopy /Y  "C:\Projects\My_Webpack_Base_1\Paranoias\Paranoia JDBControllerTest\ChartPageController.cs" "C:\Workspace\CMP\Main\Source\Web\UI\Controllers\ChartPageController.cs"
