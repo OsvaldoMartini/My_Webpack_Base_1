@@ -1,0 +1,59 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+        <script src="./content/lib/jquery.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
+<body>
+    <h1>Megacorp Sales</h1>
+    
+    <fieldset>
+        <legend>Market sector:</legend>
+        <label><input type="radio" name="range" value="all" data-bind="checked:rangeSelect" checked/>(All)</label>
+        <label><input type="radio" name="range" value="aero" data-bind="checked:rangeSelect"/>Aerospace research</label>
+        <label><input type="radio" name="range" value="toys" data-bind="checked:rangeSelect"/>Chindrens'toys</label>
+        <label><input type="radio" name="range" value="bags" data-bind="checked:rangeSelect"/>Handbags</label>
+        <label><input type="radio" name="range" value="metals" data-bind="checked:rangeSelect"/>Trahs metal music</label>
+        <label><input type="radio" name="range" value="hats" data-bind="checked:rangeSelect"/>To hats</label>
+    </fieldset>
+       
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+        
+        <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
+
+
+        <table>
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Sales Type</th>
+                        <th>Month</th>
+                        <th>Sales</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: companySalesList">
+                    <tr>
+                        <td data-bind="text: OrderId"></td>
+                        <td data-bind="text: SalesType"></td>
+                        <td data-bind="text: SalesMonth"></td>
+                        <td data-bind="text: SalesValue"></td>
+                        <td data-bind="text: SalesYear"></td>
+                        <!-- <td data-bind="text: '£{sales} MM'"></td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+
+    <!-- Knockout VM -->
+    <script type='text/javascript' src='./content/lib/knockout.js'></script>
+    <script type='text/javascript' src='./ViewModel/getdataVM.js'></script>
+
+    <sales-chart>
+
+    </sales-chart>
+</body>
+
+</html>
