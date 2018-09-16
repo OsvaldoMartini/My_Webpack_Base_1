@@ -1,9 +1,0 @@
-﻿@model IHS.Apps.CMP.Models.ViewModels.AandD.DocumentModel
-
-<div class="tab-content">
-    @Html.Raw(Model.Content)
-    @if (Model.Link != null && !string.IsNullOrEmpty(Model.Link.NavigateUrl))
-    {
-        @Html.Partial("Widget/LinkListWidgetFooter", new[]{Model.Link})
-    }
-</div>
