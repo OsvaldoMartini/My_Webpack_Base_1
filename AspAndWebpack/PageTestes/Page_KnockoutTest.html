@@ -1,0 +1,15 @@
+<div id="wrapper">
+    simple: <input data-bind="value: simpleObject, valueUpdate: 'afterkeydown'"/>
+    <span id="simpleSubscribtionFeedback"></span>    
+    
+    <hr />
+    <div data-bind="with: complexObject">
+        company: <input data-bind="value: company, valueUpdate: 'afterkeydown'"/><br />
+        email: <input data-bind="value: email, valueUpdate: 'afterkeydown'"/>
+        <span id="complexSubscribtionFeedback"></span>   
+    </div>    
+</div>
+
+    <!-- Knockout VM -->
+    <script type='text/javascript' src='../JavaScript/knockout/knockout.js'></script>
+    <script type='text/javascript' src='../JavaScript/PageKnockoutVMs/pageTestVM.js'></script>
