@@ -31,3 +31,23 @@
   .blue .inner-card {
     background-color: orange;
   }
+
+
+.left-panel {
+    left:float;
+    width:250px;
+}
+
+.middle-panel {
+    overflow: auto;
+
+}
+
+.right-panel {
+    right: float;
+    width:250px;
+}
+
+#middle-panel.resize {
+    width: 450px;
+}

@@ -1,0 +1,26 @@
+* {
+    text-align: center
+  }
+  td:nth-child(3n+0),td:nth-child(3n-1){
+    background: pink;
+    color: pink;
+    /* visibility: hidden; */
+  }
+  td:nth-child(3n+1){
+    background: white;
+    cursor: pointer;
+    color: black !important;
+  }
+  .fook {
+    color: yellow !important;
+    /* visibility: visible !important; */
+  }
+  #mytable {
+    width: 100%
+  }
+  #mytable th:nth-child(-n+1) {
+    background: lightgray;
+  }
+  #mytable th:nth-child(+1n+2) {
+    background: lightcoral;
+  }
