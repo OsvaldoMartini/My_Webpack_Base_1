@@ -21,6 +21,16 @@
     </fieldset>
         <div id="chart_div" style="width: 900px; height: 500px;"></div>
         <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
+       
+    <voxel-world>
+        <voxel-tree height="5"></voxel-tree>
+    </voxel-world>        
+
+
+        <!-- Doesn't worked for me -->
+        <!-- <sales-chart>
+        </sales-chart> -->
+   
         <table>
                 <thead>
                     <tr>
@@ -47,10 +57,6 @@
     <!-- Knockout VM -->
     <script type='text/javascript' src='./content/lib/knockout.js'></script>
     <script type='text/javascript' src='./ViewModel/getdataVM.js'></script>
-
-    <sales-chart>
-
-    </sales-chart>
 </body>
 
 </html>

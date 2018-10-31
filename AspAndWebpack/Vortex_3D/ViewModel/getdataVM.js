@@ -628,3 +628,22 @@ ko.bindingHandlers.money = {
         $(element).text(m);    
     } 
 }; 
+
+
+// class salesChart extends HTMLElement{
+//         cretedCallBack(){
+//         //Could inject some markup from a <template> instead of harcoded
+//         var shadow = this.createShadowRoot();
+//         shadow.innerHTML = `
+//             <style type='text/css'>
+//             .primary, td { color: red; }
+//             </style>
+//             <div class='primary'>HELLO THERE</div>
+//         `;
+       
+//     }
+   
+// }
+
+
+// document.registerElement('sales-chart', salesChart);
