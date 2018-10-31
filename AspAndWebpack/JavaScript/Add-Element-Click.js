@@ -28,3 +28,57 @@ function toggle_Class() {
       //     element.className = classes.join(" "); 
   }
 }
+
+//values from JS
+const style = document.documentElement.style;
+
+/* control elements */
+var ranges = {
+  translate: document.getElementById('tx'),
+  scale: document.getElementById('scale'),
+  deg: document.getElementById('deg')
+};
+
+//Change the CSS Variable value here
+function valueChange(id, value) {
+  style.setProperty('--' + id, value);
+}
+
+ranges.translate.addEventListener('input', function(e) { 
+  valueChange(e.currentTarget.id, e.currentTarget.value + 'vw');
+});
+
+ranges.scale.addEventListener('input', function(e) { 
+  valueChange(e.currentTarget.id, e.currentTarget.value);
+});
+
+ranges.deg.addEventListener('input', function(e) { 
+  valueChange(e.currentTarget.id, e.currentTarget.value + 'deg');
+});
+
+
+const middlePanel = document.getElementById('middle-panel');
+
+middlePanel.style['width'] =  '200px';
+middlePanel.style['backgroundColor'] = 'blue'
+// middlePanel.style.setProperty('backgroundColor','red')
+// middlePanel.style.setProperty('--middle-size', '300px');
+
+
+
+$(function () {
+
+  $("#a").resizable({
+      resize: function () {
+          $("#b").width(500 - $(this).width());
+      }
+  });
+
+  $("#b").resizable({
+      resize: function () {
+          $("#c").width(500 - $(this).width());
+      }
+  });
+
+});
+
