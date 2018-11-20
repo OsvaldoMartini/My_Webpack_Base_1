@@ -1,3 +1,7 @@
+:root {
+    --main-bg-color: brown;
+  }
+
 .one {
     color: white;
     background-color: brown;
@@ -31,9 +35,7 @@
   .five {
     background-color: brown;
   }
-  :root {
-    --main-bg-color: brown;
-  }
+ 
   
   .one {
     color: white;
@@ -44,6 +46,12 @@
     display: inline-block;
   }
   
+  
+.setColor{
+    background-color: blue;
+    --main-bg-color:blue;
+}
+
   .two {
     color: white;
     background-color: black;
