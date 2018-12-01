@@ -102,7 +102,9 @@ function ViewModel() {
     self.dataGetter = ko.computed(function(){
         var range = self.rangeSelect();
 
-        var preUrl = 'http://wservices.co.uk/services/GeoService.svc/Backend/' + range;
+        //var preUrl = 'http://wservices.co.uk/services/GeoService.svc/Backend/' + range;
+        var preUrl = 'http://localhost:59005/GeoService.svc/Backend/' + range;
+
         console.log(preUrl);
         var data;
         
@@ -138,10 +140,10 @@ function ViewModel() {
                     result.forEach(function(item, index, array) {
                         var salesObj = {};
                         salesObj['OrderId'] = item.CompanySalesID;
-                        salesObj['SalesType'] = item.TCompany.CompanyType;
-                        salesObj['SalesMonth'] = item.Month;
-                        salesObj['SalesValue'] =item.Sales;
-                        salesObj['SalesYear'] = item.Year;
+                        salesObj['SaleType'] = item.TCompany.CompanyType;
+                        salesObj['SaleMonth'] = item.SaleMonth;
+                        salesObj['SaleYear'] = item.SaleYear;
+                        salesObj['TotalSale'] =item.TotalSale;
                         listSales.push(salesObj);
                       });
 

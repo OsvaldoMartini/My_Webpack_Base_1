@@ -5,6 +5,7 @@
         <script src="./content/lib/jquery.js"></script>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript" src="../GoogleChart/loader.js"></script>
+        <link rel="stylesheet" href="./css/grid_style.css">
 </head>
 
 <body>
@@ -30,24 +31,23 @@
         <!-- Doesn't worked for me -->
         <!-- <sales-chart>
         </sales-chart> -->
-   
         <table>
                 <thead>
                     <tr>
                         <th>Order Id</th>
                         <th>Sales Type</th>
-                        <th>Month</th>
-                        <th>Sales</th>
-                        <th>Year</th>
+                        <th>Sales Month</th>
+                        <th>Sales Year</th>
+                        <th>Total Sales</th>
                     </tr>
                 </thead>
                 <tbody data-bind="foreach: companySalesList">
                     <tr>
                         <td data-bind="text: OrderId"></td>
-                        <td data-bind="text: SalesType"></td>
-                        <td data-bind="text: SalesMonth"></td>
-                        <td data-bind="text: SalesValue"></td>
-                        <td data-bind="text: SalesYear"></td>
+                        <td data-bind="text: SaleType"></td>
+                        <td data-bind="text: SaleMonth"></td>
+                        <td data-bind="text: SaleYear"></td>
+                        <td data-bind="text: TotalSale"></td>
                         <!-- <td data-bind="text: '£{sales} MM'"></td> -->
                     </tr>
                 </tbody>
@@ -57,6 +57,31 @@
     <!-- Knockout VM -->
     <script type='text/javascript' src='./content/lib/knockout.js'></script>
     <script type='text/javascript' src='./ViewModel/getdataVM.js'></script>
+
+    <div class="grid">
+        <span><strong>Id</strong></span>
+        <span><strong>Full Name</strong></span>
+        <span><strong>Country</strong></span>
+        <span><strong>Created at</strong></span>
+        <span><strong>Email</strong></span>
+        <span>0</span>
+        <span>Aaron Kris</span>
+        <span>Philippines</span>
+        <span>1991-05-23T14:19:51</span>
+        <span>Ophelia_Mitchell@karley.name</span>
+        <span>1</span>
+        <span>Simeon McLaughlin</span>
+        <span>Singapore</span>
+        <span>2012-03-07T00:08:36</span>
+        <span>Sabrina_Barton@torey.net</span>
+        <span>2</span>
+        <span>Kelsie Shanahan</span>
+        <span>Brazil</span>
+        <span>1985-03-10T20:13:04</span>
+        <span>Karianne@salvatore.biz</span>
+      
+</div>
+
 </body>
 
 </html>
