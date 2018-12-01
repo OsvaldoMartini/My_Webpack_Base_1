@@ -154,7 +154,7 @@ function ViewModel() {
                     self.companySalesList(listSales);
                 },
                 error: function (xhr) {
-                    alert(xhr.responseText);
+                    alert('Service: '+ xhr.status +'-' +xhr.statusText +':'+ preUrl);
                 }
             });
 
