@@ -22,7 +22,11 @@
     </fieldset>
         <div id="chart_div" style="width: 900px; height: 500px;"></div>
         <input type="hidden" id="sample_data" data-bind="value:dataGetter" />
-       
+        <div>
+           <p>Image Url: <input data-bind="value: imageUrl" /></p>
+            <button value="all" data-bind="Click:$root.doAction">Click me</button>
+        </div>
+
     <voxel-world>
         <voxel-tree height="5"></voxel-tree>
     </voxel-world>        
@@ -34,20 +38,20 @@
         <table>
                 <thead>
                     <tr>
-                        <th>Order Id</th>
-                        <th>Sales Type</th>
-                        <th>Sales Month</th>
-                        <th>Sales Year</th>
-                        <th>Total Sales</th>
+                        <th>Company Image Id</th>
+                        <th>Company Type</th>
+                        <th>Image Url</th>
+                        <th>Image Size (MB)</th>
+                        <th>Image Extension</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: companySalesList">
+                <tbody data-bind="foreach: companyImagesUrlList">
                     <tr>
-                        <td data-bind="text: OrderId"></td>
-                        <td data-bind="text: SaleType"></td>
-                        <td data-bind="text: SaleMonth"></td>
-                        <td data-bind="text: SaleYear"></td>
-                        <td data-bind="text: TotalSale"></td>
+                        <td data-bind="text: CompanyImageID"></td>
+                        <td data-bind="text: CompanyType"></td>
+                        <td data-bind="text: ImageUrl"></td>
+                        <td data-bind="text: ImageSizeMB"></td>
+                        <td data-bind="text: ImageExtension"></td>
                         <!-- <td data-bind="text: '£{sales} MM'"></td> -->
                     </tr>
                 </tbody>
@@ -57,31 +61,6 @@
     <!-- Knockout VM -->
     <script type='text/javascript' src='./content/lib/knockout.js'></script>
     <script type='text/javascript' src='./ViewModel/getdataVM.js'></script>
-
-    <div class="grid">
-        <span><strong>Id</strong></span>
-        <span><strong>Full Name</strong></span>
-        <span><strong>Country</strong></span>
-        <span><strong>Created at</strong></span>
-        <span><strong>Email</strong></span>
-        <span>0</span>
-        <span>Aaron Kris</span>
-        <span>Philippines</span>
-        <span>1991-05-23T14:19:51</span>
-        <span>Ophelia_Mitchell@karley.name</span>
-        <span>1</span>
-        <span>Simeon McLaughlin</span>
-        <span>Singapore</span>
-        <span>2012-03-07T00:08:36</span>
-        <span>Sabrina_Barton@torey.net</span>
-        <span>2</span>
-        <span>Kelsie Shanahan</span>
-        <span>Brazil</span>
-        <span>1985-03-10T20:13:04</span>
-        <span>Karianne@salvatore.biz</span>
-      
-</div>
-
 </body>
 
 </html>
