@@ -12,7 +12,7 @@ for (i = 0; i < 26; i++) {
     
     var h1 = document.createElement("h1");
     h1.setAttribute('class','eight');
-    h1.innerText = 'Click below To Jump!';
+    h1.innerText = 'Click';
       
     var span_jump = document.createElement("span");
     span_jump.setAttribute('data-jumpto', "letter_" + (i+10).toString(36));
@@ -25,18 +25,19 @@ for (i = 0; i < 26; i++) {
     
     ul_left.appendChild(li_left);
    }
-   
+   document.getElementById("letter-left").appendChild(ul_left);
+
+
  //Main Grid
 for (i = 0; i < 26; i++) {
   var li_main = document.createElement("li");
   li_main.style.listStyle = "none";
-  li_main.setAttribute('id', "#letter_" + (i+10).toString(36) + " ");
+  li_main.setAttribute('id', "letter_" + (i+10).toString(36));
   
   var h1 = document.createElement("h1");
   h1.setAttribute('class','eight');
   h1.innerText = 'Break right after this and';
     
-  li_main.setAttribute('id', "#letter_" + (i+10).toString(36) + " ");
   var span = document.createElement("span");
   for (x=0; x<5; x++){
     //span.innerText += "Mama $ Papa"+"</br>";
@@ -54,11 +55,20 @@ for (i = 0; i < 26; i++) {
 //   Break right after this and
 //   <span>before this</span>
 // </h1>
-document.getElementById("three").appendChild(ul_left);
 document.getElementById("letter-main").appendChild(ul_main);
 
 (function($){
 $(window).load(function(){
+
+
+  $("#content-letter").mCustomScrollbar({
+    axis:"y",
+    scrollButtons:{enable:true},
+    theme:"3d",
+    scrollbarPosition:"outside",
+    setWidth:250
+});
+
 
    $("#content-7").mCustomScrollbar({
         axis:"y",
@@ -83,6 +93,9 @@ $(window).load(function(){
       theme:"3d",
       scrollbarPosition:"outside",
       setWidth:350
+      // advanced:{
+      //   updateOnContentResize: true
+      // }		   
   });
 
 
@@ -91,6 +104,17 @@ $(window).load(function(){
 
 function jumpIntoView(getJump){
   if (getJump.dataset.jumpto){
-  console.log(getJump.dataset.jumpto);
+elem = document.getElementById(getJump.dataset.jumpto);    
+console.log(getJump.dataset.jumpto);
+ 
+//$("#content-7").mCustomScrollbar("scrollTo","#"+Jump.dataset.jumpto);
+    $("#content-7").mCustomScrollbar("scrollTo", '#'+ getJump.dataset.jumpto);
+  
+    //$('.demo-yx').mCustomScrollbar('scrollTo',['top',null]);
+  
   }
 }
+
+// $("#letter_j").focus(function() {
+//   $(".content-7").mCustomScrollbar("scrollTo",this);
+// });
