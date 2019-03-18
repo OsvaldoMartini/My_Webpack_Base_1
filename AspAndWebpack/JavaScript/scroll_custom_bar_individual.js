@@ -18,6 +18,7 @@ for (i = 0; i < 26; i++) {
     span_jump.setAttribute('data-jumpto', "letter_" + (i+10).toString(36));
     span_jump.innerText = "letter_" + (i+10).toString(36);
     span_jump.setAttribute('onclick','jumpIntoView(this); return false')
+    span_jump.setAttribute('style','cursor:pointer;')
     h1.innerHTML += span_jump.outerHTML;
     
     li_left.innerHTML += h1.outerHTML;
