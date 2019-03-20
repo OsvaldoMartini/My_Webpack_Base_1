@@ -28,8 +28,9 @@
     "style-loader": "^0.18.2",
     "typescript": "^2.5.2",
     "voxel-engine": "^0.20.2",
-    "webpack": "^3.6.0",
-    "webpack-merge": "^4.1.0"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
