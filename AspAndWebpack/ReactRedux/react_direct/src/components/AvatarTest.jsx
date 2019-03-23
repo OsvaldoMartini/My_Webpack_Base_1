@@ -6,13 +6,15 @@ const e = React.createElement;
 export default class AvatarTest extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liked: false };
+    this.state = { showAvatar: false };
   }
 
   render() {
-    if (this.state.liked) {
+    if (this.state.showAvatar) {
       return (
         <div className="ui conatiner comments">
+          <CommentsDetail/>
+          <CommentsDetail/>
           <CommentsDetail/>
       </div>
       );
@@ -20,8 +22,8 @@ export default class AvatarTest extends React.Component {
 
     return e(
       'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
+      { onClick: () => this.setState({ showAvatar: true }) },
+      'Show Avatar'
     );
   }
 }
