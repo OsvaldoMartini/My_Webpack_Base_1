@@ -35,7 +35,6 @@ export default class App extends React.Component {
             <Menu model={menu_items} /><br/>
             <Button label={button_label} onClick={() => this.handleSwitch()}/>
           </div>
-          
         );
     }
     

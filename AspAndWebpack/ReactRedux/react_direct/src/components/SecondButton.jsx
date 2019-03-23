@@ -12,11 +12,12 @@ export default class SecondButton extends React.Component {
       if (this.state.liked) {
         return 'SecondButton Component';
       }
-  
-      return e(
-        'button',
-        { onClick: () => this.setState({ liked: true }) },
-        'Like'
-      );
+      
+       return e(
+         'button',
+         { onClick: () => this.setState({ liked: true }) },
+         'Like'
+       );
     }
+
   }
