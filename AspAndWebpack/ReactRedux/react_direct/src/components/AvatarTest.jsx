@@ -1,28 +1,4 @@
-// const AvatarTest = () => {
-//     return (
-//       <div classname="ui conatiner comments">
-//   <div classname="comment">
-//               <a href="" classname="avatar">
-//                   <img alt="avatar" src={faker.image.avatar()}/>
-//               </a>
-//               <div classname="content">
-//                   <a href="/" classname="author">
-//                             Sam
-//             </a>
-//                   <div classname="metadata">
-//                       <span classname="date">Today at 06:00PM</span>
-//                   </div>
-//                   <div classname="text">Nice blog post!</div>
-//               </div>
-//           </div>
-//       </div>
-//     );
-// };
-
-// export default AvatarTest
-
-
-'use strict';
+import CommentsDetail from '../components/sub-components/commentsDetail.jsx';
 
 const e = React.createElement;
 
@@ -35,19 +11,8 @@ export default class AvatarTest extends React.Component {
   render() {
     if (this.state.liked) {
       return (
-        <div classname="comment">
-        <a href="" classname="avatar">
-          <img alt="avatar" src={faker.image.avatar()}/>
-        </a>
-        <div classname="content">
-          <a href="/" classname="author">
-                          Sam
-          </a>
-          <div classname="metadata">
-            <span classname="date">Today at 06:00PM</span>
-          </div>
-          <div classname="text">Nice blog post!</div>
-        </div>
+        <div classname="ui conatiner comments">
+          <CommentsDetail/>
       </div>
       );
     }
