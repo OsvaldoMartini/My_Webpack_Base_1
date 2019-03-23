@@ -1,3 +1,4 @@
+import React from 'react';
 import CommentsDetail from '../components/sub-components/commentsDetail.jsx';
 
 const e = React.createElement;
@@ -11,7 +12,7 @@ export default class AvatarTest extends React.Component {
   render() {
     if (this.state.liked) {
       return (
-        <div classname="ui conatiner comments">
+        <div className="ui conatiner comments">
           <CommentsDetail/>
       </div>
       );
