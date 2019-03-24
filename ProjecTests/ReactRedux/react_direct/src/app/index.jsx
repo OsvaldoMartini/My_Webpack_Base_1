@@ -6,7 +6,11 @@ import SecondButton from '../components/SecondButton.jsx';
 import Avatar from '../components/AvatarTest.jsx';
 import CalendarDate from '../components/CalendarDate.jsx';
 
+import Product from '../components/ProductList.jsx';
+
 ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(<Product />, document.getElementById('product'));
 
 ReactDOM.render(<FirstButton />, document.getElementById('firstButton'));
 ReactDOM.render(<SecondButton />, document.getElementById('secondButton'));
