@@ -3,7 +3,8 @@
  
 <head>
     <title>Alphetical List Navigation</title>
- 
+    
+   //TODO-MARITNI Fixes In this click href
     <script language="javascript" type="text/javascript">
         let createArrayAtoZ = _ => {
             return Array 
@@ -29,8 +30,10 @@
  
         let changeItemState = character => {
             const characterElement = $('#nav').find('.CharacterElement[data-filter="' + character + '"]');
-            $(characterElement).click(() => jumptoAnchor(value));
-            characterElement.removeClass('Inactive');
+            if (typeof value !== 'undefined'){
+                $(characterElement).click(() => jumptoAnchor(value));
+                characterElement.removeClass('Inactive');
+            }
         }
  
         let createDivForCharElement = (block, charToAdd) => { 
@@ -42,8 +45,9 @@
         }
     </script>
     <!-- Using the jquery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="../js/jquery.v3.2.1/jquery.min.js"></script>
+
     <style>
         .CharacterContainer {
             text-align: center;
