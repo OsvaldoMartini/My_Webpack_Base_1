@@ -14,7 +14,8 @@ export default class Product  extends React.Component {
      //TODO-MARTINI Borer for the Each Product class='w3-container w3-border w3-round-xlarge'
   
      ShowProductDetails(){
-        this.props.handleShowProductDetails(this.state.name);
+        alert('Need to be fixed');
+        this.props.handleShowProductDetails(this.props.name);
      }
     render(){
         return (
