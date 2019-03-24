@@ -289,6 +289,6 @@ __pycache__/
 
 # Project specific ignores
 **/dist
-**/src/**/*.js
+#**/src/**/*.js
 **/src/**/*.js.map
 _Layout.cshtml
