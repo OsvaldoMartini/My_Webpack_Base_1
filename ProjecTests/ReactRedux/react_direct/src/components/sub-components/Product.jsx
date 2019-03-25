@@ -14,7 +14,7 @@ export default class Product  extends React.Component {
      //TODO-MARTINI Borer for the Each Product class='w3-container w3-border w3-round-xlarge'
   
      ShowProductDetails(){
-        alert('Need to be fixed');
+        //alert('Need to be fixed');
         this.props.handleShowProductDetails(this.props.name);
      }
     render(){
@@ -22,7 +22,7 @@ export default class Product  extends React.Component {
             <div>
             <p>{this.props.name} - ${this.props.price}</p>
             <button onClick={() => this.handleBuy()}>Buy</button>
-            <button onClick={() => this.ShowProductDetails()}>Show Me</button>
+            <button onClick={() => this.ShowProductDetails}>Show Me</button>
             <h3>Qty: {this.state.qty} item(s)</h3>
             </div>
          );
