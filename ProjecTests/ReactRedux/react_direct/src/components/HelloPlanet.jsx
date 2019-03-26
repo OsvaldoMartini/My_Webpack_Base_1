@@ -1,4 +1,6 @@
 import React from 'react';
+import PlanetProperties from './sub-components/PlanetProperties.jsx';
+
 
 export default class HelloPlanet extends React.Component {
     constructor(props) {
@@ -18,7 +20,8 @@ export default class HelloPlanet extends React.Component {
         return (
             <div>
                 <span>{this.state.counter}</span>
-                <button onClick={this.updateThisCounter}>Update Counter</button>
+                <PlanetProperties triggerParentUpdate={this.updateThisCounter}/>
+                <button onClick={this.updateThisCounter}>Update From Parent</button>
             </div>
         )
     }
