@@ -14,9 +14,9 @@ export default class ProductList extends React.Component{
     render(){
         return (
          <div>
-            <Product name="Android" price="121" handleShowProductDetails={() => this.showProductSelected}/>
-            <Product name="Apple" price="123" handleShowProductDetails={() => this.showProductSelected}/>
-            <Product name="Nokia" price="125" onSelectedItem={this.showProductSelected}/>
+            <Product name="Android" price="121" triggerChildShow={this.showProductSelected}/>
+            <Product name="Apple" price="123" triggerChildShow={this.showProductSelected}/>
+            <Product name="Nokia" price="125" triggerChildShow={this.showProductSelected}/>
         </div>
         )
     }

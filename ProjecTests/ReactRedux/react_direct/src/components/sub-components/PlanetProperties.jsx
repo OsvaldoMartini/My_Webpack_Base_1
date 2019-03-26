@@ -7,7 +7,7 @@ export default class PlanetProperties extends React.PureComponent {
 
     render() {
         return (
-        <button onClick={this.props.triggerParentUpdate}>Update From Child</button>
+        <button onClick={this.props.triggerChildUpdate}>Update From Child</button>
         );
     }
     
