@@ -7,7 +7,7 @@ import Avatar from '../components/AvatarTest.jsx';
 import CalendarDate from '../components/CalendarDate.jsx';
 import Product from '../components/ProductList.jsx';
 import ItemFather from '../components/ItemFather.jsx';
-import HelloPlanet from '../components/HelloPlanet.jsx';
+import ParentPlanet from '../components/ParentPlanet.jsx';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
@@ -18,4 +18,4 @@ ReactDOM.render(<SecondButton />, document.getElementById('secondButton'));
 ReactDOM.render(<Avatar />, document.getElementById('avatar'));
 ReactDOM.render(<CalendarDate />, document.getElementById('calendarDate'));
 ReactDOM.render(<ItemFather />, document.getElementById('dynamicItems'));
-ReactDOM.render(<HelloPlanet />, document.getElementById('planet'));
+ReactDOM.render(<ParentPlanet />, document.getElementById('planet'));
