@@ -49,7 +49,6 @@ export default class ScrollBarDin extends React.PureComponent {
       ]
     };
 
-    this.setState({ items: array });
   }
   
   render() {
@@ -60,8 +59,16 @@ export default class ScrollBarDin extends React.PureComponent {
         <div className="center-col">
           <span>List</span>
           <ul>
-            {this.state.items.map((item, i) => (
-              <li key={`item_${i}`}>{item}</li>
+          {/* {this.state.items.map((item, index) => (
+            <li
+              {...item}
+              key={index}
+            />
+          )
+          )} */}
+
+            {this.state.items.map((item, index) => (
+              <li key={`item_${index}`}>{item}</li>
             ))}
           </ul>
         </div>
