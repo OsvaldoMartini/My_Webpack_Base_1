@@ -4,15 +4,25 @@ import SubItem from "./sub-components/SubItem.jsx";
 export default class ItemFather extends React.Component {
   constructor(props) {
     super(props);
+    const id1 = "Input - " + Date.now();
+    const id2 = "Input - " + Date.now();
+    if (id1 === id2){
+      CORRIGIR PARA NAO REPETIR COMO ID
+    }
+    // Current time in seconds
+console.log(Math.floor(new Date().valueOf() / 1));  // 1443535752
+console.log(Math.floor(Date.now() / 1));            // 1443535752
+console.log(Math.floor(new Date().getTime() / 1));  // 1443535752
+    
     this.state = {
       items: [
         {
-          text: "Input - 1",
-          id: 1
+          text: id1,
+          id: id2
         },
         {
-          text: "Input - 2",
-          id: 2
+          text: id1,
+          id: id2
         }
       ]
     };
