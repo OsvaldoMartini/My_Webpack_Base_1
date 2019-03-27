@@ -31,7 +31,9 @@ export default class SubItem extends React.PureComponent {
 
   render() {
     console.log("rerendering ", this.props.text);
-    const { text } = this.state;
+    //Two correct wasy to get the property
+    const { text } = this.props;
+    //const text = this.props.text;
     return (
       <li>
         <input value={text} onChange={this.onChange} />
