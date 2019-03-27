@@ -4,16 +4,21 @@ import SubItem from "./sub-components/SubItem.jsx";
 export default class ItemFather extends React.Component {
   constructor(props) {
     super(props);
-    const id1 = "Input - " + Date.now();
-    const id2 = "Input - " + Date.now();
-    if (id1 === id2){
-      CORRIGIR PARA NAO REPETIR COMO ID
+    const id1 = "Input - " + Math.floor(new Date().valueOf() / 1);
+    var secondDate = new Date();
+    //secondDate++;
+    secondDate.setSeconds(secondDate.getSeconds() + 1);
+    const id2 = "Input - " + Math.floor(secondDate.valueOf() / 1);
+    const array = [...Array(10000)].map((val, i) => `Item ${i}`);
+
+    if (id1 === id2) {
     }
+    console.log(array); // 1443535752
     // Current time in seconds
-console.log(Math.floor(new Date().valueOf() / 1));  // 1443535752
-console.log(Math.floor(Date.now() / 1));            // 1443535752
-console.log(Math.floor(new Date().getTime() / 1));  // 1443535752
-    
+    console.log(Math.floor(new Date().valueOf() / 1)); // 1443535752
+    console.log(Math.floor(Date.now() / 1)); // 1443535752
+    console.log(Math.floor(new Date().getTime() / 1)); // 1443535752
+
     this.state = {
       items: [
         {
