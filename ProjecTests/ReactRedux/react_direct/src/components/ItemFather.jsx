@@ -7,19 +7,22 @@ export default class ItemFather extends React.Component {
     this.state = {
       items: [
         {
-          text: "First",
+          text: "Input - 1",
           id: 1
         },
         {
-          text: "Second",
+          text: "Input - 2",
           id: 2
         }
       ]
     };
   }
   addItem = () => {
-    const items = [{ text: "Front", id: Date.now() }, ...this.state.items];
-    this.setState({ items });
+    const array = [
+      { text: "Input - " + Date.now(), id: Date.now() },
+      ...this.state.items
+    ];
+    this.setState({ items: array });
   };
 
   removeChildItemAt = id => {
