@@ -39,12 +39,12 @@ export default class ScrollBarDin extends React.PureComponent {
     this.state = {
       items: [
         {
-          text: "id1",
-          id: 1
+          text: "id1"
+          //id: 1
         },
         {
-          text: "id1",
-          id: 2
+          text: "id1"
+          //id: 2
         }
       ]
     };
