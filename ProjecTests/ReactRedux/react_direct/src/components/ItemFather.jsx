@@ -4,15 +4,13 @@ import SubItem from "./sub-components/SubItem.jsx";
 export default class ItemFather extends React.Component {
   constructor(props) {
     super(props);
-    const id1 = "Input - " + Math.floor(new Date().valueOf() / 1);
-    var secondDate = new Date();
-    //secondDate++;
-    secondDate.setSeconds(secondDate.getSeconds() + 1);
-    const id2 = "Input - " + Math.floor(secondDate.valueOf() / 1);
+    const id1 = Math.floor(new Date().valueOf() / 1);
+    const id2 = id1 + 1;
+    //var secondDate = new Date();
+    //secondDate.setSeconds(secondDate.getSeconds() + 1);
+    //const id2 = "Input - " + Math.floor(secondDate.valueOf() / 1);
     const array = [...Array(10000)].map((val, i) => `Item ${i}`);
 
-    if (id1 === id2) {
-    }
     console.log(array); // 1443535752
     // Current time in seconds
     console.log(Math.floor(new Date().valueOf() / 1)); // 1443535752
@@ -22,11 +20,11 @@ export default class ItemFather extends React.Component {
     this.state = {
       items: [
         {
-          text: id1,
-          id: id2
+          text: "Input - " + id1,
+          id: id1
         },
         {
-          text: id1,
+          text: "Input - " + id2,
           id: id2
         }
       ]
