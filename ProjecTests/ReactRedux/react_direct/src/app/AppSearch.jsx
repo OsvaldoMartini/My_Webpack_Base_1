@@ -5,7 +5,6 @@ const AppSearch = () => {
 
     return (
         <div className="AppSearch" style={{marginTop: '10px'}}>
-        <div className="AppSearch">
             <SearchBar />
         </div>
     );
