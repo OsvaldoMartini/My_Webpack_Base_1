@@ -17,6 +17,9 @@ System.config({
       // our app is within the app folder
       app: 'app/index.jsx', 
       
+//making or not downloading from the pachages
+//https://unpkg.com/systemjs@0.20.19/dist/system-production.js etc...
+
       //"plugin-babel": 'https://unpkg.com/systemjs-plugin-babel@0.0.25/plugin-babel.js',
       "plugin-babel": 'npm_local:plugin-babel.js',
       //"systemjs-babel-build": 'https://unpkg.com/systemjs-plugin-babel@0/systemjs-babel-browser.js',
