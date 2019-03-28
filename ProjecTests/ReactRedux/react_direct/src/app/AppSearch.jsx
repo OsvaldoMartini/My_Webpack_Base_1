@@ -4,7 +4,7 @@ import SearchBar from '../components/SearchBar.jsx';
 const AppSearch = () => {
 
     return (
-        <div className="AppSearch">
+        <div className="AppSearch" style={{marginTop: '10px'}}>
             <SearchBar />
         </div>
     );
