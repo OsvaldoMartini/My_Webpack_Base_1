@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
       this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  state = { term: "Hi there!" };
+  state = { term: "" };
 
   onInputChange(event) {
     //console.log(event.target.value);
@@ -44,7 +44,7 @@ class SearchBar extends React.Component {
               //onChange={(event) => console.log(event.target.value)}   //When we Have only one line of Logic
 
               //Controlled Element
-              value={this.state.term.toUpperCase()}
+              value={this.state.term}
               onChange={e => this.setState({ term: e.target.value })}
             />
           </div>
