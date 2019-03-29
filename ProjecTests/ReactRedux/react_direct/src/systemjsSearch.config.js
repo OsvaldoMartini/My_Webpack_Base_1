@@ -31,8 +31,10 @@ System.config({
       "classnames": "npm_local:classnames/index.js",
       "font-awesome": "npm:font-awesome@4.7.0",
       "react-scripts": "npm:react-scripts@1.0.11",
-      "primereact": "npm:primereact@1.0.1/"
+      "primereact": "npm:primereact@1.0.1/",
       //"primereact": "npm_local:"
+      "babel-gen_run":"npm_local:generator-runtime.js",
+      "babel-async_gen":"npm_local:asyncGenerator.js"
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
