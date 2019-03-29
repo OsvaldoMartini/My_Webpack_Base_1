@@ -13,18 +13,21 @@ class SearchBar extends React.Component {
   state = { term: "Hi there!" };
 
   onInputChange(event) {
-    console.log(event.target.value);
+    //console.log(event.target.value);
   }
 
   onInputClick() {
-    console.log("Input was Clicked");
+    //console.log("Input was Clicked");
   }
 
   //Here Have a Coxtext Problem (this === UNDEFINED)
   onFormSubmit(event) {
     event.preventDefault();
 
-    console.log(this.state.term);
+    //From Child to Parent  ->  Using the CallBack
+    this.props.onSubmit(this.state.term);
+   
+    //console.log(this.state.term);
   }
 
   render() {
