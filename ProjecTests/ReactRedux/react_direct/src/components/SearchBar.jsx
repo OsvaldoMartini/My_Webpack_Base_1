@@ -11,18 +11,18 @@ onInputClick(){
     console.log('Input was Clicked');
 }
 
-// 2) ARROW FUNCTION the context, for solving "CONTEXT" problem when whe get "this === undefined"
 //Here Have a Coxtext Problem (this === UNDEFINED)
-onFormSubmit= event => {
+onFormSubmit(event) {
     event.preventDefault();
 
     console.log(this.state.term);
 }
 
+//3) ARROW FUNCTION the context, for solving "CONTEXT" problem when whe get "this === undefined"
   render() {
     return (
       <div className="ui segment">
-        <form onSubmit={this.onFormSubmit} className="ui form">
+        <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form">
           <div className="field">
             <label>ImageSearch</label>
             <input
