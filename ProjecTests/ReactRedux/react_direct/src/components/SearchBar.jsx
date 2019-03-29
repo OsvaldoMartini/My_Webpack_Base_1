@@ -1,13 +1,7 @@
 import React from "react";
 
 class SearchBar extends React.Component {
- // 1) BIDING the context, for solving "CONTEXT" problem when whe get "this === undefined"
- constructor(props) {
-    super(props);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-}
-
-    state = { term: 'Hi there!' };
+ state = { term: 'Hi there!' };
 
 onInputChange(event){
     console.log(event.target.value);
@@ -17,8 +11,9 @@ onInputClick(){
     console.log('Input was Clicked');
 }
 
+// 2) ARROW FUNCTION the context, for solving "CONTEXT" problem when whe get "this === undefined"
 //Here Have a Coxtext Problem (this === UNDEFINED)
-onFormSubmit(event){
+onFormSubmit= event => {
     event.preventDefault();
 
     console.log(this.state.term);
