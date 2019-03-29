@@ -12,7 +12,8 @@ onInputClick(){
 }
 
 //Here Have a Coxtext Problem (this === UNDEFINED)
-onFormSubmit(event){
+// 1) ARROW Function to solve the CONTEXT PROBLEM
+onFormSubmit = event => {
     event.preventDefault();
 
     console.log(this.state.term);
