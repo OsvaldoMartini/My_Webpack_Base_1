@@ -3,10 +3,10 @@ import axios from "../plugins/axios.js";
 import SearchBar from "../components/SearchBar.jsx";
 
 class AppSearch extends React.Component {
-  async onSearchSubmit(term) {
-
-    //console.log(term);
-
+  state = {images: []}; // {images: []} Its is better because, If a have state.images.map this will work fine instead of {images: null} (that's cause error)
+  
+    async onSearchSubmit(term) {
+  //console.log(term);
     const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: { query: term },
         headers: {
@@ -14,6 +14,7 @@ class AppSearch extends React.Component {
         }
     });
 
+    this.setState({images: response.data.results}); //Pull out actual results or list of images
     console.log(response.data.results);
     
   }
@@ -22,6 +23,7 @@ class AppSearch extends React.Component {
     return (
       <div className="AppSearch" style={{ marginTop: "10px" }}>
         <SearchBar onSubmit={this.onSearchSubmit} />
+        Found: {this.state.images.length}   {/* Uncaught (in promise) TypeError: this.setState is not a function */}
       </div>
     );
   }
