@@ -23,7 +23,7 @@ class AppSearch extends React.Component {
   render() {
     return (
       <div className="AppSearch" style={{ marginTop: "10px" }}>
-        <SearchBar onSubmit={this.onSearchSubmit} />
+        <SearchBar onSubmit={this.onSearchSubmit} guessWhoIam={this}/>
         Found: {this.state.images.length}   {/* Uncaught (in promise) TypeError: this.setState is not a function */}
       </div>
     );
