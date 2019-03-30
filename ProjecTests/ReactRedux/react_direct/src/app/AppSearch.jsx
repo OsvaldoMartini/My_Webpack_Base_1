@@ -14,6 +14,7 @@ class AppSearch extends React.Component {
         }
     });
 
+    console.log(this);  {/* this bring us the actual this Object that is "onSubmit" */}
     this.setState({images: response.data.results}); //Pull out actual results or list of images
     console.log(response.data.results);
     
