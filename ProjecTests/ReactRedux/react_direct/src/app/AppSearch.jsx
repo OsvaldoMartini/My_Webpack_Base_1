@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar.jsx";
 class AppSearch extends React.Component {
   state = {images: []}; // {images: []} Its is better because, If a have state.images.map this will work fine instead of {images: null} (that's cause error)
   
-    async onSearchSubmit(term) {
+  onSearchSubmit = async (term) => {
   //console.log(term);
     const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: { query: term },
