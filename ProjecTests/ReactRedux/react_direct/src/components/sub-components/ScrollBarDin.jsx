@@ -39,12 +39,12 @@ export default class ScrollBarDin extends React.PureComponent {
     this.state = {
       items: [
         {
-          text: "id1"
-          //id: 1
+          text: "id1",
+          id: 1
         },
         {
-          text: "id1"
-          //id: 2
+          text: "id2",
+          id: 2
         }
       ]
     };
@@ -68,7 +68,7 @@ export default class ScrollBarDin extends React.PureComponent {
           )} */}
 
             {this.state.items.map((item, index) => (
-              <li key={`item_${index}`}>{item}</li>
+              <li key={`item_${index}`}>{item.text}</li>
             ))}
           </ul>
         </div>
