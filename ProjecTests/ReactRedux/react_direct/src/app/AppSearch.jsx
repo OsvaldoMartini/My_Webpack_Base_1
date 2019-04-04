@@ -1,6 +1,7 @@
 import React from "react";
 import unsplash from '../api/unsplash.jsx';
 import SearchBar from "../components/SearchBar.jsx";
+import ImageList from '../components/ImageList.jsx';
 
 class AppSearch extends React.Component {
   state = {images: []}; // {images: []} Its is better because, If a have state.images.map this will work fine instead of {images: null} (that's cause error)
@@ -21,6 +22,7 @@ class AppSearch extends React.Component {
       <div className="AppSearch" style={{ marginTop: "10px" }}>
         <SearchBar onSubmit={this.onSearchSubmit} guessWhoIam={this}/>
         Found: {this.state.images.length}  images   {/* Uncaught (in promise) TypeError: this.setState is not a function */}
+        <ImageList images={this.state.images}/>
       </div>
     );
   }
