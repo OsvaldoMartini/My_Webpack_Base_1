@@ -1,6 +1,11 @@
 .image-list{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* auto-fill : Essentially what this does is it creates a set number of columns autofill right here means that the */
+    /* CSSA row or the grid  CSSA system is going to automatically decide how many columns to insert on each here*/
+    /* mimmax 250 pixels on FFR 1fr is Maximum allocation of space. We want them to all be equally sized */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    /* Gaps between cells between sides and top and bottom */
+    grid-gap:10px; 
 }
 
 .image-list img {
