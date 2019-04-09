@@ -7,6 +7,10 @@ class ImageCard extends React.Component{
         this.imageRef = React.createRef();
     }
     
+    componentDidMount() {
+        console.log(this.imageRef);
+    }
+    
     render() {
     
         // Creatting clean code
