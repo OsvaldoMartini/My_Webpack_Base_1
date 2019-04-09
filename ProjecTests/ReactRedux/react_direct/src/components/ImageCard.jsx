@@ -7,10 +7,12 @@ class ImageCard extends React.Component{
         this.imageRef = React.createRef();
     }
     
+    //to Early to get the height because we do not yet have the image loaded up
     componentDidMount() {
         console.log(this.imageRef);
+        console.log(this.imageRef.current.clientHeight);
     }
-    
+
     render() {
     
         // Creatting clean code
