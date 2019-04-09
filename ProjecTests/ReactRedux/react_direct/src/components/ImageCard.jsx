@@ -9,7 +9,13 @@ class ImageCard extends React.Component{
     
     //to Early to get the height because we do not yet have the image loaded up
     componentDidMount() {
-        console.log(this.imageRef);
+        //So once it emits this load even that means that we now have successfully downloaded the image it's
+        //being display on the screen
+        //with the callback "setSpans" for control set of span for the grid-row-end
+        this.imageRef.current.addEventListener('load', this.setSpans);
+    }
+
+    setSpans = () => {
         console.log(this.imageRef.current.clientHeight);
     }
 
