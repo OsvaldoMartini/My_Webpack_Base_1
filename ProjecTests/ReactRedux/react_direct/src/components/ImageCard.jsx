@@ -27,7 +27,7 @@ class ImageCard extends React.Component{
         //  it's going to be rounded up or essentially a ghost like the next highest row 
         // Mat.ceil -> I'am going to do a math dot ceiling on this thing just to cap its value
         //We can remove the "+ 1" just to see the results 
-        const spans = Math.ceil(height / 150);   //150 from  grid-auto-rows: 150px
+        const spans = Math.ceil(height / 10);   //150 from  grid-auto-rows: 150px
 
         //this.setState({spans: spans});
         this.setState({spans}); //E.S 2015 syntax

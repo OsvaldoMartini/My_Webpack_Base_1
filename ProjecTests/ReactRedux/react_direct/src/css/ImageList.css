@@ -7,7 +7,7 @@
     /* Gaps between cells between sides and top and bottom */
     grid-gap:10px;
     /* Not good corect for this case */
-    grid-auto-rows: 150px; 
+    grid-auto-rows: 10px; 
 }
 
 .image-list img {
