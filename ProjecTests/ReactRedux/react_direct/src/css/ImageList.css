@@ -13,3 +13,16 @@
 .image-list img {
     width: 250px;
 }
+
+/* 
+Use 
+Select an individual Element 
+in user Style:
+element.style{
+     (Try the best value of span "n"
+     to get the best fit of the element/image inside of the grid) 
+    grid-row-end: span 3; 
+} 
+inspect the element to check the result Image per Cells allocated
+Like this element needs to be allocated three cells worth of space
+*/
