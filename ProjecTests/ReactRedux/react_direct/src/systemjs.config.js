@@ -15,7 +15,7 @@ System.config({
     },
     map: {
       // our app is within the app folder
-      app: 'app/index.jsx', 
+      app: 'app/indexReact_Tests.jsx', 
       
 //making or not downloading from the pachages
 //https://unpkg.com/systemjs@0.20.19/dist/system-production.js etc...
