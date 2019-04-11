@@ -25,6 +25,7 @@ class AppYouTube extends React.Component {
     //I'm going to define it as an arrow funtion as we have many other times
     onVideoSelect = (video) => {
         console.log('From the App!', video);
+        this.setState({selectedVideo: video });
     }
 
     render () {
