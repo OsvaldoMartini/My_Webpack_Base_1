@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBarYouTube from '../components/SearcBarYoutube.jsx';
 import youtube from '../api/youtube.js' 
+import VideoList from '../components/VideoList.jsx';
 
 class AppYouTube extends React.Component {
     state = { videos: []};
@@ -16,7 +17,7 @@ class AppYouTube extends React.Component {
         //only Interest me response.data.items
         this.setState({videos: response.data.items});
 
-        console.log(response);
+        console.log(response.data.items);
        
     };
 
@@ -24,6 +25,7 @@ class AppYouTube extends React.Component {
         return (
             <div className="ui container">
                 <SearchBarYouTube onFormSubmit={this.onTermSubmit}/>
+                <VideoList videos={this.state.videos}/>
                 I have {this.state.videos.length} videos.
             </div>
         )
