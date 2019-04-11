@@ -4,7 +4,7 @@ import VideoItem from '../components/sub-components/VideoItem.jsx';
 const VideoList = ({videos}) => {
     //props.videos
 
-    const renderedList = videos.map((videos) => {
+    const renderedList = videos.map(video => {
         return <VideoItem />
     });
 
