@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBarYouTube from '../components/SearcBarYoutube.jsx';
 import youtube from '../api/youtube.js' 
 import VideoList from '../components/VideoList.jsx';
+import VideoDetail from '../components/VideoDetail.jsx';
 
 class AppYouTube extends React.Component {
     state = { videos: [], selectedVideo: null};
@@ -32,6 +33,7 @@ class AppYouTube extends React.Component {
         return (
             <div className="ui container">
                 <SearchBarYouTube onFormSubmit={this.onTermSubmit}/>
+                <VideoDetail video={this.state.selectedVideo}/>
                 {/* onVideoSelect={this.onVideoSelect} Can Have Differents Names */}
                 <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} selectedVideo/>
                 I have {this.state.videos.length} videos.
