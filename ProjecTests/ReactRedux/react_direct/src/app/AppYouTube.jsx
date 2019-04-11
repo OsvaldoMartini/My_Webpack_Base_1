@@ -4,7 +4,7 @@ import youtube from '../api/youtube.js'
 import VideoList from '../components/VideoList.jsx';
 
 class AppYouTube extends React.Component {
-    state = { videos: []};
+    state = { videos: [], selectedVideo: null};
     
     onTermSubmit = async (term) => {
         console.log(term);
@@ -21,11 +21,17 @@ class AppYouTube extends React.Component {
        
     };
 
+    //  "selectedVideo" since this is going to be a callback
+    //I'm going to define it as an arrow funtion as we have many other times
+    onVideoSelect = (video) => {
+        console.log('From the App!', video);
+    }
+
     render () {
         return (
             <div className="ui container">
                 <SearchBarYouTube onFormSubmit={this.onTermSubmit}/>
-                <VideoList videos={this.state.videos}/>
+                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} selectedVideo/>
                 I have {this.state.videos.length} videos.
             </div>
         )
