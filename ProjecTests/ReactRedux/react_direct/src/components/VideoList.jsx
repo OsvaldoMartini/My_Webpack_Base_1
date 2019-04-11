@@ -5,7 +5,7 @@ const VideoList = ({videos}) => {
     //props.videos
 
     const renderedList = videos.map(video => {
-        return <VideoItem />
+        return <VideoItem video={video}/>
     });
 
     return <div>{renderedList}</div>;
