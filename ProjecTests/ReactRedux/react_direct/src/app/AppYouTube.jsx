@@ -7,6 +7,10 @@ import VideoDetail from '../components/VideoDetail.jsx';
 class AppYouTube extends React.Component {
     state = { videos: [], selectedVideo: null};
     
+    componentDidMount() {
+        this.onTermSubmit('buildings');
+    }
+
     onTermSubmit = async (term) => {
         console.log(term);
         const response = await youtube.get('/search', {
