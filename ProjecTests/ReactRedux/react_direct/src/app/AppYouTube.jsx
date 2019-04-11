@@ -16,7 +16,10 @@ class AppYouTube extends React.Component {
         });
 
         //only Interest me response.data.items
-        this.setState({videos: response.data.items});
+        this.setState({
+            videos: response.data.items,
+            selectedVideo: response.data.items[0]
+    });
 
         console.log(response.data.items);
        
