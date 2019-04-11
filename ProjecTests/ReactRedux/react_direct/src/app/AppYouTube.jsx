@@ -31,6 +31,7 @@ class AppYouTube extends React.Component {
         return (
             <div className="ui container">
                 <SearchBarYouTube onFormSubmit={this.onTermSubmit}/>
+                {/* onVideoSelect={this.onVideoSelect} Can Have Differents Names */}
                 <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} selectedVideo/>
                 I have {this.state.videos.length} videos.
             </div>
