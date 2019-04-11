@@ -33,10 +33,18 @@ class AppYouTube extends React.Component {
         return (
             <div className="ui container">
                 <SearchBarYouTube onFormSubmit={this.onTermSubmit}/>
-                <VideoDetail video={this.state.selectedVideo}/>
-                {/* onVideoSelect={this.onVideoSelect} Can Have Differents Names */}
-                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} selectedVideo/>
-                I have {this.state.videos.length} videos.
+                <div className="ui grid">
+                    {/* You use eleven out of default 16 columns to show the video */}
+                    <div className="eleven wide column">
+                        <VideoDetail video={this.state.selectedVideo}/>
+                    </div>
+                    {/* You use five out of default 16 columns to render the video list */}
+                    <div className="five wide column">
+                        {/* onVideoSelect={this.onVideoSelect} Can Have Differents Names */}
+                        <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} selectedVideo/>
+                        I have {this.state.videos.length} videos.
+                    </div>
+                </div>
             </div>
         )
     }
