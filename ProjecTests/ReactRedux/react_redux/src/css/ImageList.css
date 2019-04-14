@@ -1,0 +1,32 @@
+.image-list{
+    display: grid;
+    /* auto-fill : Essentially what this does is it creates a set number of columns autofill right here means that the */
+    /* CSSA row or the grid  CSSA system is going to automatically decide how many columns to insert on each here*/
+    /* mimmax 250 pixels on FFR 1fr is Maximum allocation of space. We want them to all be equally sized */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    /* Gaps between cells between sides and top and bottom */
+    
+    /* So now that we have rows of only 10 pixels the Greek gap of 10 pixels is essentially doubling the amount */ 
+    /* Wich means put 0 pixels between each row */
+    grid-gap: 0 10px; 
+    /* Not good corect for this case */
+    grid-auto-rows: 10px; 
+}
+
+.image-list img {
+    width: 250px;
+    /* grid-row-end: span 2; */
+}
+
+/* 
+Use 
+Select an individual Element 
+in user Style:
+element.style{
+     (Try the best value of span "n"
+     to get the best fit of the element/image inside of the grid) 
+    grid-row-end: span 3; 
+} 
+inspect the element to check the result Image per Cells allocated
+Like this element needs to be allocated three cells worth of space
+*/
