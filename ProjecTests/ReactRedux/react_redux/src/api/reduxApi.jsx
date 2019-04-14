@@ -78,3 +78,17 @@ const policies = (listOfPolicies = [], action) => {
     }
     return listOfPolicies;
 };
+
+
+//Creating "Store" from Redux
+const {createStore, combineReducers} = Redux;
+console.log(Redux);
+
+const ourDepartments = combineReducers({
+    accounting: accounting,
+    claimsHistory: claimsHistory,
+    policies: policies
+});
+
+
+const store = createStore(ourDepartments);
