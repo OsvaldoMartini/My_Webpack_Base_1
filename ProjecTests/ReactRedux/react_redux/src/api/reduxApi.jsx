@@ -102,3 +102,6 @@ console.log(action);
 
 //We Take store dispatch and pass the action that will be forwarded off to each Reducer
 store.dispatch(action);
+
+//Essentially get our entire assembled repository of dataq for our company. We get access to that big giagantic glob of information.
+console.log(store.getState());
