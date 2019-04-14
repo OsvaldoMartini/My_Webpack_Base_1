@@ -4,8 +4,8 @@ const createPolicy = (name, amout) => {
   return {
     type: 'CREATE_POLICY',
       payload: {
-        name: name,
-          amount: amount
+        name,  // ES 2015 Syntax
+        amount // ES 2015 Syntax
       }
   }
 }
