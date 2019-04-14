@@ -58,8 +58,10 @@ const claimsHistory = (oldListOfClaims = [], action) => {
 //Reducer 'Accounting' department  
   const accounting = (bagOfMoney = 100, action) => {
     if (action.type ==='CREATE_CLAIM'){
+        //When is creating new CLAIM, then we're going to return bag Of Money LESS payload.amount of money
         return bagOfMoney - action.payload.amountOfMoneyToCollect;
     } else if (action.type === 'CREATE_POLICY') {
+        //When is creating new POLICY, then we're going to return bag Of Money PLUS payload.amount of money
         return bagOfMoney + action.payload.amount;
     }
 
