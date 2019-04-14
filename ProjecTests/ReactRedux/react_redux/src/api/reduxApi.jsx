@@ -107,6 +107,8 @@ store.dispatch(action);
 //Creating Policy
 store.dispatch(createPolicy('Alex', 20));
 store.dispatch(createPolicy('Jim', 30));
+console.log('Another Point in Time: U$.',store.getState().accounting,' accounting amount.');
+
 store.dispatch(createPolicy('Bob', 40));
 
 //Testing Claims
