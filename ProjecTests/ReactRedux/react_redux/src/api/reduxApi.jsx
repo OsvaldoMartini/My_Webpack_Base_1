@@ -123,3 +123,6 @@ console.log(store.getState());
 
 /** #####  Important #### */
 //We can modify the store datas only By "Action Creator" and "Dispatching"
+
+//Other Reason to use Redux:
+// We want to only have a very small set number of ways of modifying our data
