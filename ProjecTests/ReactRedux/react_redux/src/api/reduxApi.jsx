@@ -38,7 +38,8 @@ const createClaim = (name, amountOfMoneyToCollect) => {
 
 //  Reducers (Departments!) 
 
-const claimsHistory = (oldListOfClaims, action) => {
+//MAKING SURE THE REDUCERS IS BEING CALLED FOR THE VERY FIRST TIME
+const claimsHistory = (oldListOfClaims = [], action) => {
     if (action.type === 'CREATE_CLAIM'){
       //WE CARE ABOUT THIS ACTION (fomr!)
       //[... get allthe records inside there (ES2015)
