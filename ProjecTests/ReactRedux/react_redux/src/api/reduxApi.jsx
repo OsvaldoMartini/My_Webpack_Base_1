@@ -120,3 +120,6 @@ store.dispatch(deletePolicy('Bob'));
 
 //Essentially get our entire assembled repository of dataq for our company. We get access to that big giagantic glob of information.
 console.log(store.getState());
+
+/** #####  Important #### */
+//We can modify the store datas only By "Action Creator" and "Dispatching"
