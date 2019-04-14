@@ -92,3 +92,5 @@ const ourDepartments = combineReducers({
 
 
 const store = createStore(ourDepartments);
+
+store.dispatch();
