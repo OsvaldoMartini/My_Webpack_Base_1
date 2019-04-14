@@ -93,4 +93,12 @@ const ourDepartments = combineReducers({
 
 const store = createStore(ourDepartments);
 
-store.dispatch();
+//Before Call "Dispatch"
+
+//Try to create a Policy
+const action = createPolicy('Alex', 20);
+//It shows my action with name and payload
+console.log(action);
+
+//We Take store dispatch and pass the action that will be forwarded off to each Reducer
+store.dispatch(action);
