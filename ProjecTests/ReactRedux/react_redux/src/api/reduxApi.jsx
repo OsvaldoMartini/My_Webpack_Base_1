@@ -14,7 +14,7 @@ const deletePolicy = (name) => {
     return {
         type: 'DELETE_POLICY',
         payload: {
-            names: name
+          name: name
         }
     }
 }
