@@ -103,5 +103,18 @@ console.log(action);
 //We Take store dispatch and pass the action that will be forwarded off to each Reducer
 store.dispatch(action);
 
+
+//Creating Policy
+store.dispatch(createPolicy('Alex', 20));
+store.dispatch(createPolicy('Jim', 30));
+store.dispatch(createPolicy('Bob', 40));
+
+//Testing Claims
+store.dispatch(createClaim('Alex', 120));
+store.dispatch(createClaim('Alex', 50));
+
+//Deleting Policy
+store.dispatch(deletePolicy('Bob'));
+
 //Essentially get our entire assembled repository of dataq for our company. We get access to that big giagantic glob of information.
 console.log(store.getState());
