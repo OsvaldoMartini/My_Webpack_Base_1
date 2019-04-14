@@ -34,7 +34,8 @@ System.config({
       "primereact": "npm:primereact@1.0.1/",
       //"primereact": "npm_local:"
       "babel-gen_run":"npm_local:generator-runtime.js",
-      "babel-async_gen":"npm_local:asyncGenerator.js"
+      "babel-async_gen":"npm_local:asyncGenerator.js",
+      "redux": "npm_local:redux.js",
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

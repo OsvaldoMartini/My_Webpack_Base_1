@@ -1,4 +1,6 @@
 import React from "react";
+import Redux from 'redux';
+
 
 class AppRedux extends React.Component {
   
