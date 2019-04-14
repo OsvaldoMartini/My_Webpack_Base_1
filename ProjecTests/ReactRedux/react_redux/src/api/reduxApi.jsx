@@ -12,7 +12,7 @@ const createPolicy = (name, amount) => {
 
 const deletePolicy = (name) => {
     return {
-        type: DELETE_POLICY,
+        type: 'DELETE_POLICY',
         payload: {
             names: name
         }
