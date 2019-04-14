@@ -1,11 +1,11 @@
 console.clear();
 
-const createPolicy = () => {
+const createPolicy = (name, amout) => {
   return {
     type: 'CREATE_POLICY',
       payload: {
-        name:'Alex',
-          amount: 20
+        name: name,
+          amount: amount
       }
   }
 }
