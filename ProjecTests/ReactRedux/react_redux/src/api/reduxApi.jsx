@@ -1,5 +1,7 @@
 console.clear();
 
+//  Actions (Forms!) 
+
 const createPolicy = (name, amount) => {
   return {
     type: 'CREATE_POLICY',
@@ -18,3 +20,16 @@ const deletePolicy = (name) => {
         }
     }
 }
+
+const createClaim = (name, amountOfMoneyToCollect) => {
+    return {
+        type: 'CREATE_CLAIM',
+        payload: {
+            name: name,
+            amountOfMoneyToCollect: amountOfMoneyToCollect
+        }
+    }
+}
+
+//  Every single "Creator" returns a plain javascript object which refer to as an action 
+//  And an action has a "type" and "payload"
