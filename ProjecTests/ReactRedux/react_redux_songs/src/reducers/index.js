@@ -24,3 +24,8 @@ export default combineReducers({
     songs: songsReducer,
     selectedSong: selectedSongReducer
 })
+
+
+// All right so believe it or not:
+// That is pretty much it for the strictly redux side of things
+// We've got our reducers put together and we've got our action creator singular put together
