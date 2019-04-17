@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provide } from 'react-redux';  //Component made up by the React-Redux library -> Component is written by convetion first letter is capital 'P'rovider
+import { Provider } from 'react-redux';  //Component made up by the React-Redux library -> Component is written by convetion first letter is capital 'P'rovider
 import { createStore } from 'react';    //function made up by the React library -It returns all of our applications data were state
 
 import AppSongs from '../components/AppSongs.js';
