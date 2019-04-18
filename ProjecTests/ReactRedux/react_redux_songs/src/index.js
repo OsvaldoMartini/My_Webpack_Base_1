@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';  //Component made up by the React-Redux library -> Component is written by convetion first letter is capital 'P'rovider
-import { createStore } from 'react';    //function made up by the React library -It returns all of our applications data were state
+import { createStore, applyMiddleware } from 'react';    //function made up by the React library -It returns all of our applications data were state
 
-import AppSongs from '../components/AppSongs.js';
+import AppSongs from './components/AppSongs';
 
 //Underneath my App a Import the Reducers
-import reducers from '../reducers/index.js';  //In case the Use of Web Pask can be write only as '../reducers'
+import reducers from './reducers/';  //In case the Use of Web Pask can be write only as '../reducers'
 
 //Wrapping the Provider with our app and passing a single "prop" called store
 // The Store is going to be the result of calling create store and passing in our reducers
@@ -15,8 +15,10 @@ import reducers from '../reducers/index.js';  //In case the Use of Web Pask can 
 //Instead we pass it off to this provider and the provider essentially takes care of everything from there
 // Typical Redux application you're actually very rarely going to interact directly with the store
 // Outside of some more advanced cases we do it.
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+
 ReactDOM.render(
-<Provider store={createStore(reducers)}>
+<Provider store={createStoreWithMiddleware(reducers)}>
     <AppSongs/>
 </Provider>, 
 document.querySelector('#root'));
