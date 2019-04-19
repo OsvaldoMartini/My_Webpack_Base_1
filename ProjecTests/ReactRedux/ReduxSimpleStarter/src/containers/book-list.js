@@ -49,7 +49,7 @@ function mapStateToProps(state) {
 }
 
 // #####=>  Anything returned from this function end up as PROPS on the BookList container
-function mapDispatchToProps(dispath) {
+function mapDispatchToProps(dispatch) {
     // Whenever selectBook is called, the result should be passed
     // to all of our reducers 
     // // #####=>  THE FIRST PARAMETER DOES THE MAGIC "...tors({selectBook: ..." CALL OUR ACTION CREATOR
