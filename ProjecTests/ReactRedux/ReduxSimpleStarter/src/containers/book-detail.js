@@ -21,6 +21,7 @@ class BookDetail extends Component {
 //mapStateToProp Bring to US the book Details
 function mapStateToProp(state) {
     return {
+        // ==>  Making Sure we Hook up the Book Detail to the Redux Store
         book: state.activeBook  // ==>> It Cames From:  "...const rootReducer = combineReducers({..."
     }
 }
