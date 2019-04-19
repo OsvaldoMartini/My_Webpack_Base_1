@@ -8,7 +8,7 @@ import {selectBook} from '../actions/index';
 
 //So this is the part right here where we take that return value from select book and make sure that it
 //Actually flows through all different reducers in our application
-import { bindctionCreators} from 'redux'; 
+import { bindActionCreators} from 'redux'; 
 
 //Not Export "export default" We just need the Classe Base Component
  class BookList extends Component {
@@ -48,6 +48,22 @@ function mapStateToProps(state) {
     }
 }
 
+// #####=>  Anything returned from this function end up as PROPS on the BookList container
+function mapDispatchToProps(dispath) {
+    // Whenever selectBook is called, the result should be passed
+    // to all of our reducers 
+    // // #####=>  THE FIRST PARAMETER DOES THE MAGIC "...tors({selectBook: ..." CALL OUR ACTION CREATOR
+    return bindActionCreators({selectBook: selectBook}, dispatch);
+    // Is what takes these actions and it basically you know receives them kind of like a funnel
+    // When it spits them back out to all different reducers in our application
+    // #####=>  So again bind action creators with dispatch says:
+    // #####=>   I am going to take this stuff and I'm going to take all these actions and make sure
+    // #####=>   That they get passed on to all the different reducers inside the application
+    // Flow in all differents Reducers
+}
+
+
+
 
 //React-Redux is the Glue between both
 
@@ -57,6 +73,8 @@ function mapStateToProps(state) {
 
 // Connect: Takes a function and component and produces a container (Smart component)
 // ####  WE WANT TO EXPORT THE CONTAINER  ### //
+//This Promote BookList from a component to a Container - it needs to know
+// about this new dispatch method, selectBook. Make it available as a prop.
 export default connect(mapStateToProps)(BookList);
 
 
