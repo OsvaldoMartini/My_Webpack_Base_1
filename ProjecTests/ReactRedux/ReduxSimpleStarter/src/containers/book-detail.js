@@ -5,12 +5,15 @@ import { connect } from 'react-redux'
 class BookDetail extends Component {
     render () {
         return (
-            <div>Book Detail</div>
+            <div>
+            <h3>Details for:</h3>
+            <div>{this.props.book.title}</div> 
+            </div>
         );
     }
 }
 
-
+//mapStateToProp Bring to US the book Details
 function mapStateToProp(state) {
     return {
         book: state.activeBook  // ==>> It Cames From:  "...const rootReducer = combineReducers({..."
