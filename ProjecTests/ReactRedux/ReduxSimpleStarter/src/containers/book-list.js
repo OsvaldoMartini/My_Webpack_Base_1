@@ -37,6 +37,7 @@ function mapStateToProps(state) {
     //insideof BookList
     return {
         asdf: '123',
+        // ###=> Whenever the application state changes the object in the state funcion will be assigned as props to the component
         books: state.books
     }
 }
