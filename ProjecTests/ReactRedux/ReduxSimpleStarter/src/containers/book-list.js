@@ -28,6 +28,8 @@ import { connect } from 'react-redux';
 }
 
 //the Purpose of this is to take our application state as an argument
+//The first Argument is the State and it Returns an object 
+// whatever object is returned will be available to our component as this props.
 function mapStateToProps(state) {
     //Whatever is returned will show up as props 
     //insideof BookList
