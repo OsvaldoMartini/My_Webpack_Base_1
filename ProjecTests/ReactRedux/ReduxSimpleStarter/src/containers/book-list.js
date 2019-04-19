@@ -4,6 +4,12 @@ import React, { Component } from 'react';
 // TEH GLUE BETWEEN REACT AND REDUX
 import { connect } from 'react-redux';
 
+import {selectBook} from '../actions/index';
+
+//So this is the part right here where we take that return value from select book and make sure that it
+//Actually flows through all different reducers in our application
+import { bindctionCreators} from 'redux'; 
+
 //Not Export "export default" We just need the Classe Base Component
  class BookList extends Component {
     //We are going to Pretend
