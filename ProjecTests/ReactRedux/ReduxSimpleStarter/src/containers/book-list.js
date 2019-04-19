@@ -19,7 +19,14 @@ import { bindActionCreators} from 'redux';
     //Don't forget the "key" because is a list use any unique value
     renderList() {
         return this.props.books.map((book) => {
-            return <li key={book.title} className="list-group-item">{book.title}</li>
+            return (<li 
+                key={book.title}
+                onClick={() => this.props.selectBook(book)}
+                //Don't Boder now about the ERROR: bundle.js:21252 Uncaught Error: Actions must be plain objects. Use custom middleware for async actions. 
+                className="list-group-item">
+                {book.title}
+            </li>
+            );
         });
     }
     
