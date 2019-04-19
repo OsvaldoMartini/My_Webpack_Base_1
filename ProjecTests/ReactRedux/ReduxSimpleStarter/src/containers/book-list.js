@@ -59,7 +59,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     // Whenever selectBook is called, the result should be passed
     // to all of our reducers 
-    // // #####=>  THE FIRST PARAMETER DOES THE MAGIC "...tors({selectBook: ..." CALL OUR ACTION CREATOR
+    // #####=>  THE FIRST PARAMETER DOES THE MAGIC "...tors({selectBook: ..." CALL OUR ACTION CREATOR
+    // #####=>  The Action that's PIPED into all our all of our different reducers
     return bindActionCreators({selectBook: selectBook}, dispatch);
     // Is what takes these actions and it basically you know receives them kind of like a funnel
     // When it spits them back out to all different reducers in our application
