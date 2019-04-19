@@ -75,6 +75,6 @@ function mapDispatchToProps(dispath) {
 // ####  WE WANT TO EXPORT THE CONTAINER  ### //
 //This Promote BookList from a component to a Container - it needs to know
 // about this new dispatch method, selectBook. Make it available as a prop.
-export default connect(mapStateToProps)(BookList);
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
 
 
