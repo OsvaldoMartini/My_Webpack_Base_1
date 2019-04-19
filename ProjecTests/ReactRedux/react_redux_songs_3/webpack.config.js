@@ -13,8 +13,30 @@ module.exports = {
           query: {
             presets: ['react', 'es2015', 'stage-1']
           }
+        },
+        {
+          test: /.css$/,
+          loader: 'style-loader'
+        }, 
+        {
+          test: /.css$/,
+          loader: 'css-loader',
+          query: {
+              modules: true,
+              localIdentName: "[name][local]_[hash:base64:5]"
+            }
         }
-      ]
+      ],
+      // rules: [
+      //   {
+      //     test: /\.css$/,
+      //     use: [
+      //       'style-loadder',
+      //       'css-loadder'
+      //     ]
+      //   },
+    //],
+
     },
     resolve: {
       extensions: ['', '.js', '.jsx']
