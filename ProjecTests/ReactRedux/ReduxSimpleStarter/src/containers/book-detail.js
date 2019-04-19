@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
-export default class BookDetail extends Component {
+// 3) Step Delete "export default class" ...  => "class ..."" 
+class BookDetail extends Component {
     render () {
         return (
             <div>Book Detail</div>
         );
     }
 }
+
+
+function mapStateToProp(state) {
+    return {
+        book: state.activeBook  // ==>> It Cames From:  "...const rootReducer = combineReducers({..."
+    }
+}
+
+export default connect(mapStateToProp)(BookDetail);
+
+
+
+
+// Steps:
+//  1)  Define: "function mapStateToProp(state) {..."
+//  2)  Define: "export default connect(mapStateToProp)(Book..."
+//  3)  Delete: "export default" from the Top of the "class" ->  it stays: "class BookDetail ext..."
+
+//  With those 3 (Trhee) Steps we've got a connected component in here 
