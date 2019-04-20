@@ -7,6 +7,8 @@ export default class SearchBar extends Component {
     super(props);
 
     this.state = { term: '' };
+    //Context Binding
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   //Just Vanilla javascript
@@ -22,7 +24,7 @@ export default class SearchBar extends Component {
           placeholder="Get a five-day forecast in your favorite cities"
           className="form-control"
           value={this.state.term}
-          onChange={(event) => this.onInputChange(event)}
+          onChange={this.onInputChange}
         />
         <span className="input-grupo-btn">
           <button type="submit" className="btn btn-secondary">
