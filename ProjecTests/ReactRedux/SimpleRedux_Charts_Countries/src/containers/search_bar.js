@@ -12,6 +12,7 @@ export default class SearchBar extends Component {
   //Just Vanilla javascript
   onInputChange(event) {
     console.log(event.target.value);
+    this.setState({ term: event.target.value });
   }
 
   render() {
