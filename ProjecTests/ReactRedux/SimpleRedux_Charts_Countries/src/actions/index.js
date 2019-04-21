@@ -25,3 +25,14 @@ export function fetchWeather(city) {
         // before they hit any reduce or whatsoever
         //Redux Promise sees this in-coming action you know as the gatekeeper
         // So It Stops the Action and it waits until the promise resolves and then it says OK I've got the resolved data.
+
+// ####      REDUCER - PROMISSE         ####    //
+//                                              //
+//         MIDDLEWARE     BETWEEN               //
+//                                              //
+//        featchWeather -> reducer_weather      //
+
+//Reducer-Promise It's llok at specifically the PAYLOAD property
+// If the PAYLOAD is a promise, Redux Promise stops the action entirely.
+// And Once the request fisinhes IT DISPATCHES a New Action of the Same Type,Of the RESOLVED REQUEST.
+// It Creates a New Action the Same Type Expected with the Result of the Request
