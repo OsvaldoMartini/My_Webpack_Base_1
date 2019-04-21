@@ -10,10 +10,18 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 
 export function fetchWeather(city) {
     const url = `${ROOT_URL}&q=${city},us`;
-    const request = axios.get(url);
+    const request = axios.get(url);  //Axios returns a PROMISE (The Promise don't have any data yet)
+
+    console.log('Request:', request);
 
     return {
         type: FETCH_WEATHER,
-        payload: request
+        payload: request // ==>> VERY important Right HERE
     }
 }
+
+//### => REMEMBER:
+        // Redux Promise is a middleware with the ability to stop or maniplate actions 
+        // before they hit any reduce or whatsoever
+        //Redux Promise sees this in-coming action you know as the gatekeeper
+        // So It Stops the Action and it waits until the promise resolves and then it says OK I've got the resolved data.
