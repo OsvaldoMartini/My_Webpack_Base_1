@@ -11,8 +11,10 @@ class SearchBar extends Component {
     super(props);
 
     this.state = { term: '' };
-    //Context Binding
+    //Context Binding InputChange
     this.onInputChange = this.onInputChange.bind(this);
+    //Context Binding OnFormSubmit
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   //Just Vanilla javascript
