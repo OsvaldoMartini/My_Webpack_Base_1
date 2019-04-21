@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 class WeatherList extends Component  // => We're exporting the connected version of weather
 {
-
     renderWeather(cityData) {
         // The Rule Behind adding a key in a React list
         // we insert the Key at the top of the element list 
@@ -15,6 +15,11 @@ class WeatherList extends Component  // => We're exporting the connected version
         return (
             <tr key={name}>
                 <td>{name}</td>
+                <td>
+                    <Sparklines heigth={120} width={180} data={temps}>
+                        <SparklinesLine color="red" />
+                    </Sparklines>
+                </td>
             </tr>
         );
     }
