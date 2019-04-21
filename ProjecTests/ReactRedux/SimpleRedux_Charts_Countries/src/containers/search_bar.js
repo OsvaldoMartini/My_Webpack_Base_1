@@ -45,10 +45,12 @@ class SearchBar extends Component {
 }
 
 // First Step:
+//The MapDispatchToPros Fetch FetchWeather Inside Our SearchBar Component
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather }, dispatch)
+  return bindActionCreators({ fetchWeather }, dispatch);
 }
 // Second Step:
-// The Reason of the 'Null' its We are passing the "mapDispatchToProps" as Second Argument STATE ==== null
-// I know that Redux is maintaining some STATE but this container jus DOESN'T CARE about it all
+// ###  ==> The Reason of the 'Null' its We are passing the "mapDispatchToProps" as Second Argument STATE ==== null
+// ###  ==> I know that Redux is maintaining some STATE but this container jus DOESN'T CARE about it all
+// ###  ==> THANKS BUT WE DON'T NEED ANY STATE HERE
 export default connect(null, mapDispatchToProps)(SearchBar);
