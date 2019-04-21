@@ -1,7 +1,7 @@
 import { FETCH_WEATHER } from '../actions/index';
 //Expecting Array state = [] Initialization
 export default function (state = [], action) {
-    console.log('Action Received', action);
+    //console.log('Action Received', action);
     switch (action.type) {
         case (FETCH_WEATHER):
             //We only have the concept of one searchable city one active city at a time
