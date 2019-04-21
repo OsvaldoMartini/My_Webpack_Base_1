@@ -5,7 +5,8 @@ import { fetchWeather } from '../actions/index';
 
 //controlled component
 //State at the Component Level
-export default class SearchBar extends Component {
+//Third Step: Remove the "export defaul" at the class SearcBar definition
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
@@ -42,3 +43,12 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+// First Step:
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch)
+}
+// Second Step:
+// The Reason of the 'Null' its We are passing the "mapDispatchToProps" as Second Argument STATE ==== null
+// I know that Redux is maintaining some STATE but this container jus DOESN'T CARE about it all
+export default connect(null, mapDispatchToProps)(SearchBar);
