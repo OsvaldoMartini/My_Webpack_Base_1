@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 export default class WeatherList extends Component {
     render() {
         return (
@@ -15,4 +17,9 @@ export default class WeatherList extends Component {
             </table>
         );
     }
+}
+
+// This it will get the data weather from the "combineReducers" and define insinde our WeatherList Container component
+function mapStateToProps(state) {
+    return { weather: state.weather };
 }
