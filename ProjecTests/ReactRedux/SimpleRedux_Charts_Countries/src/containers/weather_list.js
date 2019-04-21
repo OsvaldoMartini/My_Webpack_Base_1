@@ -4,7 +4,17 @@ import { connect } from 'react-redux';
 
 class WeatherList extends Component  // => We're exporting the connected version of weather
 {
+
+    renderWeather(cityData) {
+        return (
+            <tr>
+                <td>{cityData.city.name}</td>
+            </tr>
+        );
+    }
+
     render() {
+        console.log(this.props.weather);
         return (
             <table className="table table-hover">
                 <thead>
@@ -15,6 +25,9 @@ class WeatherList extends Component  // => We're exporting the connected version
                         <th>Humidity</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {this.props.weather.map(this.renderWeather)}
+                </tbody>
             </table>
         );
     }
@@ -22,6 +35,7 @@ class WeatherList extends Component  // => We're exporting the connected version
 
 // This it will get the data weather from the "combineReducers" and define insinde our WeatherList Container component
 function mapStateToProps({ weather }) {  // => We could use just "weather" Instead state.weather (ES6 Syntax)
+    console.log("State Weather: ", weather);
     return { weather }; // { weather } === { weather: weather };
 }
 
