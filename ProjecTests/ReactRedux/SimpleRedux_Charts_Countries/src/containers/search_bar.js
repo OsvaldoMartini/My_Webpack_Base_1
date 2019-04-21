@@ -60,3 +60,8 @@ function mapDispatchToProps(dispatch) {
 // ###  ==> I know that Redux is maintaining some STATE but this container jus DOESN'T CARE about it all
 // ###  ==> THANKS BUT WE DON'T NEED ANY STATE HERE
 export default connect(null, mapDispatchToProps)(SearchBar);
+
+
+// #### => Flow Explatanion:
+// #### => So by Binding Action Creator (bindActionCreator) fetchWeather to Dispatch and the maping it to PROPS that give us access to the function.
+// #### => Inside our SearchBar componen we cann acces the props for fetchWeather data and pass the search term to it.
