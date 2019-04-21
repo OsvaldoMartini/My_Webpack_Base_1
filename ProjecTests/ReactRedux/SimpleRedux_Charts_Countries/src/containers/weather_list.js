@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-export default class WeatherList extends Component {
+class WeatherList extends Component  // => We're exporting the connected version of weather
+{
     render() {
         return (
             <table className="table table-hover">
@@ -23,3 +24,7 @@ export default class WeatherList extends Component {
 function mapStateToProps({ weather }) {  // => We could use just "weather" Instead state.weather (ES6 Syntax)
     return { weather }; // { weather } === { weather: weather };
 }
+
+//Connect our Component with the function Map State Props
+//We have access to this props inside our Weather List component
+export default connect(mapStateToProps)(WeatherList); // => We're exporting the connected version of weather
