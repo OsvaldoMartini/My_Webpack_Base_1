@@ -6,9 +6,12 @@ class WeatherList extends Component  // => We're exporting the connected version
 {
 
     renderWeather(cityData) {
+        // The Rule Behind adding a key in a React list
+        // we insert the Key at the top of the element list 
+        const name = cityData.city.name;
         return (
-            <tr>
-                <td>{cityData.city.name}</td>
+            <tr key={name}>
+                <td>{name}</td>
             </tr>
         );
     }
