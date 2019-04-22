@@ -1,8 +1,16 @@
 const express = requeire('express');
 const app = express();
 
-app.get('/', (req, res) => {
+const React = require('reat');
+const renderToString = require('react-dom/server').renderToString;
+const Home = require('./client/components/home').default;
 
+
+
+app.get('/', (req, res) => {
+    const content = renderToString(<Home />);
+
+    res.send(content);
 });
 
 app.listen(3000, () => {
