@@ -16,3 +16,10 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });
+
+
+//  Building:
+//  npm run dev:build:server
+
+//  Running:
+//  node build/bundle.js
