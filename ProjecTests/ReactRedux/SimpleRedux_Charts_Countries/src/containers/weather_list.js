@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import Chart from '../components/chart'
-import GoogleMap from '../components/google_map';
+//import GoogleMap from '../components/google_map';
+import SimpleMap from '../components/simple_google_map';
 
 class WeatherList extends Component  // => We're exporting the connected version of weather
 {
@@ -19,7 +20,8 @@ class WeatherList extends Component  // => We're exporting the connected version
 
         return (
             <tr key={name}>
-                <td><GoogleMap lon={lon} lat={lat} /></td>
+                {/* <td><GoogleMap lon={lon} lat={lat} /></td> */}
+                <td><SimpleMap lon={lon} lat={lat} /></td>
                 <td><Chart data={temps} color="orange" units="C" /></td>
                 <td><Chart data={pressures} color="green" units="hPa" /></td>
                 <td><Chart data={humidities} color="black" units="%" /></td>
