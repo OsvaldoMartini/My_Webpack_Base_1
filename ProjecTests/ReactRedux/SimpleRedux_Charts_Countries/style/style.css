@@ -10,3 +10,9 @@ td , th {
 svg {
     height: 150px;
 }
+
+/* Find the First TD inside of each row and also find the first TD child DIV */
+td:first-of-type, td:first-of-type {
+    height: 200px;
+    width: 250px;
+}
