@@ -1,9 +1,15 @@
-const express = require('express');
+//Isomorphic Java Script / Universal Javascript
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import Home from './client/components/home';
+
+//const express = require('express');
 const app = express();
 
-const React = require('react');
-const renderToString = require('react-dom/server').renderToString;
-const Home = require('./client/components/home').default;
+//const React = require('react');
+//const renderToString = require('react-dom/server').renderToString;
+//const Home = require('./client/components/home').default;
 
 
 
