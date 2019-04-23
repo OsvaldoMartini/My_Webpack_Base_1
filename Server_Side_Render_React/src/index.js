@@ -11,12 +11,25 @@ const app = express();
 //const renderToString = require('react-dom/server').renderToString;
 //const Home = require('./client/components/home').default;
 
-
+// ## This tells express that it needs to treat that public directory as a static or public directory that is
+// ## available o the outside world
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     const content = renderToString(<Home />);
 
-    res.send(content);
+    // ## Underneath a tine little HTML. I'll snifft it (farejar)
+    const html = `
+    <html>
+        <head></head>
+        <body>
+            <div>${content}</div>
+            <script src="bundle.js"</script>
+        </body>
+    </html>
+    `;
+
+    res.send(html);
 });
 
 app.listen(3000, () => {
