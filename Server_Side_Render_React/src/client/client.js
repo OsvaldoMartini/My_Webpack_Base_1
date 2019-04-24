@@ -5,4 +5,6 @@ import Home from './components/home';
 
 console.log('Hi there!');
 
-ReactDOM.render(<Home />, document.querySelector('root'));
+// Hydrate instead of render
+//ReactDOM.render(<Home />, document.querySelector('#root'));
+ReactDOM.hydrate(<Home />, document.querySelector('#root'));
