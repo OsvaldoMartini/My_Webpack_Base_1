@@ -5,20 +5,30 @@ require([
   "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol",
   "esri/symbols/PictureFillSymbol", "esri/symbols/CartographicLineSymbol", 
   "esri/graphic", 
-  "esri/Color", "dojo/dom", "dojo/on", "dojo/domReady!"
+  "esri/Color", "dojo/dom", "dojo/on", "esri/layers/GraphicsLayer",  "esri/geometry/Point", "dojo/domReady!"
 ], function(
   Map, Draw,
   SimpleMarkerSymbol, SimpleLineSymbol,
   PictureFillSymbol, CartographicLineSymbol, 
   Graphic, 
-  Color, dom, on
+  Color, dom, on, GraphicsLayer, Point
 ) {
   map = new Map("mapDiv", {
     basemap: "streets",
     center: [-25.312, 34.307],
     zoom: 3
   });
-  map.on("load", initToolbar);
+  map.on("load", function() {
+    
+    var gl = new GraphicsLayer();
+    var p = new Point(-88.380801, 42.10560);
+    var s = new SimpleMarkerSymbol().setSize(60);
+    var g = new Graphic(p, s);
+    gl.add(g);
+    map.addLayer(gl);
+    
+    initToolbar;
+  });
 
   // markerSymbol is used for point and multipoint, see http://raphaeljs.com/icons/#talkq for more examples
   var markerSymbol = new SimpleMarkerSymbol();
@@ -61,6 +71,11 @@ require([
       tb.activate(tool);
     });
   }
+
+
+  //Make asn Ajax Request
+
+
 
   function addGraphic(evt) {
     //deactivate the toolbar and clear existing graphics 
