@@ -1,6 +1,7 @@
 const path = require('path');  // require in ES5 syntax
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js'); //It need interely name file
+const webpackNodeExternals = require('webpack-node-externals');
 
 const config = {
     // Inform webpack that we're building a bundle
@@ -16,7 +17,9 @@ const config = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'build') // Two Underscores
-    }
+    },
+    externals: [webpackNodeExternals()] //So anything that's inside the nome modules folder will not be included inside of our server side bundle.
+
 }
 
 module.exports = merge(baseConfig, config);
