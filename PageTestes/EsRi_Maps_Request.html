@@ -60,7 +60,7 @@
             in: ['state:01','county:073']
           },
           handleAs:'json',
-          timeout:15000
+          timeout:1500
         }).then(lang.hitch(this,function(resp){
           console.info(resp);
         }),lang.hitch(this,function(error){

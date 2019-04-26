@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+<title>SVG PictureMarkerSymbol</title>
+<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.9/js/esri/css/esri.css"/>
+<style>html, body, #map {padding:0; margin:0; width:100%; height:100%;}</style>
+<script type="text/javascript" src="//js.arcgis.com/3.9/"></script>
+<script>
+    require([
+        "esri/symbols/PictureMarkerSymbol",
+		"esri/renderers/SimpleRenderer",
+        "esri/map",
+        "esri/layers/FeatureLayer",
+        "dojo/parser",
+        "dojo/ready"
+    ], function (PictureMarkerSymbol, SimpleRenderer, Map, FeatureLayer, parser, ready) {
+        parser.parse();
+        var map;
+        ready(function () {
+            map = new Map("map", {
+                basemap:"gray",
+                center:[-98.5795, 39.828175],
+                zoom:4
+            });
+            var svgSymbol = new PictureMarkerSymbol({  //PictureMarkerSymbols have direct support for SVG graphics
+        		"angle": 0,
+        		"xoffset": 0,
+        		"yoffset": 0,
+        		"type": "esriPMS",
+        		"url": "dot.svg", //Set the path to SVG graphic   SAME PATH OF THE PAGE OR BE AWARE ABOUT THE LOCATION
+        		"contentType": "image/svg+xml",
+        		"width": 10,
+        		"height": 10
+        	});
+        	
+        	var svgRenderer = new SimpleRenderer(svgSymbol);       	
+            var featureLayer = new FeatureLayer("http://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer/0", {
+                id:"featureLayer",
+                outFields: ["*"],
+                mode: FeatureLayer.MODE_ONDEMAND
+            });
+            
+            featureLayer.setRenderer(svgRenderer);           
+            map.addLayer(featureLayer);
+        });
+
+        
+    });
+</script>
+</head>
+
+<body>
+<div id="map"></div>
+</body>
+</html>

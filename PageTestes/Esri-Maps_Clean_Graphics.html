@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Decatur GIS Template</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1, user-scalable=no">
+
+        <link rel="stylesheet" href="http://js.arcgis.com/3.11/dijit/themes/claro/claro.css">
+
+        <link rel="stylesheet" href="http://js.arcgis.com/3.11/esri/css/esri.css">
+
+        <style>
+
+            html, body, #mapDiv
+
+            {
+
+                padding:0;
+
+                margin:0;
+
+                height:100%;
+
+            }
+
+         
+
+            #HomeButton
+
+            {
+
+                position: absolute;
+
+                top: 95px;
+
+                left: 20px;
+
+                z-index: 50;
+
+            }
+
+         
+
+         
+
+            #LocateButton
+
+            {
+
+              position: absolute;
+
+              top: 140px;
+
+              left: 20px;
+
+              z-index: 50;
+
+            }
+
+         
+
+            #clearGraphicsBtn
+
+            {
+
+                height:20px;
+
+                width:20px;
+
+                position:absolute;
+
+                top:200px;
+
+                left:20px;
+
+                z-index:50;
+
+                padding:5px 6px 5px 6px;
+
+                background-color:Gray;
+
+                border-radius:5px;
+
+            }
+
+                         
+
+        </style>
+
+        <script src="http://js.arcgis.com/3.11/"></script>
+
+        <script>
+
+            var map;
+
+ 
+
+ 
+
+            require(["esri/map", "esri/config",
+
+                    "esri/dijit/HomeButton",
+
+                    "esri/dijit/LocateButton",
+
+                    "esri/layers/ArcGISTiledMapServiceLayer",
+
+                    "esri/layers/ArcGISDynamicMapServiceLayer",
+
+                    "esri/tasks/GeometryService",
+
+                    "dojo/dom",
+
+                    "dojo/on",
+
+                    "dojo/parser",
+
+                    "esri/geometry/Extent",
+
+                    "dojo/domReady!"], function (Map, esriConfig, HomeButton,
+
+                                                 LocateButton, ArgGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer,
+
+                                                 GeometryService, dom, on, parser, Extent
+
+            ) {
+
+                        // set custom extent
+
+                        var initialExtent = new Extent({ "xmin": 777229.03, "ymin": 1133467.92, "xmax": 848340.14, "ymax": 1185634.58, "spatialReference": { "wkid": 3435} });
+
+                        map = new Map("mapDiv", {
+
+                            showAttribution: false,
+
+                            sliderStyle: "small",
+
+                            extent: initialExtent
+
+ 
+
+ 
+
+                        });
+
+                        // add imagery
+
+                        var tiled = new ArgGISTiledMapServiceLayer("http://maps.decaturil.gov/arcgis/rest/services/Aerial_2014_Tiled/MapServer");
+
+                        map.addLayer(tiled);
+
+                        // add operational layer
+
+                        var operationalLayer = new ArcGISDynamicMapServiceLayer("http://maps.decaturil.gov/arcgis/rest/services/Public/InternetVector/MapServer", { "opacity": 0.5 });
+
+                        map.addLayer(operationalLayer);
+
+ 
+
+ 
+
+                        // declare geometry service
+
+                        esriConfig.defaults.geometryService = new GeometryService("http://maps.decaturil.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer");
+
+ 
+
+ 
+
+                        // add home button to get full extent
+
+                        var home = new HomeButton({
+
+                            map: map
+
+                        }, "HomeButton");
+
+                        home.startup();
+
+ 
+
+ 
+
+                        // add geolocate button to find the location of the current user
+
+                        geoLocate = new LocateButton({
+
+                            map: map,
+
+                            highlightLocation: true
+
+                        }, "LocateButton");
+
+                        geoLocate.startup();
+
+ 
+
+ 
+
+                    }
+
+ 
+
+                );
+
+ 
+
+// Clear all graphics from map
+
+function clearGraphics() {
+
+  alert('clear map');
+
+  map.graphics.clear();
+
+}
+
+                 
+
+            
+
+         
+
+        </script>
+
+    </head>
+
+    <body class="soria">
+
+        <div id="mapDiv">
+
+            <div id="HomeButton"></div>
+
+            <div id="LocateButton"></div>
+
+            <div id="ClearGraphicsButton">
+
+                <input type="image" id="clearGraphicsBtn" src="images/nav_decline.png" onclick="clearGraphics()" alt="Clear Graphics" title="Clear Graphics" />
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
