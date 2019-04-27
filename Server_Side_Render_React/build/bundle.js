@@ -233,12 +233,15 @@ var _reactRouterDom = __webpack_require__(1);
 
 var _reactRedux = __webpack_require__(2);
 
+var _reactRouterConfig = __webpack_require__(18);
+
 var _Routes = __webpack_require__(9);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// this file is going to house a function that will simply render our react up and return it as a string
 exports.default = function (req, store) {
     var content = (0, _server.renderToString)(_react2.default.createElement(
         _reactRedux.Provider,
@@ -246,13 +249,17 @@ exports.default = function (req, store) {
         _react2.default.createElement(
             _reactRouterDom.StaticRouter,
             { location: req.path, context: {} },
-            _react2.default.createElement(_Routes2.default, null)
+            _react2.default.createElement(
+                'div',
+                null,
+                (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
+            )
         )
     ));
 
     // ## Underneath a tine little HTML. I'll snifft it (farejar)
     return '\n    <html>\n        <head></head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
-}; // this file is going to house a function that will simply render our react up and return it as a string
+};
 
 /***/ }),
 /* 8 */
@@ -526,6 +533,12 @@ exports.default = function () {
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
 
 /***/ })
 /******/ ]);
