@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
-class Userlist extends Component {
+class UsersList extends Component {
     componentDidMount() {
         // Commented just to figure out the flow of the Data Load Initialy
         //this.props.fetchUsers;
