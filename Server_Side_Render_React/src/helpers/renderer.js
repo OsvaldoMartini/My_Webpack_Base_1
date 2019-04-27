@@ -7,7 +7,7 @@ import Routes from '../client/Routes';
 export default (req) => {
     const content = renderToString(
         <StaticRouter location={req.path} context={{}}>
-            <Router />
+            <Routes />
         </StaticRouter>
     );
 
