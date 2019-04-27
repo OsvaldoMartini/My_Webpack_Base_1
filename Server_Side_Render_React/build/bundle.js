@@ -198,11 +198,13 @@ app.get('*', function (req, res) {
     // lets console.log this
     //console.log(matchRoutes(Routes, req.path));
     // Mapping matchRoutes
-    (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
+    var promises = (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
         var route = _ref.route;
         //We Are Doing some Destructuring Here
-        return route.loadData ? route.loadData() : null;
+        return route.loadData ? route.loadData(store) : null;
     });
+
+    console.log(promises);
 
     res.send((0, _renderer2.default)(req, store));
 });
@@ -469,8 +471,9 @@ function mapStateToProps(state) {
     return { users: state.users };
 }
 
-function loadData() {
+function loadData(store) {
     console.log('UserList says: I\'m trying to load some data');
+    return store.dispatch((0, _actions.fetchUsers)());
 }
 
 // Named Export

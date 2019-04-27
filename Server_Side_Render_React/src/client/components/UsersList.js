@@ -29,8 +29,9 @@ function mapStateToProps(state) {
     return { users: state.users };
 }
 
-function loadData() {
+function loadData(store) {
     console.log('UserList says: I\'m trying to load some data');
+    return store.dispatch(fetchUsers());
 }
 
 // Named Export

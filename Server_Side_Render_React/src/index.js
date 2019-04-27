@@ -36,9 +36,11 @@ app.get('*', (req, res) => {
     // lets console.log this
     //console.log(matchRoutes(Routes, req.path));
     // Mapping matchRoutes
-    matchRoutes(Routes, req.path).map(({ route }) => {  //We Are Doing some Destructuring Here
-        return route.loadData ? route.loadData() : null;
+    const promises = matchRoutes(Routes, req.path).map(({ route }) => {  //We Are Doing some Destructuring Here
+        return route.loadData ? route.loadData(store) : null;
     });
+
+    console.log(promises);
 
 
     res.send(renderer(req, store));
