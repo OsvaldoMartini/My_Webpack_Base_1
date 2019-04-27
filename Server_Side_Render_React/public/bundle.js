@@ -38014,6 +38014,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // }
 
 // New Way to Route wih (Router-ReactConfig)
+// React-Router-Config
+// it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
 
 //import { Route } from 'react-router-dom';
 exports.default = [{

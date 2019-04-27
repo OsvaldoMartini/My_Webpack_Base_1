@@ -15,6 +15,8 @@ import UsersList from './components/UsersList';
 // }
 
 // New Way to Route wih (Router-ReactConfig)
+// React-Router-Config
+// it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
 export default [
     {
         path: '/',
