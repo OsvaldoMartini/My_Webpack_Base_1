@@ -196,7 +196,13 @@ app.get('*', function (req, res) {
     // "matchRoutes" It's going to look at whatever route the user is trying to visit and 
     // then it's going to return an array of components that are about to be rendered
     // lets console.log this
-    console.log((0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path));
+    //console.log(matchRoutes(Routes, req.path));
+    // Mapping matchRoutes
+    (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
+        var route = _ref.route;
+        //We Are Doing some Destructuring Here
+        return route.loadData ? route.loadData() : null;
+    });
 
     res.send((0, _renderer2.default)(req, store));
 });
