@@ -206,7 +206,10 @@ app.get('*', function (req, res) {
 
     console.log(promises);
 
-    res.send((0, _renderer2.default)(req, store));
+    Promise.all(promises).then(function () {
+        // Finnaly CAll the Server Side Render
+        res.send((0, _renderer2.default)(req, store));
+    });
 });
 
 app.listen(3000, function () {
