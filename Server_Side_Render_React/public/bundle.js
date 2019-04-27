@@ -28612,7 +28612,7 @@ var UsersList = function (_Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             // Commented just to figure out the flow of the Data Load Initialy
-            //this.props.fetchUsers;
+            this.props.fetchUsers();
         }
     }, {
         key: 'renderUsers',
