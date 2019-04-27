@@ -5,7 +5,7 @@ import { fetchUsers } from '../actions';
 class UsersList extends Component {
     componentDidMount() {
         // Commented just to figure out the flow of the Data Load Initialy
-        //this.props.fetchUsers;
+        //this.props.fetchUsers();
     }
 
     renderUsers() {
