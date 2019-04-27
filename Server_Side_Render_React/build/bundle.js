@@ -336,6 +336,7 @@ exports.default = [{
     component: _Home2.default,
     exact: true
 }, {
+    loadData: _UsersList.loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData' 
     path: '/users',
     component: _UsersList2.default
 }, {

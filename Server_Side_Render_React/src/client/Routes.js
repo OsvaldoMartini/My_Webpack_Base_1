@@ -1,7 +1,7 @@
 import React from 'react';
 //import { Route } from 'react-router-dom';
 import Home from './components/Home';
-import UsersList from './components/UsersList';
+import UsersList, { loadData } from './components/UsersList';
 
 // Exact Prop I want to show this route if the URL is exactly the path "Slash"
 // export default () => {
@@ -24,6 +24,7 @@ export default [
         exact: true
     },
     {
+        loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData' 
         path: '/users',
         component: UsersList
     },
