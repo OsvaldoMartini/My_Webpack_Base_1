@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux'; //Middleware is used to ho
 import thunk from 'redux-thunk'; // Is Used to handle asynchronous action creators
 import { Provider } from 'react-redux'; //Provider is What Ties our Store and React side together. Is used to communicate data from the store to any connected components in our application
 import Routes from './Routes';
+import reducers from './reducers';
 
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
