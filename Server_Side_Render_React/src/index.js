@@ -21,7 +21,7 @@ app.use(express.static('public'));
 // The "(req)" inside of "...app.get('/', (req, res) ..." This request ("..req..") contains the URL that the user is trying to access.
 
 //Passing the " req " inside of the render as argument
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.send(renderer(req));
 });
 
