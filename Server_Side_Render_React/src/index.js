@@ -1,6 +1,8 @@
 //Isomorphic Java Script / Universal Javascript
 import 'babel-polyfill';
 import express from 'express';
+import { matchRoutes } from 'react-router-config';
+import Routes from './client/Routes';
 import renderer from './helpers/renderer';
 import createStore from './helpers/createStore';
 
@@ -28,6 +30,13 @@ app.get('*', (req, res) => {
 
     // Some logic to initialize
     // and load data into the Store
+    // List of Routes and Path That The User Want to Access
+    // "matchRoutes" It's going to look at whatever route the user is trying to visit and 
+    // then it's going to return an array of components that are about to be rendered
+    // lets console.log this
+    console.log(matchRoutes(Routes, req.path));
+
+
 
     res.send(renderer(req, store));
 });
