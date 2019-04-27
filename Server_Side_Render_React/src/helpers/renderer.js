@@ -1,10 +1,15 @@
 // this file is going to house a function that will simply render our react up and return it as a string
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import Home from '../client/components/Home';
+import { StaticRouter } from 'react-router-dom';
+import Routes from '../client/Routes';
 
 export default () => {
-    const content = renderToString(<Home />);
+    const content = renderToString(
+        <StaticRouter context={{}}>
+            <Router />
+        </StaticRouter>
+    );
 
     // ## Underneath a tine little HTML. I'll snifft it (farejar)
     return `
