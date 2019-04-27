@@ -84,16 +84,20 @@ var _renderer = __webpack_require__(3);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
+var _createStore = __webpack_require__(9);
+
+var _createStore2 = _interopRequireDefault(_createStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //const express = require('express');
-//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;
 //const Home = require('./client/components/home').default;
 
+//Isomorphic Java Script / Universal Javascript
 app.use(_express2.default.static('public'));
 
 // ## This tells express that it needs to treat that public directory as a static or public directory that is
@@ -107,7 +111,12 @@ app.use(_express2.default.static('public'));
 
 //Passing the " req " inside of the render as argument
 app.get('*', function (req, res) {
-    res.send((0, _renderer2.default)(req));
+    var store = (0, _createStore2.default)();
+
+    // Some logic to initialize
+    // and load data into the Store
+
+    res.send((0, _renderer2.default)(req, store));
 });
 
 app.listen(3000, function () {
@@ -247,6 +256,14 @@ exports.default = function () {
             } })
     );
 };
+
+/***/ }),
+/* 8 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);
