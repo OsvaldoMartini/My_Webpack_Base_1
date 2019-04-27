@@ -144,10 +144,10 @@ var _Routes2 = _interopRequireDefault(_Routes);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // this file is going to house a function that will simply render our react up and return it as a string
-exports.default = function () {
+exports.default = function (req) {
     var content = (0, _server.renderToString)(_react2.default.createElement(
         _reactRouterDom.StaticRouter,
-        { context: {} },
+        { location: req.path, context: {} },
         _react2.default.createElement(Router, null)
     ));
 
