@@ -149,6 +149,8 @@ module.exports = require("redux");
 "use strict";
 
 
+__webpack_require__(17);
+
 var _express = __webpack_require__(6);
 
 var _express2 = _interopRequireDefault(_express);
@@ -164,13 +166,13 @@ var _createStore2 = _interopRequireDefault(_createStore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //const express = require('express');
+//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;
 //const Home = require('./client/components/home').default;
 
-//Isomorphic Java Script / Universal Javascript
 app.use(_express2.default.static('public'));
 
 // ## This tells express that it needs to treat that public directory as a static or public directory that is
@@ -503,6 +505,12 @@ exports.default = function () {
             return state;
     }
 }; //Here I have Created this Reducer to Watch the FETCH_USERS action creator
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-polyfill");
 
 /***/ })
 /******/ ]);
