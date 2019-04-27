@@ -1,3 +1,4 @@
+//Here I have Created this Reducer to Watch the FETCH_USERS action creator
 import { FETCH_USERS } from '../actions';
 
 export default (state = [], action) => {
