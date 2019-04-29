@@ -20,7 +20,7 @@ var renderRatingReviews = function (opts) {
             };
         },
         describeArc = function (x, y, radius, startAngle, endAngle) {
-            var start = polarToCartesian(x, y, radius, endAngle),
+            var start = polarToCartesian(x, y, radius, endAngle),   
                 end = polarToCartesian(x, y, radius, startAngle),
                 arcSweep = endAngle - startAngle <= 180 ? "0" : "1",
                 d = [

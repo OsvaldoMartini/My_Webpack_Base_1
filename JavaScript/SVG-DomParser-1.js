@@ -2,7 +2,7 @@ function dgebi(id) {
     return document.getElementById(id);
 }
 // short svg file as string
-var svgtext = ... //... here I added the string from https://upload.wikimedia.org/wikipedia/commons/c/c6/%2212_World_fly.svg
+var svgtext ='https://upload.wikimedia.org/wikipedia/commons/c/c6/%2212_World_fly.svg'
 var d;
 function init() {
     d = dgebi('id:testdiv');
@@ -24,3 +24,5 @@ function createElementSVG() {
     d.appendChild(se);
     console.log(se);
 }
+
+
