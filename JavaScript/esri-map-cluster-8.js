@@ -1,6 +1,11 @@
 var map;
-var srcData_Intern = "";
-var srcData_File = "";
+var srcData_Intern = [];
+var srcData_File = [];
+
+//Alternative way to do "includes"
+self.stringIncludes = function(a, b) {
+  return a.indexOf(b) >= 0;
+};
 
 function getRealMimeType(reader) {
   var arr = new Uint8Array(reader.result).subarray(0, 4);
@@ -35,7 +40,7 @@ function getRealMimeType(reader) {
   return realMimeType;
 }
 
-function encodeImageFileAsURL(file) {
+function encodeImageFileAsURL(file, nameImg) {
   var filesSelected = document.getElementById("inputFileToLoad").files;
 
   if (typeof file !== "undefined" || typeof filesSelected !== "undefined") {
@@ -56,16 +61,23 @@ function encodeImageFileAsURL(file) {
       //   }
 
       if (typeof file !== "undefined") {
-        srcData_Intern = fileLoadedEvent.target.result; // <--- data: base64
+        srcData_Intern.push({
+          NameImg: nameImg,
+          src: fileLoadedEvent.target.result
+        }); // <--- data: base64
       }
 
       if (filesSelected && filesSelected.length > 0) {
-        srcData_File = fileLoadedEvent.target.result; // <--- data: base64
+        srcData_File.push({
+          NameImg: nameImg,
+          src: fileLoadedEvent.target.result
+        }); // <--- data: base64
       }
 
       var newImage = document.createElement("img");
 
-      newImage.src = srcData_File || srcData_Intern;
+      //newImage.src = srcData_File  || srcData_Intern;
+      newImage.src = fileLoadedEvent.target.result;
 
       document.getElementById("imgTest").innerHTML = newImage.outerHTML;
       //alert(
@@ -99,15 +111,15 @@ async function createFileFromScratch(name, dataXml, elemFiltered) {
   //     item = "url(#patternDouble)";
   //   });
 
-  var rect = elemFiltered.querySelectorAll("#rectBaseLand")[0];
-  rect.setAttribute("fill", "url(#patternMulti)");
+  // var rect = elemFiltered.querySelectorAll("#rectBaseLand")[0];
+  //  rect.setAttribute("fill", "url(#patternMulti)");
 
   let data = elemFiltered.outerHTML;
   let metadata = {
     type: "image/svg+xml"
   };
   let file = new File([data], name, metadata);
-  encodeImageFileAsURL(file);
+  encodeImageFileAsURL(file, name);
   // ... do something with the file or return it
 }
 
@@ -263,9 +275,9 @@ require([
       domStyle.set(query("a.action.zoomTo")[0], "display", "none");
 
       self.ImgToRender = null;
-      // get the svg folder
+
       var svgImg = esriRequest({
-        url: "data/BaseLand-MultiGrp.svg",
+        url: "data/BaseLand-MultiGrp-2.svg",
         handleAs: "xml"
       });
       svgImg.then(function(response, reject) {
@@ -276,7 +288,25 @@ require([
         self.ImgToRender = response;
 
         createInitialImg(
-          "BaseLand-MultiGrp.svg",
+          "BaseLand-MultiGrp-2.svg",
+          self.ImgToRender.documentElement
+        );
+      });
+
+      // get the svg folder
+      var svgImg = esriRequest({
+        url: "data/BaseLand-MultiGrp-3.svg",
+        handleAs: "xml"
+      });
+      svgImg.then(function(response, reject) {
+        console.log(
+          typeof reject !== "undefined" ? reject : "request accepted",
+          typeof response !== "undefined" ? response : "response failled"
+        );
+        self.ImgToRender = response;
+
+        createInitialImg(
+          "BaseLand-MultiGrp-3.svg",
           self.ImgToRender.documentElement
         );
 
@@ -501,7 +531,6 @@ require([
         height: 24
       });
 
-      console.log(srcData_File, srcData_Intern);
       var symbolMarkerDouble = new PictureMarkerSymbol({
         angle: 0,
         xoffset: 0,
@@ -530,9 +559,28 @@ require([
       });
 
       console.log(srcData_File, srcData_Intern);
-      srcData_Intern = srcData_Intern.replace("data:image/svg+xml;base64,", "");
+      var srcDataImg2 = srcData_Intern.filter(function(item) {
+        return self.stringIncludes(item.NameImg, "BaseLand-MultiGrp-2");
+      })[0];
+      if (srcDataImg2.src) {
+        srcDataImg2.src = srcDataImg2.src.replace(
+          "data:image/svg+xml;base64,",
+          ""
+        );
+      }
 
-      var symbol3 = new PictureMarkerSymbol({
+      var srcDataImg3 = srcData_Intern.filter(function(item) {
+        return self.stringIncludes(item.NameImg, "BaseLand-MultiGrp-3");
+      })[0];
+      if (srcDataImg3.src) {
+        srcDataImg3.src = srcDataImg3.src.replace(
+          "data:image/svg+xml;base64,",
+          ""
+        );
+      }
+
+      console.log(srcDataImg2.src, srcDataImg3.src);
+      var symbolMultiImg_2 = new PictureMarkerSymbol({
         angle: 0,
         xoffset: 0,
         yoffset: 0,
@@ -540,7 +588,26 @@ require([
         //url: "data/BaseLand-DoubleGrp.svg",
         //srcData
         //srcData,
-        imageData: srcData_Intern,
+        imageData: srcDataImg2.src,
+        //"PHN2Zz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3AgaWQ9InN0b3AxIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0icmVkIj48L3N0b3A+PHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiI+PC9zdG9wPjxzdG9wIGlkPSJzdG9wMyIgb2Zmc2V0PSI2NiUiIHN0b3AtY29sb3I9IiNGRjYiPjwvc3RvcD48c3RvcCBpZD0ic3RvcDQiIG9mZnNldD0iNjYlIiBzdG9wLWNvbG9yPSIjRjYwIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgaWQ9InJlY3RNdWx0aSIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9InVybCgjcGF0dGVybk11bHRpKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiPjwvcmVjdD48L3N2Zz4=",
+        //"PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPGRlZnM+DQogICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+DQogICAgICAgIDxzdG9wIGlkPSJzdG9wMSIgb2Zmc2V0PSIzMyUiIHN0b3AtY29sb3I9InJlZCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3A0IiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQoJICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5Eb3VibGUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSJncmVlbiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQo8L2RlZnM+DQoJPHJlY3QgaWQ9InJlY3RCYXNlTGFuZCIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiDQogICAgICBmaWxsPSJ1cmwoI3BhdHRlcm5Eb3VibGUpIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIgLz4gICAgICAgIA0KPC9zdmc+DQoNCg==",
+        //  "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPGRlZnM+DQogICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+DQogICAgICAgIDxzdG9wIGlkPSJzdG9wMSIgb2Zmc2V0PSIzMyUiIHN0b3AtY29sb3I9InJlZCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3A0IiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQoJICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5Eb3VibGUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSJncmVlbiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQo8L2RlZnM+DQoJPHJlY3QgaWQ9InJlY3RCYXNlTGFuZCIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiDQogICAgICBmaWxsPSJ1cmwoI3BhdHRlcm5NdWx0aSkiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41IiAvPiAgICAgICAgDQo8L3N2Zz4NCg0K",
+        //  "PHN2Zz48ZGVmcz48bGluZWFyZ3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3AgaWQ9InN0b3AxIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0icmVkIj48L3N0b3A+PHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiI+PC9zdG9wPjxzdG9wIGlkPSJzdG9wMyIgb2Zmc2V0PSI2NiUiIHN0b3AtY29sb3I9IiNGRjYiPjwvc3RvcD48c3RvcCBpZD0ic3RvcDQiIG9mZnNldD0iNjYlIiBzdG9wLWNvbG9yPSIjRjYwIj48L3N0b3A+PC9saW5lYXJncmFkaWVudD48L2RlZnM+PHJlY3QgaWQ9InJlY3RNdWx0aSIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9InVybCgjcGF0dGVybk11bHRpKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiPjwvcmVjdD48L3N2Zz4=",
+        //"iVBORw0KGgoAAAANSUhEUgAAAD8AAAA/CAYAAABXXxDfAAAABGdBTUEAAYagMeiWXwAABZ1JREFUeJztm3tQVGUYxh9YAYUEA7wAhncRuWxyEcUEUUFFBVIHUic1pmhyyuk++gdWkqKZmjZZ1uRMNjXqqIOMkqhIKShyEUyQVROFkEvB6hbLTVja92uWyYbVs5fzLbO7v5kzwx4Ou99ved5vz/ees7BkbDU/BPg5S8uLoyuVTQkdDxVLesxtI6+K4mjZZN/B/o/IRz7nHlWSN/dKYZF8UnhUrr2dyzGY2xY0/az95SK5T+nF6LIAfxdpr/zBA9MOHzxSY7t5uww7t0nxULHU7La9u4OQmnYdRzNqJRmHwjN75d1d7d02fyLD6pWjETFjKMwR8kpaNhI79tzESI+BXrTv35q3sbG5casFfr7O3AbT2anClbL74ElYqBvKflXAVmIroce2MAEffFyBYaMzERZ5DuMDfsLpnEYurztAYoPu7p7ex9zlz+f/iS3quUWp7GaPq2taserlQqhUPeANd/mr6tj9n2Z5J2Q3/+Y9FNPEvi+6ulTcX7PfyJsCq7ylYpW3VKzylopV3lKxylsqVnlLxSrPk6bmjj73P1A8BG+4ydfVtyEhKZ91cfoi9vk8pG29znp7vBBdnmTSP5VhovQUTp5q0HpcR4cKm9IrMTk4G1nZ9eCBqPLUmAwMO42NaRVMTgjU04tPvMhSUvN7q5jDE0deE/GFS/Jwu0qp13NQSigFYpaCUeWFRlwoYpeC0eT1ibhQxCoFg+Up4stWXDIo4kLRlAKlyxiloLc8XWSgQdBgjp+sAy8oVZQuSpmhV3r0kj/3yx9MmgahufLCG0oZpY1KgdKnDzrJayI+L+6C6BEXCpUCTbD6lIIgeVNFXCj6lsIT5Y0ZcQcHW62XwaUBLjAUXUtBq7yxIu7iYocVSd449P00yGvjsSnVr8/j9n8VgsY7i7H/yxDEL/SEIQgtBa3y694p0zviw4c5IHnVaBw/HI6mmjh893UolsR5wd7+8UFzdbXHiytG4ciP06Goj8eBb0KRuHQkS4yuaEph37dVWo8x2kmOl+cgrE0Zh5ysCNTeWoR9nwcjdp6H3s/n6DgAyxO98cP+MJYYSg4lyMlJYqwhGyY/bqwT3l43ASX5c3C3Mha7tz8ryj09lBhKDiXoQV0CjqqTQclyUyfFEHSWpwmL6raiOAay0vnYlhaIQP8h4Emcek6gZDWo54jszJlISR7DkqcrguSDpwzBzq1S3Cibh7KCaGx4dxImThiM/sDsyGH4YlcQS15+ThTWrR2PUd6Ogv5Wq3xw0NPY+9kUVMtiUfDzHLzx2niMHfMU+jNTQ1yxI12K364tYKX4/ls+8PLSngit8vTffeWlsfD00D1O/QEqxc0f+rO5QhvW7q2lYpXnSX5BU5/7S0r53opKcJNvbe3CC6sKsHPPrT5/n/L6Fdas5AkX+ao7LQifnYujx+899jhqVtIbxOvChejydK/t1MhzqKj8S9Dx9AZFxOTq3Z3RBVHlC4vliFl8AQodr8OVlD5gSRE7AaLKNzS2P3KLty7cq2tDe7u4/UGTfNRJJDZsnb5xgy9bN5gKrvIL549gnRp5bRxbp6eun8zWDbfLF2DLR/7w4bxYEl0+LNSVLZCoRZVxaAbr1FCj4r94P+OI9970Qbl6mUxLZeoRCF2ZGUKvPHVIurqN+20HWnfnnY1iCyRXgY0HWipTj4BWZs7OdkYdj1LZxVpsGjTyPbNmDkVOLp/vupiKE6fqEan2VKl62McIk2++3yGnaNIp5srky+xMy9y21SlFuF3Vgl3bAlHf0FbfK5/8atEaj+GDVOdPz0KSehY2RxapJ1vyc3cb2L18TWEi7WPyWdmNJ8Ln5k6/U62UzY8Z0Zm63hfmtsUv9uy8W628ETIzJ/jS5eaLvfJEccn9Qv+QM75O7hkOdi7HbMxtIy+/kDOTrpUrrmqc/wET1mu5jeh7wwAAAABJRU5ErkJggg==",
+        contentType: "image/svg+xml",
+        width: 24,
+        height: 24
+      });
+
+      var symbolMultiImg_3 = new PictureMarkerSymbol({
+        angle: 0,
+        xoffset: 0,
+        yoffset: 0,
+        type: "esriPMS",
+        //url: "data/BaseLand-DoubleGrp.svg",
+        //srcData
+        //srcData,
+        imageData: srcDataImg3.src,
         //"PHN2Zz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3AgaWQ9InN0b3AxIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0icmVkIj48L3N0b3A+PHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiI+PC9zdG9wPjxzdG9wIGlkPSJzdG9wMyIgb2Zmc2V0PSI2NiUiIHN0b3AtY29sb3I9IiNGRjYiPjwvc3RvcD48c3RvcCBpZD0ic3RvcDQiIG9mZnNldD0iNjYlIiBzdG9wLWNvbG9yPSIjRjYwIj48L3N0b3A+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgaWQ9InJlY3RNdWx0aSIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9InVybCgjcGF0dGVybk11bHRpKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiPjwvcmVjdD48L3N2Zz4=",
         //"PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPGRlZnM+DQogICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+DQogICAgICAgIDxzdG9wIGlkPSJzdG9wMSIgb2Zmc2V0PSIzMyUiIHN0b3AtY29sb3I9InJlZCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3A0IiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQoJICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5Eb3VibGUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSJncmVlbiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQo8L2RlZnM+DQoJPHJlY3QgaWQ9InJlY3RCYXNlTGFuZCIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiDQogICAgICBmaWxsPSJ1cmwoI3BhdHRlcm5Eb3VibGUpIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIgLz4gICAgICAgIA0KPC9zdmc+DQoNCg==",
         //  "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPGRlZnM+DQogICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+DQogICAgICAgIDxzdG9wIGlkPSJzdG9wMSIgb2Zmc2V0PSIzMyUiIHN0b3AtY29sb3I9InJlZCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0ZGNiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3A0IiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQoJICA8bGluZWFyR3JhZGllbnQgaWQ9InBhdHRlcm5Eb3VibGUiIHgyPSIwJSIgeTI9IjEwMCUiPg0KICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIG9mZnNldD0iMzMlIiBzdG9wLWNvbG9yPSJncmVlbiIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgICAgPHN0b3AgaWQ9InN0b3AzIiBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iI0Y2MCIgLz4NCiAgICAgIDwvbGluZWFyR3JhZGllbnQ+DQo8L2RlZnM+DQoJPHJlY3QgaWQ9InJlY3RCYXNlTGFuZCIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiDQogICAgICBmaWxsPSJ1cmwoI3BhdHRlcm5NdWx0aSkiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41IiAvPiAgICAgICAgDQo8L3N2Zz4NCg0K",
@@ -552,8 +619,8 @@ require([
       });
 
       renderer.addBreak(0, 1, singlePic);
-      renderer.addBreak(1, 2, symbol3);
-      renderer.addBreak(2, 10000, symbolMulti);
+      renderer.addBreak(1, 2, symbolMultiImg_2);
+      renderer.addBreak(2, 10000, symbolMultiImg_3);
 
       clusterLayer.setRenderer(renderer);
       map.addLayer(clusterLayer);

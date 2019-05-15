@@ -97,11 +97,11 @@ require([
             angle: item.angle,
             contentType: item.contentType,
             height: item.height,
-            imageData:
-              "PHN2Zz48ZGVmcz48bGluZWFyZ3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3AgaWQ9InN0b3AxIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0icmVkIj48L3N0b3A+PHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiI+PC9zdG9wPjxzdG9wIGlkPSJzdG9wMyIgb2Zmc2V0PSI2NiUiIHN0b3AtY29sb3I9IiNGRjYiPjwvc3RvcD48c3RvcCBpZD0ic3RvcDQiIG9mZnNldD0iNjYlIiBzdG9wLWNvbG9yPSIjRjYwIj48L3N0b3A+PC9saW5lYXJncmFkaWVudD48L2RlZnM+PHJlY3QgaWQ9InJlY3RNdWx0aSIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9InVybCgjcGF0dGVybk11bHRpKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiPjwvcmVjdD48L3N2Zz4=", //item.imageData, //
+            imageData: item.imageData,
+            //   "PHN2Zz48ZGVmcz48bGluZWFyZ3JhZGllbnQgaWQ9InBhdHRlcm5NdWx0aSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3AgaWQ9InN0b3AxIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0icmVkIj48L3N0b3A+PHN0b3AgaWQ9InN0b3AyIiBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI0ZGNiI+PC9zdG9wPjxzdG9wIGlkPSJzdG9wMyIgb2Zmc2V0PSI2NiUiIHN0b3AtY29sb3I9IiNGRjYiPjwvc3RvcD48c3RvcCBpZD0ic3RvcDQiIG9mZnNldD0iNjYlIiBzdG9wLWNvbG9yPSIjRjYwIj48L3N0b3A+PC9saW5lYXJncmFkaWVudD48L2RlZnM+PHJlY3QgaWQ9InJlY3RNdWx0aSIgeD0iMCIgeT0iMCIgcng9IjUiIHJ5PSI1IiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9InVybCgjcGF0dGVybk11bHRpKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiPjwvcmVjdD48L3N2Zz4=", //item.imageData, //
             name: item.name,
             type: item.type,
-            url: "data/BaseLand-DoubleGrp.svg",
+            url: item.url, //"data/BaseLand-DoubleGrp.svg",
             width: item.width,
             xoffset: item.xoffset,
             yoffset: item.yoffset
