@@ -99,8 +99,8 @@ async function createFileFromScratch(name, dataXml, elemFiltered) {
   //     item = "url(#patternDouble)";
   //   });
 
-  // var rect = elemFiltered.querySelectorAll("#rectBaseLand")[0];
-  //  rect.setAttribute("fill", "url(#patternMulti)");
+  var rect = elemFiltered.querySelectorAll("#rectBaseLand")[0];
+  rect.setAttribute("fill", "url(#patternMulti)");
 
   let data = elemFiltered.outerHTML;
   let metadata = {
