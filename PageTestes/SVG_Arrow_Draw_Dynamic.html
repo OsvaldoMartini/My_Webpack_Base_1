@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/svg-draw-arrow.css">
+
+    
+
+</head>
+<body>
+  <!-- <script src="../JavaScript/svg-draw-dynamic.js"></script> -->
+
+  <button class="arrow left">
+    <svg width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="green" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" 
+      points="45.63,75.8 0.375,38.087 45.63,0.375 "/>
+    </svg>  
+  </button>
+
+  <button class="arrow right">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="green" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" 
+      points="0.375,0.375 45.63,38.087 0.375,75.8 "/>
+    </svg>
+  </button>
+
+  <button class="arrow up">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="green" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" 
+      points="9.193,36.49 46.139,36.49 26.519,6.193"/>
+    </svg>
+  </button>
+  
+  <svg width="5cm" height="3cm"  viewBox="0 0 500 300"
+  xmlns="http://www.w3.org/2000/svg" version="1.1"
+  xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+<desc>Example animMotion01 - demonstrate motion animation computations</desc>
+
+<rect x="1" y="1" width="498" height="298"
+     fill="none" stroke="blue" stroke-width="2" />
+
+<!-- Draw the outline of the motion path in blue, along
+       with three small circles at the start, middle and end. -->
+<path id="path1" d="M100,250 C 100,50 400,50 400,250"
+     fill="none" stroke="blue" stroke-width="7.06"  />
+<circle cx="100" cy="250" r="17.64" fill="blue"  />
+<circle cx="250" cy="100" r="17.64" fill="blue"  />
+<circle cx="400" cy="250" r="17.64" fill="blue"  />
+
+<!-- Here is a triangle which will be moved about the motion path.
+    It is defined with an upright orientation with the base of
+    the triangle centered horizontally just above the origin. -->
+<path d="M-25,-12.5 L25,-12.5 L 0,-87.5 z"
+     fill="yellow" stroke="red" stroke-width="7.06"  >
+ 
+ <!-- Define the motion path animation -->
+ <animateMotion dur="6s" repeatCount="indefinite" rotate="auto" >
+    <mpath xlink:href="#path1"/>
+ </animateMotion>
+ 
+</path>
+</svg>
+
+  <button class="arrow down">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="green" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" 
+      points="46.139,15.518 25.166,36.49 4.193,15.518 "/>
+    </svg>
+  </button>
+  <svg height="400" width="400" x="0" y="0" viewBox="0, 0, 400,400" overflow="hidden">
+    <!-- EQUILATERAL TRIANGLE -->
+    <defs>
+    <style type="text/css"><![CDATA[
+        .shape { stroke: black; fill: rgba(0, 255, 0, 0.5); stroke-width: 1; }
+        .line1 { stroke: black; stroke-width: 1; fill:transparent;}
+        .line2 { stroke: black; stroke-width: 2; fill:transparent;}
+        .line3 { stroke: black; stroke-width: 4; fill:transparent;}
+        .line4 { stroke: black; stroke-width: 8; fill:transparent;}
+        .point {fill: red;}
+        .text1 {font-family:Arial, sans-serif; font-size:24px; fill:black; font-weight:normal; text-anchor:middle;}
+        .text2 {font-family:Arial, sans-serif; font-size:20px; fill:black; font-weight:normal; text-anchor:middle;}
+        .caption  {font-family:Arial, sans-serif; font-size:18px; font-style:italic; fill:black; font-weight:normal; text-anchor:left;}
+        .emphasis {font-weight: bold; font-style: normal;}
+        .tick {stroke:black; stroke-width: 1;}
+        .angle {stroke:black; stroke-width: 1;}
+        .construction {stroke: black; stroke-width: 1; stroke-dasharray:2, 2; fill:transparent;}
+    ]]></style>
+    </defs>
+    <g transform="scale(1) rotate(0 200 200) translate(0, 0)">
+     <!-- SHAPE - EQUILATERAL TRIANGLE -->
+     <polygon class="shape" points="
+        200,50
+        70, 275
+        330,275" />
+    <!-- POINTS -->
+     <circle class="point" cx="200" cy="50" r="2" />
+     <circle class="point" cx="70" cy="275" r="2" />
+     <circle class="point" cx="330" cy="275" r="2" />
+     
+    <!-- ARCS -->
+    <!-- TICK MARKS -->
+       
+    <!-- TEXT VERTICES -->
+    <text class="text1" x="200" y="95" >A </text>
+    <text class="text1" x="300" y="265">B</text>
+    <text class="text1" x="100" y="265">C</text>
+     <!-- TEXT LINES -->
+    <text class="text2" x="200" y="300">a</text>
+    <text class="text2" x="120" y="160">b</text>
+    <text class="text2" x="270" y="160">c</text>
+     
+    <!-- CAPTION -->
+      <text class="caption" x="25" y="390"><tspan class="emphasis">Fig 1.</tspan> Equilateral Triangle</text>    
+     
+    <!-- CONSTRUCTION COMPONENTS -->
+    <circle class="construction" cx="200" cy="200" r="150" />
+    <line class="construction" x1="200" x2="200" y1="200" y2="25"
+        transform="rotate(0 200 200)" > </line>
+    <line class="construction" x1="200" x2="200" y1="200" y2="25"
+        transform="rotate(120 200 200)"> </line>
+    <line class="construction" x1="200" x2="200" y1="200" y2="25"
+        transform="rotate(240 200 200)"> </line>
+     </g>
+     
+    </svg>
+
+
+<script>
+        //var btn = document.getElementById("btnAnmate")
+            function animation() {
+                var x = Math.random() * 250;
+                document.querySelector("rect").setAttributeNS(null, "transform", "translate(" + x + ")");
+                document.querySelector("text").setAttributeNS(null, "transform", "translate(" + x + ")");
+            }
+
+
+            //var btn = document.getElementById("btnAnmate")
+            function animation(elem, direction){
+                var x = Math.random() * 250;
+                // document.querySelector("polygon").setAttributeNS(null, "transform","rotate(90 60 70)");
+                document.getElementById(elem).setAttributeNS(null, "transform","rotate(" + direction + ")");
+                document.getElementById(elem).setAttributeNS(null, "transform","rotate(" + direction + ")");
+                document.querySelector("rect").setAttributeNS(null, "transform","translate("+x+")");
+                document.querySelector("text").setAttributeNS(null, "transform", "translate(" + x + ")");
+            }
+
+            window.addEventListener('load', function () {
+                console.log('All assets are loaded');
+                var svg;
+                function init(evt) {
+                    if (window.svgDocument == null) {
+                        svg = evt.target.ownerDocument;
+                    }
+                    addRotateTransform('gear-1', 12, 1);
+                    addRotateTransform('gear-2', 16, -1);
+                }
+
+            })
+
+
+            function addRotateTransform(target_id, dur, dir) {
+                // var svgOutImg = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+                //     svgOutImg.setAttribute('id', "svg_id_" + "Transfor");
+                //     svgOutImg.setAttribute('width', "16");
+                //     svgOutImg.setAttribute('height', "16");
+                //     svgOutImg.setAttribute('y', "0");
+
+                var my_element = svg.getElementById(target_id);
+                var a = svg.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+                var bb = my_element.getBBox();
+                var cx = bb.x + bb.width / 2;
+                var cy = bb.y + bb.height / 2;
+                a.setAttributeNS(null, "attributeName", "transform");
+                a.setAttributeNS(null, "attributeType", "XML");
+                a.setAttributeNS(null, "type", "rotate");
+                a.setAttributeNS(null, "dur", dur + "s");
+                a.setAttributeNS(null, "repeatCount", "indefinite");
+                a.setAttributeNS(null, "from", "0 " + cx + " " + cy);
+                a.setAttributeNS(null, "to", 360 * dir + " " + cx + " " + cy);
+                svgOutImg.appendChild(a);
+
+                a.beginElement();
+            }
+
+</script>
+<style>
+   rect {
+  transition: all 700ms ease-in-out;
+    }
+
+    text {
+    transition: all 700ms ease-in-out;
+    }
+    
+    circle, rect, polygon {
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+}
+    
+    
+    .solar-system{
+  background-color:#002;
+  width:100%;
+  height:100%;
+}
+.sun{
+  
+  fill:url(#gradSun);
+  filter:url(#dropShadow2);
+  
+ }
+ .Earth-orbit{
+  stroke:rgba(255,255,255,.4);
+    stroke-width:1;
+  fill:none;
+  }
+.Earth{
+   filter:url(#dropShadow1);
+   fill:url(#gradEarth);
+ }
+</style>
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateTransform -->
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateTransform -->
+
+<svg width="120" height="120" viewBox="0 0 120 120"
+     xmlns="http://www.w3.org/2000/svg">
+    <polygon id="Poly1" points="60,30 90,90 30,90" class="">
+        <animateTransform attributeName="transform"
+                          attributeType="XML"
+                          type="rotate"
+                          from="0 60 70"
+                          to="90 60 70"
+                          dur=".5s"
+                          repeatCount="0"/>
+    </polygon>
+</svg>
+
+<svg   width="30" height="30" viewBox="0 0 12 12"
+     xmlns="http://www.w3.org/2000/svg">
+    <polygon  id="Poly2" points="6,3 9,9 3,9" fill="green">
+    </polygon>
+</svg>
+
+<svg width="500" height="100">
+  <rect x="100" y="10" width="30" height="30" fill="blue" stroke="none"/>
+  <text x="100" y="80" fill="red" stroke="none">Hello</text>
+</svg>
+<br>
+
+<button onclick="animation('Poly1', '90 60 70');">
+ animation Poly_1 To Rigth
+</button>
+
+<button onclick="animation('Poly2', '90 6 7');">
+ animation Poly_2 To Rigth
+</button>
+
+
+<button onclick="animation('Poly1', '0 60 70');">
+ animation Poly_1 To Up
+</button>
+
+<button onclick="animation('Poly2', '0 6 7');">
+ animation Poly_2 To Up
+</button>
+
+<button onclick="addRotateTransform('Poly',1 , 45);">
+ addRotateTransform
+</button>
+
+
+<div class="solar-system">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 500 400" > 
+ <defs>
+ <filter id="dropShadow1" 
+    x="-20%" y="-20%" 
+		width="150%" height="150%">
+	<feGaussianBlur   stdDeviation="1" />
+ </filter>
+    <filter id="dropShadow2" 
+		x="-20%" y="-20%" 
+		width="150%" height="150%">
+		<feGaussianBlur   stdDeviation="4" />
+	</filter>
+	 <radialGradient id="gradSun">
+        <stop offset="80%" stop-color="yellow">
+		 <animate attributeName="offset" values="80%;20%;80%" dur="6s" repeatCount="indefinite" />
+		 </stop>
+        <stop offset="100%" stop-color="gold" >
+		<animate attributeName="stop-color" values="gold;red;gold" dur="6s" repeatCount="indefinite" />
+		</stop>
+      </radialGradient>
+ <linearGradient id="gradEarth">
+	<stop offset="40%" stop-color="dodgerblue"></stop>
+	<stop offset="100%" stop-color="yellowgreen" ></stop>
+ </linearGradient>	  
+ </defs>	 
+ <!-- planet rotation animation -->
+   <g>
+  <animateTransform 
+	  attributeName="transform" 
+	  type="rotate"
+      values="360 250 175;0 250 175" 
+	  dur="12s"
+	  repeatCount="indefinite"
+  />
+ <circle class="Earth-orbit" cx="250" cy="175" r="90"     />
+ <circle class="Earth" cx="160" cy="175" r="10" transform="rotate(45 250 175)"  />
+</g>
+ <circle class="sun" cx="250" cy="175" r="20"  /> 
+</svg>
+
+</body>
+</html>

@@ -21,10 +21,13 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "@esri/react-arcgis": "^4.0.0",
     "axios": "^0.18.0",
     "babel-preset-stage-1": "^6.1.18",
+    "esri-loader": "^2.9.2",
     "google-map-react": "^1.1.4",
     "lodash": "^3.10.1",
+    "promise-all-always": "^1.0.3",
     "react": "16.3.2",
     "react-dom": "16.3.2",
     "react-redux": "5.0.7",

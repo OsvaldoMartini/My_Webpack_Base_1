@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+   <linearGradient id="patternMulti" x2="0%" y2="100%">
+        <stop id="stop1" offset="33%" stop-color="red" />
+        <stop id="stop2" offset="33%" stop-color="#FF6" />
+        <stop id="stop3" offset="66%" stop-color="#FF6" />
+        <stop id="stop4" offset="66%" stop-color="#F60" />
+      </linearGradient>
+	  <linearGradient id="patternDouble" x2="0%" y2="100%">
+        <stop id="stop1" offset="33%" stop-color="green" />
+        <stop id="stop2" offset="33%" stop-color="#F60" />
+        <stop id="stop3" offset="66%" stop-color="#F60" />
+      </linearGradient>
+</defs>
+	<rect id="rectBaseLand" x="0" y="0" rx="5" ry="5" width="30" height="30"
+      fill="url(#patternDouble)" stroke="black" stroke-width="1" opacity="0.5" />        
+</svg>
+
