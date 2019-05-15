@@ -397,6 +397,36 @@ require([
         singleColor: "#888",
         singleTemplate: popupTemplate
       });
+
+      <text
+        fill="rgb(255, 255, 255)"
+        fill-opacity="1"
+        stroke="none"
+        stroke-opacity="0"
+        stroke-width="1"
+        stroke-linecap="butt"
+        stroke-linejoin="miter"
+        stroke-miterlimit="4"
+        x="534"
+        y="257"
+        text-anchor="middle"
+        text-decoration="undefined"
+        rotate="0"
+        kerning="auto"
+        text-rendering="auto"
+        font-style="normal"
+        font-variant="normal"
+        font-weight="bold"
+        font-size="12"
+        font-family="Arial"
+        dominant-baseline="alphabetic"
+        filter="url(#halo_map_bases_2_0_0_0_1_1)"
+        transform="matrix(1.00000000,0.00000000,0.00000000,1.00000000,0.00000000,4.00000000)"
+        fill-rule="evenodd"
+      >
+        6
+      </text>;
+
       var defaultSym = new SimpleMarkerSymbol().setSize(4);
       var renderer = new ClassBreaksRenderer(defaultSym, "clusterCount");
 
