@@ -391,41 +391,165 @@ require([
         data: photoInfo.data,
         distance: 100,
         id: "clusters",
-        labelColor: "red",
+        labelColor: "white",
         labelOffset: 10,
         resolution: map.extent.getWidth() / map.width,
         singleColor: "#888",
         singleTemplate: popupTemplate
       });
 
-      <text
-        fill="rgb(255, 255, 255)"
-        fill-opacity="1"
-        stroke="none"
-        stroke-opacity="0"
-        stroke-width="1"
-        stroke-linecap="butt"
-        stroke-linejoin="miter"
-        stroke-miterlimit="4"
-        x="534"
-        y="257"
-        text-anchor="middle"
-        text-decoration="undefined"
-        rotate="0"
-        kerning="auto"
-        text-rendering="auto"
-        font-style="normal"
-        font-variant="normal"
-        font-weight="bold"
-        font-size="12"
-        font-family="Arial"
-        dominant-baseline="alphabetic"
-        filter="url(#halo_map_bases_2_0_0_0_1_1)"
-        transform="matrix(1.00000000,0.00000000,0.00000000,1.00000000,0.00000000,4.00000000)"
-        fill-rule="evenodd"
-      >
-        6
-      </text>;
+      //Preparing Pre Group Info
+      //clear(); //For the console.log
+      var xUniqueId = 0;
+      self.arrayLinearMarkers = [];
+      console.log(clusterLayer._clusterData);
+      clusterLayer._clusterData.map(function(item) {
+        if (true) {
+          //It Defines the Some Logic
+          xUniqueId += 1; //New Line for the Caret Arrow Line
+          // this is defining the LIne GROUP_HEADER
+          self.arrayLinearMarkers.push({
+            UniqueId: xUniqueId,
+            Caption: item.attributes.Caption,
+            Image: item.attributes.Image,
+            Link: item.attributes.Link,
+            Name: item.attributes.Name,
+            x: item.x,
+            y: item.y
+          });
+        }
+      });
+      console.log(self.arrayLinearMarkers);
+
+      //Grouping By base Type
+      //clear();
+      var groupByType = [
+        self.arrayLinearMarkers.reduce(function(r, a) {
+          r[a.Name] = r[a.Name] || [];
+          r[a.Name].push(a);
+          return r;
+        }, Object.create(null))
+      ].filter(function(item, i, arr) {
+        return arr.indexOf(item) >= i;
+      });
+
+      groupByType.filter(function(item, i, arr) {
+        return arr.indexOf("Base") >= 0;
+      });
+
+      //Its Possible combine as Many as wish By "allFacetsSvg"
+      var allFacetsMultiImages = [];
+
+      allFacetsMultiImages.push({
+        ClusterMinimalCounter: 1,
+        Type: "BaseLand",
+        ImgName: "BaseLand" //Level Two Different Types Dark Green (land) / Green (Land Foreign)
+      });
+
+      allFacetsMultiImages.push({
+        ClusterMinimalCounter: 2,
+        Type: "BaseLandForeign",
+        ImgName: "BaseLand-MultiGrpForeign-2" //Level Two Different Types Dark Green (land) / Green (Land Foreign)
+      });
+
+      allFacetsMultiImages.push({
+        ClusterMinimalCounter: 3,
+        Type: "BaseLandForeign", //Level Tres Different Types  //Dark Blue (Sea) / Blue (Blue) / Dark Green (Land)
+        ImgName: "BaseLand-MultiGrp-3"
+      });
+
+      allFacetsMultiImages.push({
+        ClusterMinimalCounter: 3,
+        Type: "BaseLandForeign", //Level Tres Different Types  //Dark Blue (Sea) / Blue (Blue) / Green (Land Foreign)
+        ImgName: "BaseLand-MultiGrpForeign-3"
+      });
+
+      // It filters All BaseLand and BaseLandForeign
+      self.arrayLinearMarkers.filter(function(item, i, arr) {
+        return self.stringIncludes(item.Name, "BaseLand");
+      });
+
+      //Search Two Diff Array and creatses New One Combining the filters
+      var markersWitImages = self.arrayLinearMarkers
+        .filter(function(marker) {
+          return (
+            allFacetsMultiImages.filter(function(img) {
+              return img.Type === marker.Name; //It Should Have a Property called Type = 'BaseLand' like so
+            }).length > 0
+          );
+        })
+        .map(function(item) {
+          return {
+            UniqueId: xUniqueId,
+            Name: item.Name,
+            x: item.x,
+            y: item.y,
+            ImageName: allFacetsMultiImages
+              .filter(function(img) {
+                return (
+                  img.Type === item.Name &&
+                  img.ClusterMinimalCounter <= item.ClusterCounter
+                ); //Here it Should Compare
+              })
+              .map(function(icon) {
+                return icon.ImgName != null ? icon.ImgName : "BaseLand"; //Defining some Base Image TODO => Refactor this Line
+              })[0], //To Return just the Values Encountered
+            Caption: item.Caption,
+            Image: item.Image,
+            Link: item.Link
+          };
+        });
+
+      console.log(markersWitImages);
+
+      //console.log('Changed: ', changed);
+      //This Makes Update at the Original Array
+      //   var arrToFilter = [{ UniqueId: uniqueId }];
+      //   self.arrayLinearMarkers
+      //     .filter(function(marker) {
+      //       return (
+      //         arrToFilter.filter(function(img) {
+      //           return img.UniqueId === marker.UniqueId;
+      //         }).length > 0
+      //       );
+      //     })
+      //     .map(function(item) {
+      //       return (item.GroupActive = !item.GroupActive);
+      //     });
+
+      // Caption: "another crappy day at work..."
+      // Image: "https://distilleryimage11.instagram.com/231895caaf2211e19dc71231380fe523_6.jpg"
+      // Link: "https://instagr.am/p/Lfz0O-Io5_/"
+      // Name: "gino beltran"
+
+      //   <text
+      //     fill="rgb(255, 255, 255)"
+      //     fill-opacity="1"
+      //     stroke="none"
+      //     stroke-opacity="0"
+      //     stroke-width="1"
+      //     stroke-linecap="butt"
+      //     stroke-linejoin="miter"
+      //     stroke-miterlimit="4"
+      //     x="534"
+      //     y="257"
+      //     text-anchor="middle"
+      //     text-decoration="undefined"
+      //     rotate="0"
+      //     kerning="auto"
+      //     text-rendering="auto"
+      //     font-style="normal"
+      //     font-variant="normal"
+      //     font-weight="bold"
+      //     font-size="12"
+      //     font-family="Arial"
+      //     dominant-baseline="alphabetic"
+      //     filter="url(#halo_map_bases_2_0_0_0_1_1)"
+      //     transform="matrix(1.00000000,0.00000000,0.00000000,1.00000000,0.00000000,4.00000000)"
+      //     fill-rule="evenodd"
+      //   >
+      //     6
+      //   </text>;
 
       var defaultSym = new SimpleMarkerSymbol().setSize(4);
       var renderer = new ClassBreaksRenderer(defaultSym, "clusterCount");
