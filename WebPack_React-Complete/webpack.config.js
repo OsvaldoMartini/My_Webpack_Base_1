@@ -20,7 +20,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js' //name key fro the entry section
+    filename: '[name].[chunkhash].js' //name key fro the entry section
   },
   module: {
     rules: [
@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor' // Check the Dulplications modules and pull  in and out from bundle t reduce sizes
+      names: ['vendor', 'manifest'] // Check the Dulplications modules and pull  in and out from bundle t reduce sizes
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html' //The Devloper must the same file inside of src...Video: 36 Troubleshoting Vendor Bundles
