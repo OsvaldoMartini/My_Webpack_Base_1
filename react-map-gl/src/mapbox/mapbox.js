@@ -139,7 +139,7 @@ type Props = {
 
 // Try to get access token from URL, env, local storage or config
 export function getAccessToken(): string {
-  let accessToken = null;
+  let accessToken = 'null';
 
   if (typeof window !== 'undefined' && window.location) {
     const match = window.location.search.match(/access_token=([^&\/]*)/);
@@ -151,6 +151,9 @@ export function getAccessToken(): string {
     accessToken =
       accessToken || process.env.MapboxAccessToken || process.env.REACT_APP_MAPBOX_ACCESS_TOKEN; // eslint-disable-line
   }
+
+  accessToken =
+    'pk.eyJ1Ijoib21hcnRpbmkiLCJhIjoiY2p2dTdtZmdxM2RnNzN6bWdwNGlmcW90aiJ9.VExEJ3JXpjCLDUvsmovEkQ';
 
   // Prevents mapbox from throwing
   return accessToken || 'no-token';

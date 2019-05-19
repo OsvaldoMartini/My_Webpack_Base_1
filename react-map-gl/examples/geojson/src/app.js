@@ -27,6 +27,8 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    console.log(defaultMapStyle);
+
     requestJson('data/us-income.geojson', (error, response) => {
       if (!error) {
         this._loadData(response);
