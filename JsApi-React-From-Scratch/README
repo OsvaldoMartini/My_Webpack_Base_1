@@ -12,6 +12,7 @@ npm i - D @arcgis/webpack-plugin
 //Themes: https://github.com/Esri/calcite-web and https://github.com/Esri/calcite-maps
 npm i -D github:Esri/calcite-web#v1.0.0-rc.8
 
+// "@types/arcgis-js-api": "~4.11",
 
 npm i -S react react-dom
 
@@ -26,6 +27,8 @@ Clean Folder
 npm install --save-dev rimraf
 
 ## Attention
+npm install --save-dev @arcgis/webpack-plugin@4.11
+
 npm uninstall @arcgis/webpack-plugin@^4.11
 
 npm install --save-dev @arcgis/webpack-plugin@~4.10.5
@@ -41,3 +44,9 @@ npm install --save-dev resolve-url-loader@^2.3.0
 ## WEBPACK-DEV-SERVER
 npm install --save-dev webpack-dev-server@2.2.0-rc.0
 //npm install --save-dev webpack-dev-server@3.1.10
+
+## npm i leaflet
+npm install --save-dev react-leaflet
+npm install --save react-leaflet-geojson-patterns
+//npm install --save-dev leaflet-css
+
