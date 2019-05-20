@@ -50,3 +50,5 @@ npm install --save-dev react-leaflet
 npm install --save react-leaflet-geojson-patterns
 //npm install --save-dev leaflet-css
 
+npm install
+npm rebuild node-sass for node 10+
