@@ -19,9 +19,9 @@ new WebpackDevServer(webpack(config), {
     hash: false,
     timings: false,
     chunks: false,
-    chunkModules: false,
-  },
-}).listen(8080, 'localhost', (err) => {
+    chunkModules: false
+  }
+}).listen(8085, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
