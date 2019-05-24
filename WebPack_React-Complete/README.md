@@ -13,3 +13,14 @@ npm install
 
 
 npm -i -S rimraf
+
+
+Deployment
+npm install -g surge
+
+npm run surge
+
+// it can be any pasword at first 
+surge -p dist  
+
+
