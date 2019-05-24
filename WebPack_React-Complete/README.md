@@ -23,6 +23,27 @@ npm run surge
 // it can be any pasword at first 
 surge -p dist  
 
+
+//Google Domain
+Add CNAME at the Domain
+Instructions:
+
+  -->>  https://surge.sh/help/adding-a-custom-domain
+
+Setting a CNAME
+To get started, you’ll need have a custom domain and sign into your account to manage it. now:
+
+1) Add a new CNAME record to your domain.
+2) Set the hostnames @ and www to:
+-->>  na-west1.surge.sh
+
+
+If your DNS provider doesn’t support CNAME records for apex domains, you can set an A record to the following IP address instead:
+45.55.110.124
+
+surge -p dist  shifthunter.com
+
+
 Git Hub pages:
 --> Video 47 Deploymentwith GitHub Pages (WebPack 2: The complete Developer's Guide)
 1) First Create new Repository
@@ -41,11 +62,36 @@ Git Hub pages:
 After Acces directly github url:
 https://osvaldomartini.github.io/ReactListSingers
 
+
+Video: AWS vis S3
 Deployment AWS  via S3 service 
 S3 service can be thought of as like a big data directory a big folder sitting out on some server
 It is perfect to hosting static websites.
 because there's absolutely nologic involved on it
 only Server folders and server files its only what it does
+
+1) Create Secrete Key at AWS Amazon
+
+2) Create the ".env" file with the keys:
+.env (file) with the Access Keys
+AWS_ACCESS_KEY_ID=AKIAJS63L6FJ2REXNEDQ
+AWS_SECRET_ACCESS_KEY=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
+
+
+3) run the command: (Be Aware about the name of the bucket file)
+    s3-website create webpack-deploy
+        Error: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+
+    s3-website create webpack-deploy-1234
+
+4) After Created the Bucklet  it needs to deploy
+
+    s3-website deploy dist
+
+5) visit the web site
+Updated site: http://webpack-deploy-1234.s3-website-us-east-1.amazonaws.com
+
+
 
 
 
