@@ -103,5 +103,12 @@ making webpack Middleware.
 Creating a Stand Alone Server
 npm install --save express
 
+Install Webpack as  Middleware (For Intercept incoming request and hand it off to webpack)
+npm install --save-dev webpack-dev-middleware@2.0.6
 
+context.compiler.hooks.invalid.tap('WebpackDevMiddleware', invalid);
+//These Version really works together
+  "webpack": "^2.2.0-rc.0",
+  "webpack-dev-middleware": "^2.0.6",
+  "webpack-dev-server": "^2.2.0-rc.0"
 
