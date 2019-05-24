@@ -79,7 +79,7 @@ function encodeImageFileAsURL(file, nameImg) {
       //newImage.src = srcData_File  || srcData_Intern;
       newImage.src = fileLoadedEvent.target.result;
 
-      document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+      //document.getElementById("imgTest").innerHTML = newImage.outerHTML;
       //alert(
       //  "Converted Base64 version is " +
       //    document.getElementById("imgTest").innerHTML
