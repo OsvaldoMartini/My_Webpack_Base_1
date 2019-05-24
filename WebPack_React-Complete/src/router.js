@@ -15,6 +15,7 @@ const componentsRoutes={
   indexRoutes:{ component: ArtistMain},
   childRouts: [{
     path: 'artist/new'
+    
     getComponent(location, cb) {//The Maig Here is: We eant to Asynchronouslu load up our component asynchronously
     //The Strategy here is to place our System.import call to dynamically load up the component 
     //And then after loaded (once is Fetched) it up we will call cb with the component that we just loaded 
