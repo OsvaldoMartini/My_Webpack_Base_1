@@ -41,6 +41,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html' //The Devloper must the same file inside of src...Video: 36 Troubleshoting Vendor Bundles
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV) //When React Boost Up it's going to look for this variable on Windows Scope
     })
   ]
 };
