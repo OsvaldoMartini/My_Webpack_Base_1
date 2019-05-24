@@ -12,16 +12,21 @@ import ArtistEdit from './components/artists/ArtistEdit';
 const componentsRoutes={
   component:Home,
   path: '/',
-  indexRoutes:{ component: ArtistMain},
-  childRouts: [{
+  indexRoute:{ component: ArtistMain},
+  childRoutes: [
+    {
     path: 'artist/new'
-    
     getComponent(location, cb) {//The Maig Here is: We eant to Asynchronouslu load up our component asynchronously
     //The Strategy here is to place our System.import call to dynamically load up the component 
-    //And then after loaded (once is Fetched) it up we will call cb with the component that we just loaded 
-      System.import('./components/artists/ArtistCreate').then(module => cb())
+    //And then after loaded (once is Fetched) it up we will call the "cb" calback function with the modle that just got loaded 
+    // The two big Gotchas in this Splitting Process 
+    // cb(First Agrument is Expecting error, Second Expect Results)
+    // Cb(null,) => We are assuming that we don't have an error to pass => "He Loaded the Module, everything is good!!!"
+    //The Second Module is the entire Javascript module and the actual code is available on "module.default" 
+    System.import('./components/artists/ArtistCreate').then(module => cb(null, module.default));
     }
-  }]
+  }
+]
 };
 
 const Routes = () => {
