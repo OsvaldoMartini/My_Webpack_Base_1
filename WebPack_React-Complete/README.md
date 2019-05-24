@@ -92,6 +92,16 @@ AWS_SECRET_ACCESS_KEY=luNDWHolqLK/SXqJQKDMwMfD698ga6LTePQavfhz
 Updated site: http://webpack-deploy-1234.s3-website-us-east-1.amazonaws.com
 
 
+Clean Up all AWS DElete the Acces Keys and the S3- Services Buckets
+
+
+==>>>====>>>>>>>====>>>>>
+Videos 49 and 50 To See the Schemas
+Node and Webpack Integration
+
+making webpack Middleware.
+Creating a Stand Alone Server
+npm install --save express
 
 
 
