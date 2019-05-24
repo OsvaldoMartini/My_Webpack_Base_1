@@ -41,5 +41,11 @@ Git Hub pages:
 After Acces directly github url:
 https://osvaldomartini.github.io/ReactListSingers
 
+Deployment AWS  via S3 service 
+S3 service can be thought of as like a big data directory a big folder sitting out on some server
+It is perfect to hosting static websites.
+because there's absolutely nologic involved on it
+only Server folders and server files its only what it does
+
 
 
