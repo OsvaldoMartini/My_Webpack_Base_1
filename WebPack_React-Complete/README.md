@@ -43,6 +43,7 @@ If your DNS provider doesn’t support CNAME records for apex domains, you can s
 
 surge -p dist  shifthunter.com
 
+==>>>>>>==>>>>>>>>>>
 
 Git Hub pages:
 --> Video 47 Deploymentwith GitHub Pages (WebPack 2: The complete Developer's Guide)
@@ -53,7 +54,7 @@ Git Hub pages:
 4) git init
 5) git add . //to add all the code
 6) git commit -m "initial commit"
--) //add git hub Pages as REmote for this repo
+-) //add git hub Pages as Remote for this repo
 7) git remote add origin https://github.com/OsvaldoMartini/ReactListSingers.git
 -) //check out gh-pages
 8) git checkout -b gh-pages 
@@ -129,3 +130,66 @@ app.get('/hello', (req, res) => res.send({ hi: 'there' }));
 
 //AWS and Heroku it Not Allow to Specific the Port here
 //But they will want you to bind to a port specified by the server
+
+===>>>>>>>=====>>>>
+Defining "Procfile" to run with Horoku
+
+Heroku it work with Git Repository
+
+Search for Heroku CLI
+https://devcenter.heroku.com/articles/heroku-cli
+
+and Install the CLI
+
+Download: Windows CLI and Install it: "heroku-x64.exe"
+Instructions: https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+
+Using Heroku
+Again:
+>git init (Doesn't matter if you already have the repository)
+>git add .
+>git commit -m "initial commit"
+
+At the Terminal digite:
+> heroku login <enter>
+> heroku create   [Copy the App and URL]
+https://aqueous-savannah-89667.herokuapp.com/ | https://git.heroku.com/aqueous-savannah-89667.git
+
+Heroku it's also going to automatically add a remote target to our Git repository
+> git remote -v
+> git remote rm heroku //To Remove all Repos Lost
+Deployment just type:
+> git push heroku master => Cause Error Check the Logs
+> git push heroku origin
+
+Check any Logs:
+> heroku logs
+
+CREATING NEW BRANCH
+> git checkout -b tempbranch
+and then push using
+>git push heroku tempbranch
+
+If Everything ends fine Type:
+> heroku open
+
+==>>>>==>>>>
+
+Check the following
+
+Make sure you add all the files and directories needed to be tracked are added using git status [You have done this]
+> git status
+
+If not added then add them using **git add . ** [You have done this]
+> git add .
+
+Bundle all gems and you will have Gemfile.lock
+NOT APPLICABLE for WINDOWS
+> bundle install
+> git add Gemfile.lock
+> git commit -am "Added Gemfile.lock"
+
+Push it to heroku
+> git push heroku master
+
+Your push should work
