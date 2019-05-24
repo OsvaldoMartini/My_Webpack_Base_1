@@ -52,3 +52,6 @@ npm install --save react-leaflet-geojson-patterns
 
 npm install
 npm rebuild node-sass for node 10+
+
+
+npm install --save redux-devtools-extension

@@ -45,6 +45,7 @@ class ZoomInOut extends React.Component {
   }
 
   render() {
+    console.log("object");
     const maxstate = this.state.maxZoomed
       ? "button circle raised disable"
       : "button circle raised";
