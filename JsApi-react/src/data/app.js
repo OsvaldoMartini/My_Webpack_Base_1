@@ -17,7 +17,7 @@ export const view = new MapView({
 export const search = new Search({ view });
 view.ui.add(search, "top-right");
 
-export const initialize = (container) => {
+export const initialize = container => {
   view.container = container;
   view
     .when()
@@ -29,4 +29,3 @@ export const initialize = (container) => {
     view.container = null;
   };
 };
-
