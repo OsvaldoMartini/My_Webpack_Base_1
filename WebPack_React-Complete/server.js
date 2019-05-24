@@ -20,4 +20,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 //AWS and Heroku it Not Allow to Specific the Port here
 //But they will want you to bind to a port specified by the server
-app.listen(3050, () => console.log('Listening port: 3050'));
+
+app.listen(process.env.PORT || 3050, () => console.log('Listening port: 3050'));

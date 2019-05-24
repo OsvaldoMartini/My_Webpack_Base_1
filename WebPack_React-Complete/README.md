@@ -124,3 +124,8 @@ Tests as PRODUCTION
 
 Adding some Authentication or Databasic Logic or anything like that
 It is to Add Additional Route ABOVE ABOVE ABOVE ALL WEBPACK INFORMATION
+//Servers Routes...
+app.get('/hello', (req, res) => res.send({ hi: 'there' }));
+
+//AWS and Heroku it Not Allow to Specific the Port here
+//But they will want you to bind to a port specified by the server
