@@ -25,7 +25,7 @@ class Header extends Component {
           <div className="nav-wrapper">
             <div className="col s12">
               <a href="#" className="brand-logo">
-                Music
+                Osvaldo Martini Music
               </a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li>
