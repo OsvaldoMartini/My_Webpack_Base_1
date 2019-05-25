@@ -1,0 +1,1417 @@
+Please find the attached a-account logon details.
+(ihs.internal.corp)
+Username: a-osvaldo.martini
+Password: quie+Match58
+
+Youtube Tube APiI Key
+AIzaSyCL_-ee9MYvoHQGUROpyNRQZ9zlbY6mZCY  (osvaldo.martini)
+AIzaSyCphzAQ2QLeu-mNSCYRiyydozqKlCXsEnw  (martini.dev.architect)
+
+Esri ArcGis
+Login: osvaldomartini (omartini38 or omartini)
+pwd Martini!383940
+ArcGIS OnLine URL
+http://osvaldomartini.maps.arcgis.com
+Temporary Key: ZfLpYSEGST95z821YwRou2PkG3NXNHsr7C-isx5_M-GfGjbVHhzjOKriaFAQIbUDRicToD4KkZOao_7seElgZX3fzr6NhZm6S7FU9b0BXFa1a5i5tCrZQYLYFsdCqywEdnnNbIMMWKJNSls-Ub1gT8Tj4n_Z0nQS09pVBQhdVy-KsJ8F_GmPbExvtzBP59nTkFsF2kzVjZiJRZlIPES8HXU3Bk-6XXl9l1b3uZLcwSk.
+
+Surge.sh
+surge -p dist  shifthunter.com
+
+Git Hub Pages
+gh-pages
+git subtree push --prefix dist origin gh-pages
+https://osvaldomartini.github.io/ReactListSingers/#/
+
+Heroku.com
+osvaldo.martini@gmail.com
+Martini!383940
+
+
+AWS EC2
+Account Id: 222398126062 
+UserId: OsvaldoMartini
+pwd: Martini!383940
+
+AWS AMAZON
+upgrading pip
+pip  install --upgrade pip
+
+Elastic Beanstalk
+
+AWS AMAZON
+Access Key ID:
+AKIAJS63L6FJ2REXNEDQ
+Secret Access Key:
+luNDWHolqLK/SXqJQKDMwMfD698ga6LTePQavfhz
+
+UiPath
+Login: omartini
+Rebeca!383940
+
+Benefits IHS
+https://ssl.perquisite.net/RewardCentre/M/Login#/
+login: osvaldo.martini@ihsmarkit.com
+pwd Rebeca!383940
+
+https://www.avivamymoney.co.uk/Login
+AVIVA
+UserName:  OMartini38 (oldO MARTINI377)  (osvaldo.martini@gmail.com and osvaldo.martini@ihsmarkit.com)
+PWD: Martini383940
+Memorable WORD: Rebeca4265
+
+
+Tnwitter
+@omartini38
+martini383940
+
+Refund Mondey
+https://members.healthshield.co.uk/MemberMP/LoginMember.aspx 
+Member N: CN1303550
+login: osvaldo.martini@ihsmarkit.com
+pwd: Martini!383940
+
+Buy House
+https://www.helptobuy.gov.uk/ 
+
+
+ihs.internal.corp)
+Username: a-osvaldo.martini
+Password: quie+Match58
+
+
+VT-x is not enabled in the BIOS
+The CPU doesn't support VT-x
+Hyper-V virtualization is enabled in Windows
+Since the user already eliminated the first two possible culprits, the next step is to open a command prompt as administrator and run the following command:
+
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+Afterwards, reboot the PC and try VirtualBox again.
+
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+and
+
+dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All
+
+
+BankOfAmerica 
+ID/Login: osvaldomartini
+account 8980 9526 3080
+Domestic ABA: 063100277
+
+Wire transfer routing
+SWIFT (INTERNATIONAL): BOFAUS3N
+ABA (DOMESTIC): 026009593
+
+FREE-CALL-VOIP
+USER: omartini383940
+PWD Rebeca383940
+
+Insgtagram
+Login: osvaldo.martini
+pdw: Martini!383940
+Itau
+ag 3053
+cp 41340-1/500
+senha internet 242109 (old)  160942
+senha cartao 092124
+CLAUDIA
+CPF 048.407.666-30
+Barclaycard  : omartini38
+
+Mercado Livre  UserID: MARTINIOSVALDO41
+osvaldo.martini@gmail.com
+Rebeca!383940
+
+ADP PaySlip
+ADP link to access payslip is https://myfreedom.adp.com/
+User id: OMartini@IHSGlobal
+Password R9Beca40
+Old Martini!383940
+
+IHS Markit Employee Number 
+Your Employee number is: 251565
+
+UKC4LT4ZHXHM2
+
+ java utils.CertGen -cn test01.local.lan -keyfilepass DemoIdentityPassPhrase -certfile testcert -keyfile testkey
+ 
+ Set the Name of the Machine (localhost)
+ 
+ In order to bypass this issue, use the "-noskid" parameter when running utils.CertGen . (-noskid)
+ java utils.CertGen -cn UKC4LT4ZHXHM2 -keyfilepass DemoIdentityPassPhrase -certfile testcert -keyfile testkey -noskid
+ 
+ java utils.ImportPrivateKey newkeystore.jks DemoIdentityKeyStorePassPhrase demoidentity DemoIdentityPassPhrase testcert.pem testkey.pem
+ java utils.ImportPrivateKey DemoIdentity.jks DemoIdentityKeyStorePassPhrase demoidentity DemoIdentityPassPhrase testcert.pem testkey.pem
+ Put inside of the folder:
+	D:\Martini\Java\wls12130_Infra\user_projects\domains\Infra_Domain\security
+ 
+ 	
+ Result:
+ Imported private key testkey.pem and certificate testcert.pem
+ into a new keystore newkeystore.jks of type jks under alias demoidentity
+ 
+It is deployed within the JBOSS ESB instance on the following Linux  servers.
+
+Unix/Linux
+get log 10 last rows
+  tail -10f /apps/custom/jbossesb-server-4.11/server/default/log/server.log
+  
+Development: (v-vwc1djanap04.ihsglobal.local)  user: profiler pwd: triut8lu
+Test: (v-vwc1tjanap03.ihsglobal.local)
+Stage: (v-vwc1sjanap02.ihsglobal.local)
+Production:(v-vwc1pjanap02.ihsglobal.local )
+
+Test.udl
+
+ETrade
+E*Trade
+Login User ID  omartini  Password Martini!383940
+Secutiry question
+In what city was your father born? Sao Paulo
+What's childhood nichname? Vital
+What's yout mother's middle name? Moema
+
+Your authentication code: RC2q4A
+
+
+SQL Instances
+reg query "HKLM\Software\Microsoft\Microsoft SQL Server\Instance Names\SQL"
+
+Plugin Manager
+http://v-vwc2dcmpap01.ihsglobal.local:8888/PluginManager/Home/Index 
+USER : admin
+password: admin123
+
+NTSDM 
+http://vwc1ddotw010.ihsglobal.local:8080/servlet/cats?pageContent=home# 
+user Kennan
+password: NK5RD4MX
+
+
+MySQL InnoDB
+
+The InnoDB cluster 'sandboxCluster' is available on the following ports:
+     localhost:3310 through localhost:3330
+
+To connect with the MySQL Shell execute the following command:
+     mysqlsh root@localhost:3310
+
+To bootstrap the MySQL Router execute the following command:
+     mysqlrouter --bootstrap root@localhost:3310 --directory router-sandbox
+
+	 
+mysql -u root -h mysqlsh root@localhost -P 3310 -p 
+	 
+
+Who is using Ports
+
+Netstat -a -n -o >%USERPROFILE%\ports.txt
+
+tasklist /svc /FI "PID eq 18824"
+
+
+MySQLLocal
+
+MySQL80 (LapTop IHS-Markit)
+users:
+root  pwd: martini383940
+omartini pwd: martini383940
+
+
+Hosts
+SmarterASP.NET
+	Confirm New Hosting Account Info
+      Hosting Account ID：	omartini-001
+      First Website Root Folder Name：	www
+      First Website Type：	ASP.NET
+      Hosting Plan Name：	W60-EU
+      	
+    Please Record The Following FTP Infomation:
+      FTP Address ：	FTP-EU.SITE4NOW.NET
+      FTP Username ：	omartini-001
+      FTP Password ：	Martini!383940 (same as your control panel password)
+      FTP Directory	\
+	  
+	  
+
+mysql -u a418f0_martini -h mysql6001.site4now.net -P 3306 -p db_a418f0_martini
+  
+SQLServer SmarterAsp
+ DB_A418F0_omartini
+MSSQL: sql6002.site4now.net
+Username: DB_A418F0_omartini_admin
+"Data Source=SQL6002.site4now.net;Initial Catalog=DB_A418F0_omartini;User Id=DB_A418F0_omartini_admin;Password=martini383940;"
+	  
+
+Skype/Phone/  
+omartini38
+rebeca383940
+osvaldo_martini_1
+rebeca383940
+
+REBECA MARTINI DINAMARA6419 REBECA4265
+Rebeca4265
+
+
+Senha quase geral
+Rebeca64194265
+
+Data Source=DSMySQL
+Driver=com.mysql.jdbc.Driver
+URL=jdbc:mysql://mysql6001.site4now.net:3306/db_a418f0_martini
+User=a418f0_martini
+Password=martini383940
+SQL Test=SELECT 1
+
+CFGFWK-64213: Test Successful!
+CFGFWK-64213: JDBC connection test was successful.
+CFGFWK-64213: No action required.
+
+Data Source=DSSQLSever
+Driver=weblogic.jdbc.sqlserver.SQLServerDriver
+URL=jdbc:weblogic:sqlserver://sql6002.site4now.net:1433;allowPortWithNamedInstance=true
+User=DB_A418F0_omartini_admin
+Password=martini383940
+SQL Test=SELECT 1
+
+CFGFWK-64213: Test Successful!
+CFGFWK-64213: JDBC connection test was successful.
+CFGFWK-64213: No action required.
+
+martini383940
+
+USER ID GOV UK
+POST OFICCE CHECK IDENTITY
+https://auth.myprofile.post.co.uk/sign_in   senha Martini383940
+
+UPDATE TAX RETURN IN GENERAL PAGE TO CHECK DETAILS
+https://www.gov.uk/self-assessment-tax-returns/corrections
+
+USER ID GOV UK
+431972141914   created in 25/12/2017   martini38
+759444871067   martini38
+
+Bradesco
+Claudia e Minha
+Agencia 2903
+Popupanca: 10005043
+pwd 2409
+cartao debito: 242109
+pin app bradesco 2409
+ 
+ 
+ passaport Claudia
+   FK 600 689
+   MasterItalian
+MasterItalo45
+MasterItalo@gmail.com 10-09-1975
+Dinamarca!383940
+tereza.macedo1969@gmail.com
+tereza383940
+nascimento 01/09/1969
+recover claudiabhz@gmail.com
+fone +447426954766
+
+event id OTL Test DEL-4752-LJOS  WWW.ODA1.COM
+877.909.8378 SUPPORT@CRITERIACORP.COM
+
+
+Welcome to Student Finance England
+You can log in to your account using your:
+Customer Reference Number (CRN):	
+45872464237
+You'll need your CRN if you have to call us.
+About your account 
+
+Dinamaraca!383940
+osvaldo.martini Claudia!4265
+REBECA42656419
+Rebeca@6419
+Mother Closest Friend-Moema
+Chieldhood- Vital
+... Rebeca
+
+uber
+martini.uber.uk@gmail.com Martini!383940
+martini.uber.usa@gmail.com  Martini!383940
+martini.deliveroo.uk@gmail.com Martini!383940
+martini.dev.architect@gmail.com Claudia!4265
+Maria Martini Conta com numero do Brazil +55 11 976553082
+mt7258994@gmail.com  senha martini383940 telefone mae +55 11 976553082
+Privacy
+My Account
+
+
+martini.lift.usa@gmail.com
+martini.grubhub.usa@gmail.com
+
+
+skype: omartini38
+senha martini383940
+
+Microsoft e-mail e senha
+osvaldo.martini@gmail.com
+Claudia383940
+
+Email – rafa.martini300@uninove.edu.br
+senha papibaquigrafo19966
+usuário: Rafael Martini
+senha: Martini!383940
+
+Claudia!4265
+
+
+skype: osvaldo.martini@gmail.com
+pasword Martini42656419
+
+
+kelly@euracom.co.uk
+
+
+HeidiSQL -> Management
+MariaDB -> MySQLMariaSB
+root: martini383940
+port 3316 (3306 Already in Use for MySQL)
+
+
+Abrasite
+MySQL
+mysql -u wservices -p martini38 -h 177.185.206.21 wservices
+
+Add IP Externo my Laptop: 188.29.165.222	
+mysql -u wservices -h mysql.wservices.co.uk -P 3306 -p wservices
+
+Abrasite MySql Databases:
+wservices pwd: martini38
+
+Second Database Abrasite
+mysql -u wservices01 -h mysql.wservices.co.uk -P 3306 -p wservices01
+wservices01 pwd: w102938s	
+
+mysql -u wservices -h localhost -P 3306 -p wservices
+
+Painel Controle Abrasite and FTP
+wservices@wservices.co.uk
+senha: martini38
+
+martini@martini-marcas.com.br
+senha: martini38
+
+
+
+
+
+SQL Server
+CIDR/IP: 185.53.226.162/32
+
+Account Id:708328255496 
+
+User: omartini
+Access key ID: AKIAJYQ3AMAOIYNHXA5Q
+Secret access key: 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
+Password: =Ma|jbv8R#La
+User: supervisor
+Access key ID: AKIAI75XRQLBGTQEME2Q
+Secret access key: 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
+Password: 1V%}!8yvR[18
+
+
+pip install awsebcli --upgrade --user
+
+
+
+Principal senha com nome Claudia
+
+Principal stambe com meu primeiro Pet
+
+Acessamos normalmente com os dados que seguem:
+Endereço: painel.abrasite.com
+Usuário: martini@martini-marcas.com.br
+Senha: m102938m 
+
+
+NEXUS SONATYPE
+USER: admin
+PASSWORD: martini
+
+
+VARIÁVEIS LOCAIS
+ChocolateyLastPathUpdate	VALUE: 	sex mar 31 06:23:01 2017
+OPENSHIFT_MYSQL_DB_HOST   	VALUE:	http://wservices-sysmartek.rhcloud.com
+OPENSHIFT_MYSQL_DB_PASSWORD	VALUE:	YhchFq6xRRjQ
+OPENSHIFT_MYSQL_DB_PORT		VALUE:	44966
+OPENSHIFT_MYSQL_DB_USERNAME	VALUE:	adminHEZmlve
+Path						VALUE:	C:\Ruby193\bin;C:\Users\omartini\AppData\Roaming\npm
+Path (31/03/2017)			VALUE:	C:\Users\omartini\AppData\Local\Yarn\.bin;C:\Users\omartini\AppData\Roaming\npm
+PATHEXT						VALUE:	%PATHEXT%;.RB;.RBW
+TEMP						VALUE:	%USERPROFILE%\AppData\Local\Temp
+TMP							VALUE:	%USERPROFILE%\AppData\Local\Temp
+
+VARIÁVEIS DO SISTEMA
+ACTIVEMQ_HOME 		->	D:\Martini\Java\apache-activemq-5.13.0
+ANDROID_HOME 		->	D:\Android\Android\sdk
+ChocolateyInstall	->	C:\ProgramData\chocolatey	
+CLASSPATH			->	%MWHOME%\wlserver\server\lib\jtds-1.3.1.jar;D:\Martini\Java\axis-wsdl4j-1.2.1.jar;D:\Martini\Java\axis2-0.9.jar;D:\Martini\Java\commons-discovery-0.5.jar;%JAVA_HOME%\lib\tools.jar;
+ComSpec         	->	%SystemRoot%\system32\cmd.exe
+DOMAIN_HOME     	->	%MWHOME%\user_projects\domains\mydomain 
+EAP_HOME			->	D:\Martini\Java\jboss-eap-6.4
+FP_NO_HOST_CHECK	->	NO
+GLASSFISH_HOME		->	D:\glassfish-4.1\glassfish48
+JDK_HOME			->	C:\Program Files\Java\jdk1.8.0_121   for InteliJ IDE
+JAVA_HOME			->	C:\Program Files\Java\jdk1.8.0_60 
+JAVA_OPTIONS		->	-XX:+UnlockCommercialFeatures -XX:+FlightRecorder
+For WebLogic:
+JAVA_OPTIONS		->	-XX:+UnlockCommercialFeatures -XX:+ResourceManagement
+JBOSS_HOME			->	D:\Martini\Java\jboss-eap-6.4
+JERKINS_HOME		->	D:\Martini\Java\jerkins
+M2					->	%MAVEN_HOME%\bin
+MAVEN_HOME			->	C:\apache-maven-3.3.9
+MWHOME				->	D:\Martini\Java\wls12130
+NDK_HOME  			->	D:\Martini\Java\Android\android-ndk-r16b-windows-x86\android-ndk-r16b
+NUMBER_OF_PROCESSORS->	8
+Path ->	C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;D:\nodejs\;D:\nodejs\node_modules\npm\bin;D:\Users\omartini\AppData\Roaming\npm\node_modules\cordova\bin;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\
+		C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;D:\nodejs\;D:\nodejs\node_modules\npm\bin;C:\Users\omartini\AppData\Roaming\npm\node_modules\cordova\bin;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;
+		C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin
+		
+		C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin
+
+		08/01/2018
+		C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;%APPDATA%\npm\;C:\Git\cmd;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2017.1\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;%NDK_HOME%;
+		
+		
+		
+PATHEXT				->	.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE	->	AMD64
+PROCESSOR_IDENTIFIER	->	Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+PROCESSOR_LEVEL			->	6
+PROCESSOR_REVISION		->	2a07
+PSModulePath			->	%SystemRoot%\system32\WindowsPowerShell\v1.0\Modules\
+SPRING_HOME				->	D:\Martini\Java\Spring-Boot\spring-1.3.1.RELEASE
+TEMP					->	%SystemRoot%\TEMP
+TMP						->	%SystemRoot%\TEMP
+USERNAME				->	SYSTEM
+VS120COMNTOOLS			->	D:\Microsoft Visual Studio 12.0\Common7\Tools\	
+VS140COMNTOOLS			->	D:\Microsoft Visual Studio 14.0\Common7\Tools\
+windir					->	%SystemRoot%
+WL_HOME					->	D:\Martini\Java\wls12130\wlserver
+
+SPRING_HOME  	-> SPRING CLI  BOOT
+CLASSPATH  		->  DE USO GERAL DO JAVA E OUTRAS APLICAÇÕES
+JAVA_HOME  		-> PARA O JAVA
+M2  			-> PARA O MAVEM
+MAVEN_HOME  	-> PARA O MAVEN
+Path   			-> DE USO GERAL
+DOMAIN_HOME  	->  PARA O "WEBlOGIC"  user: martini pwd: martini383940
+MWHOME  		-> PARA O WEBLOGIC
+WL_HOME  		-> PARA O WEBLOGIC  
+ACTIVEMQ_HOME 	-> PARA ACTIVEMQ  -> user: admin pwd: admin
+JBOSS EAP 6- user: martini pwd: martini!383940
+GLASSFISH_HOME D:/glassfish-4.1/glassfish4    "PARA ATIVAR O DERBY"
+JBOSS_HOME D:/Martini/Java/jboss-eap-6.4
+EAP_HOME D:/Martini/Java/jboss-eap-6.4
+
+
+
+
+MySQL
+create database 'swing';
+create database 'gpv';
+create database 'sysmartek_db';
+
+
+ANDROID_HOME
+D:\Martini\Java\Android\sdk
+D:/Martini/Java/Android/sdk
+
+SPRING_HOME
+D:/Martini/Java/Spring-Boot/spring-1.3.1.RELEASE
+
+
+CARREFOUR
+https://arealogada.carrefoursolucoes.com.br/web/LoginUsuario/login-usuario.aspx
+
+	
+http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/
+http://www.olap4j.org/
+http://search.maven.org/
+http://repository.pentaho.org/artifactory/repo/org/olap4j/olap4j/1.1.0/	
+	
+	
+https://nexus.codehaus.org/content/groups/public/
+https://nexus.codehaus.org/content/groups/snapshots-group/
+https://nexus.codehaus.org/content/groups/staging/
+https://nexus.codehaus.org/content/repositories/codehaus-ci-snapshots/
+https://nexus.codehaus.org/content/repositories/codehaus-snapshots/
+https://nexus.codehaus.org/content/repositories/codehaus-snapshots/
+https://nexus.codehaus.org/content/repositories/releases/
+https://nexus.codehaus.org/content/repositories/snapshots/	
+
+
+-vm
+C:/Program Files/Java/jdk1.7.0_71/bin/javaw.exe
+-vm
+C:/Java/jre/bin/server/jvm.dll
+-vm
+C:/Program Files/Java/jre7/bin/server/jvm.dll
+
+
+-vm
+C:/Java/jdk1.8.0_25/bin/javaw.exe
+-vm
+C:/Java/jdk1.8.0_25/jre/bin/server/jvm.dll
+
+JAVA_OPTIONS
+-XX:+UnlockCommercialFeatures -XX:+FlightRecorder
+
+OpenCL
+https://issues.jboss.org/browse/JBIDE-2720
+
+
+JBoss Tools (XulRunner)
+http://download.jboss.org/jbosstools/updates/integration/luna/core/xulrunner/xulrunner-1.9.2_win64-2014-08-22_09-55-58-B4/
+
+Create a Debug for JBoos in IDE
+
+JREs  Create VM arguments copy all:
+-Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Duser.timezone=America/Sao_Paulo -Djboss.bind.address=0.0.0.0 -XX:NewSize=256m -XX:MaxNewSize=512m -Xms1g -Xmx1g -XX:PermSize=256m -XX:MaxPermSize=512m"
+
+
+
+
+Jboss WildFly
+http://www.horochovec.com.br/blog/2014/10/07/configurando-um-datasource-do-postgresql-no-wildfly/
+criar a pasta tmp em bin do  WildFly depois o .jar de base de dados
+module add --name=net.sourceforge.jtds  --resources=/tmp/jtds-1.3.1.jar --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=sqlserver:add(driver-name="sqlserver",driver-module-name="org.sqlserver",driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver)
+
+
+Skipe or Run Tests
+mvn install -Dmaven.test.skip=true
+
+mvn install -DskipTests=false
+mvn integration-test
+
+
+mvn archetype:generate -DgroupId=org.eclipse.m2e -DartifactId=lifecycle-mapping / -Dversion=1.0.0 -DarchetypeArtifactId=maven-archetype-mojo
+ 
+mvn archetype:generate -DgroupId=org.eclipse.m2e -DartifactId=lifecycle-mapping -Dversion=1.0.0 -DarchetypeArtifactId=maven-archetype-mojo
+
+mvn archetype:generate
+	
+mvn help:active-profiles
+
+mvn maven-help-plugin:some-goal 
+
+mvn maven-help-plugin:active-profiles 
+
+mvn help:active-profiles
+
+mvn help:describe -Dplugin=help
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-help-plugin
+mvn help:describe -Dplugin=org.somewhere:some-plugin:0.0.0
+
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-help-plugin:2.2
+
+    <add key="TSYS.UsuarioAcesso" value="crivosystem"/>
+    <add key="TSYS.SenhaAcesso" value="2-Cr2009_api"/>
+
+mvn archetype:generate -DgroupId=br.com.yaw.ssjpac -DartifactId=swing-spring-jpa-crud -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+	
+	
+mvn org.apache.maven.plugins:maven-archetype-plugin:2.2:generate -DgroupId=com.rakesh.core -DartifactId=Spring3Example  -DarchetypeArtifactId=maven-archetype-quickstart
+    -DinteractiveMode=false
+	
+	
+mvn install:install-file -Dfile=D:/Martini/Java/ojdbc6.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
+
+-DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/facelets-taglib-jsf20-spring-3-0.5.jar -DgroupId=com.oracle -DartifactId=facelets -Dversion=3.0.5 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/hibernate-jpa-2.1-api-1.0.0.Final.jar -DgroupId=com.oracle -DartifactId=hibernate-jpa -Dversion=2.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/javax.persistence-2.1.0.jar -DgroupId=com.oracle -DartifactId=javax.persistence-2.1.0 -Dversion=2.1 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/xstream-1.4.8.jar -DgroupId=com.thoughtworks -DartifactId=xstream-1.4.8 -Dversion=1.4.8 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/olap4j-1.1.0.jar -DgroupId=com.olap4j -DartifactId=olap4j-1.1.0 -Dversion=1.4.8 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/maven-help-plugin-2.2-javadoc.jar -DgroupId=com.apache.maven -DartifactId=maven-help-plugin-2.2-javadoc -Dversion=1.4.8 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/jrimum-bopepo-0.2.3.jar -DgroupId=org.jrimum.bopepo -DartifactId=jrimum-bopepo-0.2.3 -Dversion=0.2.3 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/portal-service.jar -DgroupId=org.jrimum.bopepo -DartifactId=6.2.10.10 -Dversion=6.2.10.10 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/sqljdbc4.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc4 -Dversion=4.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=D:/Martini/Java/sqljdbc.jar -DgroupId=com.microsoft.sqlserver -DartifactId=sqljdbc -Dversion=4.0 -Dpackaging=jar
+
+WebLogic Loggin
+mvn install:install-file -DgroupId=weblogic -DartifactId=wls-api -Dversion=10.0 -Dpackaging=jar -Dfile=wls-api.jar
+mvn install:install-file -DgroupId=weblogic -DartifactId=wlclient -Dversion=10.3 -Dpackaging=jar -Dfile=wlclient.jar
+
+mvn deploy:deploy-file -DgroupId=com.somecompany -DartifactId=project -Dversion=1.0.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=nexus -Durl=http://localhost:8081/nexus/content/repositories/releases -Dfile=target/wlclient.jar
+mvn deploy:deploy-file -DgroupId=weblogic -DartifactId=project -Dversion=1.0.0 -DgeneratePom=true -Dpackaging=jar -DrepositoryId=nexus -Durl=http://localhost:8081/nexus/content/repositories/releases -Dfile=wlclient.jar
+
+mvn deploy:deploy-file -DgroupId=com.somecompany -DartifactId=project -Dversion=1.0.0-SNAPSHOT -DgeneratePom=true -Dpackaging=jar -DrepositoryId=nexus -Durl=http://localhost:8081/nexus/content/repositories/snapshots -Dfile=target/project-1.0.0-SNAPSHOT.jar
+
+mvn deploy:deploy-file -DgroupId=org.apache.commons -DartifactId=project -Dversion=3.6 -DgeneratePom=false -Dpackaging=jar -DrepositoryId=nexus -Durl=http://v-savuk1dapp01.ihs.internal.corp/nexus/content/repositories/releases -Dfile=commons-lang3-3.8.1.jar
+
+ C:\Users\osvaldo.martini\Downloads\commons-lang3-3.8.1-bin\commons-lang3-3.8.1\target\commons-lang3-3.8.1.jar not found
+ C:\Users\osvaldo.martini\Downloads\commons-lang3-3.8.1-bin\commons-lang3-3.8.1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy-file (default-cli) on project standalone-pom: 
+Failed to deploy artifacts: Could not transfer artifact org.apache.commons:project:jar:3.6 from/to nexus (http://v-savuk1dapp01.ihs.internal.corp/nexus/content/repositories/central/): 
+Failed to transfer file http://v-savuk1dapp01.ihs.internal.corp/nexus/content/repositories/central/org/apache/commons/project/3.6/project-3.6.jar with status code 401
+ 
+ 
+ Download .Jar direct from Maven Central
+
+[ERROR] 1) org.apache.common:commons-lang3:jar:3.6
+[ERROR]
+[ERROR]   Try downloading the file manually from the project website.
+[ERROR]
+[ERROR]   Then, install it using the command:
+[ERROR]       mvn install:install-file -DgroupId=org.apache.common -DartifactId=commons-lang3 -Dversion=3.6 -Dpackaging=jar -Dfile=/path/to/file
+[ERROR]
+[ERROR]   Alternatively, if you host your own repository you can deploy the file there:
+[ERROR]       mvn deploy:deploy-file -DgroupId=org.apache.common -DartifactId=commons-lang3 -Dversion=3.6 -Dpackaging=jar -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
+[ERROR]
+[ERROR]   Path to dependency:
+[ERROR]         1) org.apache.maven.plugins:maven-downloader-plugin:jar:1.0
+[ERROR]         2) org.apache.common:commons-lang3:jar:3.6
+[ERROR]
+[ERROR] ----------
+[ERROR] 1 required artifact is missing.
+[ERROR]
+[ERROR] for artifact:
+[ERROR]   org.apache.maven.plugins:maven-downloader-plugin:jar:1.0
+[ERROR]
+[ERROR] from the specified remote repositories:
+[ERROR]   AdsMaven (http://v-savuk1dapp01.ihs.internal.corp/nexus/content/groups/public, releases=true, snapshots=false),
+[ERROR]   central (https://repo.maven.apache.org/maven2, releases=true, snapshots=false)
+
+# Specify repoUrl (it's optional)
+mvn dependency:get -DrepoUrl=org.apache.common:commons-lang3:jar:3.8.1 -DgroupId=org.apache.common -DartifactId=commons-lang3 -Dversion=3.8.1
+
+# OR use default repoUrl
+mvn dependency:get -DgroupId=org.apache.common -DartifactId=commons-lang3 -Dversion=3.6
+
+# OR use parameter artifact as groupId:artifactId:version
+mvn dependency:get -Dartifact=com.sparkjava:spark-core:2.1
+
+
+mvn install:install-file --debug 
+  -Dfile=../../YourProjectName/runtime/repo/YourJarName.jar
+  -DgeneratePom=true 
+  -DartifactId=YourArtifactName -Dversion=0.0.1-SNAPSHOT
+  -DgroupId=your.group.id -Dpackaging=jar
+  
+  
+  	<groupId>org.priv.martini</groupId>
+	<artifactId>EJB-Samples</artifactId>
+	<version>1.1.3</version>
+	<packaging>ejb</packaging>
+	<name>EJB-Samples</name>
+  
+mvn install:install-file -Dfile=D:/Martini/Java/workspace_jsf-cdi-ejb3/EJB-Samples/target/EJB-Samples-1.1.3.jar -DgroupId=org.priv.martini -DartifactId=EJB-Samples -Dversion=1.1.3 -Dpackaging=jar`
+
+
+mvn build C:/Martini/Java/workspace/framework/build.xml
+mvn build C:/Martini/Java/workspace/framework/build.xml -X
+
+mvn C:/Martini/Java/workspace_spring-jpa-crud/swing-spring-jpa-crud-master/build.xml
+
+http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/
+
+https://repo.maven.apache.org/maven2/org/apache/maven/plugins/
+
+REPOSITORIES
+eap
+RedHat
+http://maven.repository.redhat.com/techpreview/all/
+
+Bopepo  ID: jrimum.org  (Boletos etc: http://www.blog.jrimum.org/2011/11/repositorio-maven.html)
+http://jrimum.org/maven/content/groups/public/org/jrimum/jrimum-bopepo/0.2.3-SNAPSHOT/
+
+PrimerFaces
+http://repository.primefaces.org/
+
+Pentaho Mondrian-Repo
+http://repository.pentaho.org/artifactory/repo/org/olap4j/olap4j/1.1.0/
+
+
+Maven Plugin 2
+https://repo.maven.apache.org/maven2/org/apache/maven/plugins/
+
+Maven Help Plugin
+https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-help-plugin/2.2/
+
+Jasper Repo
+http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/
+
+Codehaus Snapshots
+https://nexus.codehaus.org/snapshots/
+
+Apache Snapshots
+https://repository.apache.org/snapshots/
+
+
+
+Ola4j
+http://www.olap4j.org/
+
+
+weblogic
+MWHOME C:/Martini/Java/wls12130
+MWHOME EM 03-12-2015
+MWHOME D:/Martini/Java/wls12130
+DOMAIN_HOME %MWHOME%/user_projects/domains/mydomain      C:/Martini/Java/wls12130/user_projects/domains/mydomain  (LINUX)$MWHOME/user_projects/domains/mydomain
+CLASSPATH  %MWHOME%/wlserver/server/lib/weblogic.jar      (LINUX)$MWHOME/wlserver_10.3/server/lib/weblogic.jar 
+
+Jtds SQL server no 
+CLASSPATH  %MWHOME%/wlserver/server/lib/jtds-1.3.1.jar
+
+C:/Martini/Java/wls12130
+name: Oracle WebLogic Server 12c (12.1.3)
+weblogic Home: C:/Martini/Java/wls12130/wlserver
+Java Home: C:/Java/jdk1.8.0_25
+
+weblogic Server
+LOGIN: martini
+SENHA: martini383940
+
+
+java -jar ../lightfish/src/main/webapp/lightview-app.jar
+java -jar lightview-app.jar
+
+weblogic
+C:/Martini/Java/wls12130/wlserver/server/lib
+jdbcdrivers.xml dentro do WebLogic
+
+  <Driver 
+    Database="Sourceforge SQL Server" 
+    Vendor="Sourceforge" 
+    Type="Type 4"
+    DatabaseVersion="Any"
+    ForXA="true"
+    ClassName="net.sourceforge.jtds.jdbc.Driver"
+    URLHelperClassname="weblogic.jdbc.utils.MSSQL2005JDBC4DriverURLHelper"
+    TestSql="SELECT 1">
+        <Attribute Name="DbmsName" Required="false" InURL="false"/>
+        <Attribute Name="DbmsHost" Required="true" InURL="false"/>
+        <Attribute Name="DbmsPort" Required="true" InURL="false" DefaultValue="1433"/>
+        <Attribute Name="DbmsUsername" Required="true" InURL="false"/>
+        <Attribute Name="DbmsPassword" Required="true" InURL="false"/>
+    </Driver>
+
+
+
+Domain
+C:/Martini/Java/wls12130/user_projects/domains/gpv_domain
+
+C:/ORACLEDB/bin;C:/Program Files/Intel/iCLS Client/;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;
+PATH EM 08/05/2015
+C:/ORACLEDB/bin;C:/ProgramData/Oracle/Java/javapath;C:/app/osvaldo.martini/product/11.2.0/dbhome_1/bin;C:/oracle/bin;C:/app/osvaldo.martini/product/11.2.0/client_2;C:/app/osvaldo.martini/product/11.2.0/client_2/bin;E:/app/osvaldo.martini/product/11.2.0/client_2;E:/app/osvaldo.martini/product/11.2.0/client_2/bin;C:/app/infra/product/11.2.0/client_1;C:/app/infra/product/11.2.0/client_1/bin;C:/Program Files (x86)/Intel/iCLS Client/;C:/Program Files/Intel/iCLS Client/;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x86;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x64;C:/Program Files/TortoiseSVN/bin;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files (x86)/Google/Google Apps Sync/;C:/Program Files (x86)/Google/Google Apps Migration/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Skype/Phone/;C:/Program Files/Calibre2/;C:/Program Files (x86)/Git/cmd;%ANT_HOME%/bin
+PATH RESUMIDO
+C:/Program Files/Intel/iCLS Client/;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;
+PATH COM MONGO
+D:/Program Files (x86)/CodeGear/RAD Studio/5.0/bin;C:/Users/Public/Documents/RAD Studio/5.0/Bpl;C:/Program Files (x86)/Borland/Delphi7/Bin;C:/Program Files (x86)/Borland/Delphi7/Projects/Bpl/;D:/oracle/omartini/product/11.2.0/dbhome_1/bin;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/MSSQL$SQLPERSONAL/Binn;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files/Microsoft SQL Server/110/Tools/Binn/;C:/Program Files (x86)/Skype/Phone/;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files/MongoDB 2.6 Standard/bin	
+
+PATH 02/11/2015
+C:/Program Files/Common Files/Microsoft Shared/Windows Live;C:/Program Files (x86)/Common Files/Microsoft Shared/Windows Live;D:/Program Files (x86)/CodeGear/RAD Studio/5.0/bin;C:/Users/Public/Documents/RAD Studio/5.0/Bpl;C:/Program Files (x86)/Borland/Delphi7/Bin;C:/Program Files (x86)/Borland/Delphi7/Projects/Bpl/;D:/oracle/omartini/product/11.2.0/dbhome_1/bin;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/MSSQL$SQLPERSONAL/Binn;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files/Microsoft SQL Server/110/Tools/Binn/;C:/Program Files (x86)/Skype/Phone/;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files/MongoDB 2.6 Standard/bin;C:/Program Files (x86)/Microsoft SDKs/Azure/CLI/wbin;C:/Program Files (x86)/Windows Live/Shared
+
+PATH 03/12/2015
+D:/Program Files (x86)/CodeGear/RAD Studio/5.0/bin;C:/Users/Public/Documents/RAD Studio/5.0/Bpl;C:/Program Files (x86)/Borland/Delphi7/Bin;C:/Program Files (x86)/Borland/Delphi7/Projects/Bpl/;D:/oracle/omartini/product/11.2.0/dbhome_1/bin;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/MSSQL$SQLPERSONAL/Binn;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files/Microsoft SQL Server/110/Tools/Binn/;C:/Program Files (x86)/Skype/Phone/;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files/MongoDB 2.6 Standard/bin
+
+PATH OLD MEU ASUS
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/
+
+PATH NOVO PARA MEU ASUS
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files/MongoDB 2.6 Standard/bin;%JAVA_HOME%/bin;%M2%;
+
+PATH NOVO PARA MEU CCE 06/12/2015
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files/MySQL/MySQL Server 5.1/bin;C:/Program Files/MongoDB 2.6 Standard/bin;%JAVA_HOME%/bin;%M2%;
+
+PATH NOVO PARA MEU CCE 21/12/2015
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;%SPRING_HOME%/bin;D:/Martini/Java/commons-logging-1.2;
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;%SPRING_HOME%/bin;D:/Martini/Java/commons-logging-1.2;C:/Program Files/Git/cmd;
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;%SPRING_HOME%/bin;D:/Martini/Java/commons-logging-1.2;C:/Program Files/Git/cmd;%ACTIVEMQ_HOME%/bin;
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;%SPRING_HOME%/bin;D:/Martini/Java/commons-logging-1.2;C:/Program Files/Git/cmd;%ACTIVEMQ_HOME%/bin;%GLASSFISH_HOME%/bin;D:/Borland/Delphi7/Bin;D:/Borland/Delphi7/Projects/Bpl/;
+C:/ProgramData/Oracle/Java/javapath;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/Skype/Phone/;D:/MySQL/MySQL Server 5.1/bin;%USERPROFILE%/.dnx/bin;C:/Program Files/Microsoft DNX/Dnvm/;%ANDROID_HOME%/platform-tools;%ANDROID_HOME%/tools;D:/nodejs/;D:/nodejs/node_modules/npm/bin;C:/Users/omartini/AppData/Roaming/npm/node_modules/cordova/bin;C:/apache-ant-1.9.6/bin;%JAVA_HOME%/bin;%M2%;%SPRING_HOME%/bin;D:/Martini/Java/commons-logging-1.2;C:/Program Files/Git/cmd;%ACTIVEMQ_HOME%/bin;%GLASSFISH_HOME%/bin;D:/Borland/Delphi7/Bin;D:/Borland/Delphi7/Projects/Bpl/;%EAP_HOME%/bin;
+C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;D:\nodejs\;D:\nodejs\node_modules\npm\bin;C:\Users\omartini\AppData\Roaming\npm\node_modules\cordova\bin;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;
+
+Com mySql e Python 22/03/2017 - ANT RUBY ..
+C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;D:\nodejs\;D:\nodejs\node_modules\npm\bin;C:\Users\omartini\AppData\Roaming\npm\node_modules\cordova\bin;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Git\cmd
+Com JHipster and more tools and NodeJs
+C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;%APPDATA%\npm\;
+C:\ProgramData\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\MySQL\MySQL Server 5.1\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;C:\apache-ant-1.9.6\bin;%JAVA_HOME%\bin;%M2%;%SPRING_HOME%\bin;D:\Martini\Java\commons-logging-1.2;C:\Program Files\Git\cmd;%ACTIVEMQ_HOME%\bin;%GLASSFISH_HOME%\bin;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%EAP_HOME%\bin;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE\;C:\Program Files (x86)\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Python34\Scripts\;C:\Python34\;C:\Ruby23-x64\bin;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;%APPDATA%\npm\;C:\Git\cmd;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2017.1\bin;
+
+
+Minimal 03/02/2017
+C:\Program Files (x86)\Embarcadero\RAD Studio\7.0\bin;C:\Users\Public\Documents\RAD Studio\7.0\Bpl;D:\Borland\Delphi7\Bin;D:\Borland\Delphi7\Projects\Bpl\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Skype\Phone\
+
+
+
+Criar a pasta  D:/MongoData/db or C:/MongoData/db
+Rodar o mongod.exe
+Cliente mongo.exe
+db.createUser( { "user" : "mongo_gpv","pwd": "123","roles" : [ { role: "readWrite", db: "gpv" }] });
+Inserir o startmongo.bat na pasta C:\Program Files\MongoDB 2.6 Standard\bin
+
+CLASSPATH
+%JAVA_HOME%/lib;%JAVA_HOME%/lib/tools.jar;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/htmlconverter.jar;%JAVA_HOME%/jre/lib;%JAVA_HOME%/jre/lib/rt.jar;%MWHOME%/wlserver/server/lib/weblogic.jar
+
+CLASSPATH OLD DO MEU CCE
+%JAVA_HOME%/lib;%JAVA_HOME%/lib/tools.jar;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/htmlconverter.jar;%JAVA_HOME%/jre/lib;%JAVA_HOME%/jre/lib/rt.jar;
+PATH OLD DO MEU CCE
+D:/oracle/omartini/product/11.2.0/dbhome_1/bin;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/MSSQL$SQLPERSONAL/Binn;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Skype/Phone/
+
+CLASSPATH 02/11/2015
+%JAVA_HOME%/lib;%JAVA_HOME%/lib/tools.jar;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/htmlconverter.jar;%JAVA_HOME%/jre/lib;%JAVA_HOME%/jre/lib/rt.jar;%MWHOME%/wlserver/server/lib/weblogic.jar;%MWHOME%/wlserver/server/lib/jtds-1.3.1.jar;D:/Martini/Java/axis-wsdl4j-1.2.1.jar;D:/Martini/Java/axis2-0.9.jar;D:/Martini/Java/commons-discovery.jar;
+
+CLASSPATH COM MAIS OPÇÕES
+CLASSPATH 06-12-2015
+%JAVA_HOME%/lib;%JAVA_HOME%/lib/tools.jar;%JAVA_HOME%/lib/dt.jar;%JAVA_HOME%/lib/htmlconverter.jar;%JAVA_HOME%/jre/lib;%JAVA_HOME%/jre/lib/rt.jar;%MWHOME%/wlserver/server/lib/weblogic.jar;%MWHOME%/wlserver/server/lib/jtds-1.3.1.jar;D:/Martini/Java/axis-wsdl4j-1.2.1.jar;D:/Martini/Java/axis2-0.9.jar;D:/Martini/Java/commons-discovery.jar
+
+CLASSPATH COM REDUZIDAS OPÇOES
+CLASSPATH 23/01/2016
+%MWHOME%/wlserver/server/lib/jtds-1.3.1.jar;D:/Martini/Java/axis-wsdl4j-1.2.1.jar;D:/Martini/Java/axis2-0.9.jar;D:/Martini/Java/commons-discovery-0.5.jar;%JAVA_HOME%/lib/tools.jar;
+
+JAVA_HOME
+C:/Java/jdk1.8.0_25
+
+C:/apache-ant-1.9.4/bin/ant install
+
+M2
+%M2_HOME%/bin
+
+M2_HOME
+C:/apache-maven-3.2.5
+
+M2
+%MAVEN_HOME%/bin
+
+MAVEN_HOME
+C:/apache-maven-3.2.5
+
+
+MAVEN_OPTS
+-Xms256m -Xmx512m
+
+
+ORACLE_HOME
+C:/oracle
+
+Path
+C:/oracle/bin;C:/app/osvaldo.martini/product/11.2.0/client_2;C:/app/osvaldo.martini/product/11.2.0/client_2/bin;E:/app/osvaldo.martini/product/11.2.0/client_2;E:/app/osvaldo.martini/product/11.2.0/client_2/bin;C:/app/infra/product/11.2.0/client_1;C:/app/infra/product/11.2.0/client_1/bin;C:/Program Files (x86)/Intel/iCLS Client/;C:/Program Files/Intel/iCLS Client/;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x86;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x64;C:/Program Files/TortoiseSVN/bin;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files (x86)/Google/Google Apps Sync/;C:/Program Files (x86)/Google/Google Apps Migration/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/
+C:/app/osvaldo.martini/product/11.2.0/dbhome_1/bin;C:/oracle/bin;C:/app/osvaldo.martini/product/11.2.0/client_2;C:/app/osvaldo.martini/product/11.2.0/client_2/bin;E:/app/osvaldo.martini/product/11.2.0/client_2;E:/app/osvaldo.martini/product/11.2.0/client_2/bin;C:/app/infra/product/11.2.0/client_1;C:/app/infra/product/11.2.0/client_1/bin;C:/Program Files (x86)/Intel/iCLS Client/;C:/Program Files/Intel/iCLS Client/;%SystemRoot%/system32;%SystemRoot%;%SystemRoot%/System32/Wbem;%SYSTEMROOT%/System32/WindowsPowerShell/v1.0/;C:/Program Files/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL;C:/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x86;C:/Program Files (x86)/Intel/OpenCL SDK/2.0/bin/x64;C:/Program Files/TortoiseSVN/bin;C:/Program Files/Microsoft/Web Platform Installer/;C:/Program Files (x86)/Microsoft ASP.NET/ASP.NET Web Pages/v1.0/;C:/Program Files (x86)/Windows Kits/8.0/Windows Performance Toolkit/;C:/Program Files (x86)/Google/Google Apps Sync/;C:/Program Files (x86)/Google/Google Apps Migration/;%JAVA_HOME%/bin;%M2%;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/Tools/Binn/;C:/Program Files/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Microsoft SQL Server/100/Tools/Binn/VSShell/Common7/IDE/;C:/Program Files (x86)/Microsoft Visual Studio 9.0/Common7/IDE/PrivateAssemblies/;C:/Program Files (x86)/Microsoft SQL Server/100/DTS/Binn/;C:/Program Files (x86)/Skype/Phone/;C:/Program Files/Calibre2/;C:/Program Files (x86)/Git/cmd;%ANT_HOME%/bin
+
+TOMCAT_HOME
+C:/Martini/Java/12 - Liferay/bundle/liferay-portal-6.2-ee-sp9/tomcat-7.0.42
+
+WL_HOME
+D:/Martini/Java/wls12130/wlserver
+
+
+ANT_HOME=C:/apache-ant-1.9.4
+ANT_OPTS=-Xms256M -Xmx512M
+PATH=%ANT_HOME%/bin
+
+
+
+
+        <dependency>
+            <groupId>org.olap4j</groupId>
+            <artifactId>olap4j-1.1.0</artifactId>
+            <version>1.1.0</version>
+            <scope>system</scope>
+			<systemPath>C:/martini/java/olap4j-1.1.0.jar</systemPath>
+        </dependency>
+		
+
+
+hibernate-jpa-2.1-api-1.0.0.Final
+
+<dependency>
+    <groupId>com.oracle</groupId>
+    <artifactId>ojdbc</artifactId>
+    <version>14</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/lib/ojdbc6.jar</systemPath> <!-- must match file name -->
+</dependency>
+
+<dependency>
+    <artifactId>..</artifactId>
+    <groupId>..</groupId>
+    <scope>system</scope>
+    <systemPath>${basedir}/lib/dependecny.jar</systemPath>
+</dependency>
+
+<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>facelets-taglib-jsf20-spring-3</artifactId>
+			<scope>system</scope>
+			<systemPath>${basedir}/martini/java/facelets-taglib-jsf20-spring-3-0.5.jar</systemPath>
+</dependency>
+
+
+		
+ 
+%windir%/Microsoft.NET/Framework/v4.0.30319/aspnet_regiis.exe -i
+
+%windir%/Microsoft.NET/Framework/v3.5/aspnet_regiis.exe -i
+%windir%/Microsoft.NET/Framework64/v3.5/aspnet_regiis.exe -i
+
+%windir%/Microsoft.NET/Framework64/v2.0.50727/aspnet_regiis.exe -i
+
+
+
+IBM WebSphere Application Server Liberty Trial, Versão 8.5.5
+
+O IBM WebSphere Application Server Liberty Trial é um perfil leve do servidor de aplicativos junto com uma configuração simplificada. 
+Ele suporta o Perfil da Web Java EE, incluindo CDI, Beans Gerenciados e EJB Lite. Seus rápidos tempos de reinicialização, tamanho pequeno e facilidade de 
+uso o tornam uma boa opção para construir aplicativos da web que não requeiram o ambiente integral do Java EE de perfis de servidores de aplicativos corporativos tradicionais. 
+O WebSphere Application Server Liberty Trial também fornece modelos de programação estendidos como serviços da web, JMS e Mongo 2.0. O Liberty pode ser usado em produção; 
+e como ele é uma configuração dinâmica, o servidor de aplicativos provisiona somente os recursos requeridos pelos aplicativos em execução.
+
+
+
+mvn help:describe -Dplugin=help
+...
+Group Id:  org.apache.maven.plugins
+Artifact Id: maven-help-plugin
+Version: 2.0.1
+Goal Prefix: help
+Description:
+
+The Maven Help plugin provides goals aimed at helping to make sense
+out of the build environment. It includes the ability to view the
+effective POM and settings files, after inheritance and active
+profiles have been applied, as well as a describe a particular plugin
+goal to give usage information.  ...
+
+
+
+
+HPPTS
+<url>http://10.113.65.69/Carrefour.Servico.Cliente/Cliente.svc?wsdl</url>
+<url>http://localhost:2366/Autenticacao.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Campanha/Campanha.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Processadora/Cartao.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.ComprovanteTransacao/Comprovante.svc?wsdl</url>
+<url>http://localhost:32546/Conta.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Divida/Divida.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Dominio/Dominio.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Emprestimo/Emprestimo.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Fatura/Fatura.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.SegurancaInformacao/IdentificacaoPositiva.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Logradouro/Logradouro.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Proposta/PropostaMassificada.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Protocolo/Protocolo.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Seguro/Seguro.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.SegurancaInformacao/TokenEletronico.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.PrevencaoFraude/PrevencaoFraude.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Processadora/Pinpad.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Parametrizacao/PerfilHierarquia.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.Cliente/CadastroPositivo.svc?wsdl</url>
+<url>http://10.113.65.69/Carrefour.Servico.PagContas/PagContas.svc?wsdl</url>
+<url>http://10.113.65.69/Csf.PR.Svc.Bonus/Anuidade.svc?wsdl</url>
+<url>http://10.113.65.69/Csf.Corp.Svc.Termo/GerenciadorTermo.svc?wsdl</url>
+<url>http://10.113.65.69/Csf.Corp.Svc.DominioSistema/GerenciadorDominio.svc?wsdl</url>
+<url>http://10.113.65.69/CSF.PR.Svc.Processadora/GerenciadorSenhaCartao.svc?wsdl</url>
+
+<urls>
+	<url>http://10.105.250.210/Carrefour.Servico.Cliente/Cliente.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Autenticacao/Autenticacao.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Campanha/Campanha.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Processadora/Cartao.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.ComprovanteTransacao/Comprovante.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Processadora/Conta.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Divida/Divida.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Dominio/Dominio.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Emprestimo/Emprestimo.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Fatura/Fatura.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.SegurancaInformacao/IdentificacaoPositiva.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Logradouro/Logradouro.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Proposta/PropostaMassificada.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Protocolo/Protocolo.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Seguro/Seguro.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.SegurancaInformacao/TokenEletronico.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.PrevencaoFraude/PrevencaoFraude.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Processadora/Pinpad.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Parametrizacao/PerfilHierarquia.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.Cliente/CadastroPositivo.svc?wsdl</url>
+	<url>http://10.105.250.210/Carrefour.Servico.PagContas/PagContas.svc?wsdl</url>
+	<url>http://10.105.250.210/Csf.PR.Svc.Bonus/Anuidade.svc?wsdl</url>
+	<url>http://10.105.250.210/Csf.Corp.Svc.Termo/GerenciadorTermo.svc?wsdl</url>
+	<url>http://10.105.250.210/Csf.Corp.Svc.DominioSistema/GerenciadorDominio.svc?wsdl</url>
+	<url>http://10.105.250.210/CSF.PR.Svc.Processadora/GerenciadorSenhaCartao.svc?wsdl</url>
+</urls> 
+
+http://localhost:8080/gpv-webservices/resources/expurgo72Service
+
+
+{
+    "codigo": 3459,
+    "cpf": "52589862091",
+    "conta": "17278074221",
+    "nomeCliente": "ANTONIO MOACIR ANDRADE DA COSTA",
+    "dataNascimento": "1970-09-16",
+    "produtoConta": "CONTA DE MC INTL",
+    "statusConta": "72",
+    "numeroCartao": "530033248033381"
+}
+
+
+
+
+
+
+DEPLOY INTO WILDFLY
+Share:
+This is a very simple solution, that unfortunately took me a couple of hours because I couldn´t find it anywhere…
+
+Place your server properties in the maven settings.xml file (found in the .m2 folder) like this:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<profiles>
+		<profile>
+			<id>wildfly-remote</id>
+			<properties>
+				<wildfly-hostname>199.181.11.11</wildfly-hostname>
+				<wildfly-port>9990</wildfly-port>
+				<wildfly-username>remoteuser</wildfly-username>
+				<wildfly-password>remotepassword</wildfly-password>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>wildfly-local</id>
+			<properties>
+				<wildfly-home>/home/laura/wildfly-8.0.0.Final</wildfly-home>
+				<wildfly-hostname>127.0.0.1</wildfly-hostname>
+				<wildfly-port>9990</wildfly-port>
+				<wildfly-username>laura</wildfly-username>
+				<wildfly-password>localpassword</wildfly-password>
+			</properties>
+		</profile>
+
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>wildfly-local</activeProfile>
+		<activeProfile>wildfly-remote</activeProfile>
+	</activeProfiles>
+
+</settings>
+In the pom.xml file place the plugins under build>plugins> and set the server configuration parameters as maven properties (without adding the in your pom):
+
+<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.0.0.Final</version>
+				<configuration>
+					<hostname>${wildfly-hostname}</hostname>
+					<port>${wildfly-port}</port>
+					<username>${wildfly-username}</username>
+					<password>${wildfly-password}</password>
+				</configuration>
+				<executions>
+					<execution>
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>deploy</goal> -->
+<!-- 						</goals> -->
+					</execution>
+				</executions>
+			</plugin>
+To deploy on the localhost server run the following command:
+
+wildfly:deploy -P wildfly-local
+
+To deploy on the remote server run:
+
+wildfly:deploy -P wildfly-remote
+
+You can also run undeploy, redeploy…For further information see: https://docs.jboss.org/wildfly/plugins/maven/latest/
+
+add-user  CRIAR USUÁRIO
+
+ex.: para um controlador host slave conectando a outro mestre ou para uma conexão Remota de servidor 
+para chamadas EJB do servidor
+sim/não? sim
+Adicione o seguinte à definição  server-identities do <secret value="bWFydGluaSEzODM5NDA=" /> 
+user :Martini  senha : martini!383940
+
+
+<secret value="bWFydGluaSEzODM5NDA=" /> para ApplicationRealm  
+user :MartiniApp  senha : martini!383940
+
+
+OPENSHITFT MYSQL
+next to rhc ssh myappname  (wservices)
+
+echo $OPENSHIFT_MYSQL_DB_HOST  = http://wservices-sysmartek.rhcloud.com
+echo $OPENSHIFT_MYSQL_DB_PORT  = 
+echo $OPENSHIFT_MYSQL_DB_USERNAME
+echo $OPENSHIFT_MYSQL_DB_PASSWORD
+
+MySQL 5.5 database added.  Please make note of these credentials:
+   
+   Root User: adminHEZmlve
+   Root Password: YhchFq6xRRjQ  
+   Database Name: wservices
+
+Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+
+
+mysql -u userName -h $OPENSHIFT_MYSQL_DB_HOST -P $OPENSHIFT_MYSQL_DB_PORT -p     
+mysql -u userName -h $OPENSHIFT_MYSQL_DB_HOST -P $OPENSHIFT_MYSQL_DB_PORT -p
+
+WINDOWS CMD COM
+install Ruby Git and rhc   page:  https://developers.openshift.com/getting-started/windows.html#client-tools
+versions:
+ruby -v
+git --version
+
+install rhc em cmd com:
+gem install rhc
+
+rhc setup.. será perguntado sobre usuario  senha e criar token  ..OK...
+
+
+CREATING TUNNEL BETWEMM LOCALHOST AND OPENSHIFT  -- AFTER CREATING TUNNEL  OTHER CMD COM E/OR  MYSQL WORKBENCH
+rhc port-forward -a wservices &
+rhc app show -a wservices
+
+mysql -u adminHEZmlve  -h 127.0.0.1 -P 44966 -p  **WORKED PERFECT***
+
+
+mysql -u adminHEZmlve  -h 127.0.0.1 -P 3307 -p
+
+mysql -u adminHEZmlve  -h 56bb73b92d5271b5c60000b6-sysmartek.rhcloud.com -P 44966 -p
+mysql -u adminHEZmlve  -h 56bb73b92d5271b5c60000b6-sysmartek.rhcloud.com -P 3307 -p
+
+mysql -u adminHEZmlve  -h 52.2.182.233 -P 44966 -p
+mysql -u adminHEZmlve  -h 52.2.182.233 -P 3307 -p
+
+
+You can manage your new MySQL database by also embedding phpmyadmin.
+The phpmyadmin username and password will be the same as the MySQL credentials above.
+
+
+
+   Root User: adminHEZmlve
+   Root Password: YhchFq6xRRjQ
+   Database Name: wservices
+
+JHIPSTER LOCALHOST   
+url: jdbc:mysql://127.0.0.1:3306/wservices_blog?user=root&password=martini383940&useUnicode=true&characterEncoding=utf8   
+JHIPSTER OPENSHIFT
+url: jdbc:mysql://56bb73b92d5271b5c60000b6-sysmartek.rhcloud.com/wservices_blog?user=adminHEZmlve&password=YhchFq6xRRjQ&useUnicode=true&characterEncoding=utf8   
+
+
+Referência : Calling Remoting EJB in diferents Servers
+http://www.mastertheboss.com/jboss-server/jboss-as-7/how-to-call-ejbs-from-another-jboss-as-7-instance
+
+Calling Sever int the same JBoss
+Server1
+standalone.bat -Djboss.node.name=nodeA
+
+Server 2
+standalone.bat -Djboss.socket.binding.port-offset=150 -Djboss.node.name=nodeB
+
+
+
+git remote add github -f https://github.com/czetsuya/crudfaces.git
+
+git remote add github -f https://github.com/Sysmartek/wservice.git
+
+git remote add github -f https://github.com/Sysmartek/EJB-Samples.git
+
+git remote add github -f https://github.com/Sysmartek/EJB-SamplesWeb.git
+
+
+git clone ssh://56940b9d89f5cf131c000144@wservices-sysmartek.rhcloud.com/~/git/wservices.git/
+
+
+git clone https://github.com/OsvaldoMartini/webapptest2.git
+
+git clone https://github.com/OsvaldoMartini/TDD_1.git
+
+
+git revert HEAD// Cancel Commit without push
+
+
+Reset (Cancel Commit Before Push)
+git reset --hard origin/master
+
+Removing Last Commit
+git reset --hard d1dbbb51cff8bbeb262de8934f501b02be119bf06
+
+Convert to Commit
+git revert 6b2eba6499e69f4b89a99a432f59d34e988996cb
+
+
+
+GIT REMOTE -V
+
+
+omartini@omartini-PC MINGW64 ~
+$ cd D:/RepositoryGitHub
+
+omartini@omartini-PC MINGW64 /d/RepositoryGitHub (master)
+$ git init
+Reinitialized existing Git repository in D:/RepositoryGitHub/.git/
+
+omartini@omartini-PC MINGW64 /d/RepositoryGitHub (master)
+$ ls .git
+config  description  FETCH_HEAD  HEAD  hooks/  info/  objects/  refs/
+
+omartini@omartini-PC MINGW64 /d/RepositoryGitHub (master)
+$ git remote
+Sysmartek-Applications
+
+omartini@omartini-PC MINGW64 /d/RepositoryGitHub (master)
+$ git remote -v
+Sysmartek-Applications  https://github.com/Sysmartek/Applications.git (fetch)
+Sysmartek-Applications  https://github.com/Sysmartek/Applications.git (push)
+
+Open GitBash
+Check if have any key
+$ls -al ~/.ssh
+
+If Not create a new
+ssh-keygen -t rsa -b 4096 -C "osvaldo.martini@gmail.com"
+
+Copy Key to the clipboard
+clip < ~/.ssh/id_rsa.pub
+
+git remote add origin remote repository URL
+
+git fetch Sysmartek-Applications
+
+git push Sysmartek-Applications master
+
+
+git clone ssh://56940b9d89f5cf131c000144@wservices-sysmartek.rhcloud.com/~/git/wservices.git/
+
+git clone osvaldo.martini@gmail.com:Sysmartek-Applications master
+
+git clone rafael.de.martinis@gmail.com:Sysmartek-Inc
+
+git clone https://github.com/Sysmartek-Inc/trademark.git
+
+COMMIT AND ADD ALL FILES
+git add --all && git commit -m "First Commit"
+git push
+
+
+This command will add and commit all the modified files, but not newly created files.
+git commit -am  "<commit message>"
+git push
+
+To make sure this work, a git config --local -l needs to return the user name and email.
+If it doesn't, go to that repo on the server, and type;:
+
+git config --local -l
+
+git config user.name OsvaldoMartini
+git config user.email osvaldo.martini@gmail.com
+
+git config user.name Sysmartek-Inc
+git config user.email rafael.de.martinis@gmail.com
+
+cd /D/Martini/Java/workspace_jsf-cdi-ejb3/Sysmartek/wservices
+
+git remote add origin osvaldo.martini@gmail.com:MazeTest master
+
+$ git remote add origin git@github.com:codexico/tutorial-github.git
+
+$ git remote add origin osvaldo.martini@gmail.com:Sysmartek-Applications master
+
+git remote add origin https://github.com/Sysmartek/Applications.git
+
+
+git remote add origin https://github.com/Sysmartek/Applications.git
+git push -u origin master
+
+
+git remote add backup user@server:/path/to/git/test.git
+git push backup master
+
+git remote add backup user@server:/path/to/git/test.git
+
+https://github.com/OsvaldoMartini/MazeTest.git
+$ git remote add origin osvaldo.martini@gmail.com:Sysmartek-Applications master
+
+git remote add all ssh://23456781234567@yourapp-namespace.rhcloud.com/~/git/yourapp.git
+git remote set-url openshift-git-repo --push --add ssh://23456781234567@yourapp-namespace.rhcloud.com/~/git/yourapp.git
+git remote set-url github-repo --push --add git@github.com:youruser/yourapp.git
+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDkAAI6o2X/qNzva7KqeZEJWsKo5Rc3q9uAxypinPgQ9qPD8b3R8ncVk6wXDuav8tfaOjcgYkhK4c8zf5pCAl5VMxeG25atdnkAJUgdElSnEcyYGlUK0ptc/HxDtrj4JIqbsgP4W1LRNzljOL6jjUIutj7grcbzqy+o7Ed2GAqvNI9jq+8NxJH05wLyo0zzZxJYMmxT1DtODBhL1lAVfrZKEtUvOuPVIWAuQloPs9XrogwTRO5LJwn2xiY7y718l/vCyf/XiitYdwdr3k09yCIGLnk00mIdcBXX/mr09vSPRjG+6v6wpA1i/xhVYRzOdGDsHfiukLVwLHjYxhJFZCe40JK1cVNK2Hrbi1OL7VJcQkOgWpHEiq0MWDpd/+UeEvZD/T+xTl1BRaRn8w5fD+zb6YDUzlF2pFLBqIg28m6/GJRbgAyfLHMbfrmEHlRwcra2NmvCHKlz05FamEUARJrf2xATPRSPjE7nUNKjVfVLAopvcbfOGq5Ai4E/lJ9aseZdTdSBLiJ9EItI3dAHg1bHCbVtKwY1DITQeSJmY0AZiYaH6gdo0t5TGIsS0iueZJ9+kc7190mhjwE6HLnu1J+oHo4vqEAeinH7pk6TqGV0R0kQug3hmqRpewqT5MKYwGwaTGWbwKQ9EPn5OQoHo1ceIeJ28nyvG7UuJLIQLVvvPQ== osvaldo.martini@gmail.com
+
+
+
+workspace-omartini
+martini
+
+MySQL
+   Root User: adminj3lPPs2
+   Root Password: Qy8qbr_uDQb_
+   Database Name: martini
+   
+   ssh://58e4a56d7628e1f5700000b2@martini-sysmartek.rhcloud.com/~/git/martini.git/
+   
+   JDeveloper Variable
+   JDEV_USER_DIR
+   
+   
+   MIME TYPE SOLVED
+   
+   1 Answer
+active oldest votes
+
+1
+
+ok i solved the problem by following the steps as bellow:
+
+-Execute these commands :
+
+	cd\Windows\Microsoft.NET\Framework64\v4.0.30319
+	aspnet_regiis.exe -iru
+	iisreset
+	- Open a command prompt window and type start inetmgr to open the Internet Information Services (IIS) MMC snap-in
+
+	-In the left pane, expand the node with the computer's name, then expand the Web Sites node, and then select the Default Web Site.
+	-Double click Handler mappings in the Features View.
+	-In the list of application mappings, verify that the .svc file is mapped to the aspnet_isapi.dll. If the file has not been mapped:
+
+    * Click Add Managed Handler.
+
+    * Type *.svc into the Request path.
+
+    * Type System.ServiceModel.Activation.ServiceHttpHandlerFactory, System.ServiceModel.Activation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 into the Type textbox.
+
+    * Type svc-Integrated-4.0 into the Name: textbox.
+
+    * Click OK.
+
+    * Click Add Script Map.
+
+    * Type *.svc into the Request path.
+
+    * Type %SystemRoot%\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll into the Executable: text box.
+
+    * Type svc-ISAPI-2.0 into the Name: text box.
+
+    * Click OK.
+   
