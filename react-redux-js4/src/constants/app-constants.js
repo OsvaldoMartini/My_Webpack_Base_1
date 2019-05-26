@@ -13,8 +13,8 @@
  * limitations under the License.
  *
  */
-
-export const APP_ID = '<insert id here>';
+//'<insert id here>'
+export const APP_ID = 'SHDXE4A0Bvg5jB4q';
 export const APP_PORTAL_URL = 'https://www.arcgis.com';
 
 export const DEFAULT_SCENE_ID = '63a16e0c9f364d0fab9d55f40bf71771';
