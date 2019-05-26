@@ -1,3 +1,12 @@
+Consulta IPTU 049 233 0023 1
+http://www3.prefeitura.sp.gov.br/editeg/forms/frm_principal.aspx
+
+Consulta Valor Venal
+http://www3.prefeitura.sp.gov.br/tvm/frm_tvm_consulta_valor.aspx
+
+IPTU Mae 048 238 0027 3
+
+
 Please find the attached a-account logon details.
 (ihs.internal.corp)
 Username: a-osvaldo.martini
