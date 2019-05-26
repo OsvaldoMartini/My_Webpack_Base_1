@@ -54,7 +54,10 @@ Git Hub pages:
 5) git add . //to add all the code
 6) git commit -m "initial commit"
 -) //add git hub Pages as REmote for this repo
+
+########  DON T RUN THIS IN SUBFOLDERS
 7) git remote add origin https://github.com/OsvaldoMartini/My_Webpack_Base_1.git
+
 -) //check out gh-pages
 8) git checkout -b gh-pages
 9) git subtree push --prefix dist origin gh-pages
