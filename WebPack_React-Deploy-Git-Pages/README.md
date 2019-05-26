@@ -59,6 +59,11 @@ Git Hub pages:
 8) git checkout -b gh-pages
 9) git subtree push --prefix dist origin gh-pages
 
+10) Extras:
+git push --delete <remote_name> <branch_name>
+git branch -d <branch_name>
+git push origin --delete {the_remote_branch}
+
 After Acces directly github url:
 https://osvaldomartini.github.io/ReactListSingers
 
