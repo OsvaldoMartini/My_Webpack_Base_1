@@ -83,7 +83,7 @@ module.exports = require("react-router-config");
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react = __webpack_require__(0);
@@ -117,18 +117,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //import { Route } from 'react-router-dom';
 exports.default = [{
-    path: '/',
-    component: _Home2.default,
-    exact: true
+  path: '/',
+  component: _Home2.default,
+  exact: true
 }, {
-    loadData: _UsersList.loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData' 
-    path: '/users',
-    component: _UsersList2.default
+  loadData: _UsersList.loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+  path: '/users',
+  component: _UsersList2.default
 }, {
-    path: '/Hi',
-    component: function component() {
-        return 'Hi';
-    }
+  path: '/Hi',
+  component: function component() {
+    return 'Hi';
+  }
+}, {
+  path: '/MapBox',
+  component: function component() {
+    return 'MapBox';
+  }
 }];
 
 /***/ }),

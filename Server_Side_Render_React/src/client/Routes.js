@@ -18,18 +18,22 @@ import UsersList, { loadData } from './components/UsersList';
 // React-Router-Config
 // it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
 export default [
-    {
-        path: '/',
-        component: Home,
-        exact: true
-    },
-    {
-        loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData' 
-        path: '/users',
-        component: UsersList
-    },
-    {
-        path: '/Hi',
-        component: () => 'Hi'
-    }
+  {
+    path: '/',
+    component: Home,
+    exact: true
+  },
+  {
+    loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+    path: '/users',
+    component: UsersList
+  },
+  {
+    path: '/Hi',
+    component: () => 'Hi'
+  },
+  {
+    path: '/MapBox',
+    component: () => 'MapBox'
+  }
 ];
