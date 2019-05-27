@@ -49,6 +49,30 @@ We are always going to  ake sure that React-Router is in charge of that request.
 
 ````
 
+## Video 26 - BrowserRouter vs StaticRouter
+
+## StaticRouter
+This is a special Library from React
+````
+When we do our initial render of the app it's going to be using
+the StaticRouter
+````
+
+## BrowserRouter
+This is a special Library from React
+````
+When our application gets shipped down to the browser and it gets rendered a second time or "hydrate on the browser"
+as we call it.
+
+We will swap out to using the BrowserRouter instead.
+````
+
+## Summary About "BrowserRouter vs StaticRouter"
+````
+We  have one running on the server (StaticRouter)
+and another running on the browser (BrowserRouter) 
+````
+
 
 
 
