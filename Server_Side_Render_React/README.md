@@ -89,7 +89,33 @@ We  have one running on the server (StaticRouter)
 and another running on the browser (BrowserRouter) 
 ````
 
+# 4 Big Challenges
+ 
+ I will have 2 (Two) copies of Redux
 
+## 1) First Challenge     
+````
+ Redux needs different configuration
+ on browser vs server
+````
+
+## 2) Second Chanllenge 
+````
+Aspects of authentication needs to be handle on server. 
+Normally this is only on browser 
+````
+## 3) Third Challenge
+````
+Need some way to detect when all initial data load "action creators" 
+are completed on server
+````
+
+## 4) Fourth Challenge
+````
+Need state rehydration on the browser
+````
+
+![Alt text](Server_Side_Render_React/Draws/Reducers/4 Big Redux Challeges.png?raw=true "4 Big Challenges")
 
 
 ## G Suite Toolbox - Dig DNS Dig Tool
