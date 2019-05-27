@@ -199,6 +199,7 @@ export default () => {
 Some Detection of "When" we finish all of our initial data loading "Before" we attempt to render
 ````
 
+![alt text](Draws/Reducers/Server-Side-Redux-Store.PNG "Server Side Redux Store")
 
 
 
