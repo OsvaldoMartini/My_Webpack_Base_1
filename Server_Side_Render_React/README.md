@@ -128,7 +128,7 @@ client.js
 import { createStore, applyMiddleware } from 'redux';
 ````
 
-## Is Used to handle asynchronous action creators
+*##* Is Used to handle asynchronous action creators
 ````
 import thunk from 'redux-thunk';
 ````
@@ -141,24 +141,25 @@ import { Provider } from 'react-redux';
 
 ## Create New Redux Store to use on the Client Side to Store all our Reducers (Client-Side)
 * We Don't Have Any Reducers for now
+* No Reducers for now
+* Initial State = {} "empty Object"
+* And Hook Up the Middleware Call (thunk)
 
 ````
-// No Reducers for now
-// Initial State = {} "empty Object"
-// And Hook Up the Middleware Call
-
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 ````
 
 ## Sticking the store to the Provider to wrap all entire application
-## Passing as  "prop" to the <Provider> 'Tag'
+* Passing as  "prop" to the <Provider> 'Tag'
 ````
 <Provider store={store}>
 ````
 
 ## The Provider has reference to the read store, any time the redux store changes.
-## The Provider:
-## Will note or will alert any connected components that they need to render
+* The Provider:
+> Will note or will alert any connected components that they need to render
+
+
 
 ## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
