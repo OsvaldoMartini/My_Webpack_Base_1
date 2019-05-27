@@ -134,29 +134,29 @@ import thunk from 'redux-thunk';
 ````
 
 * "Provider" is What Ties our Store and React side together.
-> Is used to communicate data from the store to any connected components in our application
+Is used to communicate data from the store to any connected components in our application
 ````
 import { Provider } from 'react-redux';
 ````
 
 * Create New Redux Store to use on the Client Side to Store all our Reducers
-> We Don't Have Any Reducers for now
-> No Reducers for now
-> Initial State = { } "empty Object"
-> And Hook Up the Middleware Call (thunk)
+We Don't Have Any Reducers for now
+No Reducers for now
+Initial State = { } "empty Object"
+And Hook Up the Middleware Call (thunk)
 
 ````
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 ````
 
 * Sticking the "STORE" to the "Provider" to wrap all entire application
-> Passing as  "prop" to the <Provider> 'Tag'
+Passing as  "prop" to the <Provider> 'Tag'
 ````
 <Provider store={store}>
 ````
 
-> "The Provider" has reference to the read store, any time the redux store changes.
-> "The Provider" Will note or will alert any connected components that they need to render
+"The Provider" has reference to the read store, any time the redux store changes.
+"The Provider" Will note or will alert any connected components that they need to render
 
 
 
