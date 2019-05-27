@@ -169,8 +169,9 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 ## I Only need the store in Server-Side
 ````
 import { createStore, applyMiddleware } from 'redux';
-
+````
 * "Thunk" - Takecare about the Asynchronous call for the action creators
+````
 import thunk from 'redux-thunk'; 
 ````
 
@@ -195,7 +196,7 @@ export default () => {
 ````
 * The Challenge is:
 ````
-Some Detection of hen we finish alll of our initial data loading before we attempt to render
+Some Detection of "When" we finish all of our initial data loading "Before" we attempt to render
 ````
 
 
