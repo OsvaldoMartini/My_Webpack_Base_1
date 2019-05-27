@@ -1,6 +1,7 @@
 # Server Side Render
 
-You can download this repository by using the green `Clone or Download` button on the right hand side of this page.  This will present you with the option to either clone the repository using Git, or to download it as a zip file.
+You can download this repository by using the green `Clone or Download` button on the right hand side of this page.  
+This will present you with the option to either clone the repository using Git, or to download it as a zip file.
 
 If you want to download it using git, copy paste the link that is presented to you, then run the following at your terminal:
 
@@ -34,7 +35,7 @@ npm install
  React-Router-Config
  It will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
 ````
-## IS-Express
+## IIS-Express
 ````
 If wew want to add in some route for some API handlers or some handler that to return some JSON or any outside requests
 we might want to take in.
@@ -59,8 +60,11 @@ When we do our initial render of the app it's going to be using
 the StaticRouter
 ````
 
-This can be useful in server-side rendering scenarios when the user isn’t actually clicking around, so the location never actually changes. 
-Hence, the name: static. It’s also useful in simple tests when you just need to plug in a location and make assertions on the render output.
+This can be useful in server-side rendering scenarios when the user isn’t actually clicking around, 
+so the location never actually changes. 
+
+Hence, the name: static. It’s also useful in simple tests when you just need to plug in a location and make assertions 
+on the render output.
 
 check the sample:
 ````
