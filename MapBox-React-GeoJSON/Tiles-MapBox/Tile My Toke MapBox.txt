@@ -1,1 +1,0 @@
-http://a.tiles.mapbox.com/v4/mapbox.mapbox-streets-v7/14/4823/6160.mvt?access_token=pk.eyJ1Ijoib21hcnRpbmkiLCJhIjoiY2p2dTdtZmdxM2RnNzN6bWdwNGlmcW90aiJ9.VExEJ3JXpjCLDUvsmovEkQ
