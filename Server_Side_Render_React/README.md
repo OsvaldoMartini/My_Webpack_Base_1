@@ -119,45 +119,44 @@ Need state rehydration on the browser
 
 ## 1) Solving First Challeng
 
-##  Redux -> Client Side Set-Up  
+#  Redux -> Client Side Set-Up  
 
-client.js
+## client.js
 
-## Middleware is used to hook up any middleware that we migth be using inside of our application
+* "Middleware" is used to hook up any middleware that we migth be using inside of our application
 ````
 import { createStore, applyMiddleware } from 'redux';
 ````
 
-*##* Is Used to handle asynchronous action creators
+ * "Thunk" is Used to handle asynchronous action creators
 ````
 import thunk from 'redux-thunk';
 ````
 
-## Provider is What Ties our Store and React side together.
-## Is used to communicate data from the store to any connected components in our application
+* "Provider" is What Ties our Store and React side together.
+> Is used to communicate data from the store to any connected components in our application
 ````
 import { Provider } from 'react-redux';
 ````
 
-## Create New Redux Store to use on the Client Side to Store all our Reducers (Client-Side)
-* We Don't Have Any Reducers for now
-* No Reducers for now
-* Initial State = {} "empty Object"
-* And Hook Up the Middleware Call (thunk)
+* Create New Redux Store to use on the Client Side to Store all our Reducers
+> We Don't Have Any Reducers for now
+> No Reducers for now
+> Initial State = { } "empty Object"
+> And Hook Up the Middleware Call (thunk)
 
 ````
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 ````
 
-## Sticking the store to the Provider to wrap all entire application
-* Passing as  "prop" to the <Provider> 'Tag'
+* Sticking the "STORE" to the "Provider" to wrap all entire application
+> Passing as  "prop" to the <Provider> 'Tag'
 ````
 <Provider store={store}>
 ````
 
-## The Provider has reference to the read store, any time the redux store changes.
-* The Provider:
-> Will note or will alert any connected components that they need to render
+> "The Provider" has reference to the read store, any time the redux store changes.
+> "The Provider" Will note or will alert any connected components that they need to render
 
 
 
