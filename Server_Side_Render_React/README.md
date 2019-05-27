@@ -53,10 +53,22 @@ We are always going to  ake sure that React-Router is in charge of that request.
 
 ## StaticRouter
 This is a special Library from React
+
 ````
 When we do our initial render of the app it's going to be using
 the StaticRouter
 ````
+
+This can be useful in server-side rendering scenarios when the user isn’t actually clicking around, so the location never actually changes. 
+Hence, the name: static. It’s also useful in simple tests when you just need to plug in a location and make assertions on the render output.
+
+check the sample:
+````
+Here’s an example node server that sends a 302 status code for <Redirect>s and regular HTML for other requests:
+````
+https://reacttraining.com/react-router/web/api/StaticRouter
+
+
 
 ## BrowserRouter
 This is a special Library from React
