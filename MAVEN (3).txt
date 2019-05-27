@@ -1,4 +1,5 @@
 Consulta IPTU 049 233 0023 1
+https://www3.prefeitura.sp.gov.br/editeg/forms/frm_principal.aspx
 http://www3.prefeitura.sp.gov.br/editeg/forms/frm_principal.aspx
 
 Consulta Valor Venal
