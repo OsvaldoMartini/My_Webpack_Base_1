@@ -8229,10 +8229,15 @@ var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Is Used to handle asynchronous action creators
-// Startup point for the client side application
-var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default)); //Provider is What Ties our Store and React side together. Is used to communicate data from the store to any connected components in our application
+//Provider is What Ties our Store and React side together.
+//Is used to communicate data from the store to any connected components in our application
+
+
+// Redux - Client Side Set-Up
 //Middleware is used to hook up any middleware that we migth be using inside of our application
+// Startup point for the client side application
+var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+// Is Used to handle asynchronous action creators
 
 
 console.log('Hi there!');
@@ -8240,17 +8245,17 @@ console.log('Hi there!');
 // Hydrate instead of render
 //ReactDOM.render(<Home />, document.querySelector('#root'));
 _reactDom2.default.hydrate(_react2.default.createElement(
-    _reactRedux.Provider,
-    { store: store },
+  _reactRedux.Provider,
+  { store: store },
+  _react2.default.createElement(
+    _reactRouterDom.BrowserRouter,
+    null,
     _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
-        null,
-        _react2.default.createElement(
-            'div',
-            null,
-            (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
-        )
+      'div',
+      null,
+      (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
     )
+  )
 ), document.querySelector('#root'));
 
 /***/ }),

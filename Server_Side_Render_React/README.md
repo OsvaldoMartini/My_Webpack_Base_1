@@ -117,6 +117,49 @@ Need state rehydration on the browser
 
 ![alt text](Draws/Reducers/4-Big-Redux-Challeges.PNG "4 Big Challenges")
 
+## 1) Solving First Challeng
+
+##  Redux -> Client Side Set-Up  
+
+client.js
+
+## Middleware is used to hook up any middleware that we migth be using inside of our application
+````
+import { createStore, applyMiddleware } from 'redux';
+````
+
+## Is Used to handle asynchronous action creators
+````
+import thunk from 'redux-thunk';
+````
+
+## Provider is What Ties our Store and React side together.
+## Is used to communicate data from the store to any connected components in our application
+````
+import { Provider } from 'react-redux';
+````
+
+## Create New Redux Store to use on the Client Side to Store all our Reducers (Client-Side)
+* We Don't Have Any Reducers for now
+
+````
+// No Reducers for now
+// Initial State = {} "empty Object"
+// And Hook Up the Middleware Call
+
+const store = createStore(reducers, {}, applyMiddleware(thunk));
+````
+
+## Sticking the store to the Provider to wrap all entire application
+## Passing as  "prop" to the <Provider> 'Tag'
+````
+<Provider store={store}>
+````
+
+## The Provider has reference to the read store, any time the redux store changes.
+## The Provider:
+## Will note or will alert any connected components that they need to render
+
 ## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
 ## Install:
