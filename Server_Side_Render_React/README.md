@@ -117,18 +117,18 @@ Need state rehydration on the browser
 
 ![alt text](Draws/Reducers/4-Big-Redux-Challeges.PNG "4 Big Challenges")
 
-## 1) Solving First Challeng
+# 1) Solving First Challenge
 
-#  Redux -> Client Side Set-Up  
+##  Redux -> Client Side Set-Up  
 
-## client.js
+* "client.js"
 
 * "Middleware" is used to hook up any middleware that we migth be using inside of our application
 ````
 import { createStore, applyMiddleware } from 'redux';
 ````
 
- * "Thunk" is Used to handle asynchronous action creators
+ * "Thunk" is used to handle Asynchronous calls for the action creators
 ````
 import thunk from 'redux-thunk';
 ````
@@ -161,6 +161,43 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 * "The Provider" has reference to the read store, any time the redux store changes.
 * "The Provider" Will note or will alert any connected components that they need to render
+
+##  Redux -> Server Side Set-Up  
+
+* "createStore.js"
+
+## I Only need the store in Server-Side
+````
+import { createStore, applyMiddleware } from 'redux';
+
+* "Thunk" - Takecare about the Asynchronous call for the action creators
+import thunk from 'redux-thunk'; 
+````
+
+* Create Redux Store to use on the SERVER Side
+````
+We Don't Have Any Reducers for now
+Initial State = { } "empty Object"
+And Hook Up the Middleware Call (thunk)
+````
+> Creating the Second Store and Return It.
+````
+export default () => {
+  const store = createStore(reducers, {}, applyMiddleware(thunk));
+
+  return store;
+};
+````
+> I DON'T need the PROVIDER in Server-Side
+````
+ In Client Side I need the PROVIDER to Dispatch Notices and Alerts 
+ for the components to attempt to render
+````
+* The Challenge is:
+````
+Some Detection of hen we finish alll of our initial data loading before we attempt to render
+````
+
 
 
 
