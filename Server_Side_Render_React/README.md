@@ -115,8 +115,8 @@ are completed on server
 Need state rehydration on the browser
 ````
 
-![Alt text](../Server_Side_Render_React/Draws/Reducers/4_Big_Redux_Challeges.png?raw=true "4 Big Challenges")
-
+![Alt text](../Server_Side_Render_React/Draws/Reducers/4-Big-Redux-Challeges.PNG"4 Big Challenges")
+![alt text](Server_Side_Render_React/Draws/Reducers/4-Big-Redux-Challeges.PNG)
 
 ## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
