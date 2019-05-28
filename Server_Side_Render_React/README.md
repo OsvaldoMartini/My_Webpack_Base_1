@@ -137,7 +137,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 ````
 
-* "Provider" is What Ties our Store and React side together.
+* "Provider" is What Ties our Store and React side together
 > Is used to communicate data from the store to any connected components in our application
 ````
 import { Provider } from 'react-redux';
@@ -165,6 +165,8 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 * "The Provider" has reference to the read store, any time the redux store changes.
 * "The Provider" Will note or will alert any connected components that they need to render
+
+![alt text](Draws/Reducers/Client-Side-Redux-Store.PNG "Client Side Redux Store")
 
 ##  Redux -> Server Side Set-Up  
 
