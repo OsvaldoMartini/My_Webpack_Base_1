@@ -223,9 +223,8 @@ https://www.isc.org/downloads/
 ### Videos 49 and 50
 Deploymnet of Servers and Node and Webpack Integration
 
-making webpack Middleware.
-Creating a Stand Alone Server
-
+> Making webpack Middleware.
+### Creating a Stand Alone Server
 ```
 npm install --save express
 ```
