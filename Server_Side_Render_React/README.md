@@ -89,6 +89,10 @@ We  have one running on the server (StaticRouter)
 and another running on the browser (BrowserRouter) 
 ````
 
+## List of Reducers for our Application
+
+![alt text](Draws/Reducers/List-Of-Reducers.PNG "List of Reducers")
+
 # 4 Big Challenges
  
  I will have 2 (Two) copies of Redux
