@@ -31,7 +31,7 @@ const axiosInstance = axios.create({
 
 /**
 |--------------------------------------------------
-| Action Creator for Ramdom Images
+| Action Creator for Random Images
 |--------------------------------------------------
 */
 export const FETCH_IMAGES = 'fetch_images';
@@ -41,7 +41,7 @@ export const fetchImages = () => async dispatch => {
   });
 
   dispatch: ({
-    type: FETCH_ADMINS,
+    type: FETCH_IMAGES,
     payload: res
   });
 };

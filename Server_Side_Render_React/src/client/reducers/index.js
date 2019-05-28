@@ -1,6 +1,6 @@
 /**
 |--------------------------------------------------
-| Combine all Different Reducers
+| Combine all Different Reducers together
 |--------------------------------------------------
 */
 import { combineReducers } from 'redux';
