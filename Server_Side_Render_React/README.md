@@ -125,7 +125,7 @@ Need state rehydration on the browser
 
 ##  Redux -> Client Side Set-Up  
 
-* "client.js"
+### "client.js"
 
 * "Middleware" is used to hook up any middleware that we migth be using inside of our application
 ````
@@ -170,9 +170,9 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 ##  Redux -> Server Side Set-Up  
 
-* "createStore.js"
+### "createStore.js"
 
-## I Only need the store in Server-Side
+> I Only need the store in Server-Side
 ````
 import { createStore, applyMiddleware } from 'redux';
 ````
@@ -200,7 +200,7 @@ export default () => {
  In Client Side I need the PROVIDER to Dispatch Notices and Alerts 
  for the components to attempt to render
 ````
-* The Challenge is:
+### The Challenge is:
 ````
 Some Detection of "When" we finish all of our initial data loading "Before" we attempt to render
 ````
@@ -209,18 +209,18 @@ Some Detection of "When" we finish all of our initial data loading "Before" we a
 
 
 
-## G Suite Toolbox - Dig DNS Dig Tool
+# G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
 ## Install:
 https://help.dyn.com/how-to-use-binds-dig-tool/
 https://www.isc.org/downloads/
-##Usage:
+### Usage:
 ```
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 ```
-## Videos 49 and 50
+### Videos 49 and 50
 Deploymnet of Servers and Node and Webpack Integration
 
 making webpack Middleware.
@@ -235,19 +235,19 @@ Install Webpack as  Middleware (For Intercept incoming request and hand it off t
 ```
 npm install --save-dev webpack-dev-middleware@2.0.6
 ```
-## If you get this error:
+### If you get this error:
 ```
 context.compiler.hooks.invalid.tap('WebpackDevMiddleware', invalid);
 ```
 
-## These Versions really works together
+### These Versions really works together
 ```
   "webpack": "^2.2.0-rc.0",
   "webpack-dev-middleware": "^2.0.6",
   "webpack-dev-server": "^2.2.0-rc.0"
 ```
 
-## Tests as PRODUCTION
+### Tests as PRODUCTION
 
 ```
 SET NODE_ENV=production
@@ -255,9 +255,9 @@ Delete folder 'dist'
 node server.js
 ```
 
-## Adding some Authentication or Databasic Logic or anything like that
+### Adding some Authentication or Databasic Logic or anything like that
 It is to Add Additional Route ABOVE .. 
-## I meant: "ABOVE"... "ABOVE ALL WEBPACK INFORMATION"
+### I meant: "ABOVE"... "ABOVE ALL WEBPACK INFORMATION"
 server.js
 ```
 //Servers Routes...
