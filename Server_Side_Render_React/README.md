@@ -266,27 +266,41 @@ export default (state = [], action) => {
 #### "./client/reducers/`index.js`"
 
 ````
+/**
+|--------------------------------------------------
+| Combine all Different Reducers together
+|--------------------------------------------------
+*/
+import { combineReducers } from 'redux';
+import usersReducer from './usersReducer';
+import adminReducer from './adminsReducer';
+
+export default combineReducers({
+  users: usersReducer,
+  admins: adminReducer
+});
+
 ````
+![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
 
-
-
-# G Suite Toolbox - Dig DNS Dig Tool
+> Extra Tips
+## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
-## Install:
+### Install:
 https://help.dyn.com/how-to-use-binds-dig-tool/
 https://www.isc.org/downloads/
-### Usage:
+#### Usage:
 ```
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 ```
-### Videos 49 and 50
+#### Videos 49 and 50
 Deploymnet of Servers and Node and Webpack Integration
 
 > Making webpack Middleware.
-### Creating a Stand Alone Server
+#### Creating a Stand Alone Server
 ```
 npm install --save express
 ```
@@ -296,19 +310,19 @@ Install Webpack as  Middleware (For Intercept incoming request and hand it off t
 ```
 npm install --save-dev webpack-dev-middleware@2.0.6
 ```
-### If you get this error:
+#### If you get this error:
 ```
 context.compiler.hooks.invalid.tap('WebpackDevMiddleware', invalid);
 ```
 
-### These Versions really works together
+#### These Versions really works together
 ```
   "webpack": "^2.2.0-rc.0",
   "webpack-dev-middleware": "^2.0.6",
   "webpack-dev-server": "^2.2.0-rc.0"
 ```
 
-### Tests as PRODUCTION
+#### Tests as PRODUCTION
 
 ```
 SET NODE_ENV=production
@@ -316,10 +330,10 @@ Delete folder 'dist'
 node server.js
 ```
 
-### Adding some Authentication or Databasic Logic or anything like that
+#### Adding some Authentication or Databasic Logic or anything like that
 It is to Add Additional Route ABOVE .. 
-### I meant: "ABOVE"... "ABOVE ALL WEBPACK INFORMATION"
-server.js
+#### I meant: "ABOVE"... "ABOVE ALL WEBPACK INFORMATION"
+`server.js`
 ```
 //Servers Routes...
 
