@@ -1,6 +1,11 @@
 import axios from 'axios';
-// The FETCH_USERS is NOT SERVER SIDE rendering going on here yet
-// The Rendering has be done by the CLIENT SIDE FUNCTIONS  
+/**
+|--------------------------------------------------
+| Action Creator for List of Users
+| The FETCH_USERS is NOT SERVER SIDE rendering going on here yet
+| The Rendering has be done by the CLIENT SIDE FUNCTIONS
+|--------------------------------------------------
+*/
 export const FETCH_USERS = 'fetch_users';
 export const fetchUsers = () => async dispatch => {
   const res = await axios.get('http://react-ssr-api.herokuapp.com/users');
@@ -8,5 +13,50 @@ export const fetchUsers = () => async dispatch => {
   dispatch({
     type: FETCH_USERS,
     payload: res
-  })
+  });
+};
+
+/**
+|--------------------------------------------------
+| Asxios Instance to Request Ramdom Images
+|--------------------------------------------------
+*/
+const axiosInstance = axios.create({
+  baseUrl: 'https://api.unsplash.com',
+  headers: {
+    Authotization:
+      'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
+  }
+});
+
+/**
+|--------------------------------------------------
+| Action Creator for Ramdom Images
+|--------------------------------------------------
+*/
+export const FETCH_IMAGES = 'fetch_images';
+export const fetchImages = () => async dispatch => {
+  const res = await axiosInstance.get('/search/photos', {
+    params: { query: term }
+  });
+
+  dispatch: ({
+    type: FETCH_ADMINS,
+    payload: res
+  });
+};
+
+/**
+|--------------------------------------------------
+| Action Creator for List of Admins
+|--------------------------------------------------
+*/
+export const FETCH_ADMINS = 'fetch_admins';
+export const fetchAdmins = () => async dispatch => {
+  const res = await axios.get('http://react-ssr-api.herokuapp.com/admins');
+
+  dispatch: ({
+    type: FETCH_ADMINS,
+    payload: res
+  });
 };

@@ -212,6 +212,28 @@ Some Detection of "When" we finish all of our initial data loading "Before" we a
 ![alt text](Draws/Reducers/Server-Side-Redux-Store.PNG "Server Side Redux Store")
 
 
+# Action Creators
+## FETCH_ADMINS
+#### ./actions/index.js
+````
+/**
+|--------------------------------------------------
+| Action Creator for List of Admins
+|--------------------------------------------------
+*/
+import axios from 'axios';
+
+export const FETCH_ADMINS = 'fetch_admins';
+export const fetchAdmins = () => async dispatch => {
+  const res = await axios.get('http://react-ssr-api.herokuapp.com/admins');
+
+  dispatch: ({
+    type: FETCH_ADMINS,
+    payload: res
+  });
+};
+````
+
 
 # G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
