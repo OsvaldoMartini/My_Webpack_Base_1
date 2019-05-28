@@ -233,7 +233,26 @@ export const fetchAdmins = () => async dispatch => {
   });
 };
 ````
+## Reducer to Match with FETCH_ADMINS Action Creator
+### This Reduzer it will watch the FETCH_ADMINS "Action Creator"
+### './reducers/adminsReducer.js"
+````
+/**
+|--------------------------------------------------
+| Reducer to Watch FETCH_ADMINS Action Creator
+|--------------------------------------------------
+*/
+import { FETCH_ADMINS } from '../actions';
 
+export default (state = [], action) => {
+  switch (action.type) {
+    case FETCH_ADMINS:
+      return action.payload.data;
+    default:
+      return state;
+  }
+};
+````
 
 # G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
