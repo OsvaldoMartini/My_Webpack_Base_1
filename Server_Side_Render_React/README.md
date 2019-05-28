@@ -212,15 +212,15 @@ Some Detection of "When" we finish all of our initial data loading "Before" we a
 ![alt text](Draws/Reducers/Server-Side-Redux-Store.PNG "Server Side Redux Store")
 
 # CLIENT FOLDER
-> The Following files must it will be created inside of the "client" folder:
-* "./client/actions/index.js"    -> it holds all Action Creators for the app
-* "./client/reducers/index.js"   -> to combine all different reducers together
-* "./client/reducer/adminsReducer.js -> to watch FETCH_ADMINS Action Creator
+> The Following files will be created inside of the "client" folder:
+* "./client/actions/`index.js`"    -> it holds all `Action Creators` for the app
+* "./client/reducers/`index.js`"   -> to `combine` all different `reducers` together
+* "./client/reducer/`adminsReducer.js` -> to watch `FETCH_ADMINS` Action Creator
 
 ## Action Creators
 > FETCH_ADMINS
 
-#### "./client/actions/index.js"
+#### "./client/actions/`index.js`"
 ````
 /**
 |--------------------------------------------------
@@ -241,9 +241,9 @@ export const fetchAdmins = () => async dispatch => {
 ````
 
 ## Reducers
-> Reducer to Match with FETCH_ADMINS Action Creator
-### This Reducer watch's the FETCH_ADMINS "Action Creator"
-#### './client/reducers/adminsReducer.js"
+> Reducer to Match with `FETCH_ADMINS` Action Creator
+### This Reducer `watch's` the FETCH_ADMINS "Action Creator"
+#### './client/reducers/`adminsReducer.js`"
 ````
 /**
 |--------------------------------------------------
@@ -262,8 +262,8 @@ export default (state = [], action) => {
 };
 ````
 
-## Combine Reducers with all different reducers together
-#### "./client/reducers/index.js"
+## Combine all different reducers together
+#### "./client/reducers/`index.js`"
 
 ````
 ````
