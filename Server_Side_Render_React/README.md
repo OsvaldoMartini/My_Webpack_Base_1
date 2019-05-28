@@ -234,7 +234,7 @@ export const fetchAdmins = () => async dispatch => {
 };
 ````
 ## Reducer to Match with FETCH_ADMINS Action Creator
-### This Reduzer it will watch the FETCH_ADMINS "Action Creator"
+> This Reducer watch's the FETCH_ADMINS "Action Creator"
 ### './reducers/adminsReducer.js"
 ````
 /**
