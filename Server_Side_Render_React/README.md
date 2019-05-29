@@ -283,6 +283,209 @@ export default combineReducers({
 ````
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
+## About Redux DevTools
+> `Containers` folders  for the `DevTools.js`
+````
+containers/DevTools.js
+````
+````
+import React from 'react';
+
+// Exported from redux-devtools
+import { createDevTools } from 'redux-devtools';
+
+// Monitors are separate packages, and you can make a custom one
+import LogMonitor from 'redux-devtools-log-monitor';
+import DockMonitor from 'redux-devtools-dock-monitor';
+
+// createDevTools takes a monitor and produces a DevTools component
+const DevTools = createDevTools(
+  // Monitors are individually adjustable with props.
+  // Consult their repositories to learn about those props.
+  // Here, we put LogMonitor inside a DockMonitor.
+  // Note: DockMonitor is visible by default.
+  <DockMonitor
+    toggleVisibilityKey="ctrl-h"
+    changePositionKey="ctrl-q"
+    defaultIsVisible={true}
+  >
+    <LogMonitor theme="tomorrow" />
+  </DockMonitor>
+);
+
+export default DevTools;
+````
+
+>`Store` folder for the `configureStore.js`
+````
+store/configureStore.js
+````
+
+#### "./store/configureStore.js"
+````
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from '../reducers';
+import DevTools from '../containers/DevTools';
+
+const enhancer = compose(
+  // Middleware you want to use in development:
+  applyMiddleware(d1, d2, d3),
+  // Required! Enable Redux DevTools with the monitors you chose
+  DevTools.instrument()
+);
+
+export default function configureStore(initialState) {
+  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
+  // See https://github.com/reactjs/redux/releases/tag/v3.1.0
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (module.hot) {
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(
+        require('../reducers') /*.default if you use Babel 6+ */
+      )
+    );
+  }
+
+  return store;
+}
+```` 
+
+### Exclude DevTools from Production Builds
+#### Finally, to make sure we’re not pulling any DevTools-related code in the production builds, 
+*We will `envify` our code. You can use `DefinePlugin` with `Webpack`, or `envify` for `Browserify`.
+````
+webpack.config.prod.js
+````
+````
+// ...
+plugins: [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+  })
+],
+// ...
+````
+
+## Advanced Prod and Dev Enviromnet
+
+### Configure Store Dev
+````
+store/configureStore.dev.js
+````
+````
+/**
+|--------------------------------------------------
+| Dev - With No Persist State
+| Configure Store for Development with "store enhancer"
+|--------------------------------------------------
+*/
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from '../reducers';
+import DevTools from '../containers/DevTools';
+
+const enhancer = compose(
+  // Middleware you want to use in development:
+  applyMiddleware(d1, d2, d3),
+  // Required! Enable Redux DevTools with the monitors you chose
+  DevTools.instrument()
+);
+
+export default function configureStore(initialState) {
+  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
+  // See https://github.com/reactjs/redux/releases/tag/v3.1.0
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (module.hot) {
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(
+        require('../reducers') /*.default if you use Babel 6+ */
+      )
+    );
+  }
+
+  return store;
+}
+````
+### Configure Store Dev - With Persist State
+````
+store/configureStore.dev.persist.state.js
+````
+````
+/**
+|--------------------------------------------------
+| Dev - With Persist State
+| Configure Store for Development with "store enhancer"
+|--------------------------------------------------
+*/
+import { createStore, applyMiddleware, compose } from 'redux';
+import { persistState } from 'redux-devtools';
+
+//Reducers Entry Point
+import rootReducer from '../reducers';
+import DevTools from '../containers/DevTools';
+
+const enhancer = compose(
+  // Middleware you want to use in development:
+  applyMiddleware(d1, d2, d3),
+  // Required! Enable Redux DevTools with the monitors you chose
+  DevTools.instrument(),
+  // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
+  persistState(getDebugSessionKey())
+);
+
+function getDebugSessionKey() {
+  // You can write custom logic here!
+  // By default we try to read the key from ?debug_session=<key> in the address bar
+  const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
+  return matches && matches.length > 0 ? matches[1] : null;
+}
+
+export default function configureStore(initialState) {
+  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
+  // See https://github.com/rackt/redux/releases/tag/v3.1.0
+  const store = createStore(rootReducer, initialState, enhancer);
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (module.hot) {
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(
+        require('../reducers') /*.default if you use Babel 6+ */
+      )
+    );
+  }
+
+  return store;
+}
+````
+### Configure Store Prod
+````
+store/configureStore.prod.js
+````
+````
+/**
+|--------------------------------------------------
+| Configure Store for Production
+|--------------------------------------------------
+*/
+import { createStore, applyMiddleware, compose } from 'redux';
+
+// Reducers Entry Point
+import rootReducer from '../reducers';
+
+// Middleware you want to use in production:
+const enhancer = applyMiddleware(p1, p2, p3);
+
+export default function configureStore(initialState) {
+  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
+  // See https://github.com/rackt/redux/releases/tag/v3.1.0
+  return createStore(rootReducer, initialState, enhancer);
+}
+````
+
+
 
 > Extra Tips
 ## G Suite Toolbox - Dig DNS Dig Tool
