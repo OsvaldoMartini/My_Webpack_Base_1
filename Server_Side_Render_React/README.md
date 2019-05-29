@@ -434,15 +434,15 @@ export default function configureStore(initialState) {
   // See https://github.com/rackt/redux/releases/tag/v3.1.0
   return createStore(rootReducer, initialState, enhancer);
 }
-````
+```
 
 
 ### Exclude DevTools from `Production` Builds
 #### Finally, to make sure we’re not pulling any DevTools-related code in the production builds, 
 * We will `envify` our code. You can use `DefinePlugin` with `Webpack`, or `envify` for `Browserify`.
-````
+```
 webpack.config.prod.js
-````
+```
 ```js
 // ...
 plugins: [
@@ -451,7 +451,7 @@ plugins: [
   })
 ],
 // ...
-````
+```
 
 # Extra Tips and Tools
 ## G Suite Toolbox - Dig DNS Dig Tool
