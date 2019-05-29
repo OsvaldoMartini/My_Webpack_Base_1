@@ -1,4 +1,5 @@
 /node_modules
+/Server_Side_Render_React/node_modules
 bundle.js
 npm-debug.log
 .DS_Store
