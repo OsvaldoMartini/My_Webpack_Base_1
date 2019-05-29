@@ -41,5 +41,9 @@
     "webpack-dev-server": "2.8.2",
     "webpack-merge": "4.1.0",
     "webpack-node-externals": "1.6.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-log-monitor": "^1.4.0"
   }
 }
