@@ -284,7 +284,9 @@ export default combineReducers({
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
 ## About Redux DevTools
-> `Containers` folders  for the `DevTools.js`
+### Defining `DevTools` to use: `DockMonitor` and/or `LogMonitor`
+
+* `Containers` folders  for the `DevTools.js`
 ````
 containers/DevTools.js
 ````
@@ -314,58 +316,6 @@ const DevTools = createDevTools(
 );
 
 export default DevTools;
-````
-
->`Store` folder for the `configureStore.js`
-````
-store/configureStore.js
-````
-
-#### "./store/configureStore.js"
-````
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools';
-
-const enhancer = compose(
-  // Middleware you want to use in development:
-  applyMiddleware(d1, d2, d3),
-  // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument()
-);
-
-export default function configureStore(initialState) {
-  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
-  // See https://github.com/reactjs/redux/releases/tag/v3.1.0
-  const store = createStore(rootReducer, initialState, enhancer);
-
-  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
-  if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(
-        require('../reducers') /*.default if you use Babel 6+ */
-      )
-    );
-  }
-
-  return store;
-}
-```` 
-
-### Exclude DevTools from Production Builds
-#### Finally, to make sure we’re not pulling any DevTools-related code in the production builds, 
-*We will `envify` our code. You can use `DefinePlugin` with `Webpack`, or `envify` for `Browserify`.
-````
-webpack.config.prod.js
-````
-````
-// ...
-plugins: [
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production')
-  })
-],
-// ...
 ````
 
 ## Advanced Prod and Dev Enviromnet
@@ -486,6 +436,21 @@ export default function configureStore(initialState) {
 ````
 
 
+### Exclude DevTools from Production Builds
+#### Finally, to make sure we’re not pulling any DevTools-related code in the production builds, 
+* We will `envify` our code. You can use `DefinePlugin` with `Webpack`, or `envify` for `Browserify`.
+````
+webpack.config.prod.js
+````
+````
+// ...
+plugins: [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production')
+  })
+],
+// ...
+````
 
 > Extra Tips
 ## G Suite Toolbox - Dig DNS Dig Tool
