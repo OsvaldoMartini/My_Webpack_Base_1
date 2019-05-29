@@ -480,7 +480,7 @@ Install Webpack as  Middleware (For Intercept incoming request and hand it off t
 npm install --save-dev webpack-dev-middleware@2.0.6
 ```
 #### If you get this error:
-```
+```js
 context.compiler.hooks.invalid.tap('WebpackDevMiddleware', invalid);
 ```
 
@@ -503,7 +503,7 @@ node server.js
 It is to Add Additional Route ABOVE .. 
 #### I meant: "ABOVE"... "ABOVE ALL WEBPACK INFORMATION"
 `server.js`
-```
+```js
 //Servers Routes...
 
 app.get('/hello', (req, res) => res.send({ hi: 'there' }));
