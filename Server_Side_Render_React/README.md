@@ -16,49 +16,49 @@ npm install
 # Render Server Side with React
 
 ## Video 23 - Ignoring File with WebpackNodeExternals
-````
+```
  So anything that's inside the nome modules folder will not be included inside of our server side bundle.
  
  externals: [webpackNodeExternals()]
-````
+```
 
 ## Video 24 - Renderer Helper
-````
+```
 
  This helpes to separate out this express related logic inside "index.js"
 
-````
+```
 
 ## Video 25 - Implementing React Router Support
-````
+```
  New Way to Route wih (Router-ReactConfig)
  React-Router-Config
  It will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
-````
+```
 ## IIS-Express
-````
+```
 If wew want to add in some route for some API handlers or some handler that to return some JSON or any outside requests
 we might want to take in.
 
 We can certainly add those as routing logic to express (or other Server Side like .Net MVC)
-````
+```
 
 ## React Router 
-````
+```
 But anthing that is meant to show HTML out.
 We are always going to  ake sure that React-Router is in charge of that request.
 
-````
+```
 
 ## Video 26 - BrowserRouter vs StaticRouter
 
 ## StaticRouter
 This is a special Library from React
 
-````
+```
 When we do our initial render of the app it's going to be using
 the StaticRouter
-````
+```
 
 This can be useful in server-side rendering scenarios when the user isn’t actually clicking around, 
 so the location never actually changes. 
@@ -67,27 +67,27 @@ Hence, the name: static. It’s also useful in simple tests when you just need t
 on the render output.
 
 check the sample:
-````
+```
 Here’s an example node server that sends a 302 status code for <Redirect>s and regular HTML for other requests:
-````
+```
 https://reacttraining.com/react-router/web/api/StaticRouter
 
 
 
 ## BrowserRouter
 This is a special Library from React
-````
+```
 When our application gets shipped down to the browser and it gets rendered a second time or "hydrate on the browser"
 as we call it.
 
 We will swap out to using the BrowserRouter instead.
-````
+```
 
 ## Summary About "BrowserRouter vs StaticRouter"
-````
+```
 We  have one running on the server (StaticRouter)
 and another running on the browser (BrowserRouter) 
-````
+```
 
 ## List of Reducers for our Application
 
@@ -98,26 +98,26 @@ and another running on the browser (BrowserRouter)
  I will have 2 (Two) copies of Redux
 
 ## 1) First Challenge     
-````
+```
  Redux needs different configuration
  on browser vs server
-````
+```
 
 ## 2) Second Chanllenge 
-````
+```
 Aspects of authentication needs to be handle on server. 
 Normally this is only on browser 
-````
+```
 ## 3) Third Challenge
-````
+```
 Need some way to detect when all initial data load "action creators" 
 are completed on server
-````
+```
 
 ## 4) Fourth Challenge
-````
+```
 Need state rehydration on the browser
-````
+```
 
 ![alt text](Draws/Reducers/4-Big-Redux-Challeges.PNG "4 Big Challenges")
 
@@ -128,40 +128,41 @@ Need state rehydration on the browser
 ### "client.js"
 
 * "Middleware" is used to hook up any middleware that we migth be using inside of our application
-````
+```js
 import { createStore, applyMiddleware } from 'redux';
-````
+```
 
  * "Thunk" is used to handle Asynchronous calls for the action creators
-````
+```js
 import thunk from 'redux-thunk';
-````
+```
 
 * "Provider" is What Ties our Store and React side together
 > Is used to communicate data from the store to any connected components in our application
-````
+```js
 import { Provider } from 'react-redux';
-````
+```
 
 * Create New Redux Store to use on the Client Side to Store all our Reducers
-````
+```
 We Don't Have Any Reducers for now
 No Reducers for now
 Initial State = { } "empty Object"
 And Hook Up the Middleware Call (thunk)
 
 //Creating the first Store
-
+```
+```js
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
-````
+```
 
 * Sticking the "STORE" to the "Provider" to wrap all entire application
 
 >Passing as  "prop" to the <Provider> 'Tag'
-````
+```js
 <Provider store={store}>
-````
+```
 
 * "The Provider" has reference to the read store, any time the redux store changes.
 * "The Provider" Will note or will alert any connected components that they need to render
@@ -173,41 +174,41 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 ### "createStore.js"
 
 > I Only need the store in Server-Side
-````
+```js
 import { createStore, applyMiddleware } from 'redux';
-````
+```
 * "Thunk" - Takecare about the Asynchronous call for the action creators
-````
+```js
 import thunk from 'redux-thunk'; 
-````
+```
 
 * Create Redux Store to use on the SERVER Side
-````
+```
 We Don't Have Any Reducers for now
 Initial State = { } "empty Object"
 And Hook Up the Middleware Call (thunk)
-````
+```
 > Creating the Second Store and Return It.
-````
+```js
 export default () => {
   const store = createStore(reducers, {}, applyMiddleware(thunk));
 
   return store;
 };
-````
+```
 > I DON'T need the PROVIDER in Server-Side
-````
+```
  In Client Side I need the PROVIDER to Dispatch Notices and Alerts 
  for the components to attempt to render
-````
+```
 ### The Challenge is:
-````
+```
 Some Detection of "When" we finish all of our initial data loading "Before" we attempt to render
-````
+```
 > BUT I DO NEED the PROVIDER inside of  RENDERER JS BEFORE TO RENDER
-````
+```
  Inside to the RENDERER to handle the transformation Data Store to RAW HTML
- ````
+ ```
 
 ![alt text](Draws/Reducers/Server-Side-Redux-Store.PNG "Server Side Redux Store")
 
@@ -221,7 +222,7 @@ Some Detection of "When" we finish all of our initial data loading "Before" we a
 > FETCH_ADMINS
 
 #### "./client/actions/`index.js`"
-````
+```js
 /**
 |--------------------------------------------------
 | Action Creator for List of Admins
@@ -238,13 +239,13 @@ export const fetchAdmins = () => async dispatch => {
     payload: res
   });
 };
-````
+```
 
 ## Reducers
 > Reducer to Match with `FETCH_ADMINS` Action Creator
 ### This Reducer `watch's` the FETCH_ADMINS "Action Creator"
 #### './client/reducers/`adminsReducer.js`"
-````
+```js
 /**
 |--------------------------------------------------
 | Reducer to Watch FETCH_ADMINS Action Creator
@@ -260,12 +261,12 @@ export default (state = [], action) => {
       return state;
   }
 };
-````
+```
 
 ## Combine all different reducers together
 #### "./client/reducers/`index.js`"
 
-````
+```js
 /**
 |--------------------------------------------------
 | Combine all Different Reducers together
@@ -280,17 +281,17 @@ export default combineReducers({
   admins: adminReducer
 });
 
-````
+```
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
 ## About Redux DevTools
 ### Defining wich `DevTools` use: `DockMonitor` and/or `LogMonitor`
 
 * Create the folder `Containers` for the `DevTools.js` file
-````
+```
 containers/DevTools.js
-````
-````
+```
+```js
 import React from 'react';
 
 // Exported from redux-devtools
@@ -316,15 +317,15 @@ const DevTools = createDevTools(
 );
 
 export default DevTools;
-````
+```
 
 ## Advanced Prod and Dev Enviromnet
 
 ### Configure `Create Store` for `Dev`
-````
+```
 store/configureStore.dev.js
-````
-````
+```
+```js
 /**
 |--------------------------------------------------
 | Dev - With No Persist State
@@ -358,12 +359,12 @@ export default function configureStore(initialState) {
 
   return store;
 }
-````
+```
 ### Configure Configure `Create Store` for `Dev` - `With Persist State`
-````
+```
 store/configureStore.dev.persist.state.js
-````
-````
+```
+```js
 /**
 |--------------------------------------------------
 | Dev - With Persist State
@@ -409,12 +410,12 @@ export default function configureStore(initialState) {
 
   return store;
 }
-````
+```
 ### Configure `Create Store` for `Prod`
-````
+```
 store/configureStore.prod.js
-````
-````
+```
+```js
 /**
 |--------------------------------------------------
 | Configure Store for Production
@@ -442,7 +443,7 @@ export default function configureStore(initialState) {
 ````
 webpack.config.prod.js
 ````
-````
+```js
 // ...
 plugins: [
   new webpack.DefinePlugin({
