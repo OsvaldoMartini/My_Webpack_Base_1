@@ -452,7 +452,7 @@ plugins: [
 // ...
 ````
 
-> Extra Tips
+# Extra Tips and Tools
 ## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
 ### Install:
