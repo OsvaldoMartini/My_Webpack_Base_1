@@ -284,9 +284,9 @@ export default combineReducers({
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
 ## About Redux DevTools
-### Defining `DevTools` to use: `DockMonitor` and/or `LogMonitor`
+### Defining wich `DevTools` use: `DockMonitor` and/or `LogMonitor`
 
-* `Containers` folders  for the `DevTools.js`
+* Create the folder `Containers` for the `DevTools.js` file
 ````
 containers/DevTools.js
 ````
@@ -320,7 +320,7 @@ export default DevTools;
 
 ## Advanced Prod and Dev Enviromnet
 
-### Configure Store Dev
+### Configure `Create Store` for `Dev`
 ````
 store/configureStore.dev.js
 ````
@@ -359,7 +359,7 @@ export default function configureStore(initialState) {
   return store;
 }
 ````
-### Configure Store Dev - With Persist State
+### Configure Configure `Create Store` for `Dev` - `With Persist State`
 ````
 store/configureStore.dev.persist.state.js
 ````
@@ -410,7 +410,7 @@ export default function configureStore(initialState) {
   return store;
 }
 ````
-### Configure Store Prod
+### Configure `Create Store` for `Prod`
 ````
 store/configureStore.prod.js
 ````
@@ -436,7 +436,7 @@ export default function configureStore(initialState) {
 ````
 
 
-### Exclude DevTools from Production Builds
+### Exclude DevTools from `Production` Builds
 #### Finally, to make sure we’re not pulling any DevTools-related code in the production builds, 
 * We will `envify` our code. You can use `DefinePlugin` with `Webpack`, or `envify` for `Browserify`.
 ````
