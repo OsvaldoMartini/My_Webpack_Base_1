@@ -371,7 +371,10 @@ app.get('*', function (req, res) {
   // List of Routes and Path That The User Want to Access
   // "matchRoutes" It's going to look at whatever route the user is trying to visit and
   // then it's going to return an array of components that are about to be rendered
+
   // lets console.log this
+  console.log((0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path));
+
   var promises = (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
     var route = _ref.route;
 
