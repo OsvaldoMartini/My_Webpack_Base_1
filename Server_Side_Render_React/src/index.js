@@ -28,6 +28,12 @@ app.use(express.static('public'));
 app.get('*', (req, res) => {
   const store = createStore();
 
+  // Some logic to initialize
+  // and load data into the Store
+  // List of Routes and Path That The User Want to Access
+  // "matchRoutes" It's going to look at whatever route the user is trying to visit and
+  // then it's going to return an array of components that are about to be rendered
+  // lets console.log this
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
   });
