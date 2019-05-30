@@ -453,6 +453,57 @@ plugins: [
 // ...
 ```
 
+## Using <DevTools> in 2 (Two) ways
+* `Render` direct in your `App`;
+* `Define` a `Root.js` for your `Application`
+
+### 1) Render direct in `Your App`
+```
+Finally, include the DevTools component in your page.
+A naïve way to do this would be to render it right in your index.js:
+```
+>  Render direct in `Your App`...
+* *`Important!` -> 'Don't do this!' You’re bringing 'DevTool's into the 'PRODUCTION' bundle.
+```js
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import TodoApp from './containers/TodoApp';
+
+// Don't do this! You’re bringing DevTools into the production bundle.
+import DevTools from './containers/DevTools';
+
+const store = configureStore();
+
+render(
+  <Provider store={store}>
+    <div>
+      <TodoApp />
+      <DevTools />
+    </div>
+  </Provider>
+  document.getElementById('app')
+);
+```
+### 2) `Root` of the `Application`
+```
+We recommend a different approach. Create a Root.js component that renders the root of your application (usually some component 
+surrounded by a `<Provider>`). 
+Then use the same trick with conditional require statements to have two versions of it, one for development, and one for production:
+```
+>  `Define` a `Root.js` for your `Application`
+```
+containers/Root.js
+```
+```js
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./Root.prod');
+} else {
+  module.exports = require('./Root.dev');
+}
+```
+
 # Extra Tips and Tools
 ## G Suite Toolbox - Dig DNS Dig Tool
 https://toolbox.googleapps.com/apps/dig/#AAAA/
