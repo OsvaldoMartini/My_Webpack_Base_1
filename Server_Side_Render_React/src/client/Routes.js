@@ -35,5 +35,13 @@ export default [
   {
     path: '/MapBox',
     component: () => 'MapBox'
+  },
+  {
+    path: '/images',
+    component: () => 'Images'
+  },
+  {
+    path: '/Admins',
+    component: () => 'Admins'
   }
 ];
