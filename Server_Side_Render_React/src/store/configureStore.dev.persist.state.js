@@ -7,13 +7,17 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { persistState } from 'redux-devtools';
 
+//Takecare about the Asynchronous call for the action creators
+import thunk from 'redux-thunk';
+
 //Reducers Entry Point
 import rootReducer from '../reducers';
+
 import DevTools from '../containers/DevTools';
 
 const enhancer = compose(
   // Middleware you want to use in development:
-  applyMiddleware(d1, d2, d3),
+  applyMiddleware(thunk), //(d1, d2, d3)
   // Required! Enable Redux DevTools with the monitors you chose
   DevTools.instrument(),
   // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
