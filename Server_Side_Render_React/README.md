@@ -453,7 +453,7 @@ plugins: [
 // ...
 ```
 
-## Using <DevTools> in 2 (Two) ways
+## Using <DevTools> in 3 (Three) Ways
 * `Render` direct in your `App`;
 * `Define` a `Root.js` for your `Application`
 
@@ -487,10 +487,15 @@ render(
 );
 ```
 ### 2) `Root` of the `Application`
-We recommend a different approach. Create a Root.js component that renders the root of your application 
-#### `Usually some component surrounded by a `<Provider>`. 
-Then use the same trick with conditional require statements to have two versions of it, 
-`one for development`, and one for `production`:
+We recommend a different approach. 
+```
+Create a Root.js component that renders the root of your application 
+```
+Usually some component surrounded by a `<Provider>` 
+```
+Then use the same trick with conditional require statements to have two versions of it
+``` 
+`One for development`, and one for `Production`
 >  `Define` a `Root.js` for your `Application`
 ```
 containers/Root.js
@@ -502,6 +507,104 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = require('./Root.dev');
 }
 ```
+#### `Root.dev`:
+```
+containers/Root.dev.js
+```
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import TodoApp from './TodoApp';
+import DevTools from './DevTools';
+
+export default class Root extends Component {
+  render() {
+    const { store } = this.props;
+    return (
+      <Provider store={store}>
+        <div>
+          <TodoApp />
+          <DevTools />
+        </div>
+      </Provider>
+    );
+  }
+}
+```
+#### `Root.prod.js`
+```
+containers/Root.prod.js
+```
+```js
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import TodoApp from './TodoApp';
+
+export default class Root extends Component {
+  render() {
+    const { store } = this.props;
+    return (
+      <Provider store={store}>
+        <TodoApp />
+      </Provider>
+    );
+  }
+}
+```
+### 3) DEfining showDevTools.jsOr Open in a New Window
+> Defining `showDevTools.js` with `index.js` (in your App)
+```
+showDevTools.js
+```
+```js
+import React from 'react';
+import { render } from 'react-dom';
+import DevTools from './containers/DevTools';
+
+export default function showDevTools(store) {
+  const popup = window.open(
+    null,
+    'Redux DevTools',
+    'menubar=no,location=no,resizable=yes,scrollbars=no,status=no'
+  );
+  // Reload in case it already exists
+  popup.location.reload();
+
+  setTimeout(() => {
+    popup.document.write('<div id="react-devtools-root"></div>');
+    render(
+      <DevTools store={store} />,
+      popup.document.getElementById('react-devtools-root')
+    );
+  }, 10);
+}
+```
+> In Your App
+```
+index.js
+```
+```js
+import React from 'react';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import configureStore from './store/configureStore';
+import App from './containers/App';
+
+const store = configureStore();
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+if (process.env.NODE_ENV !== 'production') {
+  const showDevTools = require('./showDevTools');
+  showDevTools(store);
+}
+```
+
 
 # Extra Tips and Tools
 ## G Suite Toolbox - Dig DNS Dig Tool
