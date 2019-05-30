@@ -488,9 +488,9 @@ render(
 ```
 ### 2) `Root` of the `Application`
 We recommend a different approach. Create a Root.js component that renders the root of your application 
-> (usually some component surrounded by a `<Provider>`). 
+#### `Usually some component surrounded by a `<Provider>`. 
 Then use the same trick with conditional require statements to have two versions of it, 
-one for development, and one for production:
+`one for development`, and one for `production`:
 >  `Define` a `Root.js` for your `Application`
 ```
 containers/Root.js
