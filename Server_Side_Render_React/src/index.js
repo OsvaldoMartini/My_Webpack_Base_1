@@ -26,31 +26,22 @@ app.use(express.static('public'));
 
 //Passing the " req " inside of the render as argument
 app.get('*', (req, res) => {
-    const store = createStore();
+  const store = createStore();
 
-    // Some logic to initialize
-    // and load data into the Store
-    // List of Routes and Path That The User Want to Access
-    // "matchRoutes" It's going to look at whatever route the user is trying to visit and 
-    // then it's going to return an array of components that are about to be rendered
-    // lets console.log this
-    //console.log(matchRoutes(Routes, req.path));
-    // Mapping matchRoutes
-    const promises = matchRoutes(Routes, req.path).map(({ route }) => {  //We Are Doing some Destructuring Here
-        return route.loadData ? route.loadData(store) : null;
-    });
+  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    return route.loadData ? route.loadData(store) : null;
+  });
 
-    console.log(promises);
+  console.log(promises);
 
-    Promise.all(promises).then(() => {
-        // Finnaly CAll the Server Side Render
-        res.send(renderer(req, store));
-    });
-
+  Promise.all(promises).then(() => {
+    // Finnaly CAll the Server Side Render
+    res.send(renderer(req, store));
+  });
 });
 
 app.listen(3000, () => {
-    console.log('listening on port 3000');
+  console.log('listening on port 3000');
 });
 
 //  Building:
