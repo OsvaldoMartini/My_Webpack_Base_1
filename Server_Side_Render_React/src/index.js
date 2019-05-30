@@ -37,7 +37,9 @@ app.get('*', (req, res) => {
   // lets console.log this
   console.log(matchRoutes(Routes, req.path));
 
+  // Mapping matchRoutes
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    //We Are Doing some Destructuring Here
     return route.loadData ? route.loadData(store) : null;
   });
 

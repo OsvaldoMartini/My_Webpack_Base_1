@@ -375,9 +375,11 @@ app.get('*', function (req, res) {
   // lets console.log this
   console.log((0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path));
 
+  // Mapping matchRoutes
   var promises = (0, _reactRouterConfig.matchRoutes)(_Routes2.default, req.path).map(function (_ref) {
     var route = _ref.route;
 
+    //We Are Doing some Destructuring Here
     return route.loadData ? route.loadData(store) : null;
   });
 
