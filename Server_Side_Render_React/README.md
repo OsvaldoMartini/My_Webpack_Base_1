@@ -299,7 +299,33 @@ export default rootReducer;
 #
 
 ## About Redux DevTools
-### Defining wich `DevTools` use: `DockMonitor` and/or `LogMonitor`
+## Manual Integration
+
+If you want to have full control over where DevTools are displayed, or are developing a custom monitor, you will probably want to integrate them manually.
+It’s more steps, but you will have full control over monitors and their configuration.
+
+### Installation
+
+```
+npm install --save-dev redux-devtools
+```
+
+You’ll also likely want to install some monitors:
+
+```
+npm install --save-dev redux-devtools-log-monitor
+npm install --save-dev redux-devtools-dock-monitor
+```
+
+### Usage
+
+#### Create a `DevTools` Component
+
+Somewhere in your project, create a `DevTools` component by passing a `monitor` element to `createDevTools`. In the following example our `monitor` consists of [`LogMonitor`](https://github.com/gaearon/redux-devtools-log-monitor) docked within [`DockMonitor`](https://github.com/gaearon/redux-devtools-dock-monitor):
+
+#### Defining wich `DevTools` use: `DockMonitor` and/or `LogMonitor`
+
+##### `containers/DevTools.js`
 
 * Create the folder `Containers` for the `DevTools.js` file
 ```
