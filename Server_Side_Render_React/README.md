@@ -453,11 +453,11 @@ plugins: [
 // ...
 ```
 
-## Using <DevTools> in 3 (Three) Ways
+# Using <DevTools> in 3 (Three) Ways
 * `Render` direct in your `App`;
 * `Define` a `Root.js` for your `Application`
 
-### 1) Render direct in `Your App`
+## 1) Render direct in `Your App`
 ```
 Finally, include the DevTools component in your page.
 A naïve way to do this would be to render it right in your index.js:
@@ -486,7 +486,7 @@ render(
   document.getElementById('app')
 );
 ```
-### 2) `Root` of the `Application`
+## 2) `Root` of the `Application`
 We recommend a different approach. 
 ```
 Create a Root.js component that renders the root of your application 
@@ -551,7 +551,7 @@ export default class Root extends Component {
   }
 }
 ```
-#### 3) Or Open Them in a New Window
+## 3) Or Open Them in a New Window
 
 When you use [`DockMonitor`](https://github.com/gaearon/redux-devtools-dock-monitor), you usually want to render `<DevTools>` at the root of your app. It will appear in a docked container above it. However, you can also render it anywhere else in your React component tree. To do this, you can remove `DockMonitor` and instead render `<DevTools>` inside some component of your app. Don’t forget to create two versions of this component to exclude `DevTools` in production!
 
