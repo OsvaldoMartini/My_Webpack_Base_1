@@ -38140,6 +38140,16 @@ exports.default = [{
   component: function component() {
     return 'MapBox';
   }
+}, {
+  path: '/images',
+  component: function component() {
+    return 'Images';
+  }
+}, {
+  path: '/Admins',
+  component: function component() {
+    return 'Admins';
+  }
 }];
 
 /***/ }),
@@ -39165,7 +39175,7 @@ var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _redux.combineReducers)({
+var rootReducer = (0, _redux.combineReducers)({
   users: _usersReducer2.default,
   admins: _adminsReducer2.default
 }); /**
@@ -39173,6 +39183,7 @@ exports.default = (0, _redux.combineReducers)({
     | Combine all Different Reducers together
     |--------------------------------------------------
     */
+exports.default = rootReducer;
 
 /***/ }),
 /* 478 */
