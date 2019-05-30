@@ -284,6 +284,34 @@ export default combineReducers({
 ```
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
+# `VERY IMPORTAN!`
+## I will Define the term as RootReducer to make the things more clear
+```js
+const rootReducer = combineReducers({ ...
+   ...
+});
+
+export default rootReducer;
+```
+```js
+/**
+|--------------------------------------------------
+| Combine all Different Reducers together
+|--------------------------------------------------
+*/
+import { combineReducers } from 'redux';
+import usersReducer from './usersReducer';
+import adminReducer from './adminsReducer';
+
+const rootReducer = combineReducers({
+  users: usersReducer,
+  admins: adminReducer
+});
+
+export default rootReducer;
+```
+#
+
 ## About Redux DevTools
 ### Defining wich `DevTools` use: `DockMonitor` and/or `LogMonitor`
 
