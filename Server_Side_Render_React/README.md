@@ -551,11 +551,38 @@ export default class Root extends Component {
   }
 }
 ```
-### 3) DEfining showDevTools.jsOr Open in a New Window
-> Defining `showDevTools.js` with `index.js` (in your App)
+#### 3) Or Open Them in a New Window
+
+When you use [`DockMonitor`](https://github.com/gaearon/redux-devtools-dock-monitor), you usually want to render `<DevTools>` at the root of your app. It will appear in a docked container above it. However, you can also render it anywhere else in your React component tree. To do this, you can remove `DockMonitor` and instead render `<DevTools>` inside some component of your app. Don’t forget to create two versions of this component to exclude `DevTools` in production!
+
+However you don’t even have to render `<DevTools>` in the same window. For example, you may prefer to display it in a popup. In this case, you can remove `DockMonitor` from `DevTools.js` and just use the `LogMonitor`, and have some code like this:
+
+##### `index.js`
+
+```js
+import React from 'react';
+import { Provider } from 'react-redux';
+import { render } from 'react-dom';
+import configureStore from './store/configureStore';
+import App from './containers/App';
+
+const store = configureStore();
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+if (process.env.NODE_ENV !== 'production') {
+  const showDevTools = require('./showDevTools');
+  showDevTools(store);
+}
 ```
-showDevTools.js
-```
+
+##### `showDevTools.js`
+
 ```js
 import React from 'react';
 import { render } from 'react-dom';
@@ -577,31 +604,6 @@ export default function showDevTools(store) {
       popup.document.getElementById('react-devtools-root')
     );
   }, 10);
-}
-```
-> In Your App
-```
-index.js
-```
-```js
-import React from 'react';
-import { Provider } from 'react-redux';
-import { render } from 'react-dom';
-import configureStore from './store/configureStore';
-import App from './containers/App';
-
-const store = configureStore();
-
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
-
-if (process.env.NODE_ENV !== 'production') {
-  const showDevTools = require('./showDevTools');
-  showDevTools(store);
 }
 ```
 
