@@ -284,8 +284,8 @@ export default combineReducers({
 ```
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
-# `VERY IMPORTAN!`
-## I will Define the term as RootReducer to make the things more clear
+# `VERY IMPORTANT!`
+## I will `Redefine` the exported name to `RootReducer` to make the things more clear
 ```js
 const rootReducer = combineReducers({ ...
    ...
@@ -293,23 +293,9 @@ const rootReducer = combineReducers({ ...
 
 export default rootReducer;
 ```
-```js
-/**
-|--------------------------------------------------
-| Combine all Different Reducers together
-|--------------------------------------------------
-*/
-import { combineReducers } from 'redux';
-import usersReducer from './usersReducer';
-import adminReducer from './adminsReducer';
+![alt text](Draws/Reducers/CombinedReducers-to-RootReducers.PNG "Changing From CombinedReducers to RootReducers")
 
-const rootReducer = combineReducers({
-  users: usersReducer,
-  admins: adminReducer
-});
 
-export default rootReducer;
-```
 #
 
 ## About Redux DevTools
