@@ -13,18 +13,20 @@ import thunk from 'redux-thunk';
 //Reducers Entry Point
 import rootReducer from '../reducers';
 
-import DevTools from '../containers/DevTools';
+import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 const enhancer = compose(
   // Middleware you want to use in development:
   applyMiddleware(thunk), //(d1, d2, d3)
   // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument(),
+  DevToolsAsDock.instrument(),
   // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
   persistState(getDebugSessionKey())
 );
 
 function getDebugSessionKey() {
+  console.log('DevTool Going through Development persist State');
+
   // You can write custom logic here!
   // By default we try to read the key from ?debug_session=<key> in the address bar
   const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/);
