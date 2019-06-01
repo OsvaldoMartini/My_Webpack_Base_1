@@ -5,7 +5,7 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import Routes from '../client/Routes';
-import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+// import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 export default (req, store) => {
   console.log('Rendering in Server Side');
@@ -16,7 +16,7 @@ export default (req, store) => {
         <StaticRouter location={req.path} context={{}}>
           <div>{renderRoutes(Routes)}</div>
         </StaticRouter>
-        <DevToolsAsDock />
+        {/* <DevToolsAsDock /> */}
       </div>
     </Provider>
   );

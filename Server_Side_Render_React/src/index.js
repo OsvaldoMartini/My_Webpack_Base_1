@@ -4,7 +4,7 @@ import express from 'express';
 import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
 import renderer from './helpers/renderer';
-//import createStore from './helpers/createStore';
+import createStore from './helpers/createStore';
 import configureStore from './store/configureStore';
 //const express = require('express');
 const app = express();
@@ -26,6 +26,7 @@ app.use(express.static('public'));
 
 //Passing the " req " inside of the render as argument
 app.get('*', (req, res) => {
+  // Redux - Server Side Set-Up
   //const store = createStore();
   const store = configureStore();
 

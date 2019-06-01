@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -81,7 +81,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchAdmins = exports.FETCH_ADMINS = exports.fetchImages = exports.FETCH_IMAGES = exports.fetchUsers = exports.FETCH_USERS = undefined;
 
-var _axios = __webpack_require__(11);
+var _axios = __webpack_require__(12);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -246,11 +246,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Home = __webpack_require__(9);
+var _Home = __webpack_require__(10);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _UsersList = __webpack_require__(10);
+var _UsersList = __webpack_require__(11);
 
 var _UsersList2 = _interopRequireDefault(_UsersList);
 
@@ -310,20 +310,74 @@ module.exports = require("react-redux");
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(7);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _express = __webpack_require__(8);
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reduxDevtools = __webpack_require__(16);
+
+var _reduxDevtoolsLogMonitor = __webpack_require__(17);
+
+var _reduxDevtoolsLogMonitor2 = _interopRequireDefault(_reduxDevtoolsLogMonitor);
+
+var _reduxDevtoolsDockMonitor = __webpack_require__(18);
+
+var _reduxDevtoolsDockMonitor2 = _interopRequireDefault(_reduxDevtoolsDockMonitor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// createDevTools takes a monitor and produces a DevTools component
+
+
+// Monitors are separate packages, and you can make a custom one
+/**
+|--------------------------------------------------
+| DevTools definition with DockMonitor and Log Monitor
+|--------------------------------------------------
+*/
+var DevToolsAsDock = (0, _reduxDevtools.createDevTools)(
+// Monitors are individually adjustable with props.
+// Consult their repositories to learn about those props.
+// Here, we put LogMonitor inside a DockMonitor.
+// Note: DockMonitor is visible by default.
+_react2.default.createElement(
+  _reduxDevtoolsDockMonitor2.default,
+  {
+    toggleVisibilityKey: 'ctrl-h',
+    changePositionKey: 'ctrl-q',
+    defaultIsVisible: true
+  },
+  _react2.default.createElement(_reduxDevtoolsLogMonitor2.default, { theme: 'tomorrow' })
+));
+
+// Exported from redux-devtools
+exports.default = DevToolsAsDock;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(8);
+
+var _express = __webpack_require__(9);
 
 var _express2 = _interopRequireDefault(_express);
 
@@ -333,24 +387,28 @@ var _Routes = __webpack_require__(3);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(12);
+var _renderer = __webpack_require__(13);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(15);
+var _createStore = __webpack_require__(25);
 
 var _createStore2 = _interopRequireDefault(_createStore);
+
+var _configureStore = __webpack_require__(19);
+
+var _configureStore2 = _interopRequireDefault(_configureStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //const express = require('express');
-//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;
 //const Home = require('./client/components/home').default;
 
+//Isomorphic Java Script / Universal Javascript
 app.use(_express2.default.static('public'));
 
 // ## This tells express that it needs to treat that public directory as a static or public directory that is
@@ -364,7 +422,9 @@ app.use(_express2.default.static('public'));
 
 //Passing the " req " inside of the render as argument
 app.get('*', function (req, res) {
-  var store = (0, _createStore2.default)();
+  // Redux - Server Side Set-Up
+  //const store = createStore();
+  var store = (0, _configureStore2.default)();
 
   // Some logic to initialize
   // and load data into the Store
@@ -402,19 +462,19 @@ app.listen(3000, function () {
 //  node build/bundle.js
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -452,7 +512,7 @@ var Home = function Home() {
 exports.default = Home;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -540,29 +600,29 @@ exports.loadData = loadData;
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(13);
+var _server = __webpack_require__(14);
 
-var _reactRouterDom = __webpack_require__(14);
+var _reactRouterDom = __webpack_require__(15);
 
 var _reactRedux = __webpack_require__(4);
 
@@ -574,78 +634,152 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+
 // this file is going to house a function that will simply render our react up and return it as a string
 exports.default = function (req, store) {
-    var content = (0, _server.renderToString)(_react2.default.createElement(
-        _reactRedux.Provider,
-        { store: store },
+  console.log('Rendering in Server Side');
+
+  var content = (0, _server.renderToString)(_react2.default.createElement(
+    _reactRedux.Provider,
+    { store: store },
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        _reactRouterDom.StaticRouter,
+        { location: req.path, context: {} },
         _react2.default.createElement(
-            _reactRouterDom.StaticRouter,
-            { location: req.path, context: {} },
-            _react2.default.createElement(
-                'div',
-                null,
-                (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
-            )
+          'div',
+          null,
+          (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
         )
-    ));
+      )
+    )
+  ));
 
-    // ## Underneath a tine little HTML. I'll snifft it (farejar)
-    return '\n    <html>\n        <head></head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
+  // ## Underneath a tine little HTML. I'll snifft it (farejar)
+  return '\n    <html>\n        <head></head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
 };
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-dom/server");
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-router-dom");
+module.exports = require("react-dom/server");
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _redux = __webpack_require__(5);
-
-var _reduxThunk = __webpack_require__(16);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _reducers = __webpack_require__(17);
-
-var _reducers2 = _interopRequireDefault(_reducers);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//Getting all the Combined Reducers for the Creation of the Store
-
-//Takecare about the Asynchronous call for the action creators
-exports.default = function () {
-  var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
-
-  return store;
-};
+module.exports = require("react-router-dom");
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux-thunk");
+module.exports = require("redux-devtools");
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-log-monitor");
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-dock-monitor");
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+|--------------------------------------------------
+| Configure Store Entry Point Dev / Prod
+|--------------------------------------------------
+*/
+
+// Use DefinePlugin (Webpack) or loose-envify (Browserify)
+// together with Uglify to strip the dev branch in prod build.
+if (false) {
+  module.exports = require('./configureStore.prod');
+} else {
+  module.exports = __webpack_require__(20);
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = configureStore;
+
+var _redux = __webpack_require__(6);
+
+var _reduxThunk = __webpack_require__(21);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _reducers = __webpack_require__(22);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+var _DevToolsAsDock = __webpack_require__(5);
+
+var _DevToolsAsDock2 = _interopRequireDefault(_DevToolsAsDock);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+|--------------------------------------------------
+| Dev - With No Persist State
+| Configure Store for Development with "store enhancer"
+|--------------------------------------------------
+*/
+var enhancer = (0, _redux.compose)(
+// Middleware you want to use in development:
+(0, _redux.applyMiddleware)(_reduxThunk2.default), //(d1, d2, d3)
+// Required! Enable Redux DevTools with the monitors you chose
+_DevToolsAsDock2.default.instrument());
+
+//Takecare about the Asynchronous call for the action creators
+function configureStore(initialState) {
+  console.log('DevTool Going through Development');
+
+  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
+  // See https://github.com/reactjs/redux/releases/tag/v3.1.0
+  var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
+
+  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+  if (false) {
+    module.hot.accept('../client/reducers', function () {
+      return store.replaceReducer(require('../client/reducers') /*.default if you use Babel 6+ */
+      );
+    });
+  }
+
+  return store;
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -655,13 +789,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(5);
+var _redux = __webpack_require__(6);
 
-var _usersReducer = __webpack_require__(18);
+var _usersReducer = __webpack_require__(23);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _adminsReducer = __webpack_require__(19);
+var _adminsReducer = __webpack_require__(24);
 
 var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
 
@@ -678,7 +812,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 18 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -707,7 +841,7 @@ exports.default = function () {
    */
 
 /***/ }),
-/* 19 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -734,6 +868,38 @@ exports.default = function () {
    | Reducer to Watch FETCH_ADMINS Action Creator
    |--------------------------------------------------
    */
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(6);
+
+var _reduxThunk = __webpack_require__(21);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _reducers = __webpack_require__(22);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Getting all the Combined Reducers for the Creation of the Store
+
+//Takecare about the Asynchronous call for the action creators
+exports.default = function () {
+  var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+
+  return store;
+};
 
 /***/ })
 /******/ ]);

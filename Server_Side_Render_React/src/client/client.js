@@ -4,30 +4,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-// Redux - Client Side Set-Up
-//Middleware is used to hook up any middleware that we migth be using inside of our application
-import { createStore, applyMiddleware } from 'redux';
-// Is Used to handle asynchronous action creators
-import thunk from 'redux-thunk';
+// import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
 import { Provider } from 'react-redux';
 
+// Redux - Client Side Set-Up
+import configureStore from '../store/configureStore';
+
 import { renderRoutes } from 'react-router-config';
 import Routes from './Routes';
-import reducers from './reducers';
 
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+const store = configureStore();
 
 console.log('Hi there!');
 
+const contentClientSide = () => {
+  console.log('Rendering in Client Side');
+  console.log('Environment Prod:', process.env.NODE_ENV);
+
+  return (
+    <Provider store={store}>
+      <div>
+        <BrowserRouter>
+          <div>{renderRoutes(Routes)}</div>
+        </BrowserRouter>
+        {/* <DevToolsAsDock /> */}
+      </div>
+    </Provider>
+  );
+};
+
 // Hydrate instead of render
 //ReactDOM.render(<Home />, document.querySelector('#root'));
-ReactDOM.hydrate(
-  <Provider store={store}>
-    <BrowserRouter>
-      <div>{renderRoutes(Routes)}</div>
-    </BrowserRouter>
-  </Provider>,
-  document.querySelector('#root')
-);
+ReactDOM.hydrate(contentClientSide(store), document.querySelector('#root'));
