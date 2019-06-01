@@ -5,18 +5,24 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import Routes from '../client/Routes';
+import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 export default (req, store) => {
-    const content = renderToString(
-        <Provider store={store}>
-            <StaticRouter location={req.path} context={{}}>
-                <div>{renderRoutes(Routes)}</div>
-            </StaticRouter>
-        </Provider>
-    );
+  console.log('Rendering in Server Side');
 
-    // ## Underneath a tine little HTML. I'll snifft it (farejar)
-    return `
+  const content = renderToString(
+    <Provider store={store}>
+      <div>
+        <StaticRouter location={req.path} context={{}}>
+          <div>{renderRoutes(Routes)}</div>
+        </StaticRouter>
+        <DevToolsAsDock />
+      </div>
+    </Provider>
+  );
+
+  // ## Underneath a tine little HTML. I'll snifft it (farejar)
+  return `
     <html>
         <head></head>
         <body>
@@ -25,5 +31,4 @@ export default (req, store) => {
         </body>
     </html>
     `;
-
-}
+};
