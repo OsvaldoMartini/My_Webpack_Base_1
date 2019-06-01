@@ -367,6 +367,9 @@ Here's big list of Users
   Patricia Lebsack
   Chelsey Dietrich
 ```
+### Client Side `Render Flow`
+![alt text](Draws/Reducers/Clint-Side-Render-Flow.PNG "Client Side Render Flow")
+
 
 #
 
