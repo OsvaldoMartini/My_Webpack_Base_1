@@ -284,8 +284,8 @@ export default combineReducers({
 ```
 ![alt text](Draws/Reducers/Setting-Up-Action-Creators.PNG "Setting Up Actions Creators and Reducers")
 
-# `VERY IMPORTANT!`
-## I will `Redefine` the exported name to `RootReducer` to make the things more clear
+## `IMPORTANT!`
+### I will `Redefine` the exported name to `RootReducer` to make the things more clear
 ```js
 const rootReducer = combineReducers({ ...
    ...
@@ -295,6 +295,66 @@ export default rootReducer;
 ```
 ![alt text](Draws/Reducers/CombinedReducers-to-RootReducers.PNG "Changing From CombinedReducers to RootReducers")
 
+## 'UsersList' - Component - `Part 1`
+```
+components/UsersList.js
+```
+```js
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchUsers } from '../actions';
+
+class UsersList extends Component {
+    componentDidMount() {
+        // Commented just to figure out the flow of the Data Load Initialy
+        //this.props.fetchUsers();
+    }
+
+    renderUsers() {
+        return this.props.users.map(user => {
+            return <li key={user.id}>{user.name}</li>;
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                Here's big list of Users
+                <ul>{this.renderUsers()}</ul>
+            </div>
+        );
+    }
+}
+```
+## Routes 
+```
+Routes.js
+```
+Add
+```js
+import UsersList, { loadData } from './components/UsersList';
+  ...
+  ...
+    <Route path="/users" component={UsersList} />
+  </div>
+```
+![alt text](Draws/Reducers/UsersList-Component-Part-1.PNG "Users List Component Part-1")
+
+## Left `this.props.fetchUsers();` commented and Run the App:
+> Result Expected:
+```js
+Uncaught ReferenceError: regeneratorRuntime is not defined
+```
+![alt text](Draws/Reducers/The-Babel-Error-Generator-RunTime.PNG "Babel Generator Run Time Error")
+
+## Solution
+> At The Pod of:
+```
+indexjs And client.js
+```js
+import 'babel-polyfill';
+````
+> The `babel-polyfill` module it will handle with the 'Async' await syntax
 
 #
 
