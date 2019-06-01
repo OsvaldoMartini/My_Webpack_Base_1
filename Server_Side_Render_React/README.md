@@ -296,6 +296,9 @@ export default rootReducer;
 ![alt text](Draws/Reducers/CombinedReducers-to-RootReducers.PNG "Changing From CombinedReducers to RootReducers")
 
 ## 'UsersList' - Component - `Part 1`
+* `Attention`:
+##### Left `this.props.fetchUsers();` commented to figure out the flow of the Data Load Initialy
+
 ```
 components/UsersList.js
 ```
@@ -307,7 +310,7 @@ import { fetchUsers } from '../actions';
 class UsersList extends Component {
     componentDidMount() {
         // Commented just to figure out the flow of the Data Load Initialy
-        //this.props.fetchUsers();
+        this.props.fetchUsers();
     }
 
     renderUsers() {
@@ -340,7 +343,7 @@ import UsersList, { loadData } from './components/UsersList';
 ```
 ![alt text](Draws/Reducers/UsersList-Component-Part-1.PNG "Users List Component Part-1")
 
-## Left `this.props.fetchUsers();` commented and Run the App:
+### Run the App:
 > Result Expected:
 ```js
 Uncaught ReferenceError: regeneratorRuntime is not defined
@@ -348,13 +351,22 @@ Uncaught ReferenceError: regeneratorRuntime is not defined
 ![alt text](Draws/Reducers/The-Babel-Error-Generator-RunTime.PNG "Babel Generator Run Time Error")
 
 ## Solution
-> At The Pod of:
-```
-indexjs And client.js
+> At The `TOP` of `indexjs` (server side) And `client.js` (client side)
 ```js
 import 'babel-polyfill';
-````
+```
 > The `babel-polyfill` module it will handle with the 'Async' await syntax
+
+### Run the App again:
+> Result Expected
+```
+Here's big list of Users
+  Leanne Graham
+  Ervin Howell
+  Clementine Bauch
+  Patricia Lebsack
+  Chelsey Dietrich
+```
 
 #
 
