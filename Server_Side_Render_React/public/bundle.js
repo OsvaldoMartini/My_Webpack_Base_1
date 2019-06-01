@@ -12555,15 +12555,19 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//const store = configureStore();
+
+
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
 
 //Takecare about the Asynchronous call for the action creators
-var store = (0, _configureStore2.default)();
-//const store = createStore(reducers, {}, applyMiddleware(thunk));
+var store = (0, _redux.createStore)(reducers, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 
 // Redux - Client Side Set-Up
 // Startup point for the client side application
+
+
 console.log('Hi there!');
 
 var contentClientSide = function contentClientSide() {
@@ -12585,7 +12589,7 @@ var contentClientSide = function contentClientSide() {
           (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
         )
       ),
-      _react2.default.createElement(_DevToolsAsDock2.default, null)
+      _react2.default.createElement(_DevToolsAsDock2.default, { text: 'Client Side Render' })
     )
   );
 };

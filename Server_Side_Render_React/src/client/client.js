@@ -20,8 +20,8 @@ import configureStore from '../store/configureStore';
 import { renderRoutes } from 'react-router-config';
 import Routes from './Routes';
 
-const store = configureStore();
-//const store = createStore(reducers, {}, applyMiddleware(thunk));
+//const store = configureStore();
+const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 console.log('Hi there!');
 
@@ -35,7 +35,7 @@ const contentClientSide = () => {
         <BrowserRouter>
           <div>{renderRoutes(Routes)}</div>
         </BrowserRouter>
-        <DevToolsAsDock />
+        <DevToolsAsDock text="Client Side Render" />
       </div>
     </Provider>
   );

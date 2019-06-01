@@ -16,7 +16,7 @@ export default (req, store) => {
         <StaticRouter location={req.path} context={{}}>
           <div>{renderRoutes(Routes)}</div>
         </StaticRouter>
-        <DevToolsAsDock />
+        <DevToolsAsDock text="Server Side Render" />
       </div>
     </Provider>
   );

@@ -597,7 +597,7 @@ exports.default = function (req, store) {
           (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
         )
       ),
-      _react2.default.createElement(_DevToolsAsDock2.default, null)
+      _react2.default.createElement(_DevToolsAsDock2.default, { text: 'Server Side Render' })
     )
   ));
 
