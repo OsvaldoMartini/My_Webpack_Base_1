@@ -4,7 +4,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-// import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+import { createStore, applyMiddleware, compose } from 'redux';
+//Takecare about the Asynchronous call for the action creators
+import thunk from 'redux-thunk';
+
+import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
@@ -17,6 +21,7 @@ import { renderRoutes } from 'react-router-config';
 import Routes from './Routes';
 
 const store = configureStore();
+//const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 console.log('Hi there!');
 
@@ -30,7 +35,7 @@ const contentClientSide = () => {
         <BrowserRouter>
           <div>{renderRoutes(Routes)}</div>
         </BrowserRouter>
-        {/* <DevToolsAsDock /> */}
+        <DevToolsAsDock />
       </div>
     </Provider>
   );
