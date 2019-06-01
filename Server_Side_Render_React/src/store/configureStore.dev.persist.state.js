@@ -11,7 +11,7 @@ import { persistState } from 'redux-devtools';
 import thunk from 'redux-thunk';
 
 //Reducers Entry Point
-import rootReducer from '../reducers';
+import rootReducer from '../client/reducers';
 
 import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
@@ -40,9 +40,9 @@ export default function configureStore(initialState) {
 
   // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
   if (module.hot) {
-    module.hot.accept('../reducers', () =>
+    module.hot.accept('../client/reducers', () =>
       store.replaceReducer(
-        require('../reducers') /*.default if you use Babel 6+ */
+        require('../client/reducers') /*.default if you use Babel 6+ */
       )
     );
   }
