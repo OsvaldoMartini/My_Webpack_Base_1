@@ -8,7 +8,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 //Takecare about the Asynchronous call for the action creators
 import thunk from 'redux-thunk';
 
-import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+//import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+import DockMonitor from '../../lib/index';
+//import DockMonitor from '../../../dock-monitor/lib/';
 
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
@@ -20,8 +22,8 @@ import configureStore from '../store/configureStore';
 import { renderRoutes } from 'react-router-config';
 import Routes from './Routes';
 
-//const store = configureStore();
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+const store = configureStore();
+//const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 console.log('Hi there!');
 
@@ -35,7 +37,15 @@ const contentClientSide = () => {
         <BrowserRouter>
           <div>{renderRoutes(Routes)}</div>
         </BrowserRouter>
-        <DevToolsAsDock text="Client Side Render" />
+        <DockMonitor
+          text="Client Side Render"
+          toggleVisibilityKey="ctrl-h"
+          changePositionKey="ctrl-q"
+          defaultIsVisible={true}
+        >
+          {'Title'}
+          <LogMonitor theme="tomorrow" />
+        </DockMonitor>
       </div>
     </Provider>
   );
