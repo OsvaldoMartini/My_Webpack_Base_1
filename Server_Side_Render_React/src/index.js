@@ -11,7 +11,7 @@ import renderer from './helpers/renderer';
 // Two Ways Create Store
 //import createStore from './helpers/createStore';
 // To Be used with DevTools
-import configureStore from './store/configureStore';
+//import configureStore from './store/configureStore';
 
 //const express = require('express');
 const app = express();
@@ -20,15 +20,18 @@ const app = express();
 // Set up as Middleware Before all other Middlewares
 // Any route whatsoever or any request that tries toa ccess a route '/api'
 // Will be automatically sent off o this domain
-app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
-  proxyReqOptDecorator(opts){
-    // Just Set this for the Current Course in this App
-    // Just to give as easy way to handle with Google Auth process
-    // And don't run some security erros with the Google waterflow (that's all)
-    opts.header['x-forwarded-host'] = 'localhost:3000';
-    return opts;
-  }
-}));
+app.use(
+  '/api',
+  proxy('http://react-ssr-api.herokuapp.com', {
+    proxyReqOptDecorator(opts) {
+      // Just Set this for the Current Course in this App
+      // Just to give as easy way to handle with Google Auth process
+      // And don't run some security erros with the Google waterflow (that's all)
+      opts.header['x-forwarded-host'] = 'localhost:3000';
+      return opts;
+    }
+  })
+);
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;
@@ -49,9 +52,10 @@ app.use(express.static('public'));
 app.get('*', (req, res) => {
   // Redux - Server Side Set-Up
 
-  //const store = createStore();
+  // including all Request tha also contains the cookies
+  const store = createStore(req);
   //to Be Used with DevTools
-  const store = configureStore();
+  //const store = configureStore();
 
   // Some logic to initialize
   // and load data into the Store

@@ -307,66 +307,8 @@ exports.default = [_extends({}, _HomePage2.default, { //ES2016 Syntax (some spre
 module.exports = require("react-redux");
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reduxDevtools = __webpack_require__(16);
-
-var _reduxDevtoolsLogMonitor = __webpack_require__(17);
-
-var _reduxDevtoolsLogMonitor2 = _interopRequireDefault(_reduxDevtoolsLogMonitor);
-
-var _reduxDevtoolsDockMonitor = __webpack_require__(18);
-
-var _reduxDevtoolsDockMonitor2 = _interopRequireDefault(_reduxDevtoolsDockMonitor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// createDevTools takes a monitor and produces a DevTools component
-
-
-// Monitors are separate packages, and you can make a custom one
-/**
-|--------------------------------------------------
-| DevTools definition with DockMonitor and Log Monitor
-|--------------------------------------------------
-*/
-var DevToolsAsDock = (0, _reduxDevtools.createDevTools)(
-// Monitors are individually adjustable with props.
-// Consult their repositories to learn about those props.
-// Here, we put LogMonitor inside a DockMonitor.
-// Note: DockMonitor is visible by default.
-_react2.default.createElement(
-  _reduxDevtoolsDockMonitor2.default,
-  {
-    toggleVisibilityKey: 'ctrl-h',
-    changePositionKey: 'ctrl-q',
-    defaultIsVisible: true
-  },
-  _react2.default.createElement(_reduxDevtoolsLogMonitor2.default, { theme: 'tomorrow' })
-));
-
-// Exported from redux-devtools
-exports.default = DevToolsAsDock;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
+/* 5 */,
+/* 6 */,
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -393,25 +335,21 @@ var _renderer = __webpack_require__(13);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _configureStore = __webpack_require__(19);
-
-var _configureStore2 = _interopRequireDefault(_configureStore);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Two Ways Create Store
+//import createStore from './helpers/createStore';
+// To Be used with DevTools
+//import configureStore from './store/configureStore';
+
 //const express = require('express');
+//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
 
 // Above all other Middlewares low level proxy
 // Set up as Middleware Before all other Middlewares
 // Any route whatsoever or any request that tries toa ccess a route '/api'
 // Will be automatically sent off o this domain
-
-
-// Two Ways Create Store
-//import createStore from './helpers/createStore';
-// To Be used with DevTools
-//Isomorphic Java Script / Universal Javascript
 app.use('/api', (0, _expressHttpProxy2.default)('http://react-ssr-api.herokuapp.com', {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
     // Just Set this for the Current Course in this App
@@ -441,9 +379,10 @@ app.use(_express2.default.static('public'));
 app.get('*', function (req, res) {
   // Redux - Server Side Set-Up
 
-  //const store = createStore();
+  // including all Request tha also contains the cookies
+  var store = createStore(req);
   //to Be Used with DevTools
-  var store = (0, _configureStore2.default)();
+  //const store = configureStore();
 
   // Some logic to initialize
   // and load data into the Store
@@ -564,201 +503,15 @@ module.exports = require("react-dom/server");
 module.exports = require("react-router-dom");
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-devtools");
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-devtools-log-monitor");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-devtools-dock-monitor");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
-|--------------------------------------------------
-| Configure Store Entry Point Dev / Prod
-|--------------------------------------------------
-*/
-
-// Use DefinePlugin (Webpack) or loose-envify (Browserify)
-// together with Uglify to strip the dev branch in prod build.
-if (false) {
-  module.exports = require('./configureStore.prod');
-} else {
-  module.exports = __webpack_require__(20);
-}
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = configureStore;
-
-var _redux = __webpack_require__(6);
-
-var _reduxThunk = __webpack_require__(21);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _reducers = __webpack_require__(22);
-
-var _reducers2 = _interopRequireDefault(_reducers);
-
-var _DevToolsAsDock = __webpack_require__(5);
-
-var _DevToolsAsDock2 = _interopRequireDefault(_DevToolsAsDock);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
-|--------------------------------------------------
-| Dev - With No Persist State
-| Configure Store for Development with "store enhancer"
-|--------------------------------------------------
-*/
-var enhancer = (0, _redux.compose)(
-// Middleware you want to use in development:
-(0, _redux.applyMiddleware)(_reduxThunk2.default), //(d1, d2, d3)
-// Required! Enable Redux DevTools with the monitors you chose
-_DevToolsAsDock2.default.instrument());
-
-//Takecare about the Asynchronous call for the action creators
-function configureStore(initialState) {
-  console.log('DevTool Going through Development');
-
-  // Note: only Redux >= 3.1.0 supports passing enhancer as third argument.
-  // See https://github.com/reactjs/redux/releases/tag/v3.1.0
-  var store = (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
-
-  // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
-  if (false) {
-    module.hot.accept('../client/reducers', function () {
-      return store.replaceReducer(require('../client/reducers') /*.default if you use Babel 6+ */
-      );
-    });
-  }
-
-  return store;
-}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _redux = __webpack_require__(6);
-
-var _usersReducer = __webpack_require__(23);
-
-var _usersReducer2 = _interopRequireDefault(_usersReducer);
-
-var _adminsReducer = __webpack_require__(24);
-
-var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rootReducer = (0, _redux.combineReducers)({
-  users: _usersReducer2.default,
-  admins: _adminsReducer2.default
-}); /**
-    |--------------------------------------------------
-    | Combine all Different Reducers together
-    |--------------------------------------------------
-    */
-exports.default = rootReducer;
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _actions = __webpack_require__(1);
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _actions.FETCH_USERS:
-      return action.payload.data;
-    default:
-      return state;
-  }
-}; /**
-   |--------------------------------------------------
-   | This Reducer it going to Watch the FETCH_USERS action creator
-   |--------------------------------------------------
-   */
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _actions = __webpack_require__(1);
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _actions.FETCH_ADMINS:
-      return action.payload.data;
-    default:
-      return state;
-  }
-}; /**
-   |--------------------------------------------------
-   | Reducer to Watch FETCH_ADMINS Action Creator
-   |--------------------------------------------------
-   */
-
-/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 

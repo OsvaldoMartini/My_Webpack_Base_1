@@ -791,6 +791,75 @@ https://github.com/reduxjs/redux-thunk/blob/master/src/index.js
 
 ### I am going to use Axios and Redux thunk for Client and Server instances
 
+Client Side Axios with Proxy Set Up
+```
+client.js
+```
+```js
+import axios from 'axios';
+```
+```js
+const axiosInstance = axios.create({
+  baseURL: '/api'
+});
+
+const store = createStore(
+  reducers,
+  window.INITIAL_STATE,
+  applyMiddleware(thunk.withExtraArgument(axiosInstance))
+);
+```
+Action Creator Set up for Axios Instace Usage
+```
+actions/index.js
+```
+comment the `import axios ...`
+```js
+//import axios from 'axios';
+```
+```js
+// Add getState, api to the async call / The "api" represents the 'axiosInstance'
+export const fetchUsers = () => async (dispatch, getState, api) => {
+```
+Server Side Axios Set Up
+```
+createStore.js
+```
+```js
+import axios from 'axios';
+```
+```js
+export default () => {
+  const axiosInstance = axios.create({
+    baseURL: 'http://react-ssr-api.herokuapp.com'
+  });
+```
+Including the Request inside to our Create Store
+```
+index.js
+```
+```js
+// including all Request in our Store that also contains the cookies
+  const store = createStore(req);
+```
+And finally abck to the `CreateStore.js`
+```
+createStore.js
+```
+```js
+export default (req) => {
+  const axiosInstance = axios.create({
+    baseURL: 'http://react-ssr-api.herokuapp.com',
+    headers: { cookie: req.get('cookie') || '' }
+  });
+
+  const store = createStore(
+    reducers,
+    {},
+    applyMiddleware(thunk.withExtraArgument(axiosInstance))
+  );
+```
+
 
 
 ## About Redux DevTools
