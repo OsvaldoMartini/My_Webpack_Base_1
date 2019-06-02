@@ -655,6 +655,30 @@ The HTML generated on `Server Side` doesn't match up with the HTML generated on 
 ![alt text](Draws/Reducers/Server-And-Client-Store-Render-Flow.PNG "Server and Client Store Render Flow.PNG")
 ### 
 https://stephengrider.github.io/JSPlaygrounds/
+```js
+const reducer = (state =0, action ) => {
+ switch (action.type){
+   case 'increment':
+     return state +1;
+   case 'decrement':
+     return state -1;
+   default: 
+     return state;
+ }
+
+};
+
+const store = Redux.createStore(reducer, 10);
+
+store.getState();
+
+store.dispatch({type: 'increment'});
+store.dispatch({type: 'increment'});
+store.dispatch({type: 'increment'});
+store.dispatch({type: 'increment'});
+
+store.getState();
+```
 
 
 ## About Redux DevTools
