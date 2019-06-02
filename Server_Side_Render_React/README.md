@@ -652,8 +652,9 @@ The HTML generated on `Server Side` doesn't match up with the HTML generated on 
 ```
 ![alt text](Draws/Reducers/Server-HTML-Li-Problem.PNG "Server HTML '<li>' Problem.PNG")
 ### Flow for the `Double Appearing` of `Users List` when we Refresh the Page
-![alt text](Draws/Reducers/Server-And-Client-Store-Render-Flow.PNG "Server and Client Store Render Flow.PNG")
-### 
+![alt text](Draws/Reducers/Server-And-Client-Store-Render-Flow.PNG "Server and Client Store Render Flow")
+
+### Store Dispatch Direct Tests 
 https://stephengrider.github.io/JSPlaygrounds/
 ```js
 const reducer = (state =0, action ) => {
@@ -679,6 +680,11 @@ store.dispatch({type: 'increment'});
 
 store.getState();
 ```
+
+#### Store Dumps flow
+![alt text](Draws/Reducers/Server-And-Client-Store-Dumps-Flow.PNG "Server and Client Store Dumps Flow")
+
+
 
 
 ## About Redux DevTools
