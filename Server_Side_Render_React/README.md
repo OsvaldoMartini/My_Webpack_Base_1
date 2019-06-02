@@ -859,6 +859,10 @@ export default (req) => {
     applyMiddleware(thunk.withExtraArgument(axiosInstance))
   );
 ```
+### refresh the Page and See the Expected Error
+![alt text](Draws/Reducers/Authentication-Expected-Error.PNG "Authentication Expected Error")
+
+
 
 
 

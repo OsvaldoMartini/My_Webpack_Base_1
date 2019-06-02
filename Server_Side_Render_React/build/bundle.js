@@ -308,7 +308,12 @@ module.exports = require("react-redux");
 
 /***/ }),
 /* 5 */,
-/* 6 */,
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -335,21 +340,26 @@ var _renderer = __webpack_require__(13);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
+var _createStore = __webpack_require__(30);
+
+var _createStore2 = _interopRequireDefault(_createStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Two Ways Create Store
-//import createStore from './helpers/createStore';
 // To Be used with DevTools
 //import configureStore from './store/configureStore';
 
 //const express = require('express');
-//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
 
 // Above all other Middlewares low level proxy
 // Set up as Middleware Before all other Middlewares
 // Any route whatsoever or any request that tries toa ccess a route '/api'
 // Will be automatically sent off o this domain
+
+
+// Two Ways Create Store
+//Isomorphic Java Script / Universal Javascript
 app.use('/api', (0, _expressHttpProxy2.default)('http://react-ssr-api.herokuapp.com', {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
     // Just Set this for the Current Course in this App
@@ -379,8 +389,8 @@ app.use(_express2.default.static('public'));
 app.get('*', function (req, res) {
   // Redux - Server Side Set-Up
 
-  // including all Request tha also contains the cookies
-  var store = createStore(req);
+  // including all Request in our Store that also contains the cookies
+  var store = (0, _createStore2.default)(req);
   //to Be Used with DevTools
   //const store = configureStore();
 
@@ -434,7 +444,12 @@ module.exports = require("express");
 /***/ }),
 /* 10 */,
 /* 11 */,
-/* 12 */,
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -508,10 +523,103 @@ module.exports = require("react-router-dom");
 /* 18 */,
 /* 19 */,
 /* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-thunk");
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(6);
+
+var _usersReducer = __webpack_require__(23);
+
+var _usersReducer2 = _interopRequireDefault(_usersReducer);
+
+var _adminsReducer = __webpack_require__(24);
+
+var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rootReducer = (0, _redux.combineReducers)({
+  users: _usersReducer2.default,
+  admins: _adminsReducer2.default
+}); /**
+    |--------------------------------------------------
+    | Combine all Different Reducers together
+    |--------------------------------------------------
+    */
+exports.default = rootReducer;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _actions = __webpack_require__(1);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.FETCH_USERS:
+      return action.payload.data;
+    default:
+      return state;
+  }
+}; /**
+   |--------------------------------------------------
+   | This Reducer it going to Watch the FETCH_USERS action creator
+   |--------------------------------------------------
+   */
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _actions = __webpack_require__(1);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.FETCH_ADMINS:
+      return action.payload.data;
+    default:
+      return state;
+  }
+}; /**
+   |--------------------------------------------------
+   | Reducer to Watch FETCH_ADMINS Action Creator
+   |--------------------------------------------------
+   */
+
+/***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -662,6 +770,48 @@ module.exports = require("serialize-javascript");
 /***/ (function(module, exports) {
 
 module.exports = require("express-http-proxy");
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(6);
+
+var _reduxThunk = __webpack_require__(21);
+
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+
+var _axios = __webpack_require__(12);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _reducers = __webpack_require__(22);
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Getting all the Combined Reducers for the Creation of the Store
+
+exports.default = function (req) {
+  var axiosInstance = _axios2.default.create({
+    baseURL: 'http://react-ssr-api.herokuapp.com',
+    headers: { cookie: req.get('cookie') || '' }
+  });
+
+  var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance)));
+
+  return store;
+};
+
+//Takecare about the Asynchronous call for the action creators
 
 /***/ })
 /******/ ]);

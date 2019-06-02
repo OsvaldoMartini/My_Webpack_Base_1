@@ -9,7 +9,8 @@ import Routes from './client/Routes';
 import renderer from './helpers/renderer';
 
 // Two Ways Create Store
-//import createStore from './helpers/createStore';
+import createStore from './helpers/createStore';
+
 // To Be used with DevTools
 //import configureStore from './store/configureStore';
 
@@ -52,7 +53,7 @@ app.use(express.static('public'));
 app.get('*', (req, res) => {
   // Redux - Server Side Set-Up
 
-  // including all Request tha also contains the cookies
+  // including all Request in our Store that also contains the cookies
   const store = createStore(req);
   //to Be Used with DevTools
   //const store = configureStore();
