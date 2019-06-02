@@ -44,7 +44,7 @@ app.get('*', (req, res) => {
   // "matchRoutes" It's going to look at whatever route the user is trying to visit and
   // then it's going to return an array of components that are about to be rendered
 
-  // lets console.log this
+  // lets console.log the MatchRoutes
   console.log(matchRoutes(Routes, req.path));
 
   // Mapping matchRoutes
