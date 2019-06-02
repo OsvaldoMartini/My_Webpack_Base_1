@@ -509,13 +509,9 @@ UserList says: I'm trying to load some data
 UsersList.js
 ```
 ```js
-function loadData(store) {
-  console.log("UserList says: I'm trying to load some data");
-  return store.dispatch(fetchUsers());
-}
-
-// Named Export
-export { loadData };
+// The Store is being used here!
+// This is ONLY FOR THE SERVER SIDE RENDER
+// I am Calling Store.Dispatch Directly
 function loadData(store) {
   console.log("UserList says: I'm trying to load some data");
   return store.dispatch(fetchUsers());
@@ -550,6 +546,10 @@ Result Expected:
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
 ```
+![alt text](Draws/Reducers/LoadData-vs-MapStateToProps.PNG "LoadData vs MapStateToProps")
+#### For All the Actions that will be called
+![alt text](Draws/Reducers/LoadData-Multiple-Calls.PNG "LoadData Multiple Calls")
+
 ### Index.js with Mapping `matchRoutes`
 ```
 index.js

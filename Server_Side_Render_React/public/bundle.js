@@ -45558,6 +45558,9 @@ function mapStateToProps(state) {
   return { users: state.users };
 }
 
+// The Store is being used here!
+// This is ONLY FOR THE SERVER SIDE RENDER
+// I am Calling Store.Dispatch Directly
 function loadData(store) {
   console.log("UserList says: I'm trying to load some data");
   return store.dispatch((0, _actions.fetchUsers)());
@@ -45565,6 +45568,10 @@ function loadData(store) {
 
 // Named Export
 exports.loadData = loadData;
+
+//Regular Reduxe Call
+//mapStateToProps
+
 exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList);
 
 /***/ }),
