@@ -709,6 +709,30 @@ client.js
 // Using window.INITIAL_STATE
 const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
 ```
+### Mitigating XSS Attacks:
+Change the URL and Refresh the Page
+```js
+axios.get('http://react-ssr-api.herokuapp.com/users/xss');
+```
+![alt text](Draws/Reducers/Mitigating-XSS-Attacks.PNG "Mitigating XSS Attacks")
+#### Mitigating
+```
+renderer.js
+```
+```js
+import serialize from 'serialize-javascript';
+```
+```js
+ return `
+    <html>
+        <head></head>
+        <body>
+            <div id="root">${content}</div>
+            <script>
+            window=INITIAL_STATE = ${serialize(store.getState())}
+            ...
+```
+![alt text](Draws/Reducers/Mitigating-XSS-Result-Expected.PNG "Mitigating XSS Attacks Result Expected")
 
 
 
