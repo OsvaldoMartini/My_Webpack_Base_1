@@ -779,7 +779,11 @@ app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
 }));
 
 ```
+#### Authentication Initial Page Load
+![alt text](Draws/Reducers/Authentication-Initial-Page-Load.PNG "Authentication Initial Page Load")
 
+#### Authentication Followup Requests
+![alt text](Draws/Reducers/Authentication-Followup-Requests.PNG "Authentication Initial Page Load")
 
 ## About Redux DevTools
 ## Manual Integration
