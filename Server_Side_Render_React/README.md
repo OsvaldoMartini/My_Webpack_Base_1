@@ -465,7 +465,30 @@ import { renderRoutes } from 'react-router-config';
     </Provider>
   );
 ```
-
+#### Make the chages on `index.js`
+```
+index.js
+```
+```js
+import { matchRoutes } from 'react-router-config';
+import Routes from './client/Routes';
+```
+### Let's Console the routes
+```js
+// lets console.log the MatchRoutes
+  console.log(matchRoutes(Routes, req.path));
+```
+```
+Result Expected:
+```
+```
+[ { route:
+     { loadData: [Function: loadData],
+       path: '/users',
+       component: [Function] },
+    match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
+UserList says: I'm trying to load some data
+```
 
 
 #
