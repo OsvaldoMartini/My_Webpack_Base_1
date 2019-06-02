@@ -550,7 +550,23 @@ Result Expected:
        component: [Function] },
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
+```
+### Index.js with Mapping matchRoutes
+```
+index.js
+```
+```js
+ // Mapping matchRoutes
+  //We Are Doing some Destructuring Here ({route})
+  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    return route.loadData ? route.loadData(store) : null;
+  });
+```
+## Solving the Step-3 - `Completion` of all requests
+![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-3.PNG "Solving Step-3")
 
+### Implementing `Promises`
+![alt text](Draws/Reducers/LoadData-With-Promises.PNG "LoadData With Promises")
 
 
 #
