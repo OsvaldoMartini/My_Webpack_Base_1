@@ -12,13 +12,13 @@ export default (req, store) => {
 
   const content = renderToString(
     <Provider store={store}>
-      <div>
+      {/* <div> */}
         <StaticRouter location={req.path} context={{}}>
           <div>{renderRoutes(Routes)}</div>
           {/* <Routes/> */}
         </StaticRouter>
-        <DevToolsAsDock />
-      </div>
+        {/* <DevToolsAsDock /> */}
+      {/* </div> */}
     </Provider>
   );
 

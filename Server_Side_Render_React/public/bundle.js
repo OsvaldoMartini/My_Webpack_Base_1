@@ -8925,12 +8925,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = __webpack_require__(193);
 
-var _redux = __webpack_require__(35);
-
-var _reduxThunk = __webpack_require__(113);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
 var _DevToolsAsDock = __webpack_require__(114);
 
 var _DevToolsAsDock2 = _interopRequireDefault(_DevToolsAsDock);
@@ -8949,14 +8943,20 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import reducers from './reducers';
+
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
-
-//Takecare about the Asynchronous call for the action creators
-var store = (0, _configureStore2.default)();
-//const store = createStore(reducers, {}, applyMiddleware(thunk));
+var store = (0, _configureStore2.default)(window.INITIAL_STATE);
+//const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
 
 // Redux - Client Side Set-Up
+
+
+//import { createStore, applyMiddleware } from 'redux';
+//Takecare about the Asynchronous call for the action creators
+//import thunk from 'redux-thunk';
+
 // Startup point for the client side application
 console.log('Hi there!');
 
@@ -8968,18 +8968,13 @@ var contentClientSide = function contentClientSide() {
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(
-      'div',
+      _reactRouterDom.BrowserRouter,
       null,
       _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
+        'div',
         null,
-        _react2.default.createElement(
-          'div',
-          null,
-          (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
-        )
-      ),
-      _react2.default.createElement(_DevToolsAsDock2.default, null)
+        (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
+      )
     )
   );
 };

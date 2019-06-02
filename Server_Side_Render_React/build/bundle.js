@@ -525,18 +525,13 @@ exports.default = function (req, store) {
     _reactRedux.Provider,
     { store: store },
     _react2.default.createElement(
-      'div',
-      null,
+      _reactRouterDom.StaticRouter,
+      { location: req.path, context: {} },
       _react2.default.createElement(
-        _reactRouterDom.StaticRouter,
-        { location: req.path, context: {} },
-        _react2.default.createElement(
-          'div',
-          null,
-          (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
-        )
-      ),
-      _react2.default.createElement(_DevToolsAsDock2.default, null)
+        'div',
+        null,
+        (0, _reactRouterConfig.renderRoutes)(_Routes2.default)
+      )
     )
   ));
 

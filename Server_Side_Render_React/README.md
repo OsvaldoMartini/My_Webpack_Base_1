@@ -701,7 +701,14 @@ renderer.js
 ```
 > Result Expected:  We Have Now the `window.INITIAL_STATE` generated (Dumped)
 ![alt text](Draws/Reducers/Store-Dumped-window-Inital-State.PNG "Store dumped 'window.INITIAL_STATE'")
-
+#### Using the `window.INITIAL_STATE` in Client Side
+```
+client.js
+```
+```js
+// Using window.INITIAL_STATE
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+```
 
 
 
