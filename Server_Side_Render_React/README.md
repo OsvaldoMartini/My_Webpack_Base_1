@@ -370,14 +370,14 @@ Here's big list of Users
 ### Client Side `Render Flow`
 ![alt text](Draws/Reducers/Client-Side-Render-Flow.PNG "Client Side Render Flow")
 
-## `Server Side Rendering`
-### `Best` Solution to `Render` the App on `Server Side` Flow
+# `Server Side Rendering`
+## `Best` Solution to `Render` the App on `Server Side` Flow
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
-### `React-Router-Config` to implement the Server Side Render solution
+## `React-Router-Config` to implement the Server Side Render solution
 > Comment all Old way to Route the requests
-#### Make the chages on `Route.js`
+## Make the chages on `Route.js`
 ```
 Route.js
 ```
@@ -431,7 +431,7 @@ export default [
   }
 ];
 ```
-#### Make the chages on `Renderer.js`
+## Make the chages on `Renderer.js`
 ```
 Renderer.js
 ```
@@ -448,7 +448,7 @@ import { renderRoutes } from 'react-router-config';
     </Provider>
   );
 ```
-#### Make the chages on `Client.js`
+## Make the chages on `Client.js`
 ```
 client.js
 ```
@@ -465,7 +465,13 @@ import { renderRoutes } from 'react-router-config';
     </Provider>
   );
 ```
-#### Make the chages on `index.js`
+## Make the chages on `index.js`
+### Match Routes from `react-router-config`
+`MatchRoutes` has Two Arguments
+##### Firts Argument is the the `list of routes` or `routes configuration array
+##### Second Argument is the Path that the user is attempting to fetch or attempting to view
+* It's going to look at whatever route the user is trying to visit and then
+* It's going to return an array of components that are about to be rendered
 ```
 index.js
 ```
