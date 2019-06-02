@@ -714,7 +714,7 @@ Change the URL and Refresh the Page
 ```js
 axios.get('http://react-ssr-api.herokuapp.com/users/xss');
 ```
-![alt text](Draws/Reducers/Mitigating-XSS-Attacks.PNG "Mitigating XSS Attacks")
+![alt text](Draws/Reducers/Mitigating-XSS-Attacks.png "Mitigating XSS Attacks")
 #### Mitigating
 ```
 renderer.js
@@ -732,7 +732,7 @@ import serialize from 'serialize-javascript';
             window=INITIAL_STATE = ${serialize(store.getState())}
             ...
 ```
-![alt text](Draws/Reducers/Mitigating-XSS-Result-Expected.PNG "Mitigating XSS Attacks Result Expected")
+![alt text](Draws/Reducers/Mitigating-XSS-Result-Expected.png "Mitigating XSS Attacks Result Expected")
 
 
 
