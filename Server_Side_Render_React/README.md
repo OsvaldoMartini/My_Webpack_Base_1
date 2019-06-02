@@ -779,11 +779,19 @@ app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
 }));
 
 ```
-#### Authentication Initial Page Load
+> Authentication Initial Page Load
 ![alt text](Draws/Reducers/Authentication-Initial-Page-Load.PNG "Authentication Initial Page Load")
 
-#### Authentication Followup Requests
+> Authentication Followup Requests
 ![alt text](Draws/Reducers/Authentication-Followup-Requests.PNG "Authentication Initial Page Load")
+
+### Axios and Redux thunk
+>Take a Look at Redux thunk (14 lines of code)
+https://github.com/reduxjs/redux-thunk/blob/master/src/index.js
+
+### I am going to use Axios and Redux thunk for Client and Server instances
+
+
 
 ## About Redux DevTools
 ## Manual Integration

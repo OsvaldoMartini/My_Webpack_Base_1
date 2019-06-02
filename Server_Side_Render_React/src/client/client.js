@@ -4,25 +4,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-//import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 //Takecare about the Asynchronous call for the action creators
-//import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 
-import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
+//import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
 import { Provider } from 'react-redux';
 
 // Redux - Client Side Set-Up
-import configureStore from '../store/configureStore';
+//import configureStore from '../store/configureStore';
 
 import { renderRoutes } from 'react-router-config';
-import Routes from './Routes';
-//import reducers from './reducers';
 
-const store = configureStore(window.INITIAL_STATE);
-//const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+import axios from 'axios';
+
+import Routes from './Routes';
+import reducers from './reducers';
+
+const axiosInstance = axios.create({
+  baseURL: '/api'
+});
+
+//const store = configureStore(window.INITIAL_STATE);
+const store = createStore(
+  reducers,
+  window.INITIAL_STATE,
+  applyMiddleware(thunk.withExtraArgument(axiosInstance))
+);
 
 console.log('Hi there!');
 
@@ -33,11 +44,11 @@ const contentClientSide = () => {
   return (
     <Provider store={store}>
       {/* <div> */}
-        <BrowserRouter>
-          <div>{renderRoutes(Routes)}</div>
-          {/* <Routes /> */}
-        </BrowserRouter>
-        {/* <DevToolsAsDock /> */}
+      <BrowserRouter>
+        <div>{renderRoutes(Routes)}</div>
+        {/* <Routes /> */}
+      </BrowserRouter>
+      {/* <DevToolsAsDock /> */}
       {/* </div> */}
     </Provider>
   );

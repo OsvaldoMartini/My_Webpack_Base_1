@@ -79,16 +79,10 @@ module.exports = require("react");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchAdmins = exports.FETCH_ADMINS = exports.fetchImages = exports.FETCH_IMAGES = exports.fetchUsers = exports.FETCH_USERS = undefined;
-
-var _axios = __webpack_require__(12);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//import axios from 'axios';
 /**
 |--------------------------------------------------
 | Action Creator for List of Users
@@ -99,14 +93,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 var FETCH_USERS = exports.FETCH_USERS = 'fetch_users';
 var fetchUsers = exports.fetchUsers = function fetchUsers() {
   return function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {
       var res;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _axios2.default.get('http://react-ssr-api.herokuapp.com/users');
+              return api.get('/users');
 
             case 2:
               res = _context.sent;
@@ -125,7 +119,7 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
       }, _callee, undefined);
     }));
 
-    return function (_x) {
+    return function (_x, _x2, _x3) {
       return _ref.apply(this, arguments);
     };
   }();
@@ -136,7 +130,7 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
 | Asxios Instance to Request Ramdom Images
 |--------------------------------------------------
 */
-var axiosInstance = _axios2.default.create({
+var axiosInstance = axios.create({
   baseUrl: 'https://api.unsplash.com',
   headers: {
     Authotization: 'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
@@ -179,7 +173,7 @@ var fetchImages = exports.fetchImages = function fetchImages() {
       }, _callee2, undefined);
     }));
 
-    return function (_x2) {
+    return function (_x4) {
       return _ref2.apply(this, arguments);
     };
   }();
@@ -200,7 +194,7 @@ var fetchAdmins = exports.fetchAdmins = function fetchAdmins() {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return _axios2.default.get('http://react-ssr-api.herokuapp.com/admins');
+              return axios.get('http://react-ssr-api.herokuapp.com/admins');
 
             case 2:
               res = _context3.sent;
@@ -219,7 +213,7 @@ var fetchAdmins = exports.fetchAdmins = function fetchAdmins() {
       }, _callee3, undefined);
     }));
 
-    return function (_x3) {
+    return function (_x5) {
       return _ref3.apply(this, arguments);
     };
   }();
@@ -500,12 +494,7 @@ module.exports = require("express");
 /***/ }),
 /* 10 */,
 /* 11 */,
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
+/* 12 */,
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
