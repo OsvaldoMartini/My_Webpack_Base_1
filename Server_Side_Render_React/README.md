@@ -564,10 +564,10 @@ index.js
 ## Solving the Step-3 - `Completion` of all requests
 ![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-3.PNG "Solving Step-3")
 
-### Implementing `Promises`
 ![alt text](Draws/Reducers/LoadData-With-Promises.PNG "LoadData With Promises")
 
-### Index.js with `Promise`
+### Implementing `Promises`
+#### Index.js with `Promise`
 ```
 index.js
 ```
@@ -576,6 +576,13 @@ index.js
   //We Are Doing some Destructuring Here ({route})
   const promises = matchRoutes(Routes, req.path).map(({ route }) => {
     return route.loadData ? route.loadData(store) : null;
+  });
+
+  console.log(promises);
+
+  Promise.all(promises).then(() => {
+    // Finnaly Call the Server Side Render
+    res.send(renderer(req, store));
   });
 ```
 #

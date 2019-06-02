@@ -56,7 +56,7 @@ app.get('*', (req, res) => {
   console.log(promises);
 
   Promise.all(promises).then(() => {
-    // Finnaly CAll the Server Side Render
+    // Finnaly Call the Server Side Render
     res.send(renderer(req, store));
   });
 });
