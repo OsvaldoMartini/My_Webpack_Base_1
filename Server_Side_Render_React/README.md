@@ -121,8 +121,9 @@ Need state rehydration on the browser
 
 ![alt text](Draws/Reducers/4-Big-Redux-Challeges.PNG "4 Big Challenges")
 
+#
 # 1) Solving First Challenge
-
+#
 ##  Redux -> Client Side Set-Up  
 
 ### "client.js"
@@ -375,7 +376,7 @@ Here's big list of Users
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
-# Solving the `Step-1`
+## Solving the Step-1 - `What Components` to render
 ![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-1.PNG "Solving Step-1")
 
 ## `React-Router-Config` to implement the Server Side Render solution
@@ -498,6 +499,9 @@ Result Expected:
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
 ```
+#
+# 2) Solving Second Challenge
+#
 ## Solving the Step-2 - `loadData` Function
 ![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-2.PNG "Solving Step-2")
 
