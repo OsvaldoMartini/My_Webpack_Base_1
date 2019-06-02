@@ -644,6 +644,7 @@ export default [
 #
 # 3) Solving Third Challenge
 #
+## Client State Rehydration
 ## Solving the Problem:
 The HTML generated on `Server Side` doesn't match up with the HTML generated on `Client Side`
 ```js
@@ -652,7 +653,8 @@ The HTML generated on `Server Side` doesn't match up with the HTML generated on 
 ![alt text](Draws/Reducers/Server-HTML-Li-Problem.PNG "Server HTML '<li>' Problem.PNG")
 ### Flow for the `Double Appearing` of `Users List` when we Refresh the Page
 ![alt text](Draws/Reducers/Server-And-Client-Store-Render-Flow.PNG "Server and Client Store Render Flow.PNG")
-
+### 
+https://stephengrider.github.io/JSPlaygrounds/
 
 
 ## About Redux DevTools
