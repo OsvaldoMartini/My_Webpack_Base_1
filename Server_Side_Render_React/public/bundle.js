@@ -1898,12 +1898,13 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
 | Asxios Instance to Request Ramdom Images
 |--------------------------------------------------
 */
-var axiosInstance = axios.create({
-  baseUrl: 'https://api.unsplash.com',
-  headers: {
-    Authotization: 'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
-  }
-});
+// const axiosInstance = axios.create({
+//   baseUrl: 'https://api.unsplash.com',
+//   headers: {
+//     Authotization:
+//       'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
+//   }
+// });
 
 /**
 |--------------------------------------------------
