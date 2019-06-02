@@ -743,13 +743,17 @@ import serialize from 'serialize-javascript';
 # 4) Solving Fourth Challenge
 #
 >Aspects of authentication needs to be handle on server. Normally this is only on browser 
-![alt text](Draws/Reducers/Authentication-Part-1.png "Authentication Part 1")
+#### Authentication Flow
+![alt text](Draws/Reducers/Authentication-Part-1.PNG "Authentication Part 1")
 
-### Why Not Use JWT (Json Web Token)
+#### Authentication Cookies Flow
+![alt text](Draws/Reducers/Authentication#-Part-2.PNG "Authentication Part 2")
 
-![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-1.PNG "Authentication Why Not JWT Slide 1")
+#### Why Not Use JWT (Json Web Token)
 
-### To Use JWT (Json Web Token) I need another follow request
+![alt text](Draws/Reducers/Authentication#-Why-Not-JWT-Slide-1.PNG "Authentication Why Not JWT Slide 1")
+
+#### To Use JWT (Json Web Token) I need another follow request
 
 ![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-2.PNG "Authentication Why Not JWT Slide 2")
 
