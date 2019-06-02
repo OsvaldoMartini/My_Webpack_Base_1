@@ -525,7 +525,9 @@ export { loadData };
 Routes.js
 ```
 ```js
-import UsersList, { loadData } from './components/UsersList';
+import HomePage from './pages/HomePage';
+//import UsersList, { loadData } from './components/UsersList';
+import UsersListPage from './pages/UsersList';
 ```
 ```js
   {
@@ -586,7 +588,44 @@ index.js
   });
 ```
 #
+## Refactoring to Export as `Component`
+> Create the Pages folder:
+```
+pages/UsersList.js   >   UsersListPage
+```
+> Refactorig as `Component`
+```js
+// Named Export
+//export { loadData };
 
+//Regular Reduxe Call
+//mapStateToProps
+//export default connect(mapStateToProps, { fetchUsers })(UsersList);
+
+// Refactoring to Export as Component
+export default {
+  loadData,
+  component: connect( mapStateToProps, { fetchUsers } )(UsersList)
+};
+```
+>Usage in `Routes.js`
+```js
+import UsersListPage from './pages/UsersList';
+```
+export default [
+  {
+    ...HomePage, //ES2016 Syntax (some spread syntax)
+    path: '/',
+    //component: Home,
+    exact: true
+  },
+  {
+    //loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+    ...UsersListPage,
+    path: '/users'
+    //component: UsersListPage
+  },
+```js
 ## About Redux DevTools
 ## Manual Integration
 

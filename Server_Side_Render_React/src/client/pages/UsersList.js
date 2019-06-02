@@ -37,11 +37,14 @@ function loadData(store) {
 }
 
 // Named Export
-export { loadData };
+//export { loadData };
 
 //Regular Reduxe Call
 //mapStateToProps
-export default connect(
-  mapStateToProps,
-  { fetchUsers }
-)(UsersList);
+//export default connect(mapStateToProps, { fetchUsers })(UsersList);
+
+// Refactoring to Export as Component
+export default {
+  loadData,
+  component: connect( mapStateToProps, { fetchUsers } )(UsersList)
+};

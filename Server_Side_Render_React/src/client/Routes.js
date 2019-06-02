@@ -1,7 +1,8 @@
 import React from 'react';
 //import { Route } from 'react-router-dom';
-import Home from './components/Home';
-import UsersList, { loadData } from './components/UsersList';
+import HomePage from './pages/HomePage';
+//import UsersList, { loadData } from './components/UsersList';
+import UsersListPage from './pages/UsersList';
 
 // Exact Prop I want to show this route if the URL is exactly the path "Slash"
 // export default () => {
@@ -19,14 +20,16 @@ import UsersList, { loadData } from './components/UsersList';
 // it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
 export default [
   {
+    ...HomePage, //ES2016 Syntax (some spread syntax)
     path: '/',
-    component: Home,
+    //component: Home,
     exact: true
   },
   {
-    loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
-    path: '/users',
-    component: UsersList
+    //loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+    ...UsersListPage,
+    path: '/users'
+    //component: UsersListPage
   },
   {
     path: '/Hi',
