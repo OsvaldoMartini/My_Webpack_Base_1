@@ -641,7 +641,7 @@ export default [
 ```js
  "bundle.js:1241 Warning: Did not expect server HTML to contain a <li> in <ul>".
 ```
-![alt text](Draws/Reducers/Server-HTML-Li-Problem.PNG.PNG "Server HTML '<li>' Problem.PNG")
+![alt text](Draws/Reducers/Server-HTML-Li-Problem.PNG "Server HTML '<li>' Problem.PNG")
 
 
 
