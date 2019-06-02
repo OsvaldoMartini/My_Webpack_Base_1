@@ -493,7 +493,7 @@ Result Expected:
 ```
 ```
 [ { route:
-     { loadData: [Function: loadData],
+     { 
        path: '/users',
        component: [Function] },
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
@@ -505,6 +505,51 @@ UserList says: I'm trying to load some data
 ### Implementing `LoadData` function
 ![alt text](Draws/Reducers/Load-Data-Function.PNG "Load-Data-Function")
 
+### UsersList file
+```
+UsersList.js
+```
+```js
+function loadData(store) {
+  console.log("UserList says: I'm trying to load some data");
+  return store.dispatch(fetchUsers());
+}
+
+// Named Export
+export { loadData };
+function loadData(store) {
+  console.log("UserList says: I'm trying to load some data");
+  return store.dispatch(fetchUsers());
+}
+
+// Named Export
+export { loadData };
+```
+### Routes file
+```
+Routes.js
+```
+```js
+import UsersList, { loadData } from './components/UsersList';
+```
+```js
+  {
+    loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+    path: '/users',
+    component: UsersList
+  },
+```
+### Run the App at the 'Users' page
+```
+Result Expected:
+```
+```
+[ { route:
+     { loadData: [Function: loadData],
+       path: '/users',
+       component: [Function] },
+    match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
+UserList says: I'm trying to load some data
 
 
 
