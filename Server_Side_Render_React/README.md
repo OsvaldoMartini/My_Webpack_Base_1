@@ -373,7 +373,6 @@ Here's big list of Users
 # `Server Side Rendering`
 ## `Best` Solution to `Render` the App on `Server Side` Flow
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
-## `Best` Solution to `Render` `Pros` and `Cons`
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
 # Solving the `Step-1`
@@ -505,7 +504,7 @@ UserList says: I'm trying to load some data
 ### Implementing `LoadData` function
 ![alt text](Draws/Reducers/Load-Data-Function.PNG "Load-Data-Function")
 
-### UsersList file
+###
 ```
 UsersList.js
 ```
@@ -525,7 +524,7 @@ function loadData(store) {
 // Named Export
 export { loadData };
 ```
-### Routes file
+###
 ```
 Routes.js
 ```
@@ -551,7 +550,24 @@ Result Expected:
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
 ```
-### Index.js with Mapping matchRoutes
+### Index.js with Mapping `matchRoutes`
+```
+index.js
+```
+```js
+ // Mapping matchRoutes
+  //We Are Doing some Destructuring Here ({route})
+  matchRoutes(Routes, req.path).map(({ route }) => {
+    return route.loadData ? route.loadData(store) : null;
+  });
+```
+## Solving the Step-3 - `Completion` of all requests
+![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-3.PNG "Solving Step-3")
+
+### Implementing `Promises`
+![alt text](Draws/Reducers/LoadData-With-Promises.PNG "LoadData With Promises")
+
+### Index.js with `Promise`
 ```
 index.js
 ```
@@ -562,13 +578,6 @@ index.js
     return route.loadData ? route.loadData(store) : null;
   });
 ```
-## Solving the Step-3 - `Completion` of all requests
-![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-3.PNG "Solving Step-3")
-
-### Implementing `Promises`
-![alt text](Draws/Reducers/LoadData-With-Promises.PNG "LoadData With Promises")
-
-
 #
 
 ## About Redux DevTools
