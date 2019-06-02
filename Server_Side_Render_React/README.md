@@ -747,11 +747,11 @@ import serialize from 'serialize-javascript';
 ![alt text](Draws/Reducers/Authentication-Part-1.PNG "Authentication Part 1")
 
 #### Authentication Cookies Flow
-![alt text](Draws/Reducers/Authentication#-Part-2.PNG "Authentication Part 2")
+![alt text](Draws/Reducers/Authentication-Part-2.PNG "Authentication Part 2")
 
 #### Why Not Use JWT (Json Web Token)
 
-![alt text](Draws/Reducers/Authentication#-Why-Not-JWT-Slide-1.PNG "Authentication Why Not JWT Slide 1")
+![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-1.PNG "Authentication Why Not JWT Slide 1")
 
 #### To Use JWT (Json Web Token) I need another follow request
 
