@@ -105,18 +105,18 @@ and another running on the browser (BrowserRouter)
 
 ## 2) Second Chanllenge 
 ```
-Aspects of authentication needs to be handle on server. 
-Normally this is only on browser 
+Need some way to detect when all initial data load "action creators" 
+are completed on server
 ```
 ## 3) Third Challenge
 ```
-Need some way to detect when all initial data load "action creators" 
-are completed on server
+Need state rehydration on the browser
 ```
 
 ## 4) Fourth Challenge
 ```
-Need state rehydration on the browser
+Aspects of authentication needs to be handle on server. 
+Normally this is only on browser 
 ```
 
 ![alt text](Draws/Reducers/4-Big-Redux-Challeges.PNG "4 Big Challenges")
@@ -124,6 +124,7 @@ Need state rehydration on the browser
 #
 # 1) Solving First Challenge
 #
+>Redux needs different configuration on browser vs server
 ##  Redux -> Client Side Set-Up  
 
 ### "client.js"
@@ -502,6 +503,8 @@ UserList says: I'm trying to load some data
 #
 # 2) Solving Second Challenge
 #
+>Need some way to detect when all initial data load "action creators" are completed on server
+
 ## Solving the Step-2 - `loadData` Function
 ![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-2.PNG "Solving Step-2")
 
@@ -644,6 +647,7 @@ export default [
 #
 # 3) Solving Third Challenge
 #
+> Need state rehydration on the browser
 ## Client State Rehydration
 ## Solving the Problem:
 The HTML generated on `Server Side` doesn't match up with the HTML generated on `Client Side`
@@ -732,9 +736,22 @@ import serialize from 'serialize-javascript';
             window=INITIAL_STATE = ${serialize(store.getState())}
             ...
 ```
+### Result Expected
 ![alt text](Draws/Reducers/Mitigating-XSS-Result-Expected.png "Mitigating XSS Attacks Result Expected")
 
+#
+# 4) Solving Fourth Challenge
+#
+>Aspects of authentication needs to be handle on server. Normally this is only on browser 
+![alt text](Draws/Reducers/Authentication-Part-1.png "Authentication Part 1")
 
+### Why Not Use JWT (Json Web Token)
+
+![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-1.png "Authentication Why Not JWT Slide 1")
+
+### To Use JWT (Json Web Token) I need another follow request
+
+![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-2.png "Authentication Why Not JWT Slide 2")
 
 
 
