@@ -34,6 +34,7 @@ const contentClientSide = () => {
       <div>
         <BrowserRouter>
           <div>{renderRoutes(Routes)}</div>
+          {/* <Routes /> */}
         </BrowserRouter>
         <DevToolsAsDock />
       </div>

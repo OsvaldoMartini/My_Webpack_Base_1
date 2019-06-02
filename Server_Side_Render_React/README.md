@@ -371,13 +371,100 @@ Here's big list of Users
 ![alt text](Draws/Reducers/Client-Side-Render-Flow.PNG "Client Side Render Flow")
 
 ## `Server Side Rendering`
-### Best Solution for Server Side Render
+### `Best` Solution to `Render` the App on `Server Side` Flow
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
-### `Solution Applied`
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
-### `React-Router-Config` to implement the Server Side Render
-
+### `React-Router-Config` to implement the Server Side Render solution
+> Comment all Old way to Route the requests
+#### Make the chages on `Route.js`
+```
+Route.js
+```
+```js
+//import { Route } from 'react-router-dom';
+```
+```js
+// export default () => {
+//     return (
+//         <div>
+//             <Route exact path="/" component={Home} />
+//             <Route path="/hi" component={() => 'Hi'} />
+//             <Route path="/users" component={UsersList} />
+//         </div>
+//     );
+// }
+```
+```
+Replace For:
+```
+```js
+// New Way to Route wih (Router-ReactConfig)
+// React-Router-Config
+// it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
+export default [
+  {
+    path: '/',
+    component: Home,
+    exact: true
+  },
+  {
+    loadData: loadData, //ES2015 Systax => Or Just Type loadData, => But end of the day it will be expanded like so 'loadData: loadData'
+    path: '/users',
+    component: UsersList
+  },
+  {
+    path: '/Hi',
+    component: () => 'Hi'
+  },
+  {
+    path: '/MapBox',
+    component: () => 'MapBox'
+  },
+  {
+    path: '/images',
+    component: () => 'Images'
+  },
+  {
+    path: '/Admins',
+    component: () => 'Admins'
+  }
+];
+```
+#### Make the chages on `Renderer.js`
+```
+Renderer.js
+```
+```js
+import { renderRoutes } from 'react-router-config';
+```
+```js
+  const content = renderToString(
+    <Provider store={store}>
+        <StaticRouter location={req.path} context={{}}>
+          <div>{renderRoutes(Routes)}</div>
+          {/* <Routes/> */}
+        </StaticRouter>
+    </Provider>
+  );
+```
+#### Make the chages on `Client.js`
+```
+client.js
+```
+```js
+import { renderRoutes } from 'react-router-config';
+```
+```js
+  return (
+    <Provider store={store}>
+        <BrowserRouter>
+          <div>{renderRoutes(Routes)}</div>
+          {/* <Routes /> */}
+        </BrowserRouter>
+    </Provider>
+  );
+```
 
 
 
