@@ -45395,9 +45395,9 @@ var _HomePage = __webpack_require__(821);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _UsersList = __webpack_require__(822);
+var _UsersListPage = __webpack_require__(823);
 
-var _UsersList2 = _interopRequireDefault(_UsersList);
+var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45419,7 +45419,7 @@ exports.default = [_extends({}, _HomePage2.default, { //ES2016 Syntax (some spre
   path: '/',
   //component: Home,
   exact: true
-}), _extends({}, _UsersList2.default, {
+}), _extends({}, _UsersListPage2.default, {
   path: '/users'
   //component: UsersListPage
 }), {
@@ -54402,7 +54402,8 @@ exports.default = {
 };
 
 /***/ }),
-/* 822 */
+/* 822 */,
+/* 823 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -591,7 +591,15 @@ index.js
 ## Refactoring to Export as `Component`
 > Create the Pages folder:
 ```
-pages/UsersList.js   >   UsersListPage
+Home.js   >   pages/HomePage.js
+```
+```js
+export default {
+  component: Home
+};
+```
+```
+UsersList.js   >   pages/UsersListPage.js
 ```
 > Refactorig as `Component`
 ```js
@@ -610,8 +618,10 @@ export default {
 ```
 >Usage in `Routes.js`
 ```js
-import UsersListPage from './pages/UsersList';
+import HomePage from './pages/HomePage';
+import UsersListPage from './pages/UsersListPage';
 ```
+```js
 export default [
   {
     ...HomePage, //ES2016 Syntax (some spread syntax)
@@ -625,7 +635,16 @@ export default [
     path: '/users'
     //component: UsersListPage
   },
+```
+
+## Solving the Problem:
 ```js
+ "bundle.js:1241 Warning: Did not expect server HTML to contain a <li> in <ul>".
+```
+![alt text](Draws/Reducers/Server-HTML-Li-Problem.PNG.PNG "Server HTML '<li>' Problem.PNG")
+
+
+
 ## About Redux DevTools
 ## Manual Integration
 
