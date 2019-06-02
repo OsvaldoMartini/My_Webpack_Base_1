@@ -747,11 +747,11 @@ import serialize from 'serialize-javascript';
 
 ### Why Not Use JWT (Json Web Token)
 
-![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-1.png "Authentication Why Not JWT Slide 1")
+![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-1.PNG "Authentication Why Not JWT Slide 1")
 
 ### To Use JWT (Json Web Token) I need another follow request
 
-![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-2.png "Authentication Why Not JWT Slide 2")
+![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-2.PNG "Authentication Why Not JWT Slide 2")
 
 
 
