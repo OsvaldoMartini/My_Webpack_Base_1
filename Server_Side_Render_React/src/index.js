@@ -3,6 +3,7 @@ import 'babel-polyfill';
 import express from 'express';
 
 import { matchRoutes } from 'react-router-config';
+import proxy from 'express-http-proxy';
 import Routes from './client/Routes';
 
 import renderer from './helpers/renderer';
@@ -14,6 +15,20 @@ import configureStore from './store/configureStore';
 
 //const express = require('express');
 const app = express();
+
+// Above all other Middlewares low level proxy
+// Set up as Middleware Before all other Middlewares
+// Any route whatsoever or any request that tries toa ccess a route '/api'
+// Will be automatically sent off o this domain
+app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
+  proxyReqOptDecorator(opts){
+    // Just Set this for the Current Course in this App
+    // Just to give as easy way to handle with Google Auth process
+    // And don't run some security erros with the Google waterflow (that's all)
+    opts.header['x-forwarded-host'] = 'localhost:3000';
+    return opts;
+  }
+}));
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;

@@ -753,6 +753,28 @@ import serialize from 'serialize-javascript';
 
 ![alt text](Draws/Reducers/Authentication-Why-Not-JWT-Slide-2.PNG "Authentication Why Not JWT Slide 2")
 
+## Making Use oh `express-http-proxy`
+https://www.npmjs.com/package/express-http-proxy
+```
+index.js
+```
+```js
+import proxy from 'express-http-proxy';
+```
+```js
+// Any route whatsoever or any request that tries toa ccess a route '/api'
+// Will be automatically sent off o this domain
+app.use('/api', proxy('http://react-ssr-api.herokuapp.com',{
+  proxyReqOptDecorator(opts){
+    // Just Set this for the Current Course in this App
+    // Just to give as easy way to handle with Google Auth process
+    // And don't run some security erros with the Google waterflow (that's all)
+    opts.header['x-forwarded-host'] = 'localhost:3000';
+    return opts;
+  }
+}));
+
+```
 
 
 ## About Redux DevTools

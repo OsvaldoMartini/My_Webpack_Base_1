@@ -386,6 +386,10 @@ var _express2 = _interopRequireDefault(_express);
 
 var _reactRouterConfig = __webpack_require__(2);
 
+var _expressHttpProxy = __webpack_require__(29);
+
+var _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);
+
 var _Routes = __webpack_require__(3);
 
 var _Routes2 = _interopRequireDefault(_Routes);
@@ -401,16 +405,32 @@ var _configureStore2 = _interopRequireDefault(_configureStore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //const express = require('express');
-//Isomorphic Java Script / Universal Javascript
 var app = (0, _express2.default)();
+
+// Above all other Middlewares low level proxy
+// Set up as Middleware Before all other Middlewares
+// Any route whatsoever or any request that tries toa ccess a route '/api'
+// Will be automatically sent off o this domain
+
+
+// Two Ways Create Store
+//import createStore from './helpers/createStore';
+// To Be used with DevTools
+//Isomorphic Java Script / Universal Javascript
+app.use('/api', (0, _expressHttpProxy2.default)('http://react-ssr-api.herokuapp.com', {
+  proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
+    // Just Set this for the Current Course in this App
+    // Just to give as easy way to handle with Google Auth process
+    // And don't run some security erros with the Google waterflow (that's all)
+    opts.header['x-forwarded-host'] = 'localhost:3000';
+    return opts;
+  }
+}));
 
 //const React = require('react');
 //const renderToString = require('react-dom/server').renderToString;
 //const Home = require('./client/components/home').default;
 
-// Two Ways Create Store
-//import createStore from './helpers/createStore';
-// To Be used with DevTools
 app.use(_express2.default.static('public'));
 
 // ## This tells express that it needs to treat that public directory as a static or public directory that is
@@ -893,6 +913,12 @@ exports.default = {
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = require("express-http-proxy");
 
 /***/ })
 /******/ ]);
