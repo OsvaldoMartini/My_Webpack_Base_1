@@ -684,6 +684,26 @@ store.getState();
 #### Store Dumps flow
 ![alt text](Draws/Reducers/Server-And-Client-Store-Dumps-Flow.PNG "Server and Client Store Dumps Flow")
 
+#### Dumping State to Templates
+```
+renderer.js
+```
+```js
+ // ## Underneath a tine little HTML. I'll snifft it (farejar)
+  return `
+    <html>
+        <head></head>
+        <body>
+            <div id="root">${content}</div>
+            <script>
+                window=INITIAL_STATE = ${JSON.stringify(store.getState())}
+            ....
+```
+> Result Expected:  We Have Now the `window.INITIAL_STATE` generated (Dumped)
+![alt text](Draws/Reducers/Store-Dumped-window-Inital-State.PNG "Store dumped 'window.INITIAL_STATE'")
+
+
+
 
 
 
