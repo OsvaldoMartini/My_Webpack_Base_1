@@ -373,6 +373,7 @@ Here's big list of Users
 # `Server Side Rendering`
 ## `Best` Solution to `Render` the App on `Server Side` Flow
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
+## `Best` Solution to `Render` `Pros` and `Cons`
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
 ## `React-Router-Config` to implement the Server Side Render solution
@@ -468,8 +469,8 @@ import { renderRoutes } from 'react-router-config';
 ## Make the chages on `index.js`
 ### Match Routes from `react-router-config`
 `MatchRoutes` has Two Arguments
-##### Firts Argument is the the `list of routes` or `routes configuration array
-##### Second Argument is the Path that the user is attempting to fetch or attempting to view
+#### Firts Argument is the the `list of routes` or `routes configuration array`
+#### Second Argument is the Path that the user is attempting to fetch or attempting to view
 * It's going to look at whatever route the user is trying to visit and then
 * It's going to return an array of components that are about to be rendered
 ```
@@ -495,6 +496,9 @@ Result Expected:
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
 ```
+## This Solve the First Step
+![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-1.PNG "Server Side Render Flow Step-1")
+
 
 
 #
