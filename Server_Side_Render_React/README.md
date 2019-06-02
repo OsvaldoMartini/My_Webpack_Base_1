@@ -373,8 +373,10 @@ Here's big list of Users
 ## `Server Side Rendering`
 ### Best Solution for Server Side Render
 ![alt text](Draws/Reducers/Server-Side-Render-Flow.PNG "Server Side Render Flow")
-### Solution Applied
+### `Solution Applied`
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
+
+### `React-Router-Config` to implement the Server Side Render
 
 
 
