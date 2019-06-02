@@ -376,6 +376,9 @@ Here's big list of Users
 ## `Best` Solution to `Render` `Pros` and `Cons`
 ![alt text](Draws/Reducers/Server-Side-Render-Pros-Cons.PNG "Server Side Render Pros & Cons")
 
+# Solving the `Step-1`
+![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-1.PNG "Solving Step-1")
+
 ## `React-Router-Config` to implement the Server Side Render solution
 > Comment all Old way to Route the requests
 ## Make the chages on `Route.js`
@@ -496,8 +499,12 @@ Result Expected:
     match: { path: '/users', url: '/users', isExact: true, params: {} } } ]
 UserList says: I'm trying to load some data
 ```
-## This Solve the First Step
-![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-1.PNG "Server Side Render Flow Step-1")
+## Solving the Step-2 - `loadData` Function
+![alt text](Draws/Reducers/Server-Side-Render-Flow-Step-2.PNG "Solving Step-2")
+
+### Implementing `LoadData` function
+![alt text](Draws/Reducers/Load-Data-Function.PNG "Load-Data-Function")
+
 
 
 
