@@ -38913,6 +38913,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterConfig = __webpack_require__(445);
 
+var _Header = __webpack_require__(478);
+
+var _Header2 = _interopRequireDefault(_Header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -38928,11 +38932,7 @@ var App = function App(_ref) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      null,
-      'I am a header'
-    ),
+    _react2.default.createElement(_Header2.default, null),
     (0, _reactRouterConfig.renderRoutes)(route.routes)
   );
 };
@@ -38940,6 +38940,44 @@ var App = function App(_ref) {
 exports.default = {
   component: App
 };
+
+/***/ }),
+/* 478 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(394);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+|--------------------------------------------------
+| Header Component
+| With Lilnk to Navigate between the App
+|--------------------------------------------------
+*/
+exports.default = function () {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: '/' },
+      'Main Menu - MapBox'
+    )
+  );
+};
+//Link tag to have the ability to Navigae
 
 /***/ })
 /******/ ]);

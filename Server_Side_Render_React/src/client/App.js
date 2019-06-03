@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
-
+import Header from './components/Header';
 /**
 |--------------------------------------------------
 | We are going to pass any routes that were matched during the match route's process
@@ -11,7 +11,7 @@ import { renderRoutes } from 'react-router-config';
 const App = ({ route }) => {
   return (
     <div>
-      <h1>I am a header</h1>
+      <Header />
       {renderRoutes(route.routes)}
     </div>
   );
