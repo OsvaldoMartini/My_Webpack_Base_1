@@ -866,9 +866,12 @@ export default (req) => {
 //opts.header['x-forwarded-host']
 opts.headers['x-forwarded-host']
 ```
-### refresh the Page and See the Expected Error
+### Refresh the Page and See that `Expected Error` was `Solved`
 ![alt text](Draws/Reducers/Authentication-Expected-Error-Fixed.PNG "Authentication Error Fixed")
 
+### Main Architecture Expected
+### Architecture Current Achieved and Expected
+![alt text](Draws/Reducers/Architecture-Current-Achieved.PNG "Architecture Current Achieved")
 
 
 ## About Redux DevTools
