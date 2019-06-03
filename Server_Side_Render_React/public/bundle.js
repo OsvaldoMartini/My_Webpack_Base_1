@@ -38606,6 +38606,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //import UsersList, { loadData } from './components/UsersList';
 
 
+var _App = __webpack_require__(477);
+
+var _App2 = _interopRequireDefault(_App);
+
 var _HomePage = __webpack_require__(472);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
@@ -38630,34 +38634,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // New Way to Route wih (Router-ReactConfig)
 // React-Router-Config
 // it will help Us to figure Out hat set of components are about to be rendered. Give some Particular URL
-exports.default = [_extends({}, _HomePage2.default, { //ES2016 Syntax (some spread syntax)
-  path: '/',
-  //component: Home,
-  exact: true
-}), _extends({}, _UsersListPage2.default, {
-  path: '/users'
-  //component: UsersListPage
-}), {
-  path: '/Hi',
-  component: function component() {
-    return 'Hi';
-  }
-}, {
-  path: '/MapBox',
-  component: function component() {
-    return 'MapBox';
-  }
-}, {
-  path: '/images',
-  component: function component() {
-    return 'Images';
-  }
-}, {
-  path: '/Admins',
-  component: function component() {
-    return 'Admins';
-  }
-}];
+exports.default = [_extends({}, _App2.default, { //Defining the Header
+  // Nested Rooutes
+  routes: [_extends({}, _HomePage2.default, { //ES2016 Syntax (some spread syntax)
+    path: '/',
+    //component: Home,
+    exact: true
+  }), _extends({}, _UsersListPage2.default, {
+    path: '/users'
+    //component: UsersListPage
+  }), {
+    path: '/Hi',
+    component: function component() {
+      return 'Hi';
+    }
+  }, {
+    path: '/MapBox',
+    component: function component() {
+      return 'MapBox';
+    }
+  }, {
+    path: '/images',
+    component: function component() {
+      return 'Images';
+    }
+  }, {
+    path: '/Admins',
+    component: function component() {
+      return 'Admins';
+    }
+  }]
+})];
 
 /***/ }),
 /* 472 */
@@ -38887,6 +38894,51 @@ function loadData(store) {
 exports.default = {
   loadData: loadData,
   component: (0, _reactRedux.connect)(mapStateToProps, { fetchUsers: _actions.fetchUsers })(UsersList)
+};
+
+/***/ }),
+/* 477 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterConfig = __webpack_require__(445);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+|--------------------------------------------------
+| We are going to pass any routes that were matched during the match route's process
+| as a prop called 'routes' Destructured properly
+| 'route have a 'colletion of components we need to render inside of the App
+|--------------------------------------------------
+*/
+var App = function App(_ref) {
+  var route = _ref.route;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'h1',
+      null,
+      'I am a header'
+    ),
+    (0, _reactRouterConfig.renderRoutes)(route.routes)
+  );
+};
+
+exports.default = {
+  component: App
 };
 
 /***/ })
