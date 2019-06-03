@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import Header from './components/Header';
+import { fetchCurrentUser } from './actions';
 /**
 |--------------------------------------------------
 | We are going to pass any routes that were matched during the match route's process
@@ -18,5 +19,6 @@ const App = ({ route }) => {
 };
 
 export default {
-  component: App
+  component: App,
+  loadData: ({ dispatch }) => dispatch(fetchCurrentUser())
 };
