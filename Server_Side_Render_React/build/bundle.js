@@ -922,15 +922,16 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(12);
 
+var _reactRedux = __webpack_require__(13);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
-|--------------------------------------------------
-| Header Component
-| With Lilnk to Navigate between the App
-|--------------------------------------------------
-*/
-exports.default = function () {
+//Link tag to have the ability to Navigae
+var Header = function Header(_ref) {
+  var auth = _ref.auth;
+
+  console.log('My auth status is', auth);
+
   return _react2.default.createElement(
     'div',
     null,
@@ -941,7 +942,22 @@ exports.default = function () {
     )
   );
 };
-//Link tag to have the ability to Navigae
+
+// Now We have the Should be Receiving the 'auth' as props
+/**
+|--------------------------------------------------
+| Header Component
+| With Lilnk to Navigate between the App
+|--------------------------------------------------
+*/
+function mapStateToProps(_ref2) {
+  var auth = _ref2.auth;
+
+  return { auth: auth };
+}
+
+// This is sending the 'auth' to the 'Header' as 'Props'
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ }),
 /* 24 */
