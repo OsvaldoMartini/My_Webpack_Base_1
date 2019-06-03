@@ -7703,6 +7703,46 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
 
 /**
 |--------------------------------------------------
+| FETCH_CURRENT_USER Action Creator
+|--------------------------------------------------
+*/
+var FETCH_CURRENT_USER = exports.FETCH_CURRENT_USER = 'fetch_current_user';
+var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
+  return function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {
+      var res;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return api.get('/current_user');
+
+            case 2:
+              res = _context2.sent;
+
+
+              dispatch({
+                type: FETCH_CURRENT_USER,
+                payload: res
+              });
+
+            case 4:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
+
+    return function (_x4, _x5, _x6) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
+/**
+|--------------------------------------------------
 | Asxios Instance to Request Ramdom Images
 |--------------------------------------------------
 */
@@ -7722,19 +7762,19 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
 var FETCH_IMAGES = exports.FETCH_IMAGES = 'fetch_images';
 var fetchImages = exports.fetchImages = function fetchImages() {
   return function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch) {
       var res;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              _context2.next = 2;
+              _context3.next = 2;
               return axiosInstance.get('/search/photos', {
                 params: { query: term }
               });
 
             case 2:
-              res = _context2.sent;
+              res = _context3.sent;
 
 
               dispatch: ({
@@ -7744,14 +7784,14 @@ var fetchImages = exports.fetchImages = function fetchImages() {
 
             case 4:
             case 'end':
-              return _context2.stop();
+              return _context3.stop();
           }
         }
-      }, _callee2, undefined);
+      }, _callee3, undefined);
     }));
 
-    return function (_x4) {
-      return _ref2.apply(this, arguments);
+    return function (_x7) {
+      return _ref3.apply(this, arguments);
     };
   }();
 };
@@ -7764,17 +7804,17 @@ var fetchImages = exports.fetchImages = function fetchImages() {
 var FETCH_ADMINS = exports.FETCH_ADMINS = 'fetch_admins';
 var fetchAdmins = exports.fetchAdmins = function fetchAdmins() {
   return function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch) {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch) {
       var res;
-      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
-          switch (_context3.prev = _context3.next) {
+          switch (_context4.prev = _context4.next) {
             case 0:
-              _context3.next = 2;
+              _context4.next = 2;
               return axios.get('http://react-ssr-api.herokuapp.com/admins');
 
             case 2:
-              res = _context3.sent;
+              res = _context4.sent;
 
 
               dispatch: ({
@@ -7784,14 +7824,14 @@ var fetchAdmins = exports.fetchAdmins = function fetchAdmins() {
 
             case 4:
             case 'end':
-              return _context3.stop();
+              return _context4.stop();
           }
         }
-      }, _callee3, undefined);
+      }, _callee4, undefined);
     }));
 
-    return function (_x5) {
-      return _ref3.apply(this, arguments);
+    return function (_x8) {
+      return _ref4.apply(this, arguments);
     };
   }();
 };
@@ -38727,16 +38767,23 @@ var _adminsReducer = __webpack_require__(475);
 
 var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
 
+var _authReducer = __webpack_require__(479);
+
+var _authReducer2 = _interopRequireDefault(_authReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+|--------------------------------------------------
+| Combine all Different Reducers together
+|--------------------------------------------------
+*/
 var rootReducer = (0, _redux.combineReducers)({
   users: _usersReducer2.default,
-  admins: _adminsReducer2.default
-}); /**
-    |--------------------------------------------------
-    | Combine all Different Reducers together
-    |--------------------------------------------------
-    */
+  admins: _adminsReducer2.default,
+  auth: _authReducer2.default
+});
+
 exports.default = rootReducer;
 
 /***/ }),
@@ -38978,6 +39025,31 @@ exports.default = function () {
   );
 };
 //Link tag to have the ability to Navigae
+
+/***/ }),
+/* 479 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.FETCH_CURRENT_USER:
+      return action.payload.data || false;
+    default:
+      return state;
+  }
+};
+
+var _actions = __webpack_require__(173);
 
 /***/ })
 /******/ ]);
