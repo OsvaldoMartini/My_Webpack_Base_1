@@ -842,7 +842,7 @@ index.js
 // including all Request in our Store that also contains the cookies
   const store = createStore(req);
 ```
-And finally abck to the `CreateStore.js`
+And finally back to the `CreateStore.js`
 ```
 createStore.js
 ```
@@ -861,8 +861,13 @@ export default (req) => {
 ```
 ### refresh the Page and See the Expected Error
 ![alt text](Draws/Reducers/Authentication-Expected-Error.PNG "Authentication Expected Error")
-
-
+> Correcting the minor Typo
+```js
+//opts.header['x-forwarded-host']
+opts.headers['x-forwarded-host']
+```
+### refresh the Page and See the Expected Error
+![alt text](Draws/Reducers/Authentication-Expected-Error-Fixed.PNG "Authentication Error Fixed")
 
 
 
