@@ -413,6 +413,7 @@ app.use('/api', (0, _expressHttpProxy2.default)('http://react-ssr-api.herokuapp.
     // Just Set this for the Current Course in this App
     // Just to give as easy way to handle with Google Auth process
     // And don't run some security erros with the Google waterflow (that's all)
+    // This say's after the Login process forward me back to "localhost:3000"
     opts.headers['x-forwarded-host'] = 'localhost:3000';
     return opts;
   }
