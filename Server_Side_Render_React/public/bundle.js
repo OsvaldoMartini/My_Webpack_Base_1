@@ -38784,6 +38784,16 @@ var Header = function Header(_ref) {
 
   console.log('My auth status is', auth);
 
+  var authButton = auth ? _react2.default.createElement(
+    'a',
+    { href: '/api/logout' },
+    'Logout'
+  ) : _react2.default.createElement(
+    'a',
+    { href: '/api/auth/google' },
+    'Login'
+  );
+
   return _react2.default.createElement(
     'div',
     null,
@@ -38791,6 +38801,21 @@ var Header = function Header(_ref) {
       _reactRouterDom.Link,
       { to: '/' },
       'Main Menu - MapBox'
+    ),
+    _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        _reactRouterDom.Link,
+        { to: '/users' },
+        'Users'
+      ),
+      _react2.default.createElement(
+        _reactRouterDom.Link,
+        { to: '/admins' },
+        'Admins'
+      ),
+      authButton
     )
   );
 };
