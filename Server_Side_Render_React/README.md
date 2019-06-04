@@ -873,8 +873,13 @@ opts.headers['x-forwarded-host']
 ### Architecture Current Achieved and Expected
 ![alt text](Draws/Reducers/Architecture-Current-Achieved.PNG "Architecture Current Achieved")
 
+
+### Mapping `App.js` as Top / Master Page of above the other components
+![alt text](Draws/Reducers/App-Top-Component.PNG "App Top Master Component'")
+
 ### Mapping `Auth` into `Header` via `Connect`
 ![alt text](Draws/Reducers/Mapping-Auth-Into-Header.PNG "Mapping Auth Into Header via 'Connect'")
+
 
 
 ## About Redux DevTools
