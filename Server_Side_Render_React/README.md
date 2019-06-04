@@ -382,7 +382,7 @@ Here's big list of Users
 
 ## `React-Router-Config` to implement the Server Side Render solution
 > Comment all Old way to Route the requests
-## Make the chages on `Route.js`
+## Make the changes on `Route.js`
 ```
 Route.js
 ```
@@ -436,7 +436,7 @@ export default [
   }
 ];
 ```
-## Make the chages on `Renderer.js`
+## Make the changes on `Renderer.js`
 ```
 Renderer.js
 ```
@@ -453,7 +453,7 @@ import { renderRoutes } from 'react-router-config';
     </Provider>
   );
 ```
-## Make the chages on `Client.js`
+## Make the changes on `Client.js`
 ```
 client.js
 ```
@@ -470,7 +470,7 @@ import { renderRoutes } from 'react-router-config';
     </Provider>
   );
 ```
-## Make the chages on `index.js`
+## Make the changes on `index.js`
 ### Match Routes from `react-router-config`
 `MatchRoutes` has Two Arguments
 #### Firts Argument is the the `list of routes` or `routes configuration array`
@@ -872,6 +872,9 @@ opts.headers['x-forwarded-host']
 ### Main Architecture Expected
 ### Architecture Current Achieved and Expected
 ![alt text](Draws/Reducers/Architecture-Current-Achieved.PNG "Architecture Current Achieved")
+
+### Mapping `Auth` into `Header` via `Connect`
+![alt text](Draws/Reducers/Mapping-Auth-Into-Header.PNG "Mapping Auth Into Header via 'Connect'")
 
 
 ## About Redux DevTools

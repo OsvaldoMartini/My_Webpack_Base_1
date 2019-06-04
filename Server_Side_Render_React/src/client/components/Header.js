@@ -19,7 +19,7 @@ const Header = ({ auth }) => {
   );
 };
 
-// Now We have the Should be Receiving the 'auth' as props
+// Now We have should be Receiving the 'auth' as props
 function mapStateToProps({ auth }) {
   return { auth: auth };
 }
