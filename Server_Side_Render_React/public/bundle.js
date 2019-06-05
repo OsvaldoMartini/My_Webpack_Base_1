@@ -8009,12 +8009,12 @@ exports.default = [_extends({}, _App2.default, { //Defining the Header
     component: function component() {
       return 'Images';
     }
-  }, {
-    path: '/Admins',
-    component: function component() {
-      return 'Admins';
-    }
-  }, _extends({}, _NotFoundPage2.default)]
+  },
+  // {
+  //   path: '/Admins',
+  //   component: () => 'Admins'
+  // },
+  _extends({}, _NotFoundPage2.default)]
 })];
 
 /***/ },
@@ -9221,7 +9221,11 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NotFoundPage = function NotFoundPage() {
+var NotFoundPage = function NotFoundPage(_ref) {
+  var _ref$staticContext = _ref.staticContext,
+      staticContext = _ref$staticContext === undefined ? {} : _ref$staticContext;
+
+  staticContext.notFound = true;
   return _react2.default.createElement(
     "h2",
     { className: "center-align" },

@@ -77,8 +77,19 @@ app.get('*', (req, res) => {
   console.log(promises);
 
   Promise.all(promises).then(() => {
+    //Creating a Context
+
+    const context = {};
+
     // Finnaly Call the Server Side Render
-    res.send(renderer(req, store));
+    const content = renderer(req, store, context);
+
+    if (context.notFound) {
+      res.status(404);
+    }
+
+    // Sending the Response Back
+    res.send(content);
   });
 });
 

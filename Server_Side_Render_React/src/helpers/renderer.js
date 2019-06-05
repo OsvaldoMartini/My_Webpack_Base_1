@@ -8,13 +8,13 @@ import Routes from '../client/Routes';
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 import serialize from 'serialize-javascript';
 
-export default (req, store) => {
+export default (req, store, context) => {
   console.log('Rendering in Server Side');
 
   const content = renderToString(
     <Provider store={store}>
       {/* <div> */}
-      <StaticRouter location={req.path} context={{}}>
+      <StaticRouter location={req.path} context={context}>
         <div>{renderRoutes(Routes)}</div>
         {/* <Routes/> */}
       </StaticRouter>

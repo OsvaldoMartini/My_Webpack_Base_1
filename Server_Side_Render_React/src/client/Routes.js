@@ -49,10 +49,10 @@ export default [
         path: '/images',
         component: () => 'Images'
       },
-      {
-        path: '/Admins',
-        component: () => 'Admins'
-      },
+      // {
+      //   path: '/Admins',
+      //   component: () => 'Admins'
+      // },
       {
         ...NotFoundPage
       }

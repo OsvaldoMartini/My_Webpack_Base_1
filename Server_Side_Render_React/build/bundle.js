@@ -348,12 +348,12 @@ exports.default = [_extends({}, _App2.default, { //Defining the Header
     component: function component() {
       return 'Images';
     }
-  }, {
-    path: '/Admins',
-    component: function component() {
-      return 'Admins';
-    }
-  }, _extends({}, _NotFoundPage2.default)]
+  },
+  // {
+  //   path: '/Admins',
+  //   component: () => 'Admins'
+  // },
+  _extends({}, _NotFoundPage2.default)]
 })];
 
 /***/ },
@@ -443,7 +443,7 @@ var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (req, store) {
+exports.default = function (req, store, context) {
   console.log('Rendering in Server Side');
 
   var content = (0, _server.renderToString)(_react2.default.createElement(
@@ -451,7 +451,7 @@ exports.default = function (req, store) {
     { store: store },
     _react2.default.createElement(
       _reactRouterDom.StaticRouter,
-      { location: req.path, context: {} },
+      { location: req.path, context: context },
       _react2.default.createElement(
         'div',
         null,
@@ -692,7 +692,11 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var NotFoundPage = function NotFoundPage() {
+var NotFoundPage = function NotFoundPage(_ref) {
+  var _ref$staticContext = _ref.staticContext,
+      staticContext = _ref$staticContext === undefined ? {} : _ref$staticContext;
+
+  staticContext.notFound = true;
   return _react2.default.createElement(
     "h2",
     { className: "center-align" },
@@ -1052,8 +1056,19 @@ app.get('*', function (req, res) {
   console.log(promises);
 
   Promise.all(promises).then(function () {
+    //Creating a Context
+
+    var context = {};
+
     // Finnaly Call the Server Side Render
-    res.send((0, _renderer2.default)(req, store));
+    var content = (0, _renderer2.default)(req, store, context);
+
+    if (context.notFound) {
+      res.status(404);
+    }
+
+    // Sending the Response Back
+    res.send(content);
   });
 });
 
