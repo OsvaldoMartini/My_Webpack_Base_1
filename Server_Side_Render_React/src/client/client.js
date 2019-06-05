@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 //Takecare about the Asynchronous call for the action creators
 import thunk from 'redux-thunk';
-import '../style/materialize.css';
 
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
@@ -24,6 +23,7 @@ import axios from 'axios';
 
 import Routes from './Routes';
 import reducers from './reducers';
+import '../styles/materialize.css';
 
 const axiosInstance = axios.create({
   baseURL: '/api'
