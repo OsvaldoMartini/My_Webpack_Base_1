@@ -22,7 +22,7 @@ const Header = ({ auth }) => {
     <nav className="nav-wrapper">
       <div>
         <Link to="/" className="brand-logo">
-          Main Menu - MapBox
+          Main Menu
         </Link>
         <ul className="right">
           <li>

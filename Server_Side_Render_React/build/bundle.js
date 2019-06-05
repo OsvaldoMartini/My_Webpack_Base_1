@@ -597,7 +597,7 @@ var Header = function Header(_ref) {
       _react2.default.createElement(
         _reactRouterDom.Link,
         { to: '/', className: 'brand-logo' },
-        'Main Menu - MapBox'
+        'Main Menu'
       ),
       _react2.default.createElement(
         'ul',
