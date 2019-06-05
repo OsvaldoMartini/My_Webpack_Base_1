@@ -7966,7 +7966,7 @@ var _Routes = __webpack_require__(471);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _reducers = __webpack_require__(476);
+var _reducers = __webpack_require__(477);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -38658,6 +38658,10 @@ var _UsersListPage = __webpack_require__(475);
 
 var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
+var _NotFoundPage = __webpack_require__(476);
+
+var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Exact Prop I want to show this route if the URL is exactly the path "Slash"
@@ -38703,7 +38707,7 @@ exports.default = [_extends({}, _App2.default, { //Defining the Header
     component: function component() {
       return 'Admins';
     }
-  }]
+  }, _extends({}, _NotFoundPage2.default)]
 })];
 
 /***/ }),
@@ -38986,17 +38990,46 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NotFoundPage = function NotFoundPage() {
+  return _react2.default.createElement(
+    'h1',
+    null,
+    'Route/Page not found'
+  );
+};
+
+exports.default = {
+  component: NotFoundPage
+};
+
+/***/ }),
+/* 477 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _redux = __webpack_require__(110);
 
-var _usersReducer = __webpack_require__(477);
+var _usersReducer = __webpack_require__(478);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _adminsReducer = __webpack_require__(478);
+var _adminsReducer = __webpack_require__(479);
 
 var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
 
-var _authReducer = __webpack_require__(479);
+var _authReducer = __webpack_require__(480);
 
 var _authReducer2 = _interopRequireDefault(_authReducer);
 
@@ -39016,7 +39049,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ }),
-/* 477 */
+/* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39045,7 +39078,7 @@ exports.default = function () {
    */
 
 /***/ }),
-/* 478 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39074,7 +39107,7 @@ exports.default = function () {
    */
 
 /***/ }),
-/* 479 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -4,6 +4,7 @@ import App from './App';
 import HomePage from './pages/HomePage';
 //import UsersList, { loadData } from './components/UsersList';
 import UsersListPage from './pages/UsersListPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Exact Prop I want to show this route if the URL is exactly the path "Slash"
 // export default () => {
@@ -51,6 +52,9 @@ export default [
       {
         path: '/Admins',
         component: () => 'Admins'
+      },
+      {
+        ...NotFoundPage
       }
     ]
   }
