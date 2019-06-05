@@ -589,27 +589,43 @@ var Header = function Header(_ref) {
   );
 
   return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: '/' },
-      'Main Menu - MapBox'
-    ),
+    'nav',
+    { className: 'nav-wrapper' },
     _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: '/users' },
-        'Users'
+        { to: '/', className: 'brand-logo' },
+        'Main Menu - MapBox'
       ),
       _react2.default.createElement(
-        _reactRouterDom.Link,
-        { to: '/admins' },
-        'Admins'
-      ),
-      authButton
+        'ul',
+        { className: 'right' },
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/users' },
+            'Users'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/admins' },
+            'Admins'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          authButton
+        )
+      )
     )
   );
 };
@@ -650,11 +666,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Home = function Home() {
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'center-align', style: { marginTop: '200px' } },
     _react2.default.createElement(
-      'div',
+      'h3',
       null,
-      'I\'m the VERY VERY very VERY home component'
+      'Welcome'
+    ),
+    _react2.default.createElement(
+      'p',
+      null,
+      'Check out these awesome features'
     ),
     _react2.default.createElement(
       'button',
@@ -788,9 +809,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var NotFoundPage = function NotFoundPage() {
   return _react2.default.createElement(
-    'h1',
-    null,
-    'Route/Page not found'
+    "h2",
+    { className: "center-align" },
+    "Route/Page not found"
   );
 };
 
@@ -849,7 +870,7 @@ exports.default = function (req, store) {
   ));
 
   // ## Underneath a tine little HTML. I'll snifft it (farejar)
-  return '\n    <html>\n        <head></head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n            window=INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
+  return '\n    <html>\n        <head>\n          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">\n        </head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n            window=INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
 };
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 // this file is going to house a function that will simply render our react up and return it as a string
