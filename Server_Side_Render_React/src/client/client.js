@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 //Takecare about the Asynchronous call for the action creators
 import thunk from 'redux-thunk';
+import '../style/materialize.css';
 
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 

@@ -7954,6 +7954,8 @@ var _reduxThunk = __webpack_require__(436);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../style/materialize.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 var _reactRedux = __webpack_require__(112);
 
 var _reactRouterConfig = __webpack_require__(171);
@@ -7975,7 +7977,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Redux - Client Side Set-Up
 //import configureStore from '../store/configureStore';
 
-//Takecare about the Asynchronous call for the action creators
+// Startup point for the client side application
 var axiosInstance = _axios2.default.create({
   baseURL: '/api'
 });
@@ -7987,7 +7989,8 @@ var axiosInstance = _axios2.default.create({
 
 //Provider is What Ties our Store and React side together.
 //Is used to communicate data from the store to any connected components in our application
-// Startup point for the client side application
+
+//Takecare about the Asynchronous call for the action creators
 var store = (0, _redux.createStore)(_reducers2.default, window.INITIAL_STATE, (0, _redux.applyMiddleware)(_reduxThunk2.default.withExtraArgument(axiosInstance)));
 
 console.log('Hi there!');
