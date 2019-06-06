@@ -880,6 +880,9 @@ opts.headers['x-forwarded-host']
 ### Mapping `Auth` into `Header` via `Connect`
 ![alt text](Draws/Reducers/Mapping-Auth-Into-Header.PNG "Mapping Auth Into Header via 'Connect'")
 
+### Setting Up the `Context`
+![alt text](Draws/Reducers/Setting-Up-The-Context.PNG "Setting Up The Context")
+
 
 
 ## About Redux DevTools
