@@ -859,6 +859,7 @@ export default (req) => {
     applyMiddleware(thunk.withExtraArgument(axiosInstance))
   );
 ```
+##
 ### refresh the Page and See the Expected Error
 ![alt text](Draws/Reducers/Authentication-Expected-Error.PNG "Authentication Expected Error")
 > Correcting the minor Typo
@@ -866,20 +867,21 @@ export default (req) => {
 //opts.header['x-forwarded-host']
 opts.headers['x-forwarded-host']
 ```
+##
 ### Refresh the Page and See that `Expected Error` was `Solved`
 ![alt text](Draws/Reducers/Authentication-Expected-Error-Fixed.PNG "Authentication Error Fixed")
-
+##
 ### Main Architecture Expected
 ### Architecture Current Achieved and Expected
 ![alt text](Draws/Reducers/Architecture-Current-Achieved.PNG "Architecture Current Achieved")
 
-
+##
 ### Mapping `App.js` as Top / Master Page of above the other components
 ![alt text](Draws/Reducers/App-Top-Component.PNG "App Top Master Component'")
-
+##
 ### Mapping `Auth` into `Header` via `Connect`
 ![alt text](Draws/Reducers/Mapping-Auth-Into-Header.PNG "Mapping Auth Into Header via 'Connect'")
-
+##
 ### Setting Up the `Context`
 ![alt text](Draws/Reducers/Setting-Up-The-Context.PNG "Setting Up The Context")
 
