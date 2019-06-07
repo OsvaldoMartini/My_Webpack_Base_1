@@ -1849,10 +1849,16 @@ module.exports = function (key) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.fetchAdmins = exports.FETCH_ADMINS = exports.fetchImages = exports.FETCH_IMAGES = exports.fetchCurrentUser = exports.FETCH_CURRENT_USER = exports.fetchUsers = exports.FETCH_USERS = undefined;
+
+var _axios = __webpack_require__(177);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-//import axios from 'axios';
 /**
 |--------------------------------------------------
 | Action Creator for List of Users
@@ -1940,13 +1946,12 @@ var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
 | Asxios Instance to Request Ramdom Images
 |--------------------------------------------------
 */
-// const axiosInstance = axios.create({
-//   baseUrl: 'https://api.unsplash.com',
-//   headers: {
-//     Authotization:
-//       'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
-//   }
-// });
+var axiosInstance = _axios2.default.create({
+  baseUrl: 'https://api.unsplash.com',
+  headers: {
+    Authotization: 'Client-ID 43d68399a648aab9b8b72502c3feddddabbc9399d2d5f0cdd2df7a284d27c64f'
+  }
+});
 
 /**
 |--------------------------------------------------
