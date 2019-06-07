@@ -55,7 +55,7 @@ export const fetchImages = () => async dispatch => {
     params: { query: term }
   });
 
-  dispatch: ({
+  dispatch({
     type: FETCH_IMAGES,
     payload: res
   });
@@ -67,10 +67,10 @@ export const fetchImages = () => async dispatch => {
 |--------------------------------------------------
 */
 export const FETCH_ADMINS = 'fetch_admins';
-export const fetchAdmins = () => async dispatch => {
-  const res = await axios.get('http://react-ssr-api.herokuapp.com/admins');
+export const fetchAdmins = () => async (dispatch, getState, api) => {
+  const res = await api.get('/admins');
 
-  dispatch: ({
+  dispatch({
     type: FETCH_ADMINS,
     payload: res
   });
