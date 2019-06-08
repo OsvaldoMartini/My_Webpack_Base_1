@@ -1063,6 +1063,27 @@ Solution: Use  ES6 Template- String
       <Helmet>
         <title>{`${this.props.users.length} Users Loaded`}</title>
 ```
+## RenderToString vs RenderToNodeStream
+https://reactjs.org/docs/react-dom-server.html
+### Check the Waiting Time to first byte (TTFB)
+`RenderToString` it takes: 
+ ```
+  TTFB 48.95 ms
+  Content Download 310.56 ms
+```
+ `RenderToNodeStream` it takes:
+```
+  TTFB 12.30 ms
+  Content Download 525.16 ms
+``` 
+The `RenderToNodeStream` response flow
+> Build Tine snippet of HTML docs and Send tiny snippet
+### RenderToNodeStream -> send tiny snippet ot HMTL doc as response:
+![alt text](Draws/Reducers/RenderToNodeStream-HTLM-Snippet.PNG "RenderToNodeStream -> Tiny snippet html doc")
+> The `Gotch` on Server Side Render
+
+
+
 ##
 ##
 ## About Redux DevTools
