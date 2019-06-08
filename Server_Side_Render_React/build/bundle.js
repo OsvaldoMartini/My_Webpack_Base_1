@@ -1149,6 +1149,13 @@ app.get('*', function (req, res) {
     var route = _ref.route;
 
     return route.loadData ? route.loadData(store) : null;
+  }).map(function (promise) {
+    if (promise) {
+      return new Promise(function (resolve, reject) {
+        // No matter what we always going to resolve the inner promise
+        promise.then(resolve).catch(resolve);
+      });
+    }
   });
 
   console.log(promises);

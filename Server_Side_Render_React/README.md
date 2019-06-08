@@ -885,8 +885,29 @@ opts.headers['x-forwarded-host']
 ### Setting Up the `Context`
 ![alt text](Draws/Reducers/Setting-Up-The-Context.PNG "Setting Up The Context")
 
+## `JavaScript` Off and `Auth` behind the cortains
+> Error Expected when we turn off javascript script
+### Unhandled Promise Rejection Warning
+![alt text](Draws/Reducers/Unhandled-Promise-Rejection-Warning.PNG "Unhandled Promise Rejection Warning")
+##
+### Promise All Solution
+![alt text](Draws/Reducers/Promise-All.PNG "Promise All Solution")
+##
+### Admin Page Authenticated Flow
+![alt text](Draws/Reducers/Admin-Page-Authenticated.PNG "Admin Page Authenticated")
+##
+### Authentication Two Phases Flow
+![alt text](Draws/Reducers/Authentication-Two-Phases.PNG "Authentication Two Phases")
+##
+### Enhanced Higher Order Component Flow
+![alt text](Draws/Reducers/Enhanced-Higher-Order-Component.PNG "Enhanced Higher Order Component")
 
 
+
+
+
+##
+##
 ## About Redux DevTools
 ## Manual Integration
 

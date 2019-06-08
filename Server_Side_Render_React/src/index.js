@@ -70,9 +70,18 @@ app.get('*', (req, res) => {
 
   // Mapping matchRoutes
   //We Are Doing some Destructuring Here ({route})
-  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-    return route.loadData ? route.loadData(store) : null;
-  });
+  const promises = matchRoutes(Routes, req.path)
+    .map(({ route }) => {
+      return route.loadData ? route.loadData(store) : null;
+    })
+    .map(promise => {
+      if (promise) {
+        return new Promise((resolve, reject) => {
+          // No matter what we always going to resolve the inner promise
+          promise.then(resolve).catch(resolve);
+        });
+      }
+    });
 
   console.log(promises);
 
