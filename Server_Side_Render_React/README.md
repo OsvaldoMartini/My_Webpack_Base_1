@@ -989,7 +989,44 @@ Context: { action: 'REPLACE',
 #
 ## Meta Tags
 ### Optimizing for SBO
+User-List-Meta-Tag
+### Enhanced Higher Order Component Flow
+![alt text](Draws/Reducers/User-List-Meta-Tag.PNG "User List Meta Tag")
+###
+```
+UserListPagejs
+```
+```js
+import { Helmet } from 'react-helmet';
+```
+* We can  define the Helmet tag inside our `Render` method
+* Must be render as part of our component
+```js
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>User App</title>
+          <meta property="og:title" content="Users App" />
+        </Helmet>
+```
+### Inside of `Renderer.js`
+```
+renderer.js
+```
+```js
+const helmet = Helmet.renderStatic();
 
+  // ## Underneath a tine little HTML. I'll snifft it (farejar)
+  return `
+    <html>
+        <head>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
+```
+### Meta Tag -> Result Expected:
+![alt text](Draws/Reducers/Meta-Tag-Result-Expected.PNG "Meta Tag Result Expected")
+###
 ##
 ##
 ## About Redux DevTools

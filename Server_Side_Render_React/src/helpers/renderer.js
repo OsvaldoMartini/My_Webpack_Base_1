@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
+import { Helmet } from 'react-helmet';
 import Routes from '../client/Routes';
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 import serialize from 'serialize-javascript';
@@ -23,10 +24,14 @@ export default (req, store, context) => {
     </Provider>
   );
 
+  const helmet = Helmet.renderStatic();
+
   // ## Underneath a tine little HTML. I'll snifft it (farejar)
   return `
     <html>
         <head>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
         <link rel="stylesheet" href="/css/main.css">
         </head>
         <body>

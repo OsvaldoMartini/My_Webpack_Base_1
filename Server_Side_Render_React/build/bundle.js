@@ -440,6 +440,8 @@ var _reactRedux = __webpack_require__(2);
 
 var _reactRouterConfig = __webpack_require__(3);
 
+var _reactHelmet = __webpack_require__(28);
+
 var _Routes = __webpack_require__(4);
 
 var _Routes2 = _interopRequireDefault(_Routes);
@@ -450,6 +452,7 @@ var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// this file is going to house a function that will simply render our react up and return it as a string
 exports.default = function (req, store, context) {
   console.log('Rendering in Server Side');
 
@@ -467,11 +470,12 @@ exports.default = function (req, store, context) {
     )
   ));
 
+  var helmet = _reactHelmet.Helmet.renderStatic();
+
   // ## Underneath a tine little HTML. I'll snifft it (farejar)
-  return '\n    <html>\n        <head>\n        <link rel="stylesheet" href="/css/main.css">\n        </head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n            window=INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
+  return '\n    <html>\n        <head>\n        ' + helmet.title.toString() + '\n        ' + helmet.meta.toString() + '\n        <link rel="stylesheet" href="/css/main.css">\n        </head>\n        <body>\n            <div id="root">' + content + '</div>\n            <script>\n            window=INITIAL_STATE = ' + (0, _serializeJavascript2.default)(store.getState()) + '\n            </script>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
 };
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
-// this file is going to house a function that will simply render our react up and return it as a string
 
 /***/ },
 /* 9 */
@@ -831,6 +835,8 @@ var _reactRedux = __webpack_require__(2);
 
 var _actions = __webpack_require__(1);
 
+var _reactHelmet = __webpack_require__(28);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -871,6 +877,16 @@ var UsersList = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          _reactHelmet.Helmet,
+          null,
+          _react2.default.createElement(
+            'title',
+            null,
+            'User App'
+          ),
+          _react2.default.createElement('meta', { property: 'og:title', content: 'Users App' })
+        ),
         'Here\'s big list of Users',
         _react2.default.createElement(
           'ul',
@@ -1268,6 +1284,12 @@ exports.default = function (ChildComponent) {
   // We are recording the user's authentication status on the auth piece of state
   return (0, _reactRedux.connect)(mapStateToProps)(RequireAuth);
 };
+
+/***/ },
+/* 28 */
+/***/ function(module, exports) {
+
+module.exports = require("react-helmet");
 
 /***/ }
 /******/ ]);
