@@ -1098,6 +1098,7 @@ Because we are `100% commited` to send all content back to the browser with `Ren
 ```
 
 ##
+# Extra Tools
 ##
 ## About Redux DevTools
 ## Manual Integration
