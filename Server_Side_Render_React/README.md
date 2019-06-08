@@ -1081,8 +1081,21 @@ The `RenderToNodeStream` response flow
 ### RenderToNodeStream -> send tiny snippet ot HMTL doc as response:
 ![alt text](Draws/Reducers/RenderToNodeStream-HTLM-Snippet.PNG "RenderToNodeStream -> Tiny snippet html doc")
 > The `Gotch` on Server Side Render
-
-
+```
+index.js
+```
+Here at `res.send(content);`
+* We Start to immediately start to sending content back to the browser, instantaneously.
+```
+We cannot use `RenderToNodeStream` in server side rendering, because the `requeireAuth`
+can intercept when something went wrog with the initial render and you need to redirect over to this
+to URL.
+```
+```
+You cannot do the redirect by using `RenderToNodeStream` library because when you start `piping`
+the response or start sending the content back, we cannot changes the Context Satus and Response.
+Because we are `100% commited` to send all content back to the browser with `RenderToNodeStream`.
+```
 
 ##
 ##
