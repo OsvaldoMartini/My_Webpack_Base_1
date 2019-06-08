@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'redux-redux';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 export default ChildComponent => {
@@ -21,5 +21,5 @@ export default ChildComponent => {
   }
 
   // We are recording the user's authentication status on the auth piece of state
-  connect(mapStateToProps)(RequireAuth);
+  return connect(mapStateToProps)(RequireAuth);
 };

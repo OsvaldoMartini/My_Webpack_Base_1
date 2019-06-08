@@ -93,6 +93,14 @@ app.get('*', (req, res) => {
     // Finnaly Call the Server Side Render
     const content = renderer(req, store, context);
 
+    // Seeing what's happen when we render a redirect tag
+    // while rendering our application on the server side
+    console.log('Context:', context);
+    // When ios Defined an URL inside of the Context it will be Redirect Autmomatically
+    if (context.url) {
+      return res.redirect(301, context.url);
+    }
+
     if (context.notFound) {
       res.status(404);
     }

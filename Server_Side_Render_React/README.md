@@ -901,10 +901,94 @@ opts.headers['x-forwarded-host']
 ##
 ### Enhanced Higher Order Component Flow
 ![alt text](Draws/Reducers/Enhanced-Higher-Order-Component.PNG "Enhanced Higher Order Component")
+> Enhanced Higher Order Component
+```
+requireAuth.js
+```
+```js
+import React, { Component } from 'react';
+import { connect } from 'redux-redux';
+import { Redirect } from 'react-router-dom';
 
+export default ChildComponent => {
+  class RequireAuth extends Component {
+    render() {
+      // This Props is Produce for "authReducer.js"
+      switch (this.props.auth) {
+        case false:
+          return <Redirect to="/" />;
+        case null:
+          return <div>Loading... </div>;
+        default:
+          return <ChildComponent {...this.props} />;
+      }
+    }
+  }
 
+  function mapStateToProps({ auth }) {
+    return { auth };
+  }
 
-
+  // We are recording the user's authentication status on the auth piece of state
+  return connect(mapStateToProps)(RequireAuth);
+};
+```
+### The High Order Component `requireAuth.js` is exepcting 3(three) different values from `authReducer.js`:
+>  Can Have 3(three) values
+* state = null
+* state = false
+* state = action.payload.data
+#
+### Wrapping the `AdminsListPage` in `requireAuth`
+``
+AdminsListPage.js
+```
+```js
+import requireAuth from '../components/hocs/requireAuth';
+```
+```js
+export default {
+  component: connect( mapStateToProps,{ fetchAdmins } ) ( requireAuth(AdminsListPage)),
+  loadData: ({ dispatch }) => dispatch(fetchAdmins())
+};
+```
+##
+### `Handling Redirects` on `Server Side` Rendering
+> Making the `Redirect` tag o work in Server Side Rendering
+```
+requireAuth.js
+```
+```js
+case false:
+  return <Redirect to="/" />;
+```
+> Insi de of `index.js`  (Server Side) make the console log to see the `Context`
+```
+index.js
+```
+```js
+  // Seeing the context
+    console.log('Context:', context)
+    if (context.notFound) {
+    ...
+```
+#### Result Expected:
+```
+My auth status is false
+Context: { action: 'REPLACE',
+  location: { pathname: '/', search: '', hash: '' },
+  url: '/' }
+```
+> To Redirect in Server Side Rendering
+```js
+  // When ios Defined an URL inside of the Context it will be Redirect Autmomatically
+    if (context.url) {
+      return res.redirect(301, context.url);
+    }
+```
+#
+## Meta Tags
+### Optimizing for SBO
 
 ##
 ##

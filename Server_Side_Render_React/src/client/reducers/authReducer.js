@@ -13,3 +13,8 @@ export default function(state = null, action) {
       return state;
   }
 }
+
+//this can retur 3(three) values
+//  state = null
+//  state = false
+//  state = action.payload.data
