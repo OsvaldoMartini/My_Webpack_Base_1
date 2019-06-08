@@ -9397,21 +9397,26 @@ var UsersList = function (_Component) {
       });
     }
   }, {
+    key: 'head',
+    value: function head() {
+      return _react2.default.createElement(
+        _reactHelmet.Helmet,
+        null,
+        _react2.default.createElement(
+          'title',
+          null,
+          this.props.users.length + ' Users Loaded'
+        ),
+        _react2.default.createElement('meta', { property: 'og:title', content: 'Users App' })
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          _reactHelmet.Helmet,
-          null,
-          _react2.default.createElement(
-            'title',
-            null,
-            'User App'
-          ),
-          _react2.default.createElement('meta', { property: 'og:title', content: 'Users App' })
-        ),
+        this.head(),
         'Here\'s big list of Users',
         _react2.default.createElement(
           'ul',

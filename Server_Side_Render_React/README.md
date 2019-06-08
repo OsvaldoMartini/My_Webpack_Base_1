@@ -1027,6 +1027,42 @@ const helmet = Helmet.renderStatic();
 ### Meta Tag -> Result Expected:
 ![alt text](Draws/Reducers/Meta-Tag-Result-Expected.PNG "Meta Tag Result Expected")
 ###
+## Dynamic changes on Meta Tags
+> I whatn to Print the Number os User with the Title of the App
+```
+UserListPage.js
+```
+> This it will generate an error
+```js
+head() {
+    return (
+      <Helmet>
+        <title>{this.props.users.length} Users Loaded</title>
+        <meta property="og:title" content="Users App" />
+      </Helmet>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        {this.head()}
+```
+```
+Expected Error, Because `Helmet` is expecting one single Line in your tags declarations
+```
+```
+UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'length' of undefined
+```
+```
+Solution: Use  ES6 Template- String
+```
+```js
+ head() {
+    return (
+      <Helmet>
+        <title>{`${this.props.users.length} Users Loaded`}</title>
+```
 ##
 ##
 ## About Redux DevTools
