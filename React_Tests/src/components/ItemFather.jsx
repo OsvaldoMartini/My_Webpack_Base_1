@@ -30,6 +30,12 @@ export default class ItemFather extends React.Component {
       ]
     };
   }
+  componentDidMount() {
+    const array = [...Array(10000)].map((val, i) => `Item ${i}`);
+
+    this.setState({ items: array });
+  }
+
   addItem = () => {
     const array = [
       { text: "Input - " + Date.now(), id: Date.now() },
@@ -46,6 +52,7 @@ export default class ItemFather extends React.Component {
     var array = this.state.items.filter(function(item) {
       return item.id != id;
     });
+
     this.setState({ items: array });
     // var itemsUpdate = [];
     // itemsUpdate = { $splice: [[id, 1]] };
