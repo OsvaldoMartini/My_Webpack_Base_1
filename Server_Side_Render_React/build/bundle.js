@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -84,7 +84,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchAdmins = exports.FETCH_ADMINS = exports.fetchImages = exports.FETCH_IMAGES = exports.fetchCurrentUser = exports.FETCH_CURRENT_USER = exports.fetchUsers = exports.FETCH_USERS = undefined;
 
-var _axios = __webpack_require__(22);
+var _axios = __webpack_require__(6);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -282,6 +282,12 @@ module.exports = require("react-router-config");
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -297,23 +303,23 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //import UsersList, { loadData } from './components/UsersList';
 
 
-var _App = __webpack_require__(12);
+var _App = __webpack_require__(14);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _HomePage = __webpack_require__(15);
+var _HomePage = __webpack_require__(18);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _UsersListPage = __webpack_require__(17);
+var _UsersListPage = __webpack_require__(20);
 
 var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
-var _NotFoundPage = __webpack_require__(16);
+var _NotFoundPage = __webpack_require__(19);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
-var _AdminsListPage = __webpack_require__(14);
+var _AdminsListPage = __webpack_require__(17);
 
 var _AdminsListPage2 = _interopRequireDefault(_AdminsListPage);
 
@@ -364,19 +370,25 @@ exports.default = [_extends({}, _App2.default, { //Defining the Header
 })];
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
-module.exports = require("react-router-dom");
+module.exports = require("axios");
 
 /***/ },
-/* 6 */
+/* 7 */
+/***/ function(module, exports) {
+
+module.exports = require("react-helmet");
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ },
-/* 7 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -386,17 +398,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(8);
 
-var _reduxThunk = __webpack_require__(24);
+var _reduxThunk = __webpack_require__(26);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _axios = __webpack_require__(22);
+var _axios = __webpack_require__(6);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reducers = __webpack_require__(20);
+var _reducers = __webpack_require__(23);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -418,7 +430,7 @@ exports.default = function (req) {
 //Takecare about the Asynchronous call for the action creators
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -432,21 +444,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(23);
+var _server = __webpack_require__(25);
 
-var _reactRouterDom = __webpack_require__(5);
+var _reactRouterDom = __webpack_require__(4);
 
 var _reactRedux = __webpack_require__(2);
 
 var _reactRouterConfig = __webpack_require__(3);
 
-var _reactHelmet = __webpack_require__(28);
+var _reactHelmet = __webpack_require__(7);
 
-var _Routes = __webpack_require__(4);
+var _Routes = __webpack_require__(5);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _serializeJavascript = __webpack_require__(25);
+var _serializeJavascript = __webpack_require__(27);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
@@ -478,25 +490,25 @@ exports.default = function (req, store, context) {
 //import DevToolsAsDock from '../../DevTools/DevToolsAsDock';
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports) {
 
 module.exports = require("express");
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports) {
 
 module.exports = require("express-http-proxy");
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -512,7 +524,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterConfig = __webpack_require__(3);
 
-var _Header = __webpack_require__(13);
+var _Header = __webpack_require__(15);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -547,7 +559,7 @@ exports.default = {
 };
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -561,7 +573,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(5);
+var _reactRouterDom = __webpack_require__(4);
 
 var _reactRedux = __webpack_require__(2);
 
@@ -642,7 +654,77 @@ function mapStateToProps(_ref2) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ },
-/* 14 */
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _reactRouterDom = __webpack_require__(4);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+exports.default = function (ChildComponent) {
+  var RequireAuth = function (_Component) {
+    _inherits(RequireAuth, _Component);
+
+    function RequireAuth() {
+      _classCallCheck(this, RequireAuth);
+
+      return _possibleConstructorReturn(this, (RequireAuth.__proto__ || Object.getPrototypeOf(RequireAuth)).apply(this, arguments));
+    }
+
+    _createClass(RequireAuth, [{
+      key: 'render',
+      value: function render() {
+        switch (this.props.auth) {
+          case false:
+            return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
+          case null:
+            return _react2.default.createElement(
+              'div',
+              null,
+              'Loading... '
+            );
+          default:
+            return _react2.default.createElement(ChildComponent, this.props);
+        }
+      }
+    }]);
+
+    return RequireAuth;
+  }(_react.Component);
+
+  function mapStateToProps(_ref) {
+    var auth = _ref.auth;
+
+    return { auth: auth };
+  }
+
+  // We are recording the user's authentication status on the auth piece of state
+  return (0, _reactRedux.connect)(mapStateToProps)(RequireAuth);
+};
+
+/***/ },
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -662,7 +744,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _actions = __webpack_require__(1);
 
-var _requireAuth = __webpack_require__(27);
+var _requireAuth = __webpack_require__(16);
 
 var _requireAuth2 = _interopRequireDefault(_requireAuth);
 
@@ -737,7 +819,7 @@ exports.default = {
 };
 
 /***/ },
-/* 15 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -782,7 +864,7 @@ exports.default = {
 };
 
 /***/ },
-/* 16 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -815,7 +897,7 @@ exports.default = {
 };
 
 /***/ },
-/* 17 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -835,7 +917,7 @@ var _reactRedux = __webpack_require__(2);
 
 var _actions = __webpack_require__(1);
 
-var _reactHelmet = __webpack_require__(28);
+var _reactHelmet = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -931,7 +1013,7 @@ exports.default = {
 };
 
 /***/ },
-/* 18 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -960,7 +1042,7 @@ exports.default = function () {
    */
 
 /***/ },
-/* 19 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -985,7 +1067,7 @@ exports.default = function () {
 var _actions = __webpack_require__(1);
 
 /***/ },
-/* 20 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -995,17 +1077,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(8);
 
-var _usersReducer = __webpack_require__(21);
+var _usersReducer = __webpack_require__(24);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _adminsReducer = __webpack_require__(18);
+var _adminsReducer = __webpack_require__(21);
 
 var _adminsReducer2 = _interopRequireDefault(_adminsReducer);
 
-var _authReducer = __webpack_require__(19);
+var _authReducer = __webpack_require__(22);
 
 var _authReducer2 = _interopRequireDefault(_authReducer);
 
@@ -1025,7 +1107,7 @@ var rootReducer = (0, _redux.combineReducers)({
 exports.default = rootReducer;
 
 /***/ },
-/* 21 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1054,57 +1136,51 @@ exports.default = function () {
    */
 
 /***/ },
-/* 22 */
-/***/ function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports) {
 
 module.exports = require("serialize-javascript");
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(9);
+__webpack_require__(11);
 
-var _express = __webpack_require__(10);
+var _express = __webpack_require__(12);
 
 var _express2 = _interopRequireDefault(_express);
 
 var _reactRouterConfig = __webpack_require__(3);
 
-var _expressHttpProxy = __webpack_require__(11);
+var _expressHttpProxy = __webpack_require__(13);
 
 var _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);
 
-var _Routes = __webpack_require__(4);
+var _Routes = __webpack_require__(5);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(8);
+var _renderer = __webpack_require__(10);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(7);
+var _createStore = __webpack_require__(9);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -1219,82 +1295,6 @@ app.listen(3000, function () {
 
 //  Running:
 //  node build/bundle.js
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(2);
-
-var _reactRouterDom = __webpack_require__(5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-exports.default = function (ChildComponent) {
-  var RequireAuth = function (_Component) {
-    _inherits(RequireAuth, _Component);
-
-    function RequireAuth() {
-      _classCallCheck(this, RequireAuth);
-
-      return _possibleConstructorReturn(this, (RequireAuth.__proto__ || Object.getPrototypeOf(RequireAuth)).apply(this, arguments));
-    }
-
-    _createClass(RequireAuth, [{
-      key: 'render',
-      value: function render() {
-        switch (this.props.auth) {
-          case false:
-            return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
-          case null:
-            return _react2.default.createElement(
-              'div',
-              null,
-              'Loading... '
-            );
-          default:
-            return _react2.default.createElement(ChildComponent, this.props);
-        }
-      }
-    }]);
-
-    return RequireAuth;
-  }(_react.Component);
-
-  function mapStateToProps(_ref) {
-    var auth = _ref.auth;
-
-    return { auth: auth };
-  }
-
-  // We are recording the user's authentication status on the auth piece of state
-  return (0, _reactRedux.connect)(mapStateToProps)(RequireAuth);
-};
-
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
-
-module.exports = require("react-helmet");
 
 /***/ }
 /******/ ]);
