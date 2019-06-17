@@ -57,12 +57,56 @@
     }
   </style>
 
-  <script type="text/javascript" src="./knockout/knockout.js"></script>
-  <script type="text/javascript" src="./angular/angular.js"></script>
-  <script type="text/javascript" src="./react/react.js"></script>
+<!-- <script type="text/javascript">
+  var process = {}
+  process.env = {};
+  process.env.NODE_ENV = {};
+  process.env.NODE_ENV = 'development';
+</script> -->
+
+  <!-- Plugins -->
+  <script type="text/javascript" src="./plugins/knockout/knockout.js"></script>
+  <script type="text/javascript" src="./plugins/angular/angular.js"></script>
+  
+  <!-- Load App -->
+  <script type="text/javascript" src="./app_knockout/run_knockout.js"></script>
+  <script type="text/javascript" src="./app_angular/run_angular.js"></script>
+  <script type="text/javascript" src="./app_raw/run_raw.js"></script>
+  
+
+  <!-- React 0.12.1 -->
+  <script type="text/javascript" src="./plugins/react.0.12.1/react.js"></script>
+  <!-- Load App -->
+  <script type="text/javascript" src="./app_react/run_react_0_12_1.js"></script>
+
+  <!-- React NO-NPM 15.6.2-->
+  <!-- <script src="./plugins/react.15.6.2/react.js"></script> -->
+  <!-- <script src="./plugins/react.15.6.2/react-dom.js"></script> -->
+  <!-- Load App -->
+  <!-- <script type="text/javascript" src="./app_react/run_react_15.6.2.js"></script> -->
+
+  
+  <!-- <script src="https://unpkg.com/react@15/dist/react.js"></script> -->
+  <!-- <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> -->
+  
+  <!-- <script type="text/javascript" src="./plugins/react.0.13.3/react.js"></script> -->
+  <!-- <script type="text/javascript" src="./plugins/react.16.8.6/react.development.js"></script> -->
+  <!-- <script type="text/javascript" src="./plugins/react.16.8.6/react-dom.development.js"></!-->
+  <!-- CommonJS-Require -->
+  <!-- <script type="text/javascript" src="./plugins/CommonJS/commonjs-require.js"></script> -->
+ 
+  <!-- React With Redux -->
+  <script type="text/javascript" src="./plugins/redux/redux.js"></script>
+  <!-- Load App -->
+  <script type="text/javascript" src="./app_react_redux/reducers/accountingReducer.js"></script>
+  <script type="text/javascript" src="./app_react_redux/actions/actionsPolicy.js"></script>
+  <script type="text/javascript" src="./app_react_redux/reducers/claimHistoryReducer.js"></script>
+  <script type="text/javascript" src="./app_react_redux/reducers/policiesReducer.js"></script>
+  <script type="text/javascript" src="./app_react_redux/reducers/index.js"></script>
+  
+
   <script type="text/javascript">
     console.timeEnd("build");
-
     document.addEventListener("DOMContentLoaded", function () {
       _knockout();
       _react();
@@ -145,141 +189,7 @@
 
     function _random(max) {
       return Math.round(Math.random() * 1000) % max;
-    }
-
-    function _knockout() {
-      ko.applyBindings(
-        {
-          selected: ko.observable(),
-          data: ko.observableArray(),
-
-          select: function (item) {
-            this.selected(item.id);
-          },
-
-          run: function () {
-            var data = _buildData(),
-              date = new Date();
-
-            this.selected(null);
-            this.data(data);
-            document.getElementById("run-knockout").innerHTML =
-              new Date() - date + " ms";
-          }
-        },
-        document.getElementById("knockout")
-      );
-    }
-
-    function _angular(data) {
-      angular.module("test", []).controller("controller", function ($scope) {
-        $scope.run = function () {
-          var data = _buildData(),
-            date = new Date();
-
-          $scope.selected = null;
-          $scope.$$postDigest(function () {
-            document.getElementById("run-angular").innerHTML =
-              new Date() - date + " ms";
-          });
-
-          $scope.data = data;
-        };
-
-        $scope.select = function (item) {
-          $scope.selected = item.id;
-        };
-      });
-    }
-
-    function _react() {
-      var Class = React.createClass({
-        select: function (data) {
-          this.props.selected = data.id;
-          this.forceUpdate();
-        },
-
-        render: function () {
-          var items = [];
-          for (var i = 0; i < this.props.data.length; i++) {
-            items.push(
-              React.createElement(
-                "div",
-                { className: "row" },
-                React.createElement(
-                  "div",
-                  { className: "col-md-12 test-data" },
-                  React.createElement(
-                    "span",
-                    {
-                      className:
-                        this.props.selected === this.props.data[i].id
-                          ? "selected"
-                          : "",
-                      onClick: this.select.bind(null, this.props.data[i])
-                    },
-                    this.props.data[i].label
-                  )
-                )
-              )
-            );
-          }
-
-          return React.createElement("div", null, items);
-        }
-      });
-
-      var runReact = document.getElementById("run-react");
-      runReact.addEventListener("click", function () {
-        var data = _buildData(),
-          date = new Date();
-
-        React.render(
-          new Class({ data: data, selected: null }),
-          document.getElementById("react")
-        );
-        runReact.innerHTML = new Date() - date + " ms";
-      });
-    }
-
-    function _raw() {
-      var container = document.getElementById("raw"),
-        template = document.getElementById("raw-template").innerHTML;
-      document
-        .getElementById("run-raw")
-        .addEventListener("click", function () {
-          var data = _buildData(),
-            date = new Date(),
-            html = "";
-
-          for (var i = 0; i < data.length; i++) {
-            var render = template;
-            render = render.replace("{{className}}", "");
-            render = render.replace("{{label}}", data[i].label);
-            html += render;
-          }
-
-          container.innerHTML = html;
-
-          var spans = container.querySelectorAll(".test-data span");
-          for (var i = 0; i < spans.length; i++)
-            spans[i].addEventListener("click", function () {
-              var selected = container.querySelector(".selected");
-              if (selected) selected.className = "";
-              this.className = "selected";
-            });
-
-          document.getElementById("run-raw").innerHTML =
-            new Date() - date + " ms";
-        });
-    }
-
-    ko.observableArray.fn.reset = function (values) {
-      var array = this();
-      this.valueWillMutate();
-      ko.utils.arrayPushAll(array, values);
-      this.valueHasMutated();
-    };
+   }
   </script>
 </head>
 
@@ -289,6 +199,16 @@
       <div class="col-md-12">
         <h2>Performance Comparison for React, Angular and Knockout</h2>
       </div>
+    </div>
+<!-- 
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-7">
+          <h3>React-Redux</h3>
+        </div>
+        <div class="col-md-5 text-right time" id="run-redux">Run</div>
+      </div>
+      <div id="reduxreact"></div> -->
     </div>
 
     <div class="col-md-3">
