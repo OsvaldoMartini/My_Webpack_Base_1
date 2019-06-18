@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import App, { color, country } from './componentes/App';
+import './css/index.css';
 
 console.log(React.version);
 

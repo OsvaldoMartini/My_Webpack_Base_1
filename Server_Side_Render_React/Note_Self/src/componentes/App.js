@@ -8,14 +8,19 @@ console.log('React version', React.version);
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      text: ''
+    };
   }
   render() {
     return (
       <div>
         <h2>Note to Self</h2>
-        <Form>
-          <FormControl />
-          <Button>Submit</Button>
+        <Form inline>
+          <FormControl
+            onChange={event => this.setState({ text: event.target.value })}
+          />{' '}
+          <Button onClick={() => console.log(this.state)}>Submit</Button>
         </Form>
       </div>
     );
