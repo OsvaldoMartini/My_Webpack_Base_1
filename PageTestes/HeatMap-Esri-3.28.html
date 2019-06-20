@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>FeatureLayer using Weighted HeatmapRenderer</title>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/3.28/dijit/themes/claro/claro.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/3.28/esri/css/esri.css"
+    />
+    <style>
+      html,
+      body,
+      #map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .blurInfo {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        font-size: 1.25em;
+        font-family: monospace;
+        color: #4c4c4c;
+        width: 240px;
+        background-color: #ffffff;
+        padding: 10px;
+        border: 2px solid #57585a;
+        border-radius: 20px;
+      }
+
+      .blurInfo p span {
+        background-color: #ffffff;
+        padding: 0 5px;
+        border-radius: 5px;
+      }
+
+      .blurInfo input[type="range"] {
+        width: 100%;
+        display: block;
+      }
+    </style>
+    <script src="https://js.arcgis.com/3.28/"></script>
+
+    <script src="../JavaScript/esri-heatmap-3.28.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="blurInfo">
+      <p>
+        <label for="valueControl">Weight by magnitude</label>
+        <input id="valueControl" type="checkbox" checked />
+      </p>
+      <p>Blur Radius : <span id="blurValue">10</span></p>
+      <input
+        id="blurControl"
+        type="range"
+        max="30"
+        min="0"
+        value="10"
+        step="1"
+      />
+
+      <p>Max Value : <span id="maxValue">100</span></p>
+      <input
+        id="maxControl"
+        type="range"
+        max="500"
+        min="0"
+        value="100"
+        step="1"
+      />
+
+      <p>Min Value : <span id="minValue">0</span></p>
+      <input
+        id="minControl"
+        type="range"
+        max="500"
+        min="0"
+        value="0"
+        step="1"
+      />
+    </div>
+  </body>
+</html>
