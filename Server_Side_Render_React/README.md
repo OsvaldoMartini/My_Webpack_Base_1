@@ -15,21 +15,21 @@ npm install
 
 # Render Server Side with React
 
-## Video 23 - Ignoring File with WebpackNodeExternals
+## Ignoring File with WebpackNodeExternals
 ```
  So anything that's inside the nome modules folder will not be included inside of our server side bundle.
  
  externals: [webpackNodeExternals()]
 ```
 
-## Video 24 - Renderer Helper
+## Renderer Helper
 ```
 
  This helpes to separate out this express related logic inside "index.js"
 
 ```
 
-## Video 25 - Implementing React Router Support
+## Implementing React Router Support
 ```
  New Way to Route wih (Router-ReactConfig)
  React-Router-Config
@@ -50,7 +50,7 @@ We are always going to  ake sure that React-Router is in charge of that request.
 
 ```
 
-## Video 26 - BrowserRouter vs StaticRouter
+## BrowserRouter vs StaticRouter
 
 ## StaticRouter
 This is a special Library from React
@@ -1462,9 +1462,8 @@ https://www.isc.org/downloads/
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 >dig www.wservices.co.uk +nostats +nocomments +nocmd
 ```
-#### Videos 49 and 50
-Deploymnet of Servers and Node and Webpack Integration
 
+## Deploymnet of Servers and Node and Webpack Integration
 > Making webpack Middleware.
 #### Creating a Stand Alone Server
 ```
