@@ -263,13 +263,6 @@ MSSQL: sql6002.site4now.net
 Username: DB_A418F0_omartini_admin
 "Data Source=SQL6002.site4now.net;Initial Catalog=DB_A418F0_omartini;User Id=DB_A418F0_omartini_admin;Password=martini383940;"
 	  
-
-Skype/Phone/  
-omartini38
-rebeca383940
-osvaldo_martini_1
-rebeca383940
-
 REBECA MARTINI DINAMARA6419 REBECA4265
 Rebeca4265
 
@@ -383,9 +376,6 @@ senha: Martini!383940
 
 Claudia!4265
 
-
-skype: osvaldo.martini@gmail.com
-pasword Martini42656419
 
 
 kelly@euracom.co.uk
