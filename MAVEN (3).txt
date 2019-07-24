@@ -9,6 +9,12 @@ IPTU Mae 048 238 0027 3
 CODICE FISCALE
 MRTSLD69P16Z602G
 
+TrenItaliaUser ID
+User: osvaldomartini
+pwd: Martini!383940
+CartaFRECCIA 
+Code 184904411
+
 credit Suisse
 UserID: 4152627
 old TX6H%RMG
