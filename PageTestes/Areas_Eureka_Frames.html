@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd">
+<HTML>
+<HEAD>
+<TITLE>Monitoring Hystrix</TITLE>
+</HEAD>
+<FRAMESET rows="50%, 50%">
+  <FRAMESET cols="50%, 50%">
+      <FRAME src="http://localhost:8985/hystrix/monitor?stream=http://localhost:8987">
+      <FRAME src="http://localhost:8985/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A10000%2Fhystrix.stream">
+  </FRAMESET>
+  <FRAME src="http://localhost:8761/">
+  <NOFRAMES>
+      <P>This frameset document contains:
+      <UL>
+         <LI><A href="http://localhost:8985/hystrix/monitor?stream=http://localhost:8987">Turbine</A>
+         <LI><A href="contents_of_frame1.html">Gathering 10000</A>
+         <LI><A href="http://localhost:8761/">Eureka Discovery</A>
+         <!--LI><IMG src="contents_of_frame2.gif" alt=""-->
+         </UL>
+  </NOFRAMES>
+</FRAMESET>
+</HTML>
