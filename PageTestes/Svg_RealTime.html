@@ -1,0 +1,34 @@
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>SVG Real Time Epoch</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../css/parent_child.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../JavaScript/svg-real-time.js"></script>
+</head>
+
+<div id="myChart" style="width: 200px; height: 200px"></div>
+
+<div id="chart" class="styles1"></div>
+<button id="toggle">Switch Styles</button>
+<script>
+	var chart = $("#chart").epoch({
+		type: "time.area",
+		data: []
+	});
+
+	// The button swtiches the chart's class from styles1 to styles2 and back
+	$("#toggle").click(function(e) {
+		// This switches the class names...
+		var className = $("#chart").attr("class");
+		var newClassName = className === "styles1" ? "styles2" : "styles1";
+		$("#chart")
+			.removeClass(className)
+			.addClass(newClassName);
+
+		// And this is required to see the updated styles...
+		chart.redraw();
+	});
+</script>

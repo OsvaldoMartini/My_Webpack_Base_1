@@ -6,10 +6,14 @@
 </HEAD>
 <FRAMESET rows="50%, 50%">
   <FRAMESET cols="50%, 50%">
-      <FRAME src="http://localhost:8985/hystrix/monitor?stream=http://localhost:8987">
-      <FRAME src="http://localhost:8985/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A10000%2Fhystrix.stream">
+		<FRAME src="http://localhost:8985/hystrix/monitor?stream=http://localhost:8987">
+	    <FRAME src="http://localhost:8985/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A10000%2Fhystrix.stream">
   </FRAMESET>
-  <FRAME src="http://localhost:8761/">
+  <FRAMESET cols="50%, 50%">
+	  <FRAME src="http://localhost:8761/">
+	  <FRAME src="http://localhost:3000/automation/">
+      <!--FRAME src="https://outlook.office.com/mail/inbox"-->
+  </FRAMESET>
   <NOFRAMES>
       <P>This frameset document contains:
       <UL>
