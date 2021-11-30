@@ -1,0 +1,38 @@
+.f-row {
+  display: flex;
+  flex: 1 1 0;
+  border: 1px black solid;
+}
+
+.f-row.no-flex {
+  flex: none;
+}
+
+.f-row.center {
+  align-items: center;
+}
+
+.f-row.right {
+  justify-content: flex-end;
+}
+
+.box {
+  height: 25px;
+  width: 50px;
+}
+
+.blue {
+  background: blue;
+}
+.red {
+  background: red;
+}
+.yellow {
+  background: yellow;
+}
+.pink {
+  background: pink;
+}
+.purple {
+  background: purple;
+}

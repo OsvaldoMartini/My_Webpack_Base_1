@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <canvas id="thecanvas" width="800" height="800"></canvas>
+
+    <script>
+      var canvas = document.getElementById('thecanvas');
+      if(canvas.getContext) 
+      {
+        var ctx = canvas.getContext('2d');
+        drawEllipseWithBezier(ctx, 10, 10, 200, 60, 'blue');
+        drawEllipseWithBezierByCenter(ctx, 110, 110, 200, 60, '#0099ff');
+        drawEllipseWithEllipse(ctx, 110, 180, 100, 30, 'red');
+        drawEllipseWithArcAndScale(ctx, 110, 250, 100, 30, 'orange');
+        drawEllipseWithQuatraticCurve(ctx, 10, 290, 200, 60, 'green');
+      }
+
+      //
+      function drawEllipseWithEllipse(ctx, cx, cy, rx, ry, style) {
+        if(ctx.ellipse)
+        {
+          ctx.save();
+          ctx.beginPath();
+          ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI*2);
+          ctx.strokeStyle=style;
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      // cx,cy - center, r - horizontal radius X
+      function drawEllipseWithArcAndScale(ctx, cx, cy, rx, ry, style) {
+        ctx.save(); // save state
+        ctx.beginPath();
+        ctx.translate(cx-rx, cy-ry);
+        ctx.scale(rx, ry);
+        ctx.arc(1, 1, 1, 0, 2 * Math.PI, false);
+        ctx.restore(); // restore to original state
+        ctx.save();
+        if(style)
+          ctx.strokeStyle=style;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawEllipseWithBezierByCenter(ctx, cx, cy, w, h, style) {
+        drawEllipseWithBezier(ctx, cx - w/2.0, cy - h/2.0, w, h, style);
+      }
+
+      function drawEllipseWithBezier(ctx, x, y, w, h, style) {
+        var kappa = .5522848,
+            ox = (w / 2) * kappa, // control point offset horizontal
+            oy = (h / 2) * kappa, // control point offset vertical
+            xe = x + w,           // x-end
+            ye = y + h,           // y-end
+            xm = x + w / 2,       // x-middle
+            ym = y + h / 2;       // y-middle
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x, ym);
+        ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+        ctx.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
+        ctx.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
+        ctx.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+        if(style)
+          ctx.strokeStyle=style;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawEllipseWithQuatraticCurve(ctx, x, y, w, h, style) {
+
+        var kappa = .5522848,
+            ox = (w / 2) * kappa, // control point offset horizontal
+            oy = (h / 2) * kappa, // control point offset vertical
+            xe = x + w,           // x-end
+            ye = y + h,           // y-end
+            xm = x + w / 2,       // x-middle
+            ym = y + h / 2;       // y-middle
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x, ym);
+        ctx.quadraticCurveTo(x,y,xm,y);
+        ctx.quadraticCurveTo(xe,y,xe,ym);
+        ctx.quadraticCurveTo(xe,ye,xm,ye);
+        ctx.quadraticCurveTo(x,ye,x,ym);
+        if(style)
+          ctx.strokeStyle = style;
+        ctx.stroke();
+        ctx.restore();
+      }
+    </script>
+
+  </body>
+</html>

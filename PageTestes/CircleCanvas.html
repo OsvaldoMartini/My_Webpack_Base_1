@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <script>
+      var gradient = document
+        .getElementById('myCanvas')
+        .getContext('2d')
+        .createLinearGradient(0, 190, 20, 00) ///May variable here to test the values
+      gradient.addColorStop(0, '#005eb8')
+      gradient.addColorStop(1, '#da291c')
+
+      var canvas = document.getElementById('myCanvas')
+      var context = canvas.getContext('2d')
+      var centerX = canvas.width / 2
+      var centerY = canvas.height / 2
+      var radius = 30
+
+      context.beginPath()
+      context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false)
+      context.fillStyle = '#005eb8'
+      context.fill()
+      context.lineWidth = 4
+      context.strokeStyle = gradient
+      context.stroke()
+
+      // Dynamic  Canvas
+      const c = document.getElementById('myCanvas')
+      const ctx = c.getContext('2d')
+      const r = 10 // draw radius
+      ctx.lineWidth = r * 2
+      ctx.lineCap = 'round'
+      ctx.fillStyle = 'black'
+      var draw = false
+      var lineStart = true
+      var lastX, lastY
+      function yesDraw() {
+        draw = true
+        lineStart = true
+      }
+      function mouseMove(e) {
+        const bounds = c.getBoundingClientRect()
+        const x = e.pageX - bounds.left - scrollX
+        const y = e.pageY - bounds.top - scrollY
+        if (draw && x > -r && x < c.width + r && y > -r && y < c.height + r) {
+          drawing(x, y)
+        }
+      }
+      function noDraw() {
+        draw = false
+      }
+      document.addEventListener('mousemove', mouseMove)
+      document.addEventListener('mousedown', yesDraw)
+      document.addEventListener('mouseup', noDraw)
+      function drawing(x, y) {
+        if (lineStart) {
+          lastX = x
+          lastY = y
+          lineStart = false
+        }
+        ctx.beginPath()
+        ctx.lineTo(lastX, lastY)
+        ctx.lineTo(x, y)
+        ctx.stroke()
+        lastX = x
+        lastY = y
+      }
+    </script>
+  </body>
+</html>
