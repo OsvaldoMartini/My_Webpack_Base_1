@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <link rel="stylesheet" href="./Draggable/Draggable.css" />
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      #angle {
+        background: linear-gradient(
+          to right,
+          #82cfd0 0%,
+          #82cfd0 50%,
+          #fff 50%,
+          #fff 100%
+        );
+        border: solid 1px #82cfd0;
+        border-radius: 8px;
+        height: 7px;
+        width: 356px;
+        outline: none;
+        transition: background 450ms ease-in;
+        -webkit-appearance: none;
+      }
+
+      input[type='range'] {
+        -webkit-appearance: none;
+        -moz-apperance: none;
+        border-radius: 6px;
+        height: 6px;
+        background-image: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          color-stop(0.15, #94a14e),
+          color-stop(0.15, #c5c5c5)
+        );
+      }
+
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        background-color: #e9e9e9;
+        border: 1px solid #cecece;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="range" min="0" max="360" id="angle" />
+    <br />
+    <canvas id="canvas1" width="200" height="200"></canvas>
+    
+   <p>
+      <!-- We will put our React component inside this div. -->
+      <div class="draggable_container" data-commentid="1"></div>
+    </p>
+
+    <p>
+      <!-- We will put our React component inside this div. -->
+      <div id="draggable_container" data-commentid="2"></div>
+    </p>
+
+    <script>
+      // const domContainer = document.querySelector('#draggable_container')
+      // ReactDOM.render(e(Draggable), domContainer)
+
+      document.getElementById('angle').oninput = function () {
+        var value = ((this.value - this.min) / (this.max - this.min)) * 100
+        this.style.background =
+          'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' +
+          value +
+          '%, #fff ' +
+          value +
+          '%, white 100%)'
+      }
+      var ctx = canvas1.getContext('2d')
+      angle.oninput = function (e) {
+        ctx.clearRect(0, 0, canvas1.width, canvas1.height)
+        var rad = angle.value * (Math.PI / 180)
+        // move the context so its center be at 0,0
+        ctx.setTransform(1, 0, 0, 1, canvas1.width / 2, canvas1.height / 2)
+        // rotate it so we face the required angle
+        ctx.rotate(rad)
+        var stepAngle = (Math.PI * 2) / 14,
+          innerRad = canvas1.width / 2.8,
+          outerRad = canvas1.width / 2.5
+        ctx.beginPath()
+        for (var i = 0; i < 12; i++) {
+          ctx.moveTo(0, innerRad) // move vertically
+          ctx.lineTo(0, outerRad) // draw line vertically
+          ctx.rotate(stepAngle) // rotate by fixed increment
+        }
+        ctx.stroke() // all drawn, we can stroke
+        ctx.setTransform(1, 0, 0, 1, 0, 0) // reset context's position
+      }
+      angle.oninput()
+    </script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <!-- Load our React component. -->
+    <script src="./Draggable/DraggableComp.js"></script>
+
+  </body>
+</html>
