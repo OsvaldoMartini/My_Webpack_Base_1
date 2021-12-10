@@ -1,3 +1,7 @@
+'use strict'
+
+const e = React.createElement
+
 import React from 'react'
 //import ReactDOM from 'react-dom';
 import Draggable from 'react-draggable'
