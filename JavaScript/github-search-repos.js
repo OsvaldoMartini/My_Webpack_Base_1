@@ -167,11 +167,12 @@ function asyncAjax(url){
 //   });
 // }
 
-word = "CAS";
+word = "slf4j";
 codeLanguage= "java"
 $.ajax({
  // url: "https://api.github.com/orgs/companieshouse/repos?page=1&per_page=1000",
   //url:`https://api.github.com/search/code?q=${word}+in:file+language:${codeLanguage}+repo:companieshouse/ch.gov.uk+org:companieshouse`,
+  //url:`https://api.github.com/search/code?q=${word}+in:file+language:${codeLanguage}+org:OsvaldoMartini',
   url:`https://api.github.com/search/code?q=${word}+in:file+language:${codeLanguage}+org:companieshouse`,
   jsonp: true,
   Authorization: "Bearer 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",
