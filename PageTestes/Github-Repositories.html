@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <script>
+    // Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+    const octokit = new Octokit({ auth: `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` });
+
+    const response = await octokit.request("GET /orgs/companieshouse/repos", {
+      org: "octokit",
+      type: "private",
+    });
+
+
+    console.log(response);
+
+
+  </script>
+  <body>
+    <div id="parent" class="parent-position">
+      <input id="angle" type="range" class="slider-position" min="0" max="360"  />
+
+    </div>
+   <p>
+      <!-- We will put our React component inside this div. -->
+      <div class="draggable_container" data-commentid="1"></div>
+    </p>
+
+    <p>
+      <!-- We will put our React component inside this div. -->
+      <div id="draggable_container" data-commentid="2"></div>
+    </p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="module">
+      import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+    </script>
+    <script type="text/javascript" src="../JavaScript/github-search-repos.js"></script>
+ 
+    
+    
+
+  </body>
+</html>
